@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mian Muhammad Atif | Export Officer</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #050b16;
+            --bg2: #081426;
+            --card: rgba(255,255,255,0.055);
+            --border: rgba(255,255,255,0.12);
+            --gold: #d9a441;
+            --gold-light: #f3ce78;
+            --blue: #21b8ff;
+            --text: #f4f7fb;
+            --muted: #9ba8b9;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(25,92,180,0.22), transparent 30%),
+                radial-gradient(circle at 10% 40%, rgba(217,164,65,0.10), transparent 28%),
+                linear-gradient(135deg, #040914, #081426 55%, #030711);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            width: 94%;
+            max-width: 1250px;
+            margin: 18px auto;
+            padding: 17px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(10,20,36,0.72);
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 20px;
+
+            backdrop-filter: blur(18px);
+
+            position: sticky;
+            top: 14px;
+            z-index: 1000;
+
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--gold-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul a {
+            color: #dce4ef;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav ul a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 50%;
+            bottom: -7px;
+            background: var(--gold);
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: var(--gold-light);
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .nav-cv {
+            padding: 10px 17px;
+            border: 1px solid var(--gold);
+            border-radius: 9px;
+            color: var(--gold-light) !important;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            position: relative;
+            min-height: 850px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* decorative background */
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            border-radius: 50%;
+            background: rgba(15,103,190,0.10);
+            filter: blur(70px);
+            right: -180px;
+            top: 80px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(217,164,65,0.06);
+            filter: blur(80px);
+            left: -180px;
+            bottom: 20px;
+        }
+
+        .trade-lines {
+            position: absolute;
+            inset: 0;
+            opacity: 0.16;
+            background-image:
+                linear-gradient(30deg, transparent 48%, rgba(217,164,65,0.45) 49%, transparent 50%),
+                linear-gradient(150deg, transparent 48%, rgba(33,184,255,0.35) 49%, transparent 50%);
+            background-size: 260px 260px;
+            animation: moveLines 25s linear infinite;
+        }
+
+        @keyframes moveLines {
+            from {
+                background-position: 0 0, 0 0;
+            }
+            to {
+                background-position: 260px 260px, -260px 260px;
+            }
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+
+            width: 92%;
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .hero-content {
+            padding-top: 30px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 10px 18px;
+
+            border: 1px solid rgba(217,164,65,0.7);
+            border-radius: 50px;
+
+            color: var(--gold-light);
+
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+
+            background: rgba(217,164,65,0.06);
+
+            box-shadow: 0 0 25px rgba(217,164,65,0.08);
+
+            margin-bottom: 25px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            box-shadow: 0 0 12px var(--gold);
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(48px, 6vw, 78px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+            margin-bottom: 18px;
+        }
+
+        h1 .gold {
+            color: var(--gold-light);
+        }
+
+        .hero-title {
+            font-size: 22px;
+            letter-spacing: 3px;
+            color: #e3e9f1;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .hero-title span {
+            color: var(--gold-light);
+        }
+
+        .gold-line {
+            width: 75px;
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                var(--gold),
+                transparent
+            );
+            margin-bottom: 25px;
+        }
+
+        .description {
+            max-width: 690px;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* CONTACT */
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+
+            margin-top: 28px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            color: #dbe2eb;
+            font-size: 14px;
+        }
+
+        .contact-item span {
+            color: var(--gold-light);
+            font-size: 18px;
+        }
+
+        .contact-item a {
+            color: #dbe2eb;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold-light);
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            padding: 14px 23px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+
+            transition: 0.35s;
+        }
+
+        .primary {
+            color: #171109;
+            background: linear-gradient(
+                135deg,
+                #f0c76c,
+                #c99332
+            );
+
+            box-shadow: 0 12px 30px rgba(217,164,65,0.18);
+        }
+
+        .primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(217,164,65,0.30);
+        }
+
+        .secondary {
+            color: #e9edf4;
+            border: 1px solid rgba(255,255,255,0.22);
+            background: rgba(255,255,255,0.045);
+        }
+
+        .secondary:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            color: var(--gold-light);
+            background: rgba(217,164,65,0.07);
+        }
+
+        /* ================= PROFILE PHOTO ================= */
+
+        .profile-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-glow {
+            position: absolute;
+            width: 410px;
+            height: 410px;
+            border-radius: 50%;
+            background: rgba(217,164,65,0.10);
+            filter: blur(35px);
+        }
+
+        .profile-frame {
+            position: relative;
+
+            width: 355px;
+            height: 355px;
+
+            padding: 7px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                var(--gold-light),
+                #8b6423,
+                #d9a441,
+                #fff0b0
+            );
+
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.2),
+                0 25px 80px rgba(0,0,0,0.45),
+                0 0 50px rgba(217,164,65,0.12);
+
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 7px solid #071121;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 410px;
+            height: 410px;
+            border: 1px solid rgba(217,164,65,0.25);
+            border-radius: 50%;
+            animation: rotate 18s linear infinite;
+        }
+
+        .orbit::after {
+            content: "";
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            top: 28px;
+            left: 50px;
+            box-shadow: 0 0 18px var(--gold);
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ================= STATS ================= */
+
+        .stats-bar {
+            position: relative;
+            z-index: 3;
+
+            width: 92%;
+            max-width: 1200px;
+
+            margin: -65px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            background: rgba(8,18,32,0.82);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+
+            backdrop-filter: blur(18px);
+
+            overflow: hidden;
+        }
+
+        .stat {
+            padding: 27px 20px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.10);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-icon {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .stat h3 {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            color: var(--gold-light);
+        }
+
+        .stat p {
+            color: #8f9bab;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        .section {
+            width: 92%;
+            max-width: 1100px;
+            margin: 125px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 43px;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: var(--gold-light);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 45px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-box {
+            padding: 42px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.06),
+                    rgba(255,255,255,0.025)
+                );
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            box-shadow: 0 25px 70px rgba(0,0,0,0.18);
+        }
+
+        .about-box p {
+            color: #aeb9c8;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .about-box strong {
+            color: #f1f4f8;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.065),
+                    rgba(255,255,255,0.025)
+                );
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            transition: 0.35s;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(217,164,65,0.07);
+            border-radius: 50%;
+            top: -70px;
+            right: -70px;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(217,164,65,0.55);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+        }
+
+        .icon {
+            font-size: 34px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-family: Georgia, serif;
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #929eae;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* ================= DOCUMENTS ================= */
+
+        .document-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .document {
+            padding: 24px 15px;
+            text-align: center;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            color: #dbe2eb;
+
+            transition: 0.3s;
+        }
+
+        .document:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        .document span {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        /* ================= MARKETS ================= */
+
+        .markets {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .market {
+            padding: 12px 20px;
+
+            background: rgba(255,255,255,0.045);
+
+            border: 1px solid var(--border);
+
+            border-radius: 50px;
+
+            color: #dce3eb;
+
+            transition: 0.3s;
+        }
+
+        .market:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        /* ================= EXPERIENCE ================= */
+
+        .experience {
+            padding: 42px;
+
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+
+            background: rgba(255,255,255,0.045);
+
+            border-radius: 0 20px 20px 0;
+
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .experience h3 {
+            font-family: Georgia, serif;
+            font-size: 29px;
+        }
+
+        .company {
+            color: var(--gold-light);
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .date {
+            color: #69788a;
+            margin: 7px 0 28px;
+        }
+
+        .experience ul {
+            padding-left: 20px;
+        }
+
+        .experience li {
+            color: #a1adbc;
+            margin-bottom: 13px;
+            padding-left: 5px;
+        }
+
+        /* ================= EDUCATION ================= */
+
+        .education {
+            padding: 38px;
+
+            background: rgba(255,255,255,0.045);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+        }
+
+        .education h3 {
+            font-family: Georgia, serif;
+            font-size: 27px;
+            margin-bottom: 9px;
+        }
+
+        .education p {
+            color: #9da8b7;
+        }
+
+        .education strong {
+            color: var(--gold-light);
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 12px 20px;
+
+            background: rgba(255,255,255,0.045);
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            color: #dce3eb;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-box {
+            padding: 60px 35px;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(217,164,65,0.08),
+                    transparent 60%
+                ),
+                rgba(255,255,255,0.04);
+
+            border: 1px solid rgba(217,164,65,0.22);
+
+            border-radius: 24px;
+        }
+
+        .contact-box h2 {
+            font-family: Georgia, serif;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: #9da8b7;
+            line-height: 1.8;
+        }
+
+        .contact-box .buttons {
+            justify-content: center;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 100px;
+            padding: 30px;
+
+            text-align: center;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            color: #667386;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--gold-light);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 950px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 0 100px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .profile-wrapper {
+                order: 1;
+            }
+
+            .description {
+                margin: auto;
+            }
+
+            .contact-info,
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 18px;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: -25px;
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .document-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            nav {
+                width: 94%;
+            }
+
+            .nav-cv {
+                display: none;
+            }
+
+            h1 {
+                font-size: 46px;
+            }
+
+            .profile-frame {
+                width: 270px;
+                height: 270px;
+            }
+
+            .orbit {
+                width: 315px;
+                height: 315px;
+            }
+
+            .profile-glow {
+                width: 320px;
+                height: 320px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                padding: 20px 10px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .document-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section {
+                margin: 90px auto;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .about-box,
+            .experience {
+                padding: 27px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        Mian <span>Atif</span>
+    </div>
+
+    <ul>
+
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+    <a href="./CV.pdf" target="_blank" class="nav-cv">
+        View CV
+    </a>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="trade-lines"></div>
+
+    <div class="hero-container">
+
+
+        <div class="hero-content">
+
+            <div class="badge">
+                <span class="badge-dot"></span>
+                INTERNATIONAL TRADE PROFESSIONAL
+            </div>
+
+
+            <h1>
+                Mian <span class="gold">Muhammad</span> Atif
+            </h1>
+
+
+            <div class="hero-title">
+                EXPORT OFFICER
+                <span>|</span>
+                EXPORT & DOCUMENTATION SPECIALIST
+            </div>
+
+
+            <div class="gold-line"></div>
+
+
+            <p class="description">
+
+                Export documentation and international trade
+                professional specializing in export operations,
+                LC documentation, shipping & logistics,
+                banking documentation and overseas customer
+                coordination.
+
+            </p>
+
+
+            <div class="contact-info">
+
+                <div class="contact-item">
+                    <span>✉</span>
+                    <a href="mailto:mian_atif226@yahoo.com">
+                        mian_atif226@yahoo.com
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <span>☎</span>
+                    <a href="tel:+923328613400">
+                        +92 332 8613400
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <span>⌖</span>
+                    Pakistan
+                </div>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <a href="#expertise" class="btn primary">
+                    Explore My Expertise →
+                </a>
+
+                <a href="./CV.pdf" target="_blank" class="btn secondary">
+                    📄 View My CV
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXISTING USER PHOTO -->
+
+        <div class="profile-wrapper">
+
+            <div class="profile-glow"></div>
+
+            <div class="orbit"></div>
+
+            <div class="profile-frame">
+
+                <img
+                    src="./Atif.jpg"
+                    alt="Mian Muhammad Atif">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats-bar">
+
+    <div class="stat">
+
+        <div class="stat-icon">🌐</div>
+
+        <h3>Global</h3>
+
+        <p>International Markets</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">🚢</div>
+
+        <h3>Export</h3>
+
+        <p>Core Professional Field</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">◆</div>
+
+        <h3>Textile</h3>
+
+        <p>Industry Experience</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">★</div>
+
+        <h3>2023</h3>
+
+        <p>Professional Since</p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+    <h2 class="section-title">
+        About <span>Me</span>
+    </h2>
+
+    <p class="section-subtitle">
+
+        Export operations and international trade professional
+        with a strong focus on documentation, accuracy,
+        compliance and coordination.
+
+    </p>
+
+
+    <div class="about-box">
+
+        <p>
+
+            I am an <strong>Export Officer</strong> at
+            <strong>AL HADI TEXTILE (PVT) LTD</strong>,
+            working in the textile export industry since
+            <strong>29 May 2023</strong>.
+
+            <br><br>
+
+            My professional responsibilities include
+            <strong>export documentation, LC documentation,
+            shipping and logistics coordination,
+            bank documentation, overseas customer
+            coordination and export reporting.</strong>
+
+            <br><br>
+
+            I coordinate with freight forwarders,
+            shipping lines, banks, customers and internal
+            departments to support smooth and timely
+            export operations.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERTISE ================= -->
+
+<section class="section" id="expertise">
+
+    <h2 class="section-title">
+        Professional <span>Expertise</span>
+    </h2>
+
+    <p class="section-subtitle">
+
+        Core areas of my professional work in export
+        and international trade operations.
+
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="icon">📄</div>
+
+            <h3>Export Documentation</h3>
+
+            <p>
+                Commercial Invoices, Packing Lists,
+                FCRs, Bills of Lading and Certificates
+                of Origin.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🚢</div>
+
+            <h3>Shipping & Logistics</h3>
+
+            <p>
+                Coordination with freight forwarders,
+                shipping lines and logistics providers.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💳</div>
+
+            <h3>LC & Banking</h3>
+
+            <p>
+                LC documentation and coordination
+                with banks for export documentation.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🌍</div>
+
+            <h3>Overseas Customers</h3>
+
+            <p>
+                Coordination with international buyers
+                and overseas customers.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🛃</div>
+
+            <h3>Customs Coordination</h3>
+
+            <p>
+                Reviewing customs-related export
+                documents and shipment details.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📊</div>
+
+            <h3>ERP & Reporting</h3>
+
+            <p>
+                Maintaining export records,
+                shipment information and reports.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOCUMENTATION ================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        Export <span>Documentation</span>
+    </h2>
+
+    <p class="section-subtitle">
+
+        Key documents and areas handled during
+        export operations.
+
+    </p>
+
+
+    <div class="document-grid">
+
+        <div class="document">
+            <span>📄</span>
+            Commercial Invoice
+        </div>
+
+        <div class="document">
+            <span>📦</span>
+            Packing List
+        </div>
+
+        <div class="document">
+            <span>🚢</span>
+            Bill of Lading
+        </div>
+
+        <div class="document">
+            <span>📋</span>
+            FCR
+        </div>
+
+        <div class="document">
+            <span>🌐</span>
+            Certificate of Origin
+        </div>
+
+        <div class="document">
+            <span>💳</span>
+            LC Documentation
+        </div>
+
+        <div class="document">
+            <span>🏦</span>
+            Bank Documentation
+        </div>
+
+        <div class="document">
+            <span>📊</span>
+            Export Reports
+        </div>
+
+        <div class="document">
+            <span>🧾</span>
+            EPRC
+        </div>
+
+        <div class="document">
+            <span>🛃</span>
+            Customs Verification
+        </div>
+
+        <div class="document">
+            <span>📦</span>
+            Shipment Documents
+        </div>
+
+        <div class="document">
+            <span>🗂</span>
+            ERP Documentation
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MARKETS ================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        International <span>Markets</span>
+    </h2>
+
+    <p class="section-subtitle">
+
+        Professional exposure to international
+        export markets.
+
+    </p>
+
+
+    <div class="markets">
+
+        <div class="market">🇬🇧 United Kingdom</div>
+
+        <div class="market">🇺🇸 United States</div>
+
+        <div class="market">🇩🇪 Germany</div>
+
+        <div class="market">🇱🇰 Sri Lanka</div>
+
+        <div class="market">🇦🇪 UAE / Dubai</div>
+
+        <div class="market">
+            🌍 Other International Markets
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTERNATIONAL BUYERS ================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        International <span>Buyers</span>
+    </h2>
+
+    <p class="section-subtitle">
+
+        Experience supporting documentation,
+        compliance and shipments for overseas customers.
+
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="icon">🌍</div>
+
+            <h3>Overseas Customers</h3>
+
+            <p>
+                Coordination with multiple international
+                buyers and overseas customers.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📦</div>
+
+            <h3>International Shipments</h3>
+
+            <p>
+                Supporting documentation and logistics
+                for international export shipments.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">✓</div>
+
+            <h3>Compliance Support</h3>
+
+            <p>
+                Supporting documentation and customer
+                compliance requirements.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section class="section" id="experience">
+
+    <h2 class="section-title">
+        Professional <span>Experience</span>
+    </h2>
+
+
+    <div class="experience">
+
+        <h3>
+            Export Officer
+        </h3>
+
+        <div class="company">
+            AL HADI TEXTILE (PVT) LTD
+        </div>
+
+        <div class="date">
+            29 May 2023 — Present
+        </div>
+
+
+        <ul>
+
+            <li>
+                Manage and coordinate export documentation
+                for international shipments.
+            </li>
+
+            <li>
+                Prepare and review Commercial Invoices,
+                Packing Lists, FCRs, Bills of Lading and
+                Certificates of Origin.
+            </li>
+
+            <li>
+                Coordinate with freight forwarders,
+                shipping lines and logistics service providers.
+            </li>
+
+            <li>
+                Handle LC-related documentation and
+                coordinate with banks.
+            </li>
+
+            <li>
+                Coordinate with overseas customers regarding
+                shipment and documentation requirements.
+            </li>
+
+            <li>
+                Review shipment quantities, weights,
+                carton details and documentation.
+            </li>
+
+            <li>
+                Review customs-related documents prepared
+                for export clearance.
+            </li>
+
+            <li>
+                Maintain export records and prepare
+                shipment reports.
+            </li>
+
+            <li>
+                Coordinate with relevant departments
+                regarding EFS-related requirements.
+            </li>
+
+            <li>
+                Handle EPRC-related export documentation
+                with working knowledge of the process.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section class="section" id="education">
+
+    <h2 class="section-title">
+        <span>Education</span>
+    </h2>
+
+
+    <div class="education">
+
+        <h3>
+            BCS Civil Engineering
+        </h3>
+
+        <p>
+
+            <strong>Superior University</strong>
+
+            <br>
+
+            2019
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        Professional <span>Skills</span>
+    </h2>
+
+
+    <div class="skills">
+
+        <div class="skill">MS Excel</div>
+        <div class="skill">MS Word</div>
+        <div class="skill">ERP</div>
+        <div class="skill">Export Documentation</div>
+        <div class="skill">LC Documentation</div>
+        <div class="skill">Logistics</div>
+        <div class="skill">Shipping Coordination</div>
+        <div class="skill">Bank Documentation</div>
+        <div class="skill">Communication</div>
+        <div class="skill">Reporting</div>
+        <div class="skill">Adobe Photoshop</div>
+        <div class="skill">EPRC</div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section" id="contact">
+
+    <div class="contact-box">
+
+        <h2>
+            Let's <span style="color:#f3ce78;">Connect</span>
+        </h2>
+
+        <p>
+
+            Open to professional networking,
+            career opportunities and collaboration
+            in export and international trade.
+
+        </p>
+
+
+        <div class="buttons">
+
+
+            <a
+                href="mailto:mian_atif226@yahoo.com"
+                class="btn primary">
+
+                ✉ Email Me
+
+            </a>
+
+
+            <a
+                href="https://wa.me/923328613400"
+                target="_blank"
+                class="btn secondary">
+
+                💬 WhatsApp
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/mian-muhammad-atif-382400293/"
+                target="_blank"
+                class="btn secondary">
+
+                🔗 LinkedIn
+
+            </a>
+
+
+            <a
+                href="./CV.pdf"
+                target="_blank"
+                class="btn secondary">
+
+                📄 View CV
+
+            </a>
+
+
+        </div>
+
+
+        <p style="margin-top:25px;">
+
+            mian_atif226@yahoo.com
+            &nbsp; | &nbsp;
+            +92 332 8613400
+            &nbsp; | &nbsp;
+            Pakistan
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026
+
+    <span>
+        Mian Muhammad Atif
+    </span>
+
+    |
+
+    Export Officer & Export Documentation Specialist
+
+</footer>
+
+
+</body>
+</html>
