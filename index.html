@@ -12,29 +12,20 @@
 
 <style>
 
-/* =========================================================
-   V17 PREMIUM EXPORT PORTFOLIO
-   ========================================================= */
-
 :root{
-  --bg:#050914;
-  --bg2:#08101f;
-  --panel:#0b1424;
-  --panel2:#0e1a2d;
-  --white:#f5f8ff;
-  --text:#d7deea;
-  --muted:#8793a6;
-  --line:rgba(148,163,184,.18);
-
-  --blue:#2563eb;
-  --royal:#4169ff;
-  --cyan:#38bdf8;
-  --blueGlow:rgba(37,99,235,.48);
-
-  --red:#dc2626;
-  --redSoft:rgba(220,38,38,.55);
-
-  --shadow:0 22px 70px rgba(0,0,0,.38);
+  --bg:#130e0a;
+  --bg2:#1d130d;
+  --panel:#21160f;
+  --panel2:#2a1b12;
+  --ink:#f5ead8;
+  --muted:#b9a994;
+  --line:#5c4430;
+  --gold:#c79b52;
+  --gold2:#e2bd78;
+  --burgundy:#7e1f32;
+  --burgundy2:#a52c45;
+  --white:#fffaf2;
+  --shadow:rgba(0,0,0,.38);
 }
 
 *{
@@ -43,21 +34,18 @@
 
 html{
   scroll-behavior:smooth;
-  width:100%;
-  overflow-x:hidden;
+  background:var(--bg);
 }
 
 body{
   margin:0;
-  width:100%;
-  overflow-x:hidden;
   background:
-    radial-gradient(circle at 15% 10%,rgba(37,99,235,.12),transparent 30%),
-    radial-gradient(circle at 85% 30%,rgba(56,189,248,.07),transparent 25%),
-    linear-gradient(135deg,var(--bg),var(--bg2) 55%,#030712);
-  color:var(--white);
+    radial-gradient(circle at 20% 10%,rgba(199,155,82,.10),transparent 28%),
+    radial-gradient(circle at 80% 35%,rgba(126,31,50,.10),transparent 30%),
+    linear-gradient(135deg,#0d0906 0%,#1a100a 42%,#21140c 70%,#100b08 100%);
+  color:var(--ink);
   font-family:"DM Sans",sans-serif;
-  min-height:100vh;
+  overflow-x:hidden;
 }
 
 body:before{
@@ -65,24 +53,77 @@ body:before{
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:999;
+  z-index:9998;
   opacity:.16;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.07),transparent 22%),
+    radial-gradient(circle at 80% 70%,rgba(255,255,255,.05),transparent 24%);
+}
+
+/* =========================
+   LIGHT SNOW
+========================= */
+
+.snow,
+.snow:before,
+.snow:after{
+  position:fixed;
+  top:-20px;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:9997;
+}
+
+.snow{
+  opacity:.55;
   background-image:
-    radial-gradient(circle,rgba(255,255,255,.8) 0 1px,transparent 1.5px),
-    radial-gradient(circle,rgba(255,255,255,.6) 0 1px,transparent 1.5px);
-  background-size:90px 90px,145px 145px;
-  background-position:0 0,35px 70px;
-  animation:snowFall 18s linear infinite;
+    radial-gradient(circle,rgba(255,255,255,.75) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,255,255,.55) 0 1.2px,transparent 1.8px),
+    radial-gradient(circle,rgba(255,255,255,.65) 0 1px,transparent 1.5px);
+  background-size:
+    130px 170px,
+    190px 230px,
+    260px 300px;
+  background-position:
+    20px 0,
+    80px 30px,
+    140px 70px;
+  animation:snowFall 16s linear infinite;
+}
+
+.snow:before{
+  content:"";
+  opacity:.35;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.7) 0 1.5px,transparent 2px),
+    radial-gradient(circle,rgba(255,255,255,.5) 0 1px,transparent 1.5px);
+  background-size:220px 240px,310px 330px;
+  animation:snowFall 23s linear infinite reverse;
+}
+
+.snow:after{
+  content:"";
+  opacity:.25;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.7) 0 2px,transparent 2.5px);
+  background-size:360px 390px;
+  animation:snowFall 30s linear infinite;
 }
 
 @keyframes snowFall{
   from{
-    transform:translateY(-80px);
+    transform:translate3d(0,-20px,0);
   }
   to{
-    transform:translateY(100vh);
+    transform:translate3d(45px,105vh,0);
   }
 }
+
+/* =========================
+   GENERAL
+========================= */
 
 a{
   text-decoration:none;
@@ -98,28 +139,25 @@ img{
   margin:auto;
 }
 
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
 .nav{
   height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid rgba(199,155,82,.28);
   position:relative;
   z-index:10;
 }
 
 .logo{
   font:800 16px Manrope;
-  letter-spacing:-.05em;
+  letter-spacing:-.06em;
+  color:var(--white);
 }
 
 .logo span{
-  color:var(--royal);
+  color:var(--gold);
+  margin-left:4px;
 }
 
 .navlinks{
@@ -128,28 +166,26 @@ img{
   text-transform:uppercase;
   letter-spacing:.13em;
   font-size:9px;
-  font-weight:700;
+  font-weight:600;
 }
 
 .navlinks a{
-  color:#aeb9ca;
-  transition:.25s;
+  color:#bcae9b;
+  transition:.3s;
 }
 
 .navlinks a:hover{
   color:#fff;
-  text-shadow:0 0 18px var(--blueGlow);
 }
 
-
-/* =========================================================
+/* =========================
    HERO
-   ========================================================= */
+========================= */
 
 .hero{
   min-height:calc(100vh - 78px);
   display:grid;
-  grid-template-columns:1.15fr .85fr;
+  grid-template-columns:1.18fr .82fr;
   align-items:center;
   gap:55px;
   padding:70px 0 55px;
@@ -159,7 +195,7 @@ img{
   font-size:10px;
   letter-spacing:.18em;
   text-transform:uppercase;
-  color:#8c9ab0;
+  color:#bba88f;
   margin-bottom:24px;
   display:flex;
   gap:12px;
@@ -170,35 +206,33 @@ img{
   content:"";
   width:34px;
   height:1px;
-  background:var(--royal);
-  box-shadow:0 0 14px var(--royal);
+  background:var(--gold);
 }
 
-h1{
-  font:800 clamp(38px,5vw,72px)/.95 Manrope;
+.hero h1{
+  font:800 clamp(25px,5.2vw,76px)/.95 Manrope;
   letter-spacing:-.065em;
   margin:0;
-  max-width:none;
+  color:#f8eddb;
   white-space:nowrap;
-  color:#fff;
-  text-shadow:
-    0 0 28px rgba(37,99,235,.13);
+  text-transform:uppercase;
+  text-shadow:0 8px 30px rgba(0,0,0,.35);
 }
 
 .heroDot{
-  color:var(--royal);
+  color:var(--gold);
 }
 
 .heroText{
   max-width:620px;
   font-size:17px;
   line-height:1.65;
-  color:#9ca9bb;
+  color:#bcae9d;
   margin:30px 0 0;
 }
 
 .heroText strong{
-  color:#f5f8ff;
+  color:#f3e6d3;
 }
 
 .actions{
@@ -209,42 +243,48 @@ h1{
 
 .btn{
   padding:13px 17px;
-  border:1px solid rgba(148,163,184,.35);
+  border:1px solid #765d43;
   text-transform:uppercase;
   letter-spacing:.12em;
   font-size:9px;
-  font-weight:700;
-  transition:.3s;
-  background:rgba(8,16,31,.55);
+  font-weight:600;
+  transition:.35s;
+  background:rgba(255,255,255,.02);
+  color:#eee0cc;
 }
 
 .btn.main{
-  background:var(--royal);
-  color:#fff;
-  border-color:var(--royal);
-  box-shadow:0 10px 35px rgba(37,99,235,.25);
+  background:var(--gold);
+  color:#160e08;
+  border-color:var(--gold);
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  background:#fff;
-  border-color:#fff;
-  color:#07101f;
-  box-shadow:0 12px 35px rgba(255,255,255,.12);
+  transform:translateY(-4px);
+  background:var(--burgundy);
+  border-color:var(--burgundy2);
+  color:#fff;
+  box-shadow:
+    0 12px 30px rgba(126,31,50,.35),
+    0 0 0 1px rgba(165,44,69,.25);
 }
+
+/* =========================
+   HERO STATS
+========================= */
 
 .heroStats{
   display:flex;
   gap:0;
   margin-top:42px;
-  border-top:1px solid var(--line);
+  border-top:1px solid rgba(199,155,82,.3);
   max-width:620px;
 }
 
 .stat{
   padding:18px 35px 0 0;
   margin-right:35px;
-  border-right:1px solid var(--line);
+  border-right:1px solid rgba(199,155,82,.2);
 }
 
 .stat:last-child{
@@ -253,21 +293,60 @@ h1{
 
 .stat b{
   display:block;
-  font:800 27px Manrope;
-  color:#fff;
+  font:700 27px Manrope;
+  color:var(--gold2);
 }
 
 .stat span{
   font-size:9px;
-  color:#758297;
+  color:#a99a88;
   text-transform:uppercase;
   letter-spacing:.11em;
 }
 
+/* =========================
+   HERO SOCIAL
+========================= */
 
-/* =========================================================
-   HERO PHOTO — UNIQUE 8 CORNER DESIGN
-   ========================================================= */
+.heroSocial{
+  display:flex;
+  gap:8px;
+  margin-top:25px;
+  align-items:center;
+}
+
+.heroSocial a{
+  width:38px;
+  height:38px;
+  border:1px solid #6b5138;
+  display:grid;
+  place-items:center;
+  transition:.3s;
+  color:#d8c7b0;
+  background:rgba(255,255,255,.025);
+}
+
+.heroSocial a:hover{
+  background:var(--burgundy);
+  border-color:var(--burgundy2);
+  color:#fff;
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(126,31,50,.3);
+}
+
+.heroSocial svg{
+  width:17px;
+  height:17px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* =========================
+   HERO PHOTO — 8 CORNERS
+========================= */
 
 .visual{
   height:535px;
@@ -275,7 +354,7 @@ h1{
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  padding-right:35px;
+  padding-right:30px;
 }
 
 .photoFrame{
@@ -284,57 +363,42 @@ h1{
   position:relative;
   overflow:hidden;
   z-index:2;
+  background:#251910;
 
   clip-path:polygon(
-    9% 0%,
-    91% 0%,
-    100% 9%,
-    100% 91%,
-    91% 100%,
-    9% 100%,
-    0% 91%,
-    0% 9%
+    8% 0,
+    92% 0,
+    100% 8%,
+    100% 92%,
+    92% 100%,
+    8% 100%,
+    0 92%,
+    0 8%
   );
 
-  background:#111c2f;
+  border:2px solid var(--gold);
 
-  border:0;
   box-shadow:
-    0 0 0 1px rgba(65,105,255,.7),
-    0 0 55px rgba(37,99,235,.22),
-    25px 25px 0 rgba(37,99,235,.18);
-
-  transition:.5s;
+    18px 18px 0 var(--burgundy),
+    0 25px 60px rgba(0,0,0,.48);
 }
 
-.photoFrame:before{
+.photoFrame:after{
   content:"";
   position:absolute;
-  inset:10px;
-
+  inset:15px;
+  border:1px solid rgba(255,220,160,.55);
   clip-path:polygon(
-    9% 0%,
-    91% 0%,
-    100% 9%,
-    100% 91%,
-    91% 100%,
-    9% 100%,
-    0% 91%,
-    0% 9%
+    8% 0,
+    92% 0,
+    100% 8%,
+    100% 92%,
+    92% 100%,
+    8% 100%,
+    0 92%,
+    0 8%
   );
-
-  border:1px solid rgba(255,255,255,.35);
-  z-index:5;
   pointer-events:none;
-}
-
-.photoFrame:hover{
-  transform:translateY(-8px) scale(1.015);
-
-  box-shadow:
-    0 0 0 1px #4169ff,
-    0 0 70px rgba(37,99,235,.55),
-    28px 28px 0 rgba(37,99,235,.22);
 }
 
 .photo{
@@ -342,29 +406,72 @@ h1{
   height:100%;
   object-fit:cover;
   object-position:center 18%;
-  filter:saturate(.9) contrast(1.04);
-  transition:transform .8s;
+  filter:saturate(.88) contrast(1.04);
+  transition:transform .8s ease;
 }
 
 .photoFrame:hover .photo{
-  transform:scale(1.045);
+  transform:scale(1.035);
 }
 
+.limeBlock{
+  position:absolute;
+  width:150px;
+  height:150px;
+  background:
+    linear-gradient(135deg,var(--gold),#8b632f);
+  right:0;
+  bottom:15px;
+  z-index:1;
+  opacity:.75;
+  clip-path:polygon(
+    10% 0,
+    90% 0,
+    100% 10%,
+    100% 90%,
+    90% 100%,
+    10% 100%,
+    0 90%,
+    0 10%
+  );
+}
 
-/* =========================================================
+.number,
+.caption{
+  display:none;
+}
+
+.corner{
+  position:absolute;
+  left:20px;
+  bottom:20px;
+  background:rgba(15,9,6,.88);
+  color:#fff;
+  padding:10px 12px;
+  font:600 8px Manrope;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  z-index:3;
+}
+
+.corner span{
+  color:var(--gold2);
+}
+
+/* =========================
    MARQUEE
-   ========================================================= */
+========================= */
 
 .marquee{
-  border-top:1px solid rgba(65,105,255,.35);
-  border-bottom:1px solid rgba(65,105,255,.35);
+  border-top:1px solid rgba(199,155,82,.35);
+  border-bottom:1px solid rgba(199,155,82,.35);
   padding:13px 0;
   overflow:hidden;
   white-space:nowrap;
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  background:rgba(8,15,28,.42);
+  color:#d5c4ae;
 }
 
 .track{
@@ -374,7 +481,7 @@ h1{
 
 .track span{
   margin:0 20px;
-  color:#4169ff;
+  color:var(--gold);
 }
 
 @keyframes move{
@@ -383,10 +490,9 @@ h1{
   }
 }
 
-
-/* =========================================================
+/* =========================
    SECTIONS
-   ========================================================= */
+========================= */
 
 section{
   padding:105px 0;
@@ -403,55 +509,55 @@ section{
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:.14em;
-  color:#728096;
+  color:var(--gold);
 }
 
 .title{
-  font:700 clamp(40px,5vw,70px)/.96 Manrope;
+  font:600 clamp(40px,5.2vw,76px)/.96 Manrope;
   letter-spacing:-.065em;
   margin:0;
   max-width:850px;
+  color:#f4e6d2;
 }
 
 .title em{
   font-style:normal;
-  color:#738198;
+  color:#a99780;
 }
 
-
-/* =========================================================
+/* =========================
    PROFILE
-   ========================================================= */
+========================= */
 
 .profile{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:70px;
+  gap:80px;
   margin-left:185px;
 }
 
 .profile p{
   font-size:20px;
   line-height:1.6;
-  color:#8997aa;
+  color:#b8a895;
   margin:0;
   max-width:610px;
 }
 
 .profile strong{
-  color:#f4f7fb;
+  color:#f1e3d0;
 }
 
 .statsLarge{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  border-top:1px solid rgba(65,105,255,.4);
-  border-bottom:1px solid var(--line);
+  border-top:1px solid rgba(199,155,82,.4);
+  border-bottom:1px solid rgba(199,155,82,.4);
 }
 
 .statsLarge div{
   padding:24px 18px;
-  border-right:1px solid var(--line);
+  border-right:1px solid rgba(199,155,82,.18);
 }
 
 .statsLarge div:last-child{
@@ -459,440 +565,484 @@ section{
 }
 
 .statsLarge b{
-  font:800 36px Manrope;
+  font:700 36px Manrope;
   display:block;
-  color:#fff;
+  color:var(--gold2);
 }
 
 .statsLarge span{
   font-size:9px;
   text-transform:uppercase;
   letter-spacing:.1em;
-  color:#718097;
+  color:#9f8f7c;
 }
 
-
-/* =========================================================
-   UNIVERSAL PREMIUM CARD HOVER
-   ========================================================= */
-
-.card,
-.wfCard,
-.journey-card,
-.step,
-.eduItem{
-  position:relative;
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease,
-    background .35s ease;
-}
-
-.card:hover,
-.wfCard:hover,
-.journey-card:hover,
-.step:hover,
-.eduItem:hover{
-
-  transform:translateY(-8px);
-
-  border-color:rgba(65,105,255,.95)!important;
-
-  box-shadow:
-    0 0 0 1px rgba(65,105,255,.45),
-    0 18px 55px rgba(0,0,0,.45),
-    0 0 35px rgba(37,99,235,.22);
-}
-
-
-/* =========================================================
-   02 EXPERTISE
-   ========================================================= */
+/* =========================
+   EXPERTISE
+========================= */
 
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:14px;
 }
 
 .card{
-  min-height:245px;
-  padding:24px;
+  min-height:285px;
+  padding:0;
+  border:1px solid rgba(199,155,82,.28);
+  background:linear-gradient(145deg,#24170f,#18100b);
   overflow:hidden;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(15,27,47,.96),
-      rgba(7,14,27,.96)
-    );
-
-  border:1px solid rgba(148,163,184,.16);
+  position:relative;
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    border-color .4s ease;
 }
 
 .card:before{
   content:"";
   position:absolute;
-  width:110px;
-  height:110px;
-  right:-35px;
-  top:-35px;
-  border:1px solid rgba(65,105,255,.18);
-  transform:rotate(45deg);
+  inset:0;
+  border:1px solid transparent;
+  transition:.4s;
+  pointer-events:none;
+  z-index:3;
+}
+
+.card:hover{
+  transform:translateY(-9px);
+  border-color:var(--burgundy2);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.42),
+    0 0 0 1px rgba(126,31,50,.3);
+}
+
+.card:hover:before{
+  border-color:rgba(165,44,69,.55);
+}
+
+.cardMedia{
+  height:135px;
+  position:relative;
+  overflow:hidden;
+}
+
+.cardMedia img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.82) contrast(1.04);
+  transition:transform .65s ease,filter .4s;
+}
+
+.card:hover .cardMedia img{
+  transform:scale(1.07);
+  filter:saturate(1) contrast(1.08);
+}
+
+.cardMedia:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(10,5,2,.02),
+    rgba(10,5,2,.68)
+  );
+}
+
+.cardBody{
+  padding:18px 20px 21px;
 }
 
 .card .n{
-  font:700 9px Manrope;
-  color:#6281ff;
+  font:600 9px Manrope;
+  color:var(--gold);
   letter-spacing:.12em;
 }
 
 .card h3{
-  font:700 23px/1.05 Manrope;
+  font:600 21px/1.08 Manrope;
   letter-spacing:-.04em;
-  margin:48px 0 13px;
-  color:#f4f7ff;
+  margin:10px 0 9px;
+  color:#f4e6d3;
 }
 
 .card p{
-  font-size:12px;
+  font-size:11px;
   line-height:1.55;
-  color:#8290a4;
+  color:#a99b89;
   margin:0;
 }
 
-.cardVisual{
-  position:absolute;
-  right:18px;
-  top:18px;
-  width:75px;
-  height:55px;
-  opacity:.8;
-}
-
-.cardVisual img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-
-  clip-path:polygon(
-    12% 0,
-    88% 0,
-    100% 15%,
-    100% 85%,
-    88% 100%,
-    12% 100%,
-    0 85%,
-    0 15%
-  );
-
-  filter:brightness(.72) saturate(.85);
-}
-
-.card:hover .cardVisual{
-  opacity:1;
-}
-
-
-/* =========================================================
+/* =========================
    CAREER
-   ========================================================= */
+========================= */
 
 .timeline{
   margin-left:185px;
-  border-top:1px solid rgba(65,105,255,.35);
+  border-top:1px solid rgba(199,155,82,.4);
 }
 
 .job{
   display:grid;
   grid-template-columns:170px 1fr;
   gap:50px;
-  padding:38px 0;
-  border-bottom:1px solid var(--line);
+  padding:35px 0;
+  border-bottom:1px solid rgba(199,155,82,.18);
+  transition:.35s;
+}
+
+.job:hover{
+  padding-left:14px;
+  background:linear-gradient(90deg,rgba(126,31,50,.12),transparent);
 }
 
 .date{
   font-size:9px;
   text-transform:uppercase;
   letter-spacing:.11em;
-  color:#748196;
+  color:#9d8d7b;
   line-height:1.5;
 }
 
 .job h3{
-  font:700 28px Manrope;
+  font:600 28px Manrope;
   letter-spacing:-.04em;
   margin:0 0 5px;
+  color:#f0e0cc;
 }
 
 .company{
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:.12em;
-  color:#5e83ff;
+  color:var(--gold);
 }
 
 .job ul{
   margin:18px 0 0;
   padding-left:17px;
-  color:#7e8ca0;
+  color:#a99b8a;
   font-size:13px;
   line-height:1.75;
 }
 
+/* =========================
+   WORKFLOW / IMAGE CARDS
+========================= */
 
-/* =========================================================
-   04 WORKFLOW
-   ========================================================= */
-
-.workflowSection{
+.reference-showcase{
   overflow:hidden;
 }
 
-.workflowLead{
-  display:flex;
-  justify-content:space-between;
-  gap:40px;
-  align-items:end;
-  margin:0 0 25px 185px;
+.showcaseIntro{
+  max-width:720px;
+  margin:0 0 30px 185px;
 }
 
-.workflowLead p{
-  max-width:680px;
+.showcaseIntro p{
   font-size:17px;
-  line-height:1.55;
-  color:#8997aa;
+  line-height:1.6;
+  color:#aa9b89;
   margin:0;
 }
 
-.workflowControls{
+.referenceRail{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:10px 0 30px 185px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+}
+
+.referenceRail::-webkit-scrollbar{
+  display:none;
+}
+
+.referenceCard{
+  flex:0 0 min(430px,34vw);
+  scroll-snap-align:start;
+  background:#21150e;
+  border:1px solid rgba(199,155,82,.3);
+  overflow:hidden;
+  transition:.4s;
+}
+
+.referenceCard:hover{
+  transform:translateY(-10px);
+  border-color:var(--burgundy2);
+  box-shadow:
+    13px 17px 0 rgba(126,31,50,.55),
+    0 22px 40px rgba(0,0,0,.35);
+}
+
+.referenceImage{
+  position:relative;
+  height:300px;
+  background:#21150e;
+  overflow:hidden;
+}
+
+.referenceImage img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:.7s;
+}
+
+.referenceCard:hover .referenceImage img{
+  transform:scale(1.06);
+}
+
+.referenceImage:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,.04),
+    rgba(0,0,0,.7)
+  );
+}
+
+.referenceNumber{
+  position:absolute;
+  z-index:2;
+  top:15px;
+  left:17px;
+  font:700 10px Manrope;
+  letter-spacing:.14em;
+  color:#fff;
+}
+
+.referenceArrow{
+  position:absolute;
+  z-index:2;
+  top:13px;
+  right:14px;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.55);
+  color:#fff;
+}
+
+.referenceInfo{
+  min-height:112px;
+  padding:18px 20px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.referenceInfo small{
+  display:block;
+  font-size:7px;
+  letter-spacing:.15em;
+  color:var(--gold);
+  margin-bottom:7px;
+}
+
+.referenceInfo h3{
+  font:600 23px/1.02 Manrope;
+  letter-spacing:-.045em;
+  margin:0;
+  max-width:310px;
+  color:#f3e4d0;
+}
+
+.referenceTag{
+  flex:0 0 auto;
+  font-size:7px;
+  letter-spacing:.14em;
+  color:#e0bd7c;
+  border:1px solid #644a32;
+  padding:7px 8px;
+}
+
+.referenceControls{
+  margin-left:185px;
   display:flex;
   align-items:center;
   gap:9px;
-  white-space:nowrap;
 }
 
-.workflowControls button{
+.referenceControls button{
   width:40px;
   height:40px;
-  border:1px solid rgba(65,105,255,.4);
-  background:#091326;
-  color:#fff;
+  border:1px solid #70543a;
+  background:transparent;
+  color:#e7d6c0;
   font:600 16px Manrope;
   cursor:pointer;
-  transition:.25s;
+  transition:.3s;
 }
 
-.workflowControls button:hover{
-  background:var(--royal);
-  border-color:var(--royal);
-  box-shadow:0 0 25px rgba(37,99,235,.35);
-}
-
-.workflowControls span{
-  font-size:8px;
-  letter-spacing:.14em;
-  color:#6f7d91;
-}
-
-.workflow3d{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  padding:15px 10px 30px 185px;
-  scroll-snap-type:x mandatory;
-  scrollbar-width:thin;
-}
-
-.wfCard{
-  min-width:290px;
-  width:290px;
-  height:325px;
-  padding:23px;
-  background:#0b1527;
+.referenceControls button:hover{
+  background:var(--burgundy);
+  border-color:var(--burgundy2);
   color:#fff;
-  position:relative;
-  scroll-snap-align:start;
-  flex-shrink:0;
-  overflow:hidden;
-
-  border:1px solid rgba(220,38,38,.38);
-
-  box-shadow:
-    inset 0 0 45px rgba(0,0,0,.16);
 }
 
-.wfCard:nth-child(2){
-  background:#0d1728;
-}
-
-.wfCard:nth-child(3){
-  background:#0b1929;
-}
-
-.wfCard:nth-child(4){
-  background:#0e1628;
-}
-
-.wfCard:nth-child(5){
-  background:#0b1828;
-}
-
-.wfCard:hover{
-  border-color:var(--royal)!important;
-  box-shadow:
-    0 0 0 1px rgba(65,105,255,.5),
-    0 22px 55px rgba(0,0,0,.48),
-    0 0 42px rgba(37,99,235,.28);
-}
-
-.wfCard:after{
-  content:"";
-  position:absolute;
-  width:170px;
-  height:170px;
-  border:1px solid rgba(65,105,255,.22);
-  border-radius:50%;
-  right:-65px;
-  bottom:-65px;
-}
-
-.wfImage{
-  width:100%;
-  height:100px;
-  position:absolute;
-  top:0;
-  left:0;
-  overflow:hidden;
-  opacity:.6;
-}
-
-.wfImage img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(.5) saturate(.75);
-}
-
-.wfNo{
-  position:relative;
-  z-index:2;
-  font:800 11px Manrope;
-  color:#6c8cff;
-  letter-spacing:.1em;
-}
-
-.wfIcon{
-  position:absolute;
-  right:20px;
-  top:18px;
-  font:700 8px Manrope;
-  letter-spacing:.12em;
-  border:1px solid rgba(255,255,255,.25);
-  padding:7px 8px;
-  z-index:3;
-}
-
-.wfCard small{
-  display:block;
-  position:relative;
-  z-index:2;
-  margin-top:105px;
-  color:#8fa0b7;
+.referenceControls span{
   font-size:8px;
   letter-spacing:.15em;
+  color:#958674;
+  margin:0 6px;
 }
 
-.wfCard h3{
-  position:relative;
-  z-index:2;
-  font:700 27px/1 Manrope;
-  letter-spacing:-.05em;
-  margin:11px 0 15px;
+/* =========================
+   EXPORT JOURNEY
+========================= */
+
+.visualJourney{
+  overflow:hidden;
 }
 
-.wfCard p{
+.processIntro{
+  margin:0 0 30px 185px;
+  max-width:760px;
+}
+
+.processIntro p{
+  font-size:17px;
+  line-height:1.6;
+  color:#aa9b89;
+  margin:0;
+}
+
+.journeyRail{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  padding:10px 0 30px 185px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+}
+
+.journeyRail::-webkit-scrollbar{
+  display:none;
+}
+
+.journeySlide{
+  min-width:320px;
+  width:320px;
+  background:#21150e;
+  border:1px solid rgba(199,155,82,.28);
+  scroll-snap-align:start;
   position:relative;
+  transition:.4s;
+  overflow:hidden;
+}
+
+.journeySlide:hover{
+  transform:translateY(-9px);
+  border-color:var(--burgundy2);
+  box-shadow:
+    12px 16px 0 rgba(126,31,50,.5),
+    0 22px 40px rgba(0,0,0,.35);
+}
+
+.journeyPhoto{
+  height:200px;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  overflow:hidden;
+  color:#fff;
+}
+
+.journeyPhoto:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    0deg,
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.04) 70%
+  );
+}
+
+.journeyPhoto span,
+.journeyPhoto b{
+  position:absolute;
   z-index:2;
+}
+
+.journeyPhoto span{
+  top:15px;
+  right:15px;
+  font:700 10px Manrope;
+  color:var(--gold2);
+}
+
+.journeyPhoto b{
+  bottom:16px;
+  left:18px;
+  font:700 12px Manrope;
+  letter-spacing:.14em;
+}
+
+.journeyText{
+  padding:20px;
+}
+
+.journeyText small{
+  font-size:7px;
+  letter-spacing:.16em;
+  color:var(--gold);
+}
+
+.journeyText h3{
+  font:600 23px/1.05 Manrope;
+  letter-spacing:-.045em;
+  margin:9px 0 10px;
+  color:#f3e3cf;
+}
+
+.journeyText p{
   font-size:11px;
   line-height:1.6;
-  color:#9aa7b9;
+  color:#a99b89;
   margin:0;
-  max-width:245px;
+  min-height:70px;
 }
 
-.wfCard>span{
-  position:absolute;
-  left:23px;
-  bottom:22px;
-  color:#6c8cff;
+.journeyText label{
+  display:block;
+  margin-top:16px;
   font-size:7px;
   letter-spacing:.12em;
+  color:#b98847;
 }
 
-
-/* =========================================================
-   05 EXPORT JOURNEY
-   ========================================================= */
-
-.journey-section{
-  overflow:hidden;
-  padding-top:95px;
-}
-
-.journey-intro{
-  margin-left:185px;
-  max-width:720px;
-  margin-bottom:35px;
-}
-
-.journey-intro p{
-  font-size:18px;
-  line-height:1.6;
-  color:#8795a8;
-  margin:0;
-}
-
-.journey-track{
+.railHint{
+  margin:2px 0 0 185px;
   display:flex;
-  align-items:stretch;
-  gap:0;
-  overflow-x:auto;
-  padding:5px 0 30px 185px;
-  scroll-snap-type:x mandatory;
-  scrollbar-width:thin;
+  align-items:center;
+  gap:13px;
+  font-size:8px;
+  letter-spacing:.14em;
+  color:#8f806f;
 }
 
-.journey-card{
-  min-width:285px;
-  width:285px;
-  border:1px solid rgba(220,38,38,.34);
-  background:#0b1525;
-  transition:.4s;
-  flex-shrink:0;
-  scroll-snap-align:start;
-  overflow:hidden;
-}
-
-.journey-card:hover{
-  border-color:var(--royal)!important;
-  box-shadow:
-    0 0 0 1px rgba(65,105,255,.45),
-    0 20px 55px rgba(0,0,0,.48),
-    0 0 40px rgba(37,99,235,.24);
-}
-
-.journey-line{
-  width:40px;
+.railHint i{
+  display:block;
+  width:130px;
   height:1px;
-  background:rgba(65,105,255,.45);
-  align-self:center;
-  flex-shrink:0;
+  background:#644a32;
   position:relative;
 }
 
-.journey-line:after{
+.railHint i:after{
   content:"";
   position:absolute;
   right:0;
@@ -900,195 +1050,101 @@ section{
   width:7px;
   height:7px;
   border-radius:50%;
-  background:var(--royal);
-  box-shadow:0 0 12px var(--royal);
+  background:var(--burgundy2);
 }
 
-.journey-image{
-  height:175px;
-  position:relative;
-  overflow:hidden;
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:flex-end;
-  padding:17px;
-  color:#fff;
+/* =========================
+   WORKFLOW IMAGES
+========================= */
+
+.workflow-img-1{
+  background-image:url("https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85");
 }
 
-.journey-image:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      0deg,
-      rgba(0,0,0,.78),
-      rgba(0,0,0,.05) 75%
-    );
+.workflow-img-2{
+  background-image:url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85");
 }
 
-.journey-image span,
-.journey-image b{
-  position:relative;
-  z-index:2;
+.workflow-img-3{
+  background-image:url("https://images.unsplash.com/photo-1586528116493-da8f0f8f5c9a?auto=format&fit=crop&w=1200&q=85");
 }
 
-.journey-image span{
-  position:absolute;
-  right:14px;
-  top:13px;
-  font:700 9px Manrope;
-  letter-spacing:.12em;
-}
-
-.journey-image b{
-  font:800 15px Manrope;
-  letter-spacing:.05em;
-}
-
-.journey-copy{
-  padding:18px;
-}
-
-.journey-copy small{
-  font-size:8px;
-  letter-spacing:.14em;
-  color:#6682e9;
-}
-
-.journey-copy h3{
-  font:700 22px Manrope;
-  letter-spacing:-.04em;
-  margin:9px 0 8px;
-}
-
-.journey-copy p{
-  font-size:11px;
-  line-height:1.55;
-  color:#7e8da2;
-  margin:0;
-  min-height:56px;
-}
-
-.tags{
-  margin-top:14px;
-  font-size:7px;
-  letter-spacing:.09em;
-  color:#6682e9;
-  line-height:1.7;
-}
-
-
-/* =========================================================
-   PROFESSIONAL EXPORT / GARMENTS IMAGES
-   ========================================================= */
-
-.factory-img{
+.workflow-img-4{
   background-image:url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85");
 }
 
-.container-img{
-  background-image:url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=85");
-}
-
-.port-img{
-  background-image:url("https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&w=1200&q=85");
-}
-
-.vessel-img{
+.workflow-img-5{
   background-image:url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1200&q=85");
 }
 
-.ocean-img{
-  background-image:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85");
+.workflow-img-6{
+  background-image:url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=85");
 }
 
-.destination-img{
-  background-image:url("https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=85");
+/* =========================
+   JOURNEY IMAGES
+========================= */
+
+.factoryPhoto{
+  background-image:url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=88");
 }
 
-
-/* =========================================================
-   EXPERTISE MINI IMAGES
-   ========================================================= */
-
-.exp-img-1{
-  background-image:url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80");
+.containerPhoto{
+  background-image:url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1400&q=88");
 }
 
-.exp-img-2{
-  background-image:url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80");
+.portPhoto{
+  background-image:url("https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1400&q=88");
 }
 
-.exp-img-3{
-  background-image:url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80");
+.vesselPhoto{
+  background-image:url("https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&w=1400&q=88");
 }
 
-.exp-img-4{
-  background-image:url("https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80");
+.oceanPhoto{
+  background-image:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=88");
 }
 
-.exp-img-5{
-  background-image:url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80");
+.destinationPhoto{
+  background-image:url("https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1400&q=88");
 }
 
-.exp-img-6{
-  background-image:url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80");
-}
-
-
-/* =========================================================
-   ROUTE
-   ========================================================= */
-
-.journey-route-cue{
-  padding:15px 0;
-  border-bottom:1px solid var(--line);
-  text-align:center;
-  font-size:8px;
-  letter-spacing:.2em;
-  color:#68768b;
-}
-
-.journey-route-cue span{
-  color:#5e7fff;
-  padding:0 14px;
-  font-size:12px;
-}
-
-
-/* =========================================================
+/* =========================
    EDUCATION
-   ========================================================= */
+========================= */
 
 .edu{
   display:grid;
   grid-template-columns:1fr 1fr;
-  border:1px solid var(--line);
-  background:rgba(8,16,31,.45);
+  border:1px solid rgba(199,155,82,.25);
 }
 
 .eduItem{
-  padding:30px;
-  border-right:1px solid var(--line);
+  padding:28px;
+  border-right:1px solid rgba(199,155,82,.18);
+  transition:.35s;
 }
 
 .eduItem:last-child{
   border:0;
 }
 
+.eduItem:hover{
+  background:rgba(126,31,50,.12);
+}
+
 .eduItem small{
   font-size:9px;
   text-transform:uppercase;
   letter-spacing:.1em;
-  color:#748196;
+  color:#9f8f7c;
 }
 
 .eduItem h3{
   font:600 20px Manrope;
   letter-spacing:-.035em;
   margin:9px 0 0;
+  color:#eee0cd;
 }
 
 .skills{
@@ -1100,33 +1156,33 @@ section{
 
 .skill{
   padding:9px 11px;
-  border:1px solid var(--line);
+  border:1px solid #5d4530;
   font-size:9px;
   text-transform:uppercase;
   letter-spacing:.1em;
-  color:#77869a;
-  transition:.25s;
+  color:#aa9a87;
+  transition:.3s;
 }
 
 .skill:hover{
+  background:var(--burgundy);
   color:#fff;
-  border-color:var(--royal);
-  box-shadow:0 0 20px rgba(37,99,235,.2);
+  border-color:var(--burgundy2);
+  transform:translateY(-3px);
 }
 
-
-/* =========================================================
+/* =========================
    CONTACT
-   ========================================================= */
+========================= */
 
 .contact{
   background:
-    radial-gradient(circle at 80% 30%,rgba(37,99,235,.18),transparent 30%),
-    #030711;
+    radial-gradient(circle at 80% 20%,rgba(126,31,50,.25),transparent 30%),
+    linear-gradient(135deg,#100a07,#21120d);
   color:#fff;
   padding:80px 0;
   margin-top:40px;
-  border-top:1px solid rgba(65,105,255,.25);
+  border-top:1px solid rgba(199,155,82,.25);
 }
 
 .contactInner{
@@ -1137,96 +1193,54 @@ section{
 }
 
 .contact h2{
-  font:700 clamp(50px,7vw,100px)/.88 Manrope;
+  font:600 clamp(50px,7vw,100px)/.88 Manrope;
   letter-spacing:-.07em;
   margin:0;
 }
 
 .contact h2 span{
-  color:#5d7cff;
+  color:var(--gold2);
 }
 
 .contact p{
   max-width:360px;
-  color:#8e9aae;
+  color:#b3a493;
   line-height:1.6;
   font-size:14px;
 }
 
 .contact .btn{
   color:#fff;
-  border-color:#334155;
+  border-color:#6d5138;
 }
 
 .contact .btn.main{
-  background:var(--royal);
-  color:#fff;
-  border-color:var(--royal);
+  background:var(--gold);
+  color:#160e08;
+  border-color:var(--gold);
 }
 
-
-/* =========================================================
-   SOCIAL ICONS
-   ========================================================= */
-
-.heroSocial{
-  display:flex;
-  gap:8px;
-  margin-top:25px;
-  align-items:center;
-}
-
-.heroSocial a{
-  width:36px;
-  height:36px;
-  border:1px solid rgba(148,163,184,.28);
-  display:grid;
-  place-items:center;
-  transition:.3s;
-  background:rgba(8,16,31,.55);
-}
-
-.heroSocial a:hover{
-  background:var(--royal);
-  border-color:var(--royal);
-  color:#fff;
-  transform:translateY(-4px);
-  box-shadow:0 0 25px rgba(37,99,235,.4);
-}
-
-.heroSocial svg{
-  width:16px;
-  height:16px;
-  fill:none;
-  stroke:currentColor;
-  stroke-width:1.6;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-
-/* =========================================================
+/* =========================
    FOOTER
-   ========================================================= */
+========================= */
 
 footer{
   padding:24px 0;
   font-size:9px;
   text-transform:uppercase;
   letter-spacing:.12em;
-  color:#657286;
+  color:#817464;
   display:flex;
   justify-content:space-between;
 }
 
-
-/* =========================================================
-   REVEAL ANIMATION
-   ========================================================= */
+/* =========================
+   REVEAL
+========================= */
 
 .reveal{
   opacity:0;
-  transform:translateY(25px);
+  transform:translateY(24px);
   transition:.75s ease;
 }
 
@@ -1235,10 +1249,9 @@ footer{
   transform:none;
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:900px){
 
@@ -1252,7 +1265,6 @@ footer{
 
   .navlinks{
     gap:14px;
-    font-size:8px;
   }
 
   .navlinks a:not(:last-child){
@@ -1260,19 +1272,13 @@ footer{
   }
 
   .hero{
-    min-height:auto;
     grid-template-columns:1fr;
-    gap:30px;
-    padding:55px 0 50px;
+    gap:35px;
+    padding-top:55px;
   }
 
-  h1{
-    font-size:clamp(38px,8.5vw,62px);
-    white-space:nowrap;
-  }
-
-  .heroText{
-    font-size:15px;
+  .hero h1{
+    font-size:clamp(30px,8vw,70px);
   }
 
   .visual{
@@ -1287,9 +1293,7 @@ footer{
   }
 
   .profile,
-  .timeline,
-  .workflowLead,
-  .journey-intro{
+  .timeline{
     margin-left:0;
   }
 
@@ -1297,31 +1301,38 @@ footer{
     grid-template-columns:1fr;
   }
 
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
   .sectionTop{
     grid-template-columns:1fr;
     gap:12px;
   }
 
-  .grid{
-    grid-template-columns:1fr 1fr;
+  .showcaseIntro,
+  .processIntro{
+    margin-left:0;
   }
 
-  .workflowLead{
-    display:block;
-  }
-
-  .workflowControls{
-    margin-top:20px;
-  }
-
-  .workflow3d,
-  .journey-track{
+  .referenceRail,
+  .journeyRail{
     padding-left:0;
+    margin-right:-14px;
   }
 
-  .journey-card{
-    min-width:275px;
-    width:275px;
+  .referenceCard{
+    flex-basis:72vw;
+  }
+
+  .journeySlide{
+    min-width:72vw;
+    width:72vw;
+  }
+
+  .referenceControls,
+  .railHint{
+    margin-left:0;
   }
 
   .edu{
@@ -1330,64 +1341,67 @@ footer{
 
   .eduItem{
     border-right:0;
-    border-bottom:1px solid var(--line);
+    border-bottom:1px solid rgba(199,155,82,.18);
   }
 
-  .contactInner{
-    display:block;
-  }
 }
 
-
-@media(max-width:700px){
+@media(max-width:560px){
 
   .wrap{
-    width:calc(100% - 32px);
+    width:calc(100% - 28px);
   }
 
   .nav{
-    height:64px;
+    padding:0;
   }
 
-  .logo{
-    font-size:14px;
+  .navlinks{
+    gap:9px;
+    font-size:7px;
   }
 
   .hero{
-    padding:42px 0 45px;
+    gap:20px;
+    padding:45px 0;
   }
 
-  h1,
   .hero h1{
-    font-size:clamp(30px,8.6vw,50px);
-    line-height:.96;
+    font-size:clamp(20px,6.4vw,52px);
+    letter-spacing:-.06em;
     white-space:nowrap;
-    letter-spacing:-.07em;
+  }
+
+  .heroText{
+    font-size:15px;
+    line-height:1.55;
   }
 
   .actions{
     flex-wrap:wrap;
   }
 
+  .btn{
+    padding:12px 14px;
+    font-size:8px;
+  }
+
   .heroStats{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+    margin-top:30px;
   }
 
   .stat{
-    padding:14px 8px 0 0;
-    margin-right:8px;
+    padding-right:10px;
+    margin-right:10px;
   }
 
   .stat b{
-    font-size:21px;
+    font-size:20px;
   }
 
   .stat span{
     font-size:7px;
     line-height:1.35;
-    display:block;
   }
 
   .heroSocial{
@@ -1395,40 +1409,32 @@ footer{
   }
 
   .visual{
-    min-height:430px;
-    height:auto;
-    padding:10px 0 20px;
+    height:440px;
   }
 
   .photoFrame{
-    width:min(82vw,330px);
-    height:405px;
+    width:82vw;
+    height:400px;
     box-shadow:
-      0 0 0 1px rgba(65,105,255,.7),
-      0 0 45px rgba(37,99,235,.25),
-      14px 14px 0 rgba(37,99,235,.18);
+      12px 12px 0 var(--burgundy),
+      0 20px 45px rgba(0,0,0,.45);
+  }
+
+  .limeBlock{
+    width:100px;
+    height:100px;
   }
 
   section{
-    padding:78px 0;
+    padding:82px 0;
   }
 
   .sectionTop{
-    display:block;
     margin-bottom:32px;
-  }
-
-  .sectionTop .no{
-    margin-bottom:12px;
   }
 
   .title{
     font-size:clamp(36px,10vw,54px);
-  }
-
-  .profile{
-    display:block;
-    margin:0;
   }
 
   .profile p{
@@ -1436,11 +1442,15 @@ footer{
   }
 
   .statsLarge{
-    margin-top:30px;
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .statsLarge div{
+    padding:17px 9px;
   }
 
   .statsLarge b{
-    font-size:27px;
+    font-size:26px;
   }
 
   .statsLarge span{
@@ -1454,15 +1464,11 @@ footer{
   }
 
   .card{
-    min-height:210px;
+    min-height:275px;
   }
 
-  .card h3{
-    margin-top:43px;
-  }
-
-  .timeline{
-    margin:0;
+  .cardMedia{
+    height:145px;
   }
 
   .job{
@@ -1477,86 +1483,85 @@ footer{
 
   .job ul{
     font-size:12px;
+    line-height:1.65;
   }
 
-  .workflow3d{
-    width:100%;
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:8px 4px 24px 0;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
+  .referenceRail{
+    gap:13px;
+    padding-bottom:22px;
   }
 
-  .wfCard{
-    min-width:calc(100vw - 48px);
-    width:calc(100vw - 48px);
-    height:320px;
+  .referenceCard{
+    flex-basis:88vw;
   }
 
-  .journey-track{
-    width:100%;
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:6px 4px 24px 0;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
+  .referenceImage{
+    height:330px;
   }
 
-  .journey-card{
-    min-width:calc(100vw - 48px);
-    width:calc(100vw - 48px);
+  .referenceInfo{
+    min-height:108px;
+    padding:17px;
   }
 
-  .journey-line{
-    display:none;
+  .referenceInfo h3{
+    font-size:22px;
   }
 
-  .journey-image{
+  .journeyRail{
+    gap:13px;
+    padding-bottom:22px;
+  }
+
+  .journeySlide{
+    min-width:88vw;
+    width:88vw;
+  }
+
+  .journeyPhoto{
     height:205px;
   }
 
-  .journey-route-cue{
-    font-size:7px;
-    letter-spacing:.1em;
-  }
-
-  .journey-route-cue span{
-    padding:0 5px;
+  .journeyText{
+    padding:18px;
   }
 
   .contact{
     padding:62px 0;
   }
 
+  .contactInner{
+    display:block;
+  }
+
   .contact h2{
     font-size:58px;
   }
 
+  .contact p{
+    margin-top:25px;
+    font-size:13px;
+  }
+
   footer{
     display:block;
-    line-height:1.8;
+    line-height:1.7;
   }
 
   footer span{
     display:block;
   }
+
 }
 
-
-@media(max-width:390px){
+@media(max-width:380px){
 
   .wrap{
     width:calc(100% - 24px);
   }
 
-  h1,
   .hero h1{
-    font-size:29px;
+    font-size:19px;
   }
 
   .photoFrame{
@@ -1564,26 +1569,61 @@ footer{
     height:370px;
   }
 
-  .heroStats{
-    grid-template-columns:1fr 1fr 1fr;
+  .referenceCard,
+  .journeySlide{
+    min-width:90vw;
+    width:90vw;
   }
 
-  .stat b{
-    font-size:19px;
+}
+
+/* =========================
+   SPECIAL HOVER EFFECT
+========================= */
+
+.card,
+.referenceCard,
+.journeySlide,
+.eduItem,
+.skill,
+.job{
+  will-change:transform;
+}
+
+.card:hover .n,
+.referenceCard:hover .referenceTag,
+.journeySlide:hover .journeyText small{
+  color:#d96a83;
+}
+
+/* burgundy animated glow */
+
+.card:hover,
+.referenceCard:hover,
+.journeySlide:hover{
+  animation:hoverPulse 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes hoverPulse{
+  from{
+    box-shadow:
+      0 15px 35px rgba(0,0,0,.38),
+      0 0 0 rgba(165,44,69,0);
   }
 
-  .wfCard,
-  .journey-card{
-    min-width:calc(100vw - 40px);
-    width:calc(100vw - 40px);
+  to{
+    box-shadow:
+      0 20px 48px rgba(0,0,0,.48),
+      0 0 22px rgba(126,31,50,.18);
   }
 }
 
 </style>
 </head>
 
-
 <body>
+
+<div class="snow"></div>
 
 <header class="wrap nav">
 
@@ -1606,10 +1646,7 @@ footer{
 
 <main>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="wrap hero">
 
@@ -1624,19 +1661,24 @@ footer{
     </h1>
 
     <p class="heroText">
+
       <strong>Export Officer / Admin &amp; Office Administrator</strong>
       with <strong>4+ years in import &amp; export operations</strong>,
       with additional experience in administration and office management.
+
     </p>
 
     <div class="actions">
 
-      <a class="btn main" href="CV.pdf" target="_blank">
-        View CV ↗
+      <a class="btn main"
+         href="CV.pdf"
+         target="_blank">
+         View CV ↗
       </a>
 
-      <a class="btn" href="#career">
-        Experience ↓
+      <a class="btn"
+         href="#career">
+         Experience ↓
       </a>
 
     </div>
@@ -1662,14 +1704,11 @@ footer{
     </div>
 
 
-    <!-- WHATSAPP + LINKEDIN -->
+    <div class="heroSocial">
 
-    <div class="heroSocial" aria-label="Contact links">
-
-      <a
-        href="mailto:mian_Atif226@yahoo.com"
-        title="Email"
-        aria-label="Email">
+      <a href="mailto:mian_Atif226@yahoo.com"
+         title="Email"
+         aria-label="Email">
 
         <svg viewBox="0 0 24 24">
           <path d="M3 5h18v14H3z"/>
@@ -1679,30 +1718,28 @@ footer{
       </a>
 
 
-      <a
-        href="https://wa.me/923328613400"
-        target="_blank"
-        rel="noopener"
-        title="WhatsApp"
-        aria-label="WhatsApp">
+      <a href="https://wa.me/923328613400"
+         target="_blank"
+         rel="noopener"
+         title="WhatsApp"
+         aria-label="WhatsApp">
 
         <svg viewBox="0 0 24 24">
 
           <path d="M20.5 11.7a8.4 8.4 0 0 1-12.3 7.4L4 20l.9-4A8.4 8.4 0 1 1 20.5 11.7Z"/>
 
-          <path d="M8.2 8.2c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.7 1.3 1.7 2.3 3 3l.6-.5c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.6c0 .3 0 1-.5.8-.5.3-1.2.4-1.9.2-2-.5-4.4-2.8-5.6-4.2-1.1-1.3-2-2.9-2.1-3.7-.1-.7 0-1.4.3-1.9Z"/>
+          <path d="M8.2 8.2c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.7 1.3 1.7 2.3 3 3l.6-.5c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.6c0 .3 0 .6-.5.8-.5.3-1.2.4-1.9.2-2-.5-4.4-2.8-5.6-4.2-1.1-1.3-2-2.9-2.1-3.7-.1-.7 0-1.4.3-1.9Z"/>
 
         </svg>
 
       </a>
 
 
-      <a
-        href="https://www.linkedin.com/search/results/people/?keywords=Mian%20Muhammad%20Atif%20Al%20Hadi%20Textile"
-        target="_blank"
-        rel="noopener"
-        title="LinkedIn"
-        aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/mian-muhammad-atif-382400293/"
+         target="_blank"
+         rel="noopener"
+         title="LinkedIn"
+         aria-label="LinkedIn">
 
         <svg viewBox="0 0 24 24">
 
@@ -1721,16 +1758,21 @@ footer{
   </div>
 
 
-  <!-- PREMIUM 8-CORNER PHOTO -->
-
   <div class="visual reveal">
+
+    <div class="limeBlock"></div>
 
     <div class="photoFrame">
 
       <img
         class="photo"
         src="Atif.jpg"
-        alt="MIAN MUHAMMAD ATIF">
+        alt="Mian Muhammad Atif">
+
+      <div class="corner">
+        MIAN MUHAMMAD ATIF
+        <span>/ EXPORT OFFICER</span>
+      </div>
 
     </div>
 
@@ -1739,9 +1781,7 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     MARQUEE
-===================================================== -->
+<!-- ================= MARQUEE ================= -->
 
 <div class="marquee">
 
@@ -1759,13 +1799,13 @@ footer{
     SHIPPING REPORTS
     <span>—</span>
 
+    ERP / MIS
+    <span>—</span>
+
     GARMENTS
     <span>—</span>
 
-    FITTED SHEETS
-    <span>—</span>
-
-    TEXTILE EXPORT
+    HOME TEXTILES
     <span>—</span>
 
     EXPORT DOCUMENTATION
@@ -1777,40 +1817,15 @@ footer{
     CUSTOMS &amp; COMPLIANCE
     <span>—</span>
 
-    SHIPPING REPORTS
-    <span>—</span>
-
     GARMENTS
     <span>—</span>
-
-    FITTED SHEETS
-    <span>—</span>
-
-    TEXTILE EXPORT
 
   </div>
 
 </div>
 
 
-<div class="journey-route-cue">
-
-  FACTORY
-  <span>→</span>
-  KARACHI
-  <span>→</span>
-  VESSEL
-  <span>→</span>
-  OCEAN
-  <span>→</span>
-  BUYER
-
-</div>
-
-
-<!-- =====================================================
-     PROFILE
-===================================================== -->
+<!-- ================= PROFILE ================= -->
 
 <section id="profile" class="wrap">
 
@@ -1833,14 +1848,9 @@ footer{
     <p class="reveal">
 
       Detail-oriented professional experienced in
-      <strong>
-        import/export documentation,
-        logistics coordination,
-        shipping reports,
-        invoice processing,
-        vendor communication
-        and administrative operations.
-      </strong>
+      <strong>import/export documentation, logistics coordination,
+      shipping reports, invoice processing, vendor communication
+      and administrative operations.</strong>
 
       Focused on accuracy, coordination and dependable execution.
 
@@ -1871,9 +1881,7 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     02 EXPERTISE
-===================================================== -->
+<!-- ================= EXPERTISE ================= -->
 
 <section id="expertise" class="wrap">
 
@@ -1894,157 +1902,204 @@ footer{
   <div class="grid">
 
 
+    <!-- 01 -->
+
     <article class="card reveal">
 
-      <div class="cardVisual">
+      <div class="cardMedia">
+
         <img
-          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
-          alt="Garments">
+          src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=85"
+          alt="Export documentation">
+
       </div>
 
-      <div class="n">
-        01 / EXPORT
+      <div class="cardBody">
+
+        <div class="n">
+          01 / DOCUMENTATION
+        </div>
+
+        <h3>
+          Import &amp; Export Documentation
+        </h3>
+
+        <p>
+          Preparing and reviewing commercial and shipping documentation
+          with attention to accuracy and compliance.
+        </p>
+
       </div>
-
-      <h3>
-        Import &amp; Export Documentation
-      </h3>
-
-      <p>
-        Preparing and reviewing commercial and shipping documentation
-        with attention to accuracy and compliance.
-      </p>
 
     </article>
 
 
+    <!-- 02 -->
+
     <article class="card reveal">
 
-      <div class="cardVisual">
+      <div class="cardMedia">
+
         <img
-          src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80"
-          alt="Garment Fashion">
+          src="https://images.unsplash.com/photo-1583845112203-454c7d6b1a1f?auto=format&fit=crop&w=1000&q=85"
+          alt="Fitted sheet and bedding">
+
       </div>
 
-      <div class="n">
-        02 / LOGISTICS
+      <div class="cardBody">
+
+        <div class="n">
+          02 / HOME TEXTILES
+        </div>
+
+        <h3>
+          Fitted Sheets &amp; Bedding
+        </h3>
+
+        <p>
+          Textile product handling with focus on fitted sheets,
+          bed linen, pillow covers and finished home-textile goods.
+        </p>
+
       </div>
-
-      <h3>
-        Logistics Coordination
-      </h3>
-
-      <p>
-        Coordinating shipment activities with logistics teams,
-        freight partners and stakeholders.
-      </p>
 
     </article>
 
 
+    <!-- 03 -->
+
     <article class="card reveal">
 
-      <div class="cardVisual">
+      <div class="cardMedia">
+
         <img
-          src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80"
-          alt="Textile Garments">
+          src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1000&q=85"
+          alt="Bed sheets and pillows">
+
       </div>
 
-      <div class="n">
-        03 / REPORTING
+      <div class="cardBody">
+
+        <div class="n">
+          03 / BEDDING
+        </div>
+
+        <h3>
+          Pillow Covers &amp; Bed Linen
+        </h3>
+
+        <p>
+          Product presentation covering sheets, pillow covers,
+          bedding sets and related textile categories.
+        </p>
+
       </div>
-
-      <h3>
-        Shipping &amp; Export Reports
-      </h3>
-
-      <p>
-        Preparing, tracking and maintaining operational reports
-        for shipment follow-up.
-      </p>
 
     </article>
 
 
+    <!-- 04 -->
+
     <article class="card reveal">
 
-      <div class="cardVisual">
+      <div class="cardMedia">
+
         <img
-          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80"
-          alt="Commercial Documentation">
+          src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1000&q=85"
+          alt="Garments and apparel">
+
       </div>
 
-      <div class="n">
-        04 / COMMERCIAL
+      <div class="cardBody">
+
+        <div class="n">
+          04 / GARMENTS
+        </div>
+
+        <h3>
+          T-Shirts &amp; Apparel
+        </h3>
+
+        <p>
+          Garment export exposure including T-shirts,
+          casual apparel, short-sleeve products and finished garments.
+        </p>
+
       </div>
-
-      <h3>
-        Invoices &amp; Vendor Communication
-      </h3>
-
-      <p>
-        Processing invoices and maintaining clear professional
-        communication with vendors and stakeholders.
-      </p>
 
     </article>
 
 
+    <!-- 05 -->
+
     <article class="card reveal">
 
-      <div class="cardVisual">
+      <div class="cardMedia">
+
         <img
-          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80"
-          alt="Office Management">
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85"
+          alt="Hoodies and sweatshirts">
+
       </div>
 
-      <div class="n">
-        05 / ADMIN
+      <div class="cardBody">
+
+        <div class="n">
+          05 / APPAREL
+        </div>
+
+        <h3>
+          Hoodies &amp; Sweatshirts
+        </h3>
+
+        <p>
+          Handling export-related garment categories including
+          hoodies, sweatshirts, fleece and winter apparel.
+        </p>
+
       </div>
-
-      <h3>
-        Administration &amp; Office Management
-      </h3>
-
-      <p>
-        Managing office workflows, budgets, staff coordination,
-        filing and routine administration.
-      </p>
 
     </article>
 
 
+    <!-- 06 -->
+
     <article class="card reveal">
 
-      <div class="cardVisual">
+      <div class="cardMedia">
+
         <img
-          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80"
-          alt="ERP and Reporting">
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=85"
+          alt="Trousers and garments">
+
       </div>
 
-      <div class="n">
-        06 / SYSTEMS
+      <div class="cardBody">
+
+        <div class="n">
+          06 / GARMENT OPERATIONS
+        </div>
+
+        <h3>
+          Trousers &amp; Garment Operations
+        </h3>
+
+        <p>
+          Supporting garment product movement, commercial documentation,
+          logistics coordination and shipment follow-up.
+        </p>
+
       </div>
-
-      <h3>
-        ERP, MIS &amp; Microsoft Office
-      </h3>
-
-      <p>
-        Working with ERP/MIS systems, reporting, data entry
-        and Microsoft Office documentation tools.
-      </p>
 
     </article>
+
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     CAREER
-===================================================== -->
+<!-- ================= CAREER ================= -->
 
 <section id="career" class="wrap">
 
@@ -2228,320 +2283,277 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     04 WORKFLOW
-===================================================== -->
+<!-- ================= WORKFLOW ================= -->
 
-<section id="workflow" class="wrap workflowSection">
+<section id="workflow"
+         class="wrap visualProcess reference-showcase">
 
   <div class="sectionTop reveal">
 
     <div class="no">
-      04 / Workflow
+      05 / Workflow
     </div>
 
     <h2 class="title">
-      The operation behind
-      <em>every shipment.</em>
+      The work behind
+      <em>the shipment.</em>
     </h2>
 
   </div>
 
 
-  <div class="workflowLead reveal">
+  <div class="showcaseIntro reveal">
 
     <p>
-      One export shipment moves through several controlled stages.
-      This is the working chain —
-      <strong>
-        documents, commercial checks, logistics,
-        compliance and final shipment follow-up.
-      </strong>
+
+      <strong>From textile product to export shipment.</strong>
+      Commercial documentation, product coordination, logistics,
+      compliance and final shipment follow-up.
+
     </p>
-
-
-    <div class="workflowControls">
-
-      <button
-        type="button"
-        class="wfPrev"
-        aria-label="Previous">
-        ←
-      </button>
-
-      <span>
-        DRAG / SCROLL
-      </span>
-
-      <button
-        type="button"
-        class="wfNext"
-        aria-label="Next">
-        →
-      </button>
-
-    </div>
 
   </div>
 
 
-  <div class="workflow3d" id="workflow3d">
+  <div class="referenceRail"
+       id="referenceRail">
 
 
-    <!-- WORKFLOW 01 -->
+    <article class="referenceCard">
 
-    <article class="wfCard reveal">
-
-      <div class="wfImage">
+      <div class="referenceImage">
 
         <img
-          src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80"
-          alt="Export Documents">
+          src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1200&q=88"
+          alt="Fitted sheets and bedding">
+
+        <span class="referenceNumber">
+          01
+        </span>
+
+        <span class="referenceArrow">
+          ↗
+        </span>
 
       </div>
 
-      <div class="wfNo">
-        01
+      <div class="referenceInfo">
+
+        <div>
+
+          <small>
+            HOME TEXTILES
+          </small>
+
+          <h3>
+            Fitted sheets &amp; bedding products.
+          </h3>
+
+        </div>
+
+        <span class="referenceTag">
+          PRODUCT
+        </span>
+
       </div>
-
-      <div class="wfIcon">
-        DOC
-      </div>
-
-      <small>
-        DOCUMENTATION
-      </small>
-
-      <h3>
-        Prepare &amp; verify
-      </h3>
-
-      <p>
-        Commercial Invoice, Packing List and supporting export
-        documentation are prepared and checked before shipment moves.
-      </p>
-
-      <span>
-        ACCURACY / COMPLETENESS
-      </span>
 
     </article>
 
 
-    <!-- WORKFLOW 02 -->
+    <article class="referenceCard">
 
-    <article class="wfCard reveal">
-
-      <div class="wfImage">
+      <div class="referenceImage">
 
         <img
-          src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80"
-          alt="Commercial Work">
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=88"
+          alt="Garment apparel">
+
+        <span class="referenceNumber">
+          02
+        </span>
+
+        <span class="referenceArrow">
+          ↗
+        </span>
 
       </div>
 
-      <div class="wfNo">
-        02
+      <div class="referenceInfo">
+
+        <div>
+
+          <small>
+            GARMENTS
+          </small>
+
+          <h3>
+            T-shirts, sweatshirts &amp; apparel.
+          </h3>
+
+        </div>
+
+        <span class="referenceTag">
+          EXPORT
+        </span>
+
       </div>
-
-      <div class="wfIcon">
-        CI
-      </div>
-
-      <small>
-        COMMERCIAL
-      </small>
-
-      <h3>
-        Commercial control
-      </h3>
-
-      <p>
-        Invoice details, quantities, values and shipment information
-        are aligned for operational and customer requirements.
-      </p>
-
-      <span>
-        INVOICE / REPORTS
-      </span>
 
     </article>
 
 
-    <!-- WORKFLOW 03 -->
+    <article class="referenceCard">
 
-    <article class="wfCard reveal">
-
-      <div class="wfImage">
+      <div class="referenceImage">
 
         <img
-          src="https://images.unsplash.com/photo-1586528116493-da8b5f8c4f1d?auto=format&fit=crop&w=900&q=80"
-          alt="Container Logistics">
+          src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=88"
+          alt="Clothing production">
+
+        <span class="referenceNumber">
+          03
+        </span>
+
+        <span class="referenceArrow">
+          ↗
+        </span>
 
       </div>
 
-      <div class="wfNo">
-        03
+      <div class="referenceInfo">
+
+        <div>
+
+          <small>
+            PRODUCT CONTROL
+          </small>
+
+          <h3>
+            Garment presentation &amp; product detail.
+          </h3>
+
+        </div>
+
+        <span class="referenceTag">
+          DETAIL
+        </span>
+
       </div>
-
-      <div class="wfIcon">
-        LOG
-      </div>
-
-      <small>
-        LOGISTICS
-      </small>
-
-      <h3>
-        Move the cargo
-      </h3>
-
-      <p>
-        Coordinate transport, container movement, loading schedules
-        and communication with logistics partners.
-      </p>
-
-      <span>
-        TRUCK / CONTAINER / PORT
-      </span>
 
     </article>
 
 
-    <!-- WORKFLOW 04 -->
+    <article class="referenceCard">
 
-    <article class="wfCard reveal">
-
-      <div class="wfImage">
+      <div class="referenceImage">
 
         <img
-          src="https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&w=900&q=80"
-          alt="Port Customs">
+          src="https://images.unsplash.com/photo-1586528116493-da8f0f8f5c9a?auto=format&fit=crop&w=1200&q=88"
+          alt="Export logistics">
+
+        <span class="referenceNumber">
+          04
+        </span>
+
+        <span class="referenceArrow">
+          ↗
+        </span>
 
       </div>
 
-      <div class="wfNo">
-        04
+      <div class="referenceInfo">
+
+        <div>
+
+          <small>
+            LOGISTICS
+          </small>
+
+          <h3>
+            From finished goods to shipment.
+          </h3>
+
+        </div>
+
+        <span class="referenceTag">
+          LOGISTICS
+        </span>
+
       </div>
-
-      <div class="wfIcon">
-        CUS
-      </div>
-
-      <small>
-        CUSTOMS &amp; COMPLIANCE
-      </small>
-
-      <h3>
-        Clear the shipment
-      </h3>
-
-      <p>
-        Ensure customs and supporting requirements are aligned
-        so the shipment can proceed without avoidable delays.
-      </p>
-
-      <span>
-        COMPLIANCE / GD / DOCUMENTS
-      </span>
 
     </article>
 
 
-    <!-- WORKFLOW 05 -->
+  </div>
 
-    <article class="wfCard reveal">
 
-      <div class="wfImage">
+  <div class="referenceControls">
 
-        <img
-          src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=900&q=80"
-          alt="Cargo Vessel">
+    <button
+      type="button"
+      id="referencePrev">
+      ←
+    </button>
 
-      </div>
+    <span>
+      DRAG / SWIPE
+    </span>
 
-      <div class="wfNo">
-        05
-      </div>
-
-      <div class="wfIcon">
-        SEA
-      </div>
-
-      <small>
-        SHIPPING
-      </small>
-
-      <h3>
-        Follow to departure
-      </h3>
-
-      <p>
-        Track vessel and shipment progress, maintain reports and
-        follow the movement through departure and delivery.
-      </p>
-
-      <span>
-        VESSEL / B.L. / ETD
-      </span>
-
-    </article>
+    <button
+      type="button"
+      id="referenceNext">
+      →
+    </button>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     05 EXPORT JOURNEY
-===================================================== -->
+<!-- ================= EXPORT JOURNEY ================= -->
 
-<section id="journey" class="wrap journey-section">
+<section id="journey"
+         class="wrap visualJourney">
 
   <div class="sectionTop reveal">
 
     <div class="no">
-      05 / Export Journey
+      06 / Export Journey
     </div>
 
     <h2 class="title">
-      From factory floor
-      <em>to the buyer.</em>
+      Factory
+      <em>to buyer.</em>
     </h2>
 
   </div>
 
 
-  <div class="journey-intro reveal">
+  <div class="processIntro reveal">
 
     <p>
-      <strong>Follow the cargo.</strong>
-      From finished garments and textile goods leaving the factory
-      to container loading, Karachi port, vessel departure,
-      ocean transit and final delivery — a visual view of the export operation.
+
+      Follow the physical movement of an export shipment —
+      <strong>from finished goods at origin to container loading,
+      Karachi port, vessel departure, ocean transit and final delivery.</strong>
+
     </p>
 
   </div>
 
 
-  <div class="journey-track">
+  <div class="journeyRail">
 
 
-    <!-- FACTORY -->
+    <article class="journeySlide">
 
-    <article class="journey-card reveal">
-
-      <div class="journey-image factory-img">
+      <div class="journeyPhoto factoryPhoto">
 
         <span>01</span>
-
-        <b>
-          FACTORY
-        </b>
+        <b>ORIGIN</b>
 
       </div>
 
-      <div class="journey-copy">
+      <div class="journeyText">
 
         <small>
           ORIGIN
@@ -2556,33 +2568,25 @@ footer{
           documents aligned before loading.
         </p>
 
-        <div class="tags">
+        <label>
           PACKING LIST · COMMERCIAL INVOICE
-        </div>
+        </label>
 
       </div>
 
     </article>
 
 
-    <div class="journey-line"></div>
+    <article class="journeySlide">
 
-
-    <!-- CONTAINER -->
-
-    <article class="journey-card reveal">
-
-      <div class="journey-image container-img">
+      <div class="journeyPhoto containerPhoto">
 
         <span>02</span>
-
-        <b>
-          CONTAINER
-        </b>
+        <b>CONTAINER</b>
 
       </div>
 
-      <div class="journey-copy">
+      <div class="journeyText">
 
         <small>
           STUFFING
@@ -2597,33 +2601,25 @@ footer{
           secured and sealed for dispatch.
         </p>
 
-        <div class="tags">
+        <label>
           STUFFING · SEAL · WEIGHT
-        </div>
+        </label>
 
       </div>
 
     </article>
 
 
-    <div class="journey-line"></div>
+    <article class="journeySlide">
 
-
-    <!-- PORT -->
-
-    <article class="journey-card reveal">
-
-      <div class="journey-image port-img">
+      <div class="journeyPhoto portPhoto">
 
         <span>03</span>
-
-        <b>
-          KARACHI
-        </b>
+        <b>KARACHI</b>
 
       </div>
 
-      <div class="journey-copy">
+      <div class="journeyText">
 
         <small>
           PORT
@@ -2638,33 +2634,25 @@ footer{
           terminal handling and shipment readiness.
         </p>
 
-        <div class="tags">
+        <label>
           CUSTOMS · TERMINAL · SHIPPING
-        </div>
+        </label>
 
       </div>
 
     </article>
 
 
-    <div class="journey-line"></div>
+    <article class="journeySlide">
 
-
-    <!-- VESSEL -->
-
-    <article class="journey-card reveal">
-
-      <div class="journey-image vessel-img">
+      <div class="journeyPhoto vesselPhoto">
 
         <span>04</span>
-
-        <b>
-          VESSEL
-        </b>
+        <b>VESSEL</b>
 
       </div>
 
-      <div class="journey-copy">
+      <div class="journeyText">
 
         <small>
           DEPARTURE
@@ -2675,37 +2663,29 @@ footer{
         </h3>
 
         <p>
-          Container is loaded onto the vessel and the export shipment
-          moves into international transit.
+          Container is loaded onto the vessel and the export
+          shipment moves into international transit.
         </p>
 
-        <div class="tags">
+        <label>
           B/L · VESSEL · ETD
-        </div>
+        </label>
 
       </div>
 
     </article>
 
 
-    <div class="journey-line"></div>
+    <article class="journeySlide">
 
-
-    <!-- OCEAN -->
-
-    <article class="journey-card reveal">
-
-      <div class="journey-image ocean-img">
+      <div class="journeyPhoto oceanPhoto">
 
         <span>05</span>
-
-        <b>
-          TRANSIT
-        </b>
+        <b>TRANSIT</b>
 
       </div>
 
-      <div class="journey-copy">
+      <div class="journeyText">
 
         <small>
           OCEAN FREIGHT
@@ -2720,33 +2700,25 @@ footer{
           documentation and communication.
         </p>
 
-        <div class="tags">
+        <label>
           TRACKING · UPDATES · DOCUMENTS
-        </div>
+        </label>
 
       </div>
 
     </article>
 
 
-    <div class="journey-line"></div>
+    <article class="journeySlide">
 
-
-    <!-- DESTINATION -->
-
-    <article class="journey-card reveal">
-
-      <div class="journey-image destination-img">
+      <div class="journeyPhoto destinationPhoto">
 
         <span>06</span>
-
-        <b>
-          DESTINATION
-        </b>
+        <b>DESTINATION</b>
 
       </div>
 
-      <div class="journey-copy">
+      <div class="journeyText">
 
         <small>
           DELIVERY
@@ -2761,29 +2733,43 @@ footer{
           import handling and delivery to the buyer.
         </p>
 
-        <div class="tags">
+        <label>
           ARRIVAL · IMPORT · DELIVERY
-        </div>
+        </label>
 
       </div>
 
     </article>
+
+
+  </div>
+
+
+  <div class="railHint">
+
+    <span>
+      DRAG / SWIPE
+    </span>
+
+    <i></i>
+
+    <b>
+      06
+    </b>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     EDUCATION
-===================================================== -->
+<!-- ================= EDUCATION ================= -->
 
 <section id="education" class="wrap">
 
   <div class="sectionTop reveal">
 
     <div class="no">
-      06 / Education &amp; Skills
+      07 / Education &amp; Skills
     </div>
 
     <h2 class="title">
@@ -2795,6 +2781,7 @@ footer{
 
 
   <div class="edu reveal">
+
 
     <div class="eduItem">
 
@@ -2842,6 +2829,7 @@ footer{
 
     </div>
 
+
   </div>
 
 
@@ -2865,9 +2853,7 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     CONTACT
-===================================================== -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact" class="contact">
 
@@ -2886,9 +2872,10 @@ footer{
     <div class="reveal">
 
       <p>
-        For professional opportunities, collaboration
-        or further information, get in touch.
+        For professional opportunities, collaboration or
+        further information, get in touch.
       </p>
+
 
       <div class="actions">
 
@@ -2899,6 +2886,7 @@ footer{
           Email Me ↗
 
         </a>
+
 
         <a
           class="btn"
@@ -2918,6 +2906,8 @@ footer{
 </section>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer class="wrap">
 
   <span>
@@ -2936,9 +2926,9 @@ footer{
 
 <script>
 
-/* =========================================================
+/* =========================
    SCROLL REVEAL
-========================================================= */
+========================= */
 
 const io = new IntersectionObserver(
 
@@ -2964,50 +2954,119 @@ const io = new IntersectionObserver(
 
 );
 
-
 document
   .querySelectorAll(".reveal")
   .forEach(el => io.observe(el));
 
 
-/* =========================================================
-   WORKFLOW CONTROLS
-========================================================= */
+/* =========================
+   DRAG / SWIPE RAILS
+========================= */
 
-const wf =
-  document.getElementById("workflow3d");
+document
+  .querySelectorAll(".referenceRail,.journeyRail")
+  .forEach(rail => {
 
-const prev =
-  document.querySelector(".wfPrev");
+    let down = false;
+    let start = 0;
+    let left = 0;
 
-const next =
-  document.querySelector(".wfNext");
+    rail.addEventListener("pointerdown", e => {
+
+      down = true;
+
+      start = e.clientX;
+
+      left = rail.scrollLeft;
+
+      rail.setPointerCapture?.(e.pointerId);
+
+    });
 
 
-if(wf && prev && next){
+    rail.addEventListener("pointermove", e => {
 
-  const step = 305;
+      if(!down) return;
 
-  prev.addEventListener(
+      rail.scrollLeft =
+        left - (e.clientX - start) * 1.15;
+
+    });
+
+
+    ["pointerup","pointercancel","mouseleave"]
+      .forEach(event => {
+
+        rail.addEventListener(event, () => {
+
+          down = false;
+
+        });
+
+      });
+
+  });
+
+
+/* =========================
+   WORKFLOW BUTTONS
+========================= */
+
+const referenceRail =
+  document.getElementById("referenceRail");
+
+const referencePrev =
+  document.getElementById("referencePrev");
+
+const referenceNext =
+  document.getElementById("referenceNext");
+
+
+if(
+  referenceRail &&
+  referencePrev &&
+  referenceNext
+){
+
+  const getStep = () => {
+
+    return Math.max(
+      300,
+      Math.min(
+        referenceRail.clientWidth * .82,
+        470
+      )
+    );
+
+  };
+
+
+  referencePrev.addEventListener(
     "click",
     () => {
 
-      wf.scrollBy({
-        left:-step,
+      referenceRail.scrollBy({
+
+        left:-getStep(),
+
         behavior:"smooth"
+
       });
 
     }
   );
 
 
-  next.addEventListener(
+  referenceNext.addEventListener(
     "click",
     () => {
 
-      wf.scrollBy({
-        left:step,
+      referenceRail.scrollBy({
+
+        left:getStep(),
+
         behavior:"smooth"
+
       });
 
     }
@@ -3015,25 +3074,7 @@ if(wf && prev && next){
 
 }
 
-
-/* =========================================================
-   CARD IMAGE FALLBACK
-========================================================= */
-
-document
-  .querySelectorAll("img")
-  .forEach(img => {
-
-    img.addEventListener("error",() => {
-
-      img.style.display="none";
-
-    });
-
-  });
-
 </script>
-
 
 </body>
 </html>
