@@ -8,1639 +8,1444 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-  --bg:#f3f1ec;
-  --ink:#171817;
-  --muted:#747873;
-  --line:#d6d4cd;
-  --lime:#c9f52b;
-  --white:#fff
+ --bg:#f3f1ec;
+ --ink:#171817;
+ --muted:#747873;
+ --line:#d6d4cd;
+ --lime:#c9f52b;
+ --white:#fff;
 }
 
 *{
-  box-sizing:border-box
+ box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth
+ scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:"DM Sans",sans-serif
+ margin:0;
+ background:var(--bg);
+ color:var(--ink);
+ font-family:"DM Sans",sans-serif;
+ overflow-x:hidden;
 }
 
 a{
-  text-decoration:none;
-  color:inherit
+ text-decoration:none;
+ color:inherit;
 }
 
 .wrap{
-  width:min(1280px,calc(100% - 80px));
-  margin:auto
+ width:min(1280px,calc(100% - 80px));
+ margin:auto;
 }
 
+/* NAV */
+
 .nav{
-  height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid var(--line);
-  font-size:11px
+ height:78px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-bottom:1px solid var(--line);
+ font-size:11px;
 }
 
 .logo{
-  font:800 16px Manrope;
-  letter-spacing:-.06em
+ font:800 16px Manrope;
+ letter-spacing:-.06em;
 }
 
 .logo span{
-  color:#8ea900
+ color:#8ea900;
 }
 
 .navlinks{
-  display:flex;
-  gap:28px;
-  text-transform:uppercase;
-  letter-spacing:.13em
+ display:flex;
+ gap:28px;
+ text-transform:uppercase;
+ letter-spacing:.13em;
+ font-size:9px;
+ font-weight:600;
+}
+
+.navlinks a{
+ opacity:.7;
 }
 
 .navlinks a:hover{
-  color:#8ea900
+ opacity:1;
 }
 
-section{
-  padding:110px 0
-}
+/* HERO */
 
 .hero{
-  min-height:720px;
-  display:grid;
-  grid-template-columns:1.18fr .82fr;
-  gap:55px;
-  align-items:center;
-  padding-top:70px
+ min-height:calc(100vh - 78px);
+ display:grid;
+ grid-template-columns:1.08fr .92fr;
+ align-items:center;
+ gap:80px;
+ padding:70px 0 55px;
 }
 
 .eyebrow{
-  font-size:9px;
-  letter-spacing:.17em;
-  text-transform:uppercase;
-  color:#7b817b
+ font-size:10px;
+ letter-spacing:.18em;
+ text-transform:uppercase;
+ color:#666b66;
+ margin-bottom:24px;
+ display:flex;
+ gap:12px;
+ align-items:center;
+}
+
+.eyebrow:before{
+ content:"";
+ width:34px;
+ height:1px;
+ background:var(--ink);
 }
 
 h1{
-  font:800 clamp(48px,5.45vw,82px)/.94 Manrope;
-  letter-spacing:-.065em;
-  margin:22px 0 0;
-  white-space:nowrap
+ font:700 clamp(55px,7vw,104px)/.91 Manrope;
+ letter-spacing:-.075em;
+ margin:0;
+ max-width:760px;
 }
 
 .heroDot{
-  color:var(--lime)
+ color:var(--lime);
 }
 
 .heroText{
-  max-width:650px;
-  font-size:18px;
-  line-height:1.55;
-  color:#666c66;
-  margin:28px 0
+ max-width:620px;
+ font-size:17px;
+ line-height:1.65;
+ color:#555b56;
+ margin:30px 0 0;
+}
+
+.heroText strong{
+ color:var(--ink);
 }
 
 .actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap
+ display:flex;
+ gap:10px;
+ margin-top:27px;
 }
 
 .btn{
-  display:inline-block;
-  padding:13px 18px;
-  border:1px solid var(--ink);
-  font-size:8px;
-  letter-spacing:.12em;
-  text-transform:uppercase
+ padding:13px 17px;
+ border:1px solid #aaa9a2;
+ text-transform:uppercase;
+ letter-spacing:.12em;
+ font-size:9px;
+ font-weight:600;
+ transition:.25s;
 }
 
 .btn.main{
-  background:var(--ink);
-  color:#fff
+ background:var(--ink);
+ color:#fff;
+ border-color:var(--ink);
 }
 
 .btn:hover{
-  background:var(--lime);
-  color:var(--ink)
+ transform:translateY(-2px);
+ background:var(--lime);
+ border-color:var(--lime);
+ color:var(--ink);
 }
 
 .heroStats{
-  display:flex;
-  margin-top:42px
+ display:flex;
+ gap:0;
+ margin-top:42px;
+ border-top:1px solid var(--line);
+ max-width:620px;
 }
 
 .stat{
-  padding-right:28px;
-  margin-right:28px;
-  border-right:1px solid var(--line)
+ padding:18px 35px 0 0;
+ margin-right:35px;
+ border-right:1px solid var(--line);
 }
 
 .stat:last-child{
-  border:0
+ border:0;
 }
 
 .stat b{
-  display:block;
-  font:700 28px Manrope
+ display:block;
+ font:700 27px Manrope;
+ letter-spacing:-.05em;
 }
 
 .stat span{
-  display:block;
-  margin-top:5px;
-  font-size:8px;
-  letter-spacing:.1em;
-  color:#777c77;
-  text-transform:uppercase
-}
-
-.heroSocial{
-  display:flex;
-  gap:8px;
-  margin-top:25px;
-  align-items:center
-}
-
-.heroSocial a{
-  width:36px;
-  height:36px;
-  border:1px solid var(--line);
-  display:grid;
-  place-items:center;
-  transition:.25s
-}
-
-.heroSocial a:hover{
-  background:var(--ink);
-  color:#fff;
-  transform:translateY(-3px)
-}
-
-.heroSocial svg{
-  width:16px;
-  height:16px;
-  fill:none;
-  stroke:currentColor;
-  stroke-width:1.6;
-  stroke-linecap:round;
-  stroke-linejoin:round
+ font-size:9px;
+ color:#777c77;
+ text-transform:uppercase;
+ letter-spacing:.11em;
 }
 
 .visual{
-  height:535px;
-  position:relative;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  padding-right:30px
-}
-
-.number{
-  position:absolute;
-  top:30px;
-  left:0;
-  font-size:8px;
-  letter-spacing:.15em;
-  color:#7a7f79
-}
-
-.caption{
-  position:absolute;
-  top:27px;
-  right:0;
-  font-size:8px;
-  letter-spacing:.12em;
-  color:#7a7f79
+ height:590px;
+ position:relative;
+ display:flex;
+ align-items:center;
+ justify-content:center;
 }
 
 .photoFrame{
-  width:370px;
-  height:455px;
-  border:1px solid #b8b7ae;
-  box-shadow:18px 18px 0 var(--lime);
-  position:relative
+ width:430px;
+ height:520px;
+ position:relative;
+ background:#d9d7cf;
+ overflow:hidden;
+ z-index:2;
 }
 
-.photoFrame:before{
-  content:"";
-  position:absolute;
-  inset:-14px 14px 14px -14px;
-  border:1px solid #b9bdb4;
-  z-index:-1
+.photoFrame:after{
+ content:"";
+ position:absolute;
+ inset:18px;
+ border:1px solid rgba(255,255,255,.7);
+ pointer-events:none;
 }
 
 .photo{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 18%;
-  filter:saturate(.78) contrast(1.03)
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position:center 26%;
+ filter:saturate(.72);
+ transition:transform .8s;
 }
 
-.corner{
-  position:absolute;
-  left:22px;
-  bottom:28px;
-  background:var(--ink);
-  color:#fff;
-  padding:10px 12px;
-  font-size:8px
-}
-
-.corner span{
-  color:var(--lime)
+.photoFrame:hover .photo{
+ transform:scale(1.025);
 }
 
 .limeBlock{
-  position:absolute;
-  width:135px;
-  height:135px;
-  background:var(--lime);
-  right:-25px;
-  bottom:20px;
-  z-index:-1
+ position:absolute;
+ width:180px;
+ height:180px;
+ background:var(--lime);
+ right:0;
+ bottom:8px;
+ z-index:1;
 }
 
+.number{
+ position:absolute;
+ left:0;
+ top:42px;
+ font:700 12px Manrope;
+ letter-spacing:.14em;
+ writing-mode:vertical-rl;
+}
+
+.caption{
+ position:absolute;
+ right:0;
+ top:25px;
+ font-size:9px;
+ letter-spacing:.15em;
+ text-transform:uppercase;
+ color:#777c77;
+ writing-mode:vertical-rl;
+}
+
+.corner{
+ position:absolute;
+ left:35px;
+ bottom:50px;
+ font:600 10px Manrope;
+ letter-spacing:.14em;
+ text-transform:uppercase;
+ z-index:3;
+}
+
+.corner span{
+ color:#697d00;
+}
+
+/* MARQUEE */
+
 .marquee{
-  overflow:hidden;
-  white-space:nowrap;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:13px 0;
-  font-size:9px;
-  letter-spacing:.15em
+ border-top:1px solid var(--ink);
+ border-bottom:1px solid var(--ink);
+ padding:13px 0;
+ overflow:hidden;
+ white-space:nowrap;
+ font-size:10px;
+ letter-spacing:.14em;
+ text-transform:uppercase;
 }
 
 .track{
-  display:inline-block;
-  animation:marquee 28s linear infinite
+ animation:move 28s linear infinite;
+ display:inline-block;
 }
 
 .track span{
-  color:#8ea900;
-  padding:0 18px
+ margin:0 20px;
+ color:#999d98;
 }
 
-@keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+@keyframes move{
+ to{
+  transform:translateX(-50%);
+ }
+}
+
+/* GENERAL SECTIONS */
+
+section{
+ padding:125px 0;
 }
 
 .sectionTop{
-  display:grid;
-  grid-template-columns:185px 1fr;
-  gap:25px;
-  margin-bottom:55px
+ display:grid;
+ grid-template-columns:150px 1fr;
+ gap:35px;
+ margin-bottom:55px;
 }
 
 .no{
-  font-size:9px;
-  letter-spacing:.15em;
-  color:#7b807b
+ font-size:10px;
+ text-transform:uppercase;
+ letter-spacing:.14em;
+ color:#777c77;
 }
 
 .title{
-  font:700 clamp(42px,5vw,72px)/.96 Manrope;
-  letter-spacing:-.06em;
-  margin:0
+ font:600 clamp(40px,5.2vw,76px)/.96 Manrope;
+ letter-spacing:-.065em;
+ margin:0;
+ max-width:850px;
 }
 
 .title em{
-  font-style:normal;
-  color:#8ea900
+ font-style:normal;
+ color:#8a8f89;
 }
 
+/* PROFILE */
+
 .profile{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:70px;
-  margin-left:185px
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:80px;
+ margin-left:185px;
 }
 
 .profile p{
-  font-size:20px;
-  line-height:1.6;
-  color:#606660
+ font-size:20px;
+ line-height:1.6;
+ color:#5e645f;
+ margin:0;
+ max-width:610px;
+}
+
+.profile strong{
+ color:var(--ink);
 }
 
 .statsLarge{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line)
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ border-top:1px solid var(--ink);
+ border-bottom:1px solid var(--ink);
 }
 
 .statsLarge div{
-  padding:25px 15px;
-  border-right:1px solid var(--line)
+ padding:24px 18px;
+ border-right:1px solid var(--line);
 }
 
 .statsLarge div:last-child{
-  border:0
+ border:0;
 }
 
 .statsLarge b{
-  display:block;
-  font:700 35px Manrope
+ font:700 36px Manrope;
+ display:block;
 }
 
 .statsLarge span{
-  display:block;
-  margin-top:8px;
-  font-size:8px;
-  color:#7b807b;
-  line-height:1.4
+ font-size:9px;
+ text-transform:uppercase;
+ letter-spacing:.1em;
+ color:#777c77;
 }
 
+/* EXPERTISE */
+
 .grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line)
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ border-top:1px solid var(--ink);
+ border-left:1px solid var(--line);
 }
 
 .card{
-  min-height:260px;
-  padding:25px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  transition:.3s
+ min-height:260px;
+ padding:27px;
+ border-right:1px solid var(--line);
+ border-bottom:1px solid var(--line);
+ transition:.35s;
 }
 
 .card:hover{
-  background:#fff;
-  transform:translateY(-5px)
+ background:#fff;
+ transform:translateY(-4px);
 }
 
 .card .n{
-  font-size:8px;
-  letter-spacing:.14em;
-  color:#7a807a
+ font:600 10px Manrope;
+ color:#8a8f89;
 }
 
 .card h3{
-  font:600 24px Manrope;
-  letter-spacing:-.04em;
-  margin-top:70px
+ font:600 24px/1.05 Manrope;
+ letter-spacing:-.04em;
+ margin:65px 0 13px;
 }
 
 .card p{
-  font-size:12px;
-  line-height:1.6;
-  color:#737873
+ font-size:13px;
+ line-height:1.55;
+ color:#737873;
+ margin:0;
 }
 
+/* CAREER */
+
 .timeline{
-  margin-left:185px
+ margin-left:185px;
+ border-top:1px solid var(--ink);
 }
 
 .job{
-  display:grid;
-  grid-template-columns:190px 1fr;
-  gap:40px;
-  padding:35px 0;
-  border-top:1px solid var(--line)
-}
-
-.job:last-child{
-  border-bottom:1px solid var(--line)
+ display:grid;
+ grid-template-columns:170px 1fr;
+ gap:50px;
+ padding:38px 0;
+ border-bottom:1px solid var(--line);
 }
 
 .date{
-  font-size:9px;
-  letter-spacing:.1em;
-  color:#7b817b
+ font-size:9px;
+ text-transform:uppercase;
+ letter-spacing:.11em;
+ color:#7b807b;
+ line-height:1.5;
 }
 
 .job h3{
-  font:600 30px Manrope;
-  letter-spacing:-.05em;
-  margin:0
+ font:600 28px Manrope;
+ letter-spacing:-.04em;
+ margin:0 0 5px;
 }
 
 .company{
-  font-size:10px;
-  color:#8ea900;
-  margin:8px 0 18px;
-  letter-spacing:.08em
+ font-size:10px;
+ text-transform:uppercase;
+ letter-spacing:.12em;
+ color:#758000;
 }
 
 .job ul{
-  margin:0;
-  padding-left:18px;
-  color:#6e746e;
-  font-size:12px;
-  line-height:1.7
+ margin:18px 0 0;
+ padding-left:17px;
+ color:#737873;
+ font-size:13px;
+ line-height:1.75;
 }
 
-
-/* ================================
-   WORKFLOW — V17 REFERENCE STYLE
-   ================================ */
+/* =========================
+   V17 WORKFLOW
+   VERTICAL / UP-DOWN
+========================= */
 
 .workflowSection{
-  overflow:hidden
+ overflow:hidden;
 }
 
 .workflowLead{
-  display:flex;
-  justify-content:space-between;
-  gap:40px;
-  align-items:end;
-  margin:0 0 35px 185px
+ display:flex;
+ justify-content:space-between;
+ gap:40px;
+ align-items:end;
+ margin:0 0 35px 185px;
 }
 
 .workflowLead p{
-  max-width:680px;
-  font-size:18px;
-  line-height:1.55;
-  color:#646a65;
-  margin:0
+ max-width:680px;
+ font-size:18px;
+ line-height:1.55;
+ color:#646a65;
+ margin:0;
 }
 
 .workflowControls{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  white-space:nowrap
+ display:flex;
+ align-items:center;
+ gap:9px;
+ white-space:nowrap;
 }
 
 .workflowControls button{
-  width:42px;
-  height:42px;
-  border:1px solid #b9b9b0;
-  background:transparent;
-  font:600 16px Manrope;
-  cursor:pointer
+ width:42px;
+ height:42px;
+ border:1px solid #b9b9b0;
+ background:transparent;
+ font:600 16px Manrope;
+ cursor:pointer;
 }
 
 .workflowControls button:hover{
-  background:var(--lime)
+ background:var(--lime);
 }
 
 .workflowControls span{
-  font-size:8px;
-  letter-spacing:.14em;
-  color:#7a7e79
+ font-size:8px;
+ letter-spacing:.14em;
+ color:#7a7e79;
 }
 
-
-/* VERTICAL SLIDER */
+/* VERTICAL RAIL */
 
 .workflow3d{
-  display:flex;
-  flex-direction:column;
-  gap:0;
+ display:flex;
+ flex-direction:column;
+ gap:0;
 
-  overflow-y:auto;
-  overflow-x:hidden;
+ overflow-y:auto;
+ overflow-x:hidden;
 
-  max-height:620px;
+ max-height:620px;
 
-  padding:
-    0
-    12px
-    28px
-    185px;
+ padding:0 10px 30px 185px;
 
-  scroll-snap-type:y mandatory;
-  scroll-behavior:smooth;
+ scroll-snap-type:y mandatory;
+ scroll-behavior:smooth;
 
-  scrollbar-width:none;
-  perspective:none
+ scrollbar-width:none;
 }
 
 .workflow3d::-webkit-scrollbar{
-  display:none
+ display:none;
 }
-
 
 /* WORKFLOW CARD */
 
 .wfCard{
-  min-width:0;
-  width:100%;
+ width:100%;
+ min-height:390px;
+ height:390px;
+ flex:0 0 390px;
 
-  min-height:360px;
-  height:360px;
+ scroll-snap-align:start;
 
-  flex:0 0 360px;
+ background:#fff;
+ color:var(--ink);
 
-  scroll-snap-align:start;
+ padding:38px 42px;
 
-  border-radius:0;
+ position:relative;
 
-  padding:38px 42px;
+ border-top:1px solid var(--line);
 
-  background:var(--white)!important;
-  color:var(--ink);
+ overflow:hidden;
 
-  border-top:1px solid var(--line);
-
-  position:relative;
-
-  transition:
-    transform .35s,
-    background .35s,
-    box-shadow .35s;
-
-  box-shadow:none;
-
-  overflow:hidden
+ transition:.35s;
 }
 
 .wfCard:last-child{
-  border-bottom:1px solid var(--line)
-}
-
-.wfCard:nth-child(n){
-  background:var(--white)!important
+ border-bottom:1px solid var(--line);
 }
 
 .wfCard:hover{
-  transform:translateY(-4px);
-  box-shadow:12px 14px 0 rgba(0,0,0,.07)
+ background:#faf9f5;
+ transform:translateY(-4px);
+ box-shadow:12px 14px 0 rgba(0,0,0,.07);
 }
 
 .wfCard:after{
-  content:"";
-  position:absolute;
+ content:"";
+ position:absolute;
 
-  width:190px;
-  height:190px;
+ width:200px;
+ height:200px;
 
-  border:1px solid rgba(142,169,0,.18);
+ border:1px solid rgba(142,169,0,.18);
 
-  border-radius:50%;
+ border-radius:50%;
 
-  right:-65px;
-  bottom:-55px
+ right:-70px;
+ bottom:-70px;
 }
 
 .wfNo{
-  font:700 12px Manrope;
-  color:#8ea900;
-  letter-spacing:.1em
+ font:700 12px Manrope;
+ color:#8ea900;
+ letter-spacing:.1em;
 }
 
 .wfIcon{
-  position:absolute;
-  right:25px;
-  top:24px;
+ position:absolute;
+ right:25px;
+ top:24px;
 
-  font:700 9px Manrope;
-  letter-spacing:.12em;
+ font:700 9px Manrope;
+ letter-spacing:.12em;
 
-  border:1px solid var(--line);
+ border:1px solid var(--line);
 
-  color:#6f746f;
+ padding:8px;
 
-  padding:8px
+ color:#737873;
 }
 
 .wfCard small{
-  display:block;
-  margin-top:70px;
+ display:block;
+ margin-top:70px;
 
-  color:#7b817b;
+ color:#7b817b;
 
-  font-size:8px;
-  letter-spacing:.15em
+ font-size:8px;
+ letter-spacing:.15em;
 }
 
 .wfCard h3{
-  font:600 clamp(32px,4vw,58px)/1 Manrope;
-  letter-spacing:-.05em;
-
-  margin:12px 0 18px;
-
-  color:var(--ink)
+ font:600 clamp(35px,4vw,58px)/1 Manrope;
+ letter-spacing:-.05em;
+ margin:12px 0 18px;
 }
 
 .wfCard p{
-  font-size:13px;
-  line-height:1.65;
-
-  color:#737873;
-
-  margin:0;
-
-  max-width:600px
+ font-size:13px;
+ line-height:1.65;
+ color:#737873;
+ margin:0;
+ max-width:650px;
 }
 
 .wfCard>span{
-  position:absolute;
-  left:42px;
-  bottom:25px;
+ position:absolute;
+ left:42px;
+ bottom:25px;
 
-  color:#7d9000;
+ color:#7d9000;
 
-  font-size:7px;
-  letter-spacing:.12em
+ font-size:7px;
+ letter-spacing:.12em;
 }
 
-
-/* ================================
-   EXPORT JOURNEY
-   V17 REFERENCE STYLE
-   ================================ */
+/* =========================
+   V17 EXPORT JOURNEY
+   VERTICAL / UP-DOWN
+========================= */
 
 .journey-section{
-  padding-top:105px;
-  overflow:hidden
+ padding-top:105px;
+ overflow:hidden;
 }
 
 .journey-intro{
-  margin-left:185px;
-  max-width:720px;
-  margin-bottom:55px
+ margin-left:185px;
+ max-width:720px;
+ margin-bottom:55px;
 }
 
 .journey-intro p{
-  font-size:19px;
-  line-height:1.6;
-  color:#626762;
-  margin:0
+ font-size:19px;
+ line-height:1.6;
+ color:#626762;
+ margin:0;
 }
 
-
-/* VERTICAL JOURNEY */
-
 .journey-track{
-  display:flex;
+ display:flex;
+ flex-direction:column;
+ gap:0;
 
-  flex-direction:column;
+ overflow-y:auto;
+ overflow-x:hidden;
 
-  gap:0;
+ max-height:760px;
 
-  overflow-y:auto;
-  overflow-x:hidden;
+ padding:0 10px 30px 185px;
 
-  max-height:760px;
+ scroll-snap-type:y mandatory;
+ scroll-behavior:smooth;
 
-  padding:
-    0
-    12px
-    30px
-    185px;
-
-  scroll-snap-type:y mandatory;
-  scroll-behavior:smooth;
-
-  scrollbar-width:none
+ scrollbar-width:none;
 }
 
 .journey-track::-webkit-scrollbar{
-  display:none
+ display:none;
 }
 
-
-/* JOURNEY CARD */
-
 .journey-card{
-  min-width:0!important;
-  width:100%!important;
+ width:100%;
+ min-height:530px;
+ height:530px;
+ flex:0 0 530px;
 
-  min-height:520px;
+ scroll-snap-align:start;
 
-  flex:0 0 520px;
+ display:grid;
+ grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr);
 
-  scroll-snap-align:start;
+ border-top:1px solid var(--line);
 
-  display:grid;
-
-  grid-template-columns:
-    minmax(0,1.45fr)
-    minmax(300px,.75fr);
-
-  border:0;
-
-  border-top:1px solid var(--line);
-
-  background:var(--white)
+ background:#fff;
 }
 
 .journey-card:last-child{
-  border-bottom:1px solid var(--line)
+ border-bottom:1px solid var(--line);
 }
 
-.journey-line{
-  display:none
-}
+/* IMAGE AREA */
 
 .journey-image{
-  height:520px;
-  min-height:0;
+ min-height:530px;
+ position:relative;
 
-  position:relative;
+ display:flex;
+ align-items:flex-end;
 
-  overflow:hidden;
+ padding:25px;
 
-  background-size:cover;
-  background-position:center;
+ overflow:hidden;
 
-  display:flex;
-  align-items:flex-end;
+ color:#fff;
+}
 
-  padding:18px;
+.journey-image:before{
+ content:"";
+ position:absolute;
+ inset:0;
 
-  color:#fff
+ background:
+ linear-gradient(
+  135deg,
+  rgba(23,24,23,.12),
+  rgba(23,24,23,.58)
+ );
+
+ z-index:1;
 }
 
 .journey-image:after{
-  content:"";
+ content:"";
+ position:absolute;
 
-  position:absolute;
-  inset:0;
+ width:260px;
+ height:260px;
 
-  background:
-    linear-gradient(
-      0deg,
-      rgba(0,0,0,.62),
-      rgba(0,0,0,.02) 70%
-    )
+ border:1px solid rgba(201,245,43,.45);
+
+ border-radius:50%;
+
+ right:-80px;
+ bottom:-100px;
+
+ z-index:1;
+}
+
+/* TEXTILE / EXPORT VISUALS */
+
+.textile-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(55,68,34,.45),
+  rgba(10,20,15,.65)
+ ),
+ url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
+}
+
+.fabric-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(40,55,42,.25),
+  rgba(10,15,12,.72)
+ ),
+ url("https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
+}
+
+.packing-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(55,45,25,.22),
+  rgba(10,15,12,.72)
+ ),
+ url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
+}
+
+.container-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(20,35,45,.25),
+  rgba(5,10,15,.75)
+ ),
+ url("https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
+}
+
+.port-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(20,45,50,.2),
+  rgba(5,15,18,.72)
+ ),
+ url("https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
+}
+
+.vessel-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(20,35,45,.2),
+  rgba(5,12,20,.72)
+ ),
+ url("https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
+}
+
+/* CONSTRUCTION VISUAL */
+
+.construction-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(55,45,30,.2),
+  rgba(12,14,12,.72)
+ ),
+ url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
+}
+
+.cad-img{
+ background:
+ linear-gradient(
+  135deg,
+  rgba(35,45,55,.2),
+  rgba(8,12,16,.76)
+ ),
+ url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85");
+
+ background-size:cover;
+ background-position:center;
 }
 
 .journey-image span,
 .journey-image b{
-  position:relative;
-  z-index:2
+ position:relative;
+ z-index:2;
 }
 
 .journey-image span{
-  position:absolute;
-  right:15px;
-  top:14px;
+ position:absolute;
+ right:22px;
+ top:20px;
 
-  font:600 10px Manrope;
-  letter-spacing:.12em
+ font:600 10px Manrope;
+ letter-spacing:.12em;
 }
 
 .journey-image b{
-  font:700 16px Manrope;
-  letter-spacing:.05em
+ font:700 18px Manrope;
+ letter-spacing:.05em;
 }
 
-.factory-img{
-  background-image:url('https://al-hooraintextiles.com/images/export.png');
-  background-size:cover;
-  background-position:center
-}
-
-.container-img{
-  background-image:url('https://www.worldumbrellas.com/uploads/43388/page/p202501130954537c875.jpg?size=800x0');
-  background-size:cover;
-  background-position:center
-}
-
-.port-img{
-  background-image:url('https://www.odu.edu/sites/default/files/images/Maritime%20Ship_AdobeStock_176885314.jpeg');
-  background-size:cover;
-  background-position:center
-}
-
-.vessel-img{
-  background-image:url('https://gimworld.com/site/gimworld.com/image/catalog/2026-04%20Landing%20Page%20Photo/cargo-ship-sailing-through-ocean.jpg');
-  background-size:cover;
-  background-position:center
-}
-
-.ocean-img{
-  background-image:url('https://cdn.prod.website-files.com/62342b519367452b95fffd1c/655b9d593d0ad4bd73aad22e_iStock-1419513771.jpg');
-  background-size:cover;
-  background-position:center
-}
-
-.destination-img{
-  background-image:url('https://assets.softr-files.com/applications/a59902bb-b667-4a17-bf9d-2bfa58a4d5fb/assets/0ff9612a-4b92-4a6e-a078-28727741aa6e.jpeg');
-  background-size:cover;
-  background-position:center
-}
+/* JOURNEY TEXT */
 
 .journey-copy{
-  padding:55px;
+ padding:55px;
 
-  display:flex;
-  flex-direction:column;
-  justify-content:center
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
 }
 
 .journey-copy small{
-  font-size:8px;
-  letter-spacing:.14em;
-  color:#81867f
+ font-size:8px;
+ letter-spacing:.14em;
+ color:#81867f;
 }
 
 .journey-copy h3{
-  font:600 clamp(36px,4vw,60px)/.98 Manrope;
-
-  letter-spacing:-.04em;
-
-  margin:12px 0 16px
+ font:600 clamp(36px,4vw,60px)/.98 Manrope;
+ letter-spacing:-.04em;
+ margin:12px 0 16px;
 }
 
 .journey-copy p{
-  font-size:14px;
-  line-height:1.7;
-
-  color:#737873;
-
-  margin:0;
-
-  min-height:auto;
-
-  max-width:390px
+ font-size:14px;
+ line-height:1.7;
+ color:#737873;
+ margin:0;
+ max-width:390px;
 }
 
 .tags{
-  margin-top:25px;
+ margin-top:25px;
 
-  font-size:7px;
+ font-size:7px;
 
-  letter-spacing:.09em;
+ letter-spacing:.09em;
 
-  color:#7b8c00;
+ color:#7b8c00;
 
-  line-height:1.7
+ line-height:1.7;
 }
 
 .journey-route-cue{
-  padding:17px 0;
+ padding:17px 0;
+ border-bottom:1px solid var(--line);
+ text-align:center;
 
-  border-bottom:1px solid var(--line);
-
-  text-align:center;
-
-  font-size:8px;
-
-  letter-spacing:.2em;
-
-  color:#7b807b
+ font-size:8px;
+ letter-spacing:.2em;
+ color:#7b807b;
 }
 
 .journey-route-cue span{
-  color:#91a900;
-
-  padding:0 14px;
-
-  font-size:12px
+ color:#91a900;
+ padding:0 14px;
+ font-size:12px;
 }
-
 
 /* EDUCATION */
 
 .edu{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line)
+ display:grid;
+ grid-template-columns:1fr 1fr 1fr;
+ border:1px solid var(--line);
 }
 
 .eduItem{
-  padding:30px;
-  border-right:1px solid var(--line)
+ padding:30px;
+ border-right:1px solid var(--line);
 }
 
 .eduItem:last-child{
-  border:0
+ border:0;
 }
 
 .eduItem small{
-  display:block;
-
-  font-size:8px;
-  letter-spacing:.12em;
-
-  color:#7b817b
+ font-size:9px;
+ text-transform:uppercase;
+ letter-spacing:.1em;
+ color:#777c77;
 }
 
 .eduItem h3{
-  font:600 23px Manrope;
-
-  letter-spacing:-.04em;
-
-  margin:22px 0
+ font:600 20px Manrope;
+ letter-spacing:-.035em;
+ margin:9px 0;
 }
 
 .skills{
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:8px;
-
-  margin-top:25px
+ margin-top:25px;
+ display:flex;
+ flex-wrap:wrap;
+ gap:7px;
 }
 
 .skill{
-  border:1px solid var(--line);
-
-  padding:9px 11px;
-
-  font-size:7px;
-
-  letter-spacing:.08em
+ padding:9px 11px;
+ border:1px solid var(--line);
+ font-size:9px;
+ text-transform:uppercase;
+ letter-spacing:.1em;
+ color:#666b66;
 }
-
 
 /* CONTACT */
 
 .contact{
-  padding:100px 0
+ background:var(--ink);
+ color:#fff;
+ padding:80px 0;
+ margin-top:40px;
 }
 
 .contactInner{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:60px;
-
-  align-items:center
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ gap:50px;
 }
 
 .contact h2{
-  font:700 clamp(55px,8vw,110px)/.86 Manrope;
-
-  letter-spacing:-.08em;
-
-  margin:0
+ font:600 clamp(50px,7vw,100px)/.88 Manrope;
+ letter-spacing:-.07em;
+ margin:0;
 }
 
 .contact h2 span{
-  color:#8ea900
+ color:var(--lime);
 }
 
 .contact p{
-  max-width:450px;
-
-  font-size:17px;
-
-  line-height:1.6;
-
-  color:#686e68
+ max-width:360px;
+ color:#a9ada9;
+ line-height:1.6;
+ font-size:14px;
 }
+
+.contact .btn{
+ color:#fff;
+ border-color:#666;
+}
+
+.contact .btn.main{
+ background:#fff;
+ color:var(--ink);
+ border-color:#fff;
+}
+
+/* FOOTER */
 
 footer{
-  padding:22px 0;
+ padding:24px 0;
+ font-size:9px;
+ text-transform:uppercase;
+ letter-spacing:.12em;
+ color:#858a85;
 
-  border-top:1px solid var(--line);
-
-  display:flex;
-
-  justify-content:space-between;
-
-  font-size:8px;
-
-  letter-spacing:.1em;
-
-  color:#7b807b
+ display:flex;
+ justify-content:space-between;
 }
-
 
 /* REVEAL */
 
 .reveal{
-  opacity:0;
-  transform:translateY(25px);
-
-  transition:
-    opacity .7s ease,
-    transform .7s ease
+ opacity:0;
+ transform:translateY(24px);
+ transition:.7s ease;
 }
 
 .reveal.show{
-  opacity:1;
-  transform:none
+ opacity:1;
+ transform:none;
 }
 
-
-/* ================================
-   TABLET
-   ================================ */
+/* TABLET */
 
 @media(max-width:900px){
 
-  .wrap{
-    width:calc(100% - 38px)
-  }
+ .wrap{
+  width:calc(100% - 38px);
+ }
 
-  .nav{
-    height:68px
-  }
+ .nav{
+  height:68px;
+ }
 
-  .navlinks a:not(:last-child){
-    display:none
-  }
+ .navlinks a:not(:last-child){
+  display:none;
+ }
 
-  .hero{
-    grid-template-columns:1fr;
-    gap:35px;
-    padding-top:55px
-  }
+ .hero{
+  grid-template-columns:1fr;
+  gap:35px;
+  padding-top:55px;
+ }
 
-  .visual{
-    height:500px
-  }
+ .visual{
+  height:500px;
+ }
 
-  .photoFrame{
-    width:min(390px,78vw);
-    height:450px
-  }
+ .photoFrame{
+  width:min(390px,78vw);
+  height:450px;
+ }
 
-  .profile,
-  .timeline{
-    margin-left:0
-  }
+ .profile,
+ .timeline,
+ .journey-intro,
+ .workflowLead{
+  margin-left:0;
+ }
 
-  .profile{
-    grid-template-columns:1fr
-  }
+ .profile{
+  grid-template-columns:1fr;
+ }
 
-  .grid{
-    grid-template-columns:1fr 1fr
-  }
+ .grid{
+  grid-template-columns:1fr 1fr;
+ }
 
-  .sectionTop{
-    grid-template-columns:1fr;
-    gap:12px
-  }
+ .sectionTop{
+  grid-template-columns:1fr;
+  gap:12px;
+ }
 
-  .edu{
-    grid-template-columns:1fr
-  }
+ .edu{
+  grid-template-columns:1fr;
+ }
 
-  .eduItem{
-    border-right:0;
-    border-bottom:1px solid var(--line)
-  }
+ .eduItem{
+  border-right:0;
+  border-bottom:1px solid var(--line);
+ }
 
-  .workflowLead{
-    margin-left:0
-  }
+ .workflowLead{
+  display:block;
+ }
 
-  .workflow3d{
-    padding-left:0;
-    max-height:560px
-  }
+ .workflowControls{
+  margin-top:22px;
+ }
 
-  .wfCard{
-    min-height:340px;
-    height:340px;
-    flex-basis:340px
-  }
-
-  .journey-intro{
-    margin-left:0
-  }
-
-  .journey-track{
-    padding-left:0;
-    max-height:680px
-  }
-
-  .journey-card{
-    grid-template-columns:1fr;
-
-    min-height:600px;
-
-    flex-basis:600px
-  }
-
-  .journey-image{
-    height:310px
-  }
-
-  .journey-copy{
-    padding:30px
-  }
+ .workflow3d,
+ .journey-track{
+  padding-left:0;
+ }
 
 }
 
-
-/* ================================
-   MOBILE
-   ================================ */
+/* MOBILE */
 
 @media(max-width:700px){
 
-  html,
-  body{
-    width:100%;
-    max-width:100%;
-    overflow-x:hidden
-  }
-
-  .wrap{
-    width:calc(100% - 32px);
-    max-width:100%
-  }
+ .wrap{
+  width:calc(100% - 32px);
+ }
+
+ .nav{
+  height:64px;
+  overflow:hidden;
+ }
+
+ .logo{
+  font-size:14px;
+ }
+
+ .navlinks{
+  gap:14px;
+  font-size:8px;
+ }
+
+ .navlinks a:not(:last-child){
+  display:none;
+ }
+
+ .hero{
+  min-height:auto;
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+  padding:42px 0 48px;
+ }
+
+ h1,
+ .hero h1{
+  font-size:clamp(42px,12.5vw,62px);
+  line-height:.94;
+  white-space:normal;
+ }
+
+ .heroText{
+  font-size:15px;
+ }
+
+ .heroStats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+ }
+
+ .stat{
+  padding:14px 8px 0 0;
+  margin-right:8px;
+ }
+
+ .stat b{
+  font-size:21px;
+ }
+
+ .stat span{
+  font-size:7px;
+  line-height:1.35;
+ }
+
+ .visual{
+  height:auto;
+  min-height:430px;
+  padding:10px 0 20px;
+ }
+
+ .photoFrame{
+  width:min(82vw,330px);
+  height:405px;
+ }
+
+ section{
+  padding:78px 0;
+ }
+
+ .title{
+  font-size:clamp(38px,10vw,54px);
+ }
+
+ .profile{
+  display:block;
+ }
+
+ .profile p{
+  font-size:16px;
+ }
+
+ .statsLarge{
+  grid-template-columns:repeat(3,1fr);
+ }
+
+ .statsLarge div{
+  padding:18px 10px;
+ }
+
+ .statsLarge b{
+  font-size:27px;
+ }
+
+ .statsLarge span{
+  font-size:7px;
+ }
 
-  .nav{
-    height:64px;
-    padding:0;
-    overflow:hidden
-  }
-
-  .logo{
-    font-size:14px;
-    white-space:nowrap
-  }
+ .grid{
+  grid-template-columns:1fr;
+ }
 
-  .navlinks{
-    gap:14px;
-    font-size:8px;
-    flex-shrink:0
-  }
+ .card{
+  min-height:220px;
+ }
 
-  .navlinks a:not(:last-child){
-    display:none
-  }
+ .timeline{
+  margin:0;
+ }
 
-  .navlinks a:last-child{
-    display:block
-  }
+ .job{
+  grid-template-columns:1fr;
+  gap:8px;
+  padding:28px 0;
+ }
 
-  .hero{
-    min-height:auto;
+ .job h3{
+  font-size:24px;
+ }
 
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
+ /* V17 WORKFLOW MOBILE = VERTICAL */
 
-    gap:28px;
+ .workflowSection{
+  overflow:hidden;
+ }
 
-    padding:42px 0 48px
-  }
+ .workflowLead{
+  display:block;
+  margin:0 0 24px;
+ }
 
-  .heroText{
-    font-size:15px;
-    line-height:1.55;
-    margin-top:22px
-  }
+ .workflowLead p{
+  font-size:15px;
+ }
 
-  h1,
-  .hero h1{
-    font-size:clamp(42px,12.5vw,62px);
+ .workflowControls{
+  margin-top:18px;
+ }
 
-    line-height:.94;
+ .workflow3d{
+  width:100%;
 
-    letter-spacing:-.07em;
+  max-height:475px;
 
-    max-width:100%;
+  display:flex;
+  flex-direction:column;
 
-    white-space:normal
-  }
+  overflow-y:auto;
+  overflow-x:hidden;
 
-  .actions{
-    flex-wrap:wrap;
-    margin-top:22px
-  }
+  padding:0 4px 24px 0;
 
-  .btn{
-    padding:12px 14px;
-    font-size:8px
-  }
+  scroll-snap-type:y mandatory;
 
-  .heroStats{
-    width:100%;
-    max-width:none;
+  -webkit-overflow-scrolling:touch;
+ }
 
-    margin-top:30px;
+ .wfCard{
+  width:100%;
+  min-height:450px;
+  height:450px;
+  flex:0 0 450px;
 
-    display:grid;
+  padding:32px 22px;
 
-    grid-template-columns:repeat(3,1fr);
+  scroll-snap-align:start;
+ }
 
-    gap:0
-  }
+ .wfCard h3{
+  font-size:39px;
+ }
 
-  .stat{
-    padding:14px 8px 0 0;
-    margin-right:8px
-  }
+ /* V17 EXPORT JOURNEY MOBILE = VERTICAL */
 
-  .stat b{
-    font-size:21px
-  }
+ .journey-section{
+  overflow:hidden;
+ }
 
-  .stat span{
-    font-size:7px;
-    letter-spacing:.07em;
-    line-height:1.35;
-    display:block
-  }
+ .journey-intro{
+  margin:0 0 28px;
+ }
 
-  .heroSocial{
-    margin-top:18px
-  }
+ .journey-intro p{
+  font-size:15px;
+ }
 
-  .heroSocial a{
-    width:34px;
-    height:34px
-  }
+ .journey-track{
+  width:100%;
 
-  .visual{
-    height:auto;
+  max-height:620px;
 
-    min-height:430px;
+  display:flex;
+  flex-direction:column;
 
-    width:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
 
-    padding:10px 0 20px;
+  padding:0 4px 24px 0;
 
-    display:flex;
+  scroll-snap-type:y mandatory;
 
-    justify-content:center
-  }
-
-  .photoFrame{
-    width:min(82vw,330px);
-    height:405px;
-
-    box-shadow:12px 12px 0 var(--lime)
-  }
+  -webkit-overflow-scrolling:touch;
+ }
 
-  .photoFrame:before{
-    inset:-9px 9px 9px -9px
-  }
+ .journey-card{
+  width:100%;
+  min-height:590px;
+  height:590px;
+  flex:0 0 590px;
 
-  .corner{
-    left:16px;
-    bottom:18px;
+  display:grid;
+  grid-template-columns:1fr;
 
-    font-size:8px;
-
-    letter-spacing:.1em
-  }
-
-  .limeBlock{
-    width:92px;
-    height:92px;
-
-    right:0;
-    bottom:0
-  }
-
-  .number{
-    top:20px
-  }
-
-  .caption{
-    top:15px
-  }
-
-  .marquee{
-    font-size:8px;
-    padding:11px 0
-  }
-
-  section{
-    padding:78px 0
-  }
-
-  .sectionTop{
-    display:block;
-    margin-bottom:32px
-  }
+  scroll-snap-align:start;
+ }
 
-  .sectionTop .no{
-    margin-bottom:12px
-  }
+ .journey-image{
+  min-height:290px;
+  height:290px;
+ }
 
-  .title{
-    font-size:clamp(38px,10vw,54px);
-    line-height:.98;
-    max-width:100%
-  }
+ .journey-copy{
+  padding:25px 22px;
+ }
 
-  .profile{
-    display:block;
-    margin:0
-  }
+ .journey-copy h3{
+  font-size:38px;
+ }
 
-  .profile p{
-    font-size:16px;
-    line-height:1.55
-  }
+ .journey-copy p{
+  font-size:12px;
+ }
 
-  .statsLarge{
-    grid-template-columns:repeat(3,1fr)
-  }
+ .edu{
+  grid-template-columns:1fr;
+ }
 
-  .statsLarge div{
-    padding:18px 10px
-  }
+ .eduItem{
+  padding:23px;
+ }
 
-  .statsLarge b{
-    font-size:27px
-  }
+ .contact{
+  padding:62px 0;
+ }
 
-  .statsLarge span{
-    font-size:7px;
-    line-height:1.35;
-    display:block
-  }
+ .contactInner{
+  display:block;
+ }
 
-  .grid{
-    grid-template-columns:1fr
-  }
+ .contact h2{
+  font-size:58px;
+ }
 
-  .card{
-    min-height:220px
-  }
+ .contact p{
+  margin-top:25px;
+  font-size:13px;
+ }
 
-  .card h3{
-    margin-top:48px
-  }
+ footer{
+  display:block;
+  line-height:1.7;
+ }
 
-  .timeline{
-    margin:0
-  }
-
-  .job{
-    grid-template-columns:1fr;
-    gap:8px;
-    padding:28px 0
-  }
-
-  .job h3{
-    font-size:24px
-  }
-
-  .job ul{
-    font-size:12px;
-    line-height:1.65
-  }
-
-
-  /* ================================
-     V17 MOBILE WORKFLOW
-     STILL UP / DOWN
-     ================================ */
-
-  .workflowSection{
-    overflow:hidden
-  }
-
-  .workflowLead{
-    display:block;
-    margin:0 0 24px
-  }
-
-  .workflowLead p{
-    font-size:15px;
-    line-height:1.55
-  }
-
-  .workflowControls{
-    margin-top:18px
-  }
-
-  .workflow3d{
-    width:100%;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:0;
-
-    overflow-y:auto;
-    overflow-x:hidden;
-
-    max-height:475px;
-
-    padding:
-      0
-      4px
-      24px
-      0;
-
-    margin:0;
-
-    scroll-snap-type:y mandatory;
-
-    perspective:none;
-
-    -webkit-overflow-scrolling:touch
-  }
-
-  .wfCard{
-    min-width:0;
-    width:100%;
-
-    min-height:450px;
-    height:450px;
-
-    flex:0 0 450px;
-
-    padding:32px 22px;
-
-    scroll-snap-align:start
-  }
-
-  .wfCard h3{
-    font-size:39px
-  }
-
-  .wfCard p{
-    font-size:12px;
-    line-height:1.6
-  }
-
-
-  /* ================================
-     V17 MOBILE JOURNEY
-     UP / DOWN
-     ================================ */
-
-  .journey-section{
-    overflow:hidden
-  }
-
-  .journey-intro{
-    margin:0 0 28px;
-    max-width:none
-  }
-
-  .journey-intro p{
-    font-size:15px;
-    line-height:1.55
-  }
-
-  .journey-track{
-    width:100%;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:0;
-
-    overflow-y:auto;
-    overflow-x:hidden;
-
-    max-height:620px;
-
-    padding:
-      6px
-      4px
-      24px
-      0;
-
-    margin:0;
-
-    scroll-snap-type:y mandatory;
-
-    -webkit-overflow-scrolling:touch
-  }
-
-  .journey-card{
-    min-width:0!important;
-    width:100%!important;
-
-    min-height:590px;
-
-    flex:0 0 590px;
-
-    scroll-snap-align:start;
-
-    display:grid;
-
-    grid-template-columns:1fr
-  }
-
-  .journey-image{
-    height:285px
-  }
-
-  .journey-copy{
-    padding:25px 22px
-  }
-
-  .journey-copy h3{
-    font-size:38px
-  }
-
-  .journey-copy p{
-    font-size:12px
-  }
-
-  .journey-line{
-    display:none
-  }
-
-  .journey-route-cue{
-    font-size:7px;
-    letter-spacing:.12em;
-    overflow:hidden
-  }
-
-  .journey-route-cue span{
-    padding:0 7px
-  }
-
-  .edu{
-    grid-template-columns:1fr
-  }
-
-  .eduItem{
-    padding:23px;
-
-    border-right:0;
-
-    border-bottom:1px solid var(--line)
-  }
-
-  .skills{
-    gap:6px
-  }
-
-  .skill{
-    font-size:7px;
-    padding:8px 9px
-  }
-
-  .contact{
-    padding:62px 0
-  }
-
-  .contactInner{
-    display:block
-  }
-
-  .contact h2{
-    font-size:58px
-  }
-
-  .contact p{
-    margin-top:25px;
-    font-size:13px
-  }
-
-  footer{
-    display:block;
-    line-height:1.7
-  }
-
-  footer span{
-    display:block
-  }
+ footer span{
+  display:block;
+ }
 
 }
 
-
-/* VERY SMALL MOBILE */
+/* SMALL MOBILE */
 
 @media(max-width:380px){
 
-  .wrap{
-    width:calc(100% - 24px)
-  }
+ .wrap{
+  width:calc(100% - 24px);
+ }
 
-  h1,
-  .hero h1{
-    font-size:40px
-  }
+ h1,
+ .hero h1{
+  font-size:40px;
+ }
 
-  .photoFrame{
-    width:78vw;
-    height:370px
-  }
+ .photoFrame{
+  width:78vw;
+  height:370px;
+ }
 
-  .heroStats{
-    grid-template-columns:1fr 1fr 1fr
-  }
+ .heroStats{
+  grid-template-columns:1fr 1fr 1fr;
+ }
 
-  .stat b{
-    font-size:19px
-  }
+ .stat b{
+  font-size:19px;
+ }
 
-}
-
-
-/* ================================
-   V17 VERTICAL MOUSE / SCROLL STYLE
-   ================================ */
-
-.workflow3d,
-.journey-track{
-  overscroll-behavior:contain;
 }
 
 </style>
@@ -1657,15 +1462,11 @@ ATIF<span>↗</span>
 <nav class="navlinks">
 
 <a href="#profile">Profile</a>
-
 <a href="#expertise">Expertise</a>
-
 <a href="#career">Career</a>
-
+<a href="#workflow">Workflow</a>
 <a href="#journey">Journey</a>
-
 <a href="#education">Education</a>
-
 <a href="#contact">Contact</a>
 
 </nav>
@@ -1713,7 +1514,6 @@ Experience ↓
 
 </div>
 
-
 <div class="heroStats">
 
 <div class="stat">
@@ -1730,49 +1530,6 @@ Experience ↓
 <b>3</b>
 <span>Core domains</span>
 </div>
-
-</div>
-
-
-<div class="heroSocial">
-
-<a href="mailto:atif.alhaditex@gmail.com">
-<svg viewBox="0 0 24 24">
-<path d="M3 5h18v14H3z"/>
-<path d="m3 6 9 7 9-7"/>
-</svg>
-</a>
-
-<a href="https://wa.me/923328613400"
-target="_blank"
-rel="noopener">
-
-<svg viewBox="0 0 24 24">
-
-<path d="M20.5 11.7a8.4 8.4 0 0 1-12.3 7.4L4 20l.9-4A8.4 8.4 0 1 1 20.5 11.7Z"/>
-
-<path d="M8.2 8.2c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.7 1.3 1.7 2.3 3 3l.6-.5c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.6c0 .3 0 .6-.5.8-.5.3-1.2.4-1.9.2-2-.5-4.4-2.8-5.6-4.2-1.1-1.3-2-2.9-2.1-3.7-.1-.7 0-1.4.3-1.9Z"/>
-
-</svg>
-
-</a>
-
-
-<a href="https://www.linkedin.com/search/results/people/?keywords=Mian%20Muhammad%20Atif%20Al%20Hadi%20Textile"
-target="_blank"
-rel="noopener">
-
-<svg viewBox="0 0 24 24">
-
-<path d="M5 8v11"/>
-<path d="M5 5.2v.1"/>
-<path d="M10 19V8"/>
-<path d="M10 12.5c.7-2.9 5.8-3.8 7.1-.2.3.8.4 1.7.4 2.7V19"/>
-<path d="M10 11.5c.6-1.7 1.8-3 3.9-3 2.8 0 3.6 2.1 3.6 4.7"/>
-
-</svg>
-
-</a>
 
 </div>
 
@@ -1817,40 +1574,46 @@ Mian Muhammad Atif
 
 <div class="track">
 
-EXPORT DOCUMENTATION
+TEXTILE EXPORT
 <span>—</span>
 
-LOGISTICS COORDINATION
+FITTED SHEETS
 <span>—</span>
 
-CUSTOMS &amp; COMPLIANCE
-<span>—</span>
-
-SHIPPING REPORTS
-<span>—</span>
-
-ERP / MIS
-<span>—</span>
-
-ADMINISTRATION
+GARMENTS
 <span>—</span>
 
 EXPORT DOCUMENTATION
 <span>—</span>
 
-LOGISTICS COORDINATION
+LOGISTICS
 <span>—</span>
 
 CUSTOMS &amp; COMPLIANCE
 <span>—</span>
 
-SHIPPING REPORTS
+SHIPPING
 <span>—</span>
 
-ERP / MIS
+TEXTILE EXPORT
 <span>—</span>
 
-ADMINISTRATION
+FITTED SHEETS
+<span>—</span>
+
+GARMENTS
+<span>—</span>
+
+EXPORT DOCUMENTATION
+<span>—</span>
+
+LOGISTICS
+<span>—</span>
+
+CUSTOMS &amp; COMPLIANCE
+<span>—</span>
+
+SHIPPING
 
 </div>
 
@@ -1859,13 +1622,15 @@ ADMINISTRATION
 
 <div class="journey-route-cue">
 
-FACTORY
+TEXTILE FACTORY
+<span>→</span>
+PACKING
+<span>→</span>
+CONTAINER
 <span>→</span>
 KARACHI
 <span>→</span>
 VESSEL
-<span>→</span>
-OCEAN
 <span>→</span>
 BUYER
 
@@ -1950,114 +1715,59 @@ Core capabilities,
 
 <div class="grid">
 
-
 <article class="card reveal">
-
-<div class="n">
-01 / EXPORT
-</div>
-
-<h3>
-Import &amp; Export Documentation
-</h3>
-
+<div class="n">01 / EXPORT</div>
+<h3>Import &amp; Export Documentation</h3>
 <p>
 Preparing and reviewing commercial and shipping documentation
 with attention to accuracy and compliance.
 </p>
-
 </article>
 
-
 <article class="card reveal">
-
-<div class="n">
-02 / LOGISTICS
-</div>
-
-<h3>
-Logistics Coordination
-</h3>
-
+<div class="n">02 / LOGISTICS</div>
+<h3>Logistics Coordination</h3>
 <p>
 Coordinating shipment activities with logistics teams,
 freight partners and stakeholders.
 </p>
-
 </article>
 
-
 <article class="card reveal">
-
-<div class="n">
-03 / REPORTING
-</div>
-
-<h3>
-Shipping &amp; Export Reports
-</h3>
-
+<div class="n">03 / REPORTING</div>
+<h3>Shipping &amp; Export Reports</h3>
 <p>
 Preparing, tracking and maintaining operational reports
 for shipment follow-up.
 </p>
-
 </article>
 
-
 <article class="card reveal">
-
-<div class="n">
-04 / COMMERCIAL
-</div>
-
-<h3>
-Invoices &amp; Vendor Communication
-</h3>
-
+<div class="n">04 / COMMERCIAL</div>
+<h3>Invoices &amp; Vendor Communication</h3>
 <p>
 Processing invoices and maintaining clear professional
 communication with vendors and stakeholders.
 </p>
-
 </article>
 
-
 <article class="card reveal">
-
-<div class="n">
-05 / ADMIN
-</div>
-
-<h3>
-Administration &amp; Office Management
-</h3>
-
+<div class="n">05 / ADMIN</div>
+<h3>Administration &amp; Office Management</h3>
 <p>
 Managing office workflows, budgets, staff coordination,
 filing and routine administration.
 </p>
-
 </article>
 
-
 <article class="card reveal">
-
-<div class="n">
-06 / SYSTEMS
-</div>
-
-<h3>
-ERP, MIS &amp; Microsoft Office
-</h3>
-
+<div class="n">06 / SYSTEMS</div>
+<h3>ERP, MIS &amp; Microsoft Office</h3>
 <p>
 Working with ERP/MIS systems, reporting, data entry
 and Microsoft Office documentation tools.
 </p>
-
 </article>
-
 
 </div>
 
@@ -2083,7 +1793,6 @@ A career built around
 
 
 <div class="timeline">
-
 
 <article class="job reveal">
 
@@ -2244,7 +1953,6 @@ Created technical documentation and coordinated with engineering teams.
 
 </article>
 
-
 </div>
 
 </section>
@@ -2312,17 +2020,11 @@ aria-label="Next">
 
 <article class="wfCard reveal">
 
-<div class="wfNo">
-01
-</div>
+<div class="wfNo">01</div>
 
-<div class="wfIcon">
-DOC
-</div>
+<div class="wfIcon">DOC</div>
 
-<small>
-DOCUMENTATION
-</small>
+<small>DOCUMENTATION</small>
 
 <h3>
 Prepare &amp; verify
@@ -2334,7 +2036,7 @@ documentation are prepared and checked before shipment moves.
 </p>
 
 <span>
-ACCURACY / COMPLETENESS
+CI / PL / EXPORT DOCUMENTS
 </span>
 
 </article>
@@ -2342,29 +2044,23 @@ ACCURACY / COMPLETENESS
 
 <article class="wfCard reveal">
 
-<div class="wfNo">
-02
-</div>
+<div class="wfNo">02</div>
 
-<div class="wfIcon">
-CI
-</div>
+<div class="wfIcon">TXT</div>
 
-<small>
-COMMERCIAL
-</small>
+<small>TEXTILE / GARMENTS</small>
 
 <h3>
-Commercial control
+Fitted sheets &amp; garments
 </h3>
 
 <p>
-Invoice details, quantities, values and shipment information
-are aligned for operational and customer requirements.
+Finished textile goods are checked against order,
+packing and commercial requirements before dispatch.
 </p>
 
 <span>
-INVOICE / REPORTS
+FITTED SHEETS / GARMENTS
 </span>
 
 </article>
@@ -2372,24 +2068,18 @@ INVOICE / REPORTS
 
 <article class="wfCard reveal">
 
-<div class="wfNo">
-03
-</div>
+<div class="wfNo">03</div>
 
-<div class="wfIcon">
-LOG
-</div>
+<div class="wfIcon">LOG</div>
 
-<small>
-LOGISTICS
-</small>
+<small>LOGISTICS</small>
 
 <h3>
 Move the cargo
 </h3>
 
 <p>
-Coordinate transport, container movement, loading schedules
+Coordinate transport, loading schedules, container movement
 and communication with logistics partners.
 </p>
 
@@ -2402,17 +2092,11 @@ TRUCK / CONTAINER / PORT
 
 <article class="wfCard reveal">
 
-<div class="wfNo">
-04
-</div>
+<div class="wfNo">04</div>
 
-<div class="wfIcon">
-CUS
-</div>
+<div class="wfIcon">CUS</div>
 
-<small>
-CUSTOMS &amp; COMPLIANCE
-</small>
+<small>CUSTOMS &amp; COMPLIANCE</small>
 
 <h3>
 Clear the shipment
@@ -2424,7 +2108,7 @@ so the shipment can proceed without avoidable delays.
 </p>
 
 <span>
-COMPLIANCE / GD / DOCUMENTS
+CUSTOMS / GD / COMPLIANCE
 </span>
 
 </article>
@@ -2432,17 +2116,11 @@ COMPLIANCE / GD / DOCUMENTS
 
 <article class="wfCard reveal">
 
-<div class="wfNo">
-05
-</div>
+<div class="wfNo">05</div>
 
-<div class="wfIcon">
-SEA
-</div>
+<div class="wfIcon">SEA</div>
 
-<small>
-SHIPPING
-</small>
+<small>SHIPPING</small>
 
 <h3>
 Follow to departure
@@ -2465,7 +2143,7 @@ VESSEL / B.L. / ETD
 </section>
 
 
-<!-- JOURNEY -->
+<!-- EXPORT JOURNEY -->
 
 <section id="journey" class="wrap journey-section">
 
@@ -2476,7 +2154,7 @@ VESSEL / B.L. / ETD
 </div>
 
 <h2 class="title">
-From factory floor
+From textile factory
 <em>to the buyer.</em>
 </h2>
 
@@ -2489,9 +2167,9 @@ From factory floor
 
 <strong>Follow the cargo.</strong>
 
-From finished goods leaving the factory to container loading,
-Karachi port, vessel departure, ocean transit and final delivery —
-a visual view of the export operation.
+From fitted sheets and garments leaving the textile factory,
+through packing, container loading, Karachi port, vessel departure,
+ocean transit and final buyer delivery.
 
 </p>
 
@@ -2503,12 +2181,12 @@ a visual view of the export operation.
 
 <article class="journey-card reveal">
 
-<div class="journey-image factory-img">
+<div class="journey-image textile-img">
 
 <span>01</span>
 
 <b>
-FACTORY
+TEXTILE FACTORY
 </b>
 
 </div>
@@ -2520,16 +2198,87 @@ ORIGIN
 </small>
 
 <h3>
+Fitted Sheets &amp; Garments
+</h3>
+
+<p>
+Textile goods are prepared according to buyer requirements,
+with production completed before export packing.
+</p>
+
+<div class="tags">
+TEXTILE · FITTED SHEETS · GARMENTS
+</div>
+
+</div>
+
+</article>
+
+
+<article class="journey-card reveal">
+
+<div class="journey-image fabric-img">
+
+<span>02</span>
+
+<b>
+TEXTILE PREPARATION
+</b>
+
+</div>
+
+<div class="journey-copy">
+
+<small>
+QUALITY / PREPARATION
+</small>
+
+<h3>
 Goods Ready
 </h3>
 
 <p>
-Production completed, cartons prepared and shipment documents
-aligned before loading.
+Finished goods are checked, folded, packed and prepared
+for shipment documentation and dispatch.
 </p>
 
 <div class="tags">
-PACKING LIST · COMMERCIAL INVOICE
+QUALITY · PACKING · ORDER
+</div>
+
+</div>
+
+</article>
+
+
+<article class="journey-card reveal">
+
+<div class="journey-image packing-img">
+
+<span>03</span>
+
+<b>
+PACKING</b>
+
+</div>
+
+<div class="journey-copy">
+
+<small>
+EXPORT PACKING
+</small>
+
+<h3>
+Cartons &amp; Documents
+</h3>
+
+<p>
+Cartons are prepared and shipment details are aligned
+with Commercial Invoice and Packing List.
+</p>
+
+<div class="tags">
+CARTONS · CI · PL
 </div>
 
 </div>
@@ -2541,11 +2290,10 @@ PACKING LIST · COMMERCIAL INVOICE
 
 <div class="journey-image container-img">
 
-<span>02</span>
+<span>04</span>
 
 <b>
-CONTAINER
-</b>
+CONTAINER</b>
 
 </div>
 
@@ -2560,8 +2308,8 @@ Container Loading
 </h3>
 
 <p>
-Cartons are checked, loaded into the container,
-secured and sealed for dispatch.
+Cartons are loaded, secured and sealed before the export
+container moves towards the port.
 </p>
 
 <div class="tags">
@@ -2577,27 +2325,26 @@ STUFFING · SEAL · WEIGHT
 
 <div class="journey-image port-img">
 
-<span>03</span>
+<span>05</span>
 
 <b>
-KARACHI
-</b>
+KARACHI PORT</b>
 
 </div>
 
 <div class="journey-copy">
 
 <small>
-PORT
+PORT / CUSTOMS
 </small>
 
 <h3>
-Port &amp; Customs
+Export Clearance
 </h3>
 
 <p>
-The container moves to Karachi for export processing,
-terminal handling and shipment readiness.
+The container reaches Karachi for terminal handling,
+customs processing and shipment readiness.
 </p>
 
 <div class="tags">
@@ -2613,18 +2360,17 @@ CUSTOMS · TERMINAL · SHIPPING
 
 <div class="journey-image vessel-img">
 
-<span>04</span>
+<span>06</span>
 
 <b>
-VESSEL
-</b>
+VESSEL</b>
 
 </div>
 
 <div class="journey-copy">
 
 <small>
-DEPARTURE
+INTERNATIONAL SHIPPING
 </small>
 
 <h3>
@@ -2632,8 +2378,8 @@ Loaded on Vessel
 </h3>
 
 <p>
-Container is loaded onto the vessel and the export shipment
-moves into international transit.
+The container is loaded onto the vessel and the textile
+export shipment begins international transit.
 </p>
 
 <div class="tags">
@@ -2645,14 +2391,53 @@ B/L · VESSEL · ETD
 </article>
 
 
+</div>
+
+</section>
+
+
+<!-- CONSTRUCTION EXPERIENCE -->
+
+<section id="construction" class="wrap journey-section">
+
+<div class="sectionTop reveal">
+
+<div class="no">
+06 / Construction
+</div>
+
+<h2 class="title">
+Another side of the
+<em>professional journey.</em>
+</h2>
+
+</div>
+
+
+<div class="journey-intro reveal">
+
+<p>
+
+Before export operations, professional experience also included
+<strong>construction supervision, site coordination and technical drafting.</strong>
+This section keeps that experience visible without mixing it with the textile-export workflow.
+
+</p>
+
+</div>
+
+
+<div class="journey-track">
+
+
 <article class="journey-card reveal">
 
-<div class="journey-image ocean-img">
+<div class="journey-image construction-img">
 
-<span>05</span>
+<span>01</span>
 
 <b>
-TRANSIT
+SITE SUPERVISION
 </b>
 
 </div>
@@ -2660,20 +2445,19 @@ TRANSIT
 <div class="journey-copy">
 
 <small>
-OCEAN FREIGHT
-</small>
+AIRRS ASSOCIATES</small>
 
 <h3>
-International Movement
+Construction Projects
 </h3>
 
 <p>
-Shipment progress is followed through sailing updates,
-documentation and communication.
+Supervised construction projects, monitored site resources
+and coordinated activities according to project requirements.
 </p>
 
 <div class="tags">
-TRACKING · UPDATES · DOCUMENTS
+SITE · SUPERVISION · RESOURCES
 </div>
 
 </div>
@@ -2683,12 +2467,12 @@ TRACKING · UPDATES · DOCUMENTS
 
 <article class="journey-card reveal">
 
-<div class="journey-image destination-img">
+<div class="journey-image cad-img">
 
-<span>06</span>
+<span>02</span>
 
 <b>
-DESTINATION
+DRAFTING / CAD
 </b>
 
 </div>
@@ -2696,20 +2480,19 @@ DESTINATION
 <div class="journey-copy">
 
 <small>
-DELIVERY
-</small>
+ZAHEER A. SHEIKH &amp; ASSOCIATES</small>
 
 <h3>
-Buyer Receives
+Technical Drawings
 </h3>
 
 <p>
-The journey concludes at destination with arrival,
-import handling and delivery to the buyer.
+Prepared detailed CAD drawings and floor plans and supported
+technical documentation and engineering coordination.
 </p>
 
 <div class="tags">
-ARRIVAL · IMPORT · DELIVERY
+AUTOCAD · FLOOR PLANS · TECHNICAL DRAWINGS
 </div>
 
 </div>
@@ -2729,7 +2512,7 @@ ARRIVAL · IMPORT · DELIVERY
 <div class="sectionTop reveal">
 
 <div class="no">
-06 / Education &amp; Skills
+07 / Education &amp; Skills
 </div>
 
 <h2 class="title">
@@ -2881,89 +2664,39 @@ Export Officer · Lahore, Pakistan
 
 <script>
 
-/* ================================
-   REVEAL ANIMATION
-================================ */
+/* REVEAL */
 
-const io =
+const observer =
 new IntersectionObserver(
 
-es =>
+entries => {
 
-es.forEach(e => {
+entries.forEach(entry => {
 
-if(e.isIntersecting){
+if(entry.isIntersecting){
 
-e.target.classList.add("show");
+entry.target.classList.add("show");
 
-io.unobserve(e.target);
+observer.unobserve(entry.target);
 
 }
 
-}),
+});
+
+},
 
 {
-threshold:.12
+ threshold:.12
 }
 
 );
 
 document
 .querySelectorAll(".reveal")
-.forEach(e => io.observe(e));
+.forEach(el => observer.observe(el));
 
 
-/* ================================
-   V17 VERTICAL SLIDER
-================================ */
-
-(function(){
-
-const rails = [
-
-document.getElementById("workflow3d"),
-
-document.querySelector(".journey-track")
-
-].filter(Boolean);
-
-
-rails.forEach(rail => {
-
-rail.addEventListener(
-"wheel",
-
-e => {
-
-if(
-Math.abs(e.deltaY) >
-Math.abs(e.deltaX)
-){
-
-e.preventDefault();
-
-rail.scrollBy({
-
-top:e.deltaY,
-
-behavior:"smooth"
-
-});
-
-}
-
-},
-
-{
-passive:false
-}
-
-);
-
-});
-
-
-/* WORKFLOW BUTTONS */
+/* V17 VERTICAL WORKFLOW */
 
 const workflow =
 document.getElementById("workflow3d");
@@ -2975,17 +2708,10 @@ const next =
 document.querySelector(".wfNext");
 
 
-if(
-workflow &&
-previous &&
-next
-){
+if(workflow && previous && next){
 
 const amount =
-() => Math.max(
-300,
-workflow.clientHeight * .78
-);
+() => workflow.clientHeight * .82;
 
 
 previous.addEventListener(
@@ -3019,9 +2745,69 @@ behavior:"smooth"
 }
 );
 
+
+/* MOUSE WHEEL = UP / DOWN */
+
+workflow.addEventListener(
+"wheel",
+event => {
+
+if(Math.abs(event.deltaY) > Math.abs(event.deltaX)){
+
+event.preventDefault();
+
+workflow.scrollBy({
+
+top:event.deltaY,
+
+behavior:"smooth"
+
+});
+
 }
 
-})();
+},
+{
+passive:false
+}
+);
+
+}
+
+
+/* V17 VERTICAL EXPORT JOURNEY */
+
+const journey =
+document.querySelector(".journey-track");
+
+
+if(journey){
+
+journey.addEventListener(
+"wheel",
+event => {
+
+if(Math.abs(event.deltaY) > Math.abs(event.deltaX)){
+
+event.preventDefault();
+
+journey.scrollBy({
+
+top:event.deltaY,
+
+behavior:"smooth"
+
+});
+
+}
+
+},
+{
+passive:false
+}
+);
+
+}
 
 </script>
 
