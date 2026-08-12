@@ -8,6 +8,10 @@
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -20,20 +24,33 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    color:#f7f0df;
+    color:#24313f;
     overflow-x:hidden;
 
     background:
-        radial-gradient(circle at 15% 15%,rgba(220,185,105,.13),transparent 30%),
-        radial-gradient(circle at 85% 35%,rgba(116,31,45,.10),transparent 28%),
-        linear-gradient(135deg,#17130e,#3b3020,#211a12,#302719);
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(35,160,145,.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(183,142,58,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f7f8f6,
+            #eef4f1 45%,
+            #f7f5ef
+        );
 
     background-attachment:fixed;
 }
 
-/* =====================================================
+/* =========================================================
    SOFT SNOW
-===================================================== */
+========================================================= */
 
 .snow{
     position:fixed;
@@ -45,19 +62,25 @@ body{
 
 .snow span{
     position:absolute;
-    top:-20px;
+    top:-15px;
+
     width:3px;
     height:3px;
+
     border-radius:50%;
-    background:rgba(255,255,255,.62);
-    box-shadow:0 0 8px rgba(255,255,255,.65);
-    animation:snowfall linear infinite;
+
+    background:rgba(255,255,255,.72);
+
+    box-shadow:
+        0 0 7px rgba(255,255,255,.75);
+
+    animation:snowFall linear infinite;
 }
 
-@keyframes snowfall{
+@keyframes snowFall{
 
     0%{
-        transform:translate3d(0,-30px,0);
+        transform:translate3d(0,-20px,0);
         opacity:0;
     }
 
@@ -66,140 +89,235 @@ body{
     }
 
     100%{
-        transform:translate3d(90px,110vh,0);
+        transform:translate3d(70px,110vh,0);
         opacity:.08;
     }
 }
 
-/* =====================================================
-   GENERAL
-===================================================== */
-
-section{
-    width:min(1180px,92%);
-    margin:auto;
-    padding:75px 0;
-}
-
-.section-label{
-    color:#d8b765;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:4px;
-    margin-bottom:12px;
-}
-
-h2{
-    font-size:clamp(30px,4vw,52px);
-    line-height:1.05;
-    margin-bottom:15px;
-}
-
-.section-intro{
-    max-width:720px;
-    color:#d1c7b6;
-    line-height:1.8;
-    margin-bottom:30px;
-}
-
-/* =====================================================
-   HERO
-===================================================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
 
     min-height:100vh;
 
+    position:relative;
+
     display:flex;
     align-items:center;
 
-    padding:70px 7%;
+    padding:75px 7%;
 
-    position:relative;
+    overflow:hidden;
 
     background:
         linear-gradient(
-            90deg,
-            rgba(16,13,9,.96),
-            rgba(35,28,18,.72),
-            rgba(18,14,9,.94)
-        ),
-        url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=2000&q=90")
-        center/cover;
+            110deg,
+            rgba(250,250,248,.98) 0%,
+            rgba(250,250,248,.95) 42%,
+            rgba(27,159,143,.96) 42%,
+            rgba(23,149,135,.98) 100%
+        );
+}
+
+/* diagonal soft transition */
+
+header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+    height:120%;
+
+    top:-10%;
+    left:43%;
+
+    background:rgba(255,255,255,.12);
+
+    transform:rotate(-18deg);
+
+    pointer-events:none;
 }
 
 .hero{
 
     width:min(1200px,100%);
+
     margin:auto;
 
-    display:grid;
-    grid-template-columns:1.08fr .92fr;
+    position:relative;
 
-    gap:55px;
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        .78fr;
+
+    gap:60px;
+
     align-items:center;
 }
 
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
 .hero-text{
-    animation:heroIn 1.2s ease;
+
+    animation:heroEnter 1s ease both;
 }
 
-@keyframes heroIn{
+@keyframes heroEnter{
 
     from{
         opacity:0;
-        transform:translateY(35px);
+        transform:translateX(-35px);
     }
 
     to{
         opacity:1;
-        transform:none;
+        transform:translateX(0);
     }
 }
 
-.hero-tag{
-    color:#d8b765;
-    letter-spacing:4px;
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:20px;
+.hero-small{
+
+    color:#169b88;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
 }
 
-.hero h1{
+/* =========================================================
+   ANIMATED MAIN WORDS
+========================================================= */
 
-    font-size:clamp(37px,5vw,68px);
+.hero-animated{
 
-    line-height:1;
+    height:46px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    margin-bottom:12px;
+}
+
+.hero-animated span{
+
+    display:block;
+
+    color:#169b88;
+
+    font-size:clamp(
+        18px,
+        2.2vw,
+        27px
+    );
+
+    font-weight:800;
 
     letter-spacing:1px;
 
-    margin-bottom:22px;
+    white-space:nowrap;
+
+    animation:
+        textSlide 4.8s
+        ease-in-out
+        infinite;
+}
+
+@keyframes textSlide{
+
+    0%{
+        transform:translateX(-110%);
+        opacity:0;
+    }
+
+    12%{
+        transform:translateX(0);
+        opacity:1;
+    }
+
+    70%{
+        transform:translateX(0);
+        opacity:1;
+    }
+
+    88%{
+        transform:translateX(110%);
+        opacity:0;
+    }
+
+    100%{
+        transform:translateX(110%);
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.hero h1{
+
+    color:#253449;
+
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            64px
+        );
+
+    line-height:1;
+
+    letter-spacing:.5px;
+
+    margin-bottom:20px;
 
     white-space:nowrap;
 }
 
 .hero h1 span{
-    color:#d8b765;
+
+    color:#168f80;
 }
 
-.hero p{
+.hero-description{
 
     max-width:650px;
 
-    color:#d5cbbb;
+    color:#536170;
+
+    line-height:1.85;
 
     font-size:16px;
-
-    line-height:1.8;
 }
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .hero-buttons{
 
     display:flex;
-    gap:12px;
+
     flex-wrap:wrap;
 
-    margin-top:28px;
+    gap:12px;
+
+    margin-top:27px;
 }
 
 .btn{
@@ -210,72 +328,99 @@ header{
 
     padding:12px 21px;
 
-    border:1px solid rgba(216,183,101,.55);
+    border-radius:7px;
 
-    border-radius:8px;
+    color:#ffffff;
 
-    color:#fff7e8;
+    background:#159b88;
 
-    background:rgba(255,255,255,.035);
+    border:1px solid #159b88;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    font-size:13px;
 
-    transition:.4s ease;
+    font-weight:700;
+
+    transition:.35s ease;
+
+    box-shadow:
+        0 8px 22px rgba(
+            21,
+            155,
+            136,
+            .20
+        );
 }
 
 .btn:hover{
 
-    color:#fff;
+    background:#741f31;
 
-    background:#751f31;
+    border-color:#741f31;
 
-    border-color:#c44b61;
-
-    transform:translateY(-4px);
+    transform:
+        translateY(-4px);
 
     box-shadow:
-        0 12px 35px rgba(117,31,49,.5),
-        0 0 20px rgba(180,56,80,.22);
+        0 14px 30px rgba(
+            116,
+            31,
+            49,
+            .28
+        );
 }
 
-/* =====================================================
-   PROFILE IMAGE
-===================================================== */
+/* =========================================================
+   PROFILE IMAGE FRAME
+========================================================= */
 
-.profile-wrap{
+.profile-area{
 
-    width:330px;
-    height:400px;
+    display:flex;
 
-    margin:auto;
+    justify-content:center;
 
-    padding:10px;
+    align-items:center;
+
+    min-height:520px;
+}
+
+.profile-frame{
+
+    width:350px;
+    height:470px;
 
     position:relative;
 
+    padding:8px;
+
     background:
         linear-gradient(
-            135deg,
-            #e4c574,
-            #77571e,
-            #d5aa51,
-            #702030
+            145deg,
+            #d8b35a,
+            #ffffff,
+            #159b88,
+            #741f31
         );
 
     clip-path:polygon(
-        9% 0,
-        91% 0,
-        100% 9%,
-        100% 91%,
-        91% 100%,
-        9% 100%,
-        0 91%,
-        0 9%
+        8% 0,
+        92% 0,
+        100% 8%,
+        100% 92%,
+        92% 100%,
+        8% 100%,
+        0 92%,
+        0 8%
     );
 
-    filter:drop-shadow(0 25px 35px rgba(0,0,0,.5));
+    filter:
+        drop-shadow(
+            0 25px 35px
+            rgba(0,0,0,.28)
+        );
 
-    transition:.55s ease;
+    transition:
+        .5s ease;
 }
 
 .profile-inner{
@@ -285,17 +430,17 @@ header{
 
     overflow:hidden;
 
-    background:#15110d;
+    background:#e9eeeb;
 
     clip-path:polygon(
-        9% 0,
-        91% 0,
-        100% 9%,
-        100% 91%,
-        91% 100%,
-        9% 100%,
-        0 91%,
-        0 9%
+        8% 0,
+        92% 0,
+        100% 8%,
+        100% 92%,
+        92% 100%,
+        8% 100%,
+        0 92%,
+        0 8%
     );
 }
 
@@ -304,43 +449,347 @@ header{
     width:100%;
     height:100%;
 
-    object-fit:cover;
-    object-position:center top;
+    display:block;
 
-    transition:.6s ease;
+    object-fit:cover;
+
+    /*
+       IMPORTANT:
+       Face ko upar se crop nahi karega.
+       Photo ka upper portion visible rahega.
+    */
+
+    object-position:
+        center 17%;
+
+    transform:scale(.96);
+
+    transition:
+        .55s ease;
+
+    filter:
+        brightness(1.02)
+        contrast(1.02);
 }
 
-.profile-wrap:hover{
+.profile-frame:hover{
 
     transform:
         translateY(-10px)
-        rotate(-1deg)
         scale(1.025);
 
+    background:
+        linear-gradient(
+            145deg,
+            #741f31,
+            #d8b35a,
+            #159b88,
+            #741f31
+        );
+
     filter:
-        drop-shadow(0 25px 40px rgba(0,0,0,.55))
-        drop-shadow(0 0 20px rgba(117,31,49,.35));
+        drop-shadow(
+            0 25px 35px
+            rgba(116,31,49,.32)
+        );
 }
 
-.profile-wrap:hover img{
+.profile-frame:hover img{
 
-    transform:scale(1.07);
+    transform:scale(1.02);
 
     filter:
-        brightness(1.08)
+        brightness(1.06)
         contrast(1.05)
-        saturate(1.08);
+        saturate(1.05);
 }
 
-/* =====================================================
-   ⭐ VERTICAL TWO IMAGE SLIDER
-===================================================== */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
-.visual-slider{
+section{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    padding:85px 0;
+}
+
+.section-label{
+
+    color:#159b88;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    margin-bottom:12px;
+}
+
+section h2{
+
+    color:#253449;
+
+    font-size:
+        clamp(
+            30px,
+            4vw,
+            50px
+        );
+
+    line-height:1.08;
+
+    margin-bottom:15px;
+}
+
+.section-intro{
+
+    max-width:720px;
+
+    color:#68737e;
+
+    line-height:1.8;
+
+    margin-bottom:32px;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:17px;
+}
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:225px;
+
+    padding:21px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    border:
+        1px solid
+        rgba(21,155,136,.16);
+
+    box-shadow:
+        0 12px 32px
+        rgba(30,45,50,.10);
+
+    transition:
+        transform .45s ease,
+        background .45s ease,
+        border-color .45s ease,
+        box-shadow .45s ease;
+}
+
+/* moving shine */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
 
     width:100%;
 
-    height:390px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #159b88,
+            #741f31,
+            transparent
+        );
+
+    transition:.65s;
+}
+
+.card:hover::before{
+
+    left:120%;
+}
+
+.card:hover{
+
+    transform:
+        translateY(-8px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #741f31,
+            #63202e
+        );
+
+    border-color:#8e2c40;
+
+    box-shadow:
+        0 22px 42px
+        rgba(70,30,40,.25),
+        0 0 24px
+        rgba(116,31,49,.18);
+}
+
+.card img{
+
+    width:100%;
+
+    height:125px;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    display:block;
+
+    border-radius:8px;
+
+    margin-bottom:15px;
+
+    border:
+        1px solid
+        rgba(21,155,136,.15);
+
+    transition:.5s;
+}
+
+.card:hover img{
+
+    transform:scale(1.035);
+
+    filter:
+        brightness(1.08)
+        saturate(1.12);
+}
+
+.card-number{
+
+    color:#159b88;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+
+    margin-bottom:9px;
+
+    transition:.3s;
+}
+
+.card h3{
+
+    color:#253449;
+
+    font-size:20px;
+
+    margin-bottom:9px;
+
+    transition:.3s;
+}
+
+.card p{
+
+    color:#65717d;
+
+    font-size:13.5px;
+
+    line-height:1.7;
+
+    transition:.3s;
+}
+
+.card:hover .card-number,
+.card:hover h3,
+.card:hover p{
+
+    color:#ffffff;
+}
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+.image-box{
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.image-box img{
+
+    background:
+        linear-gradient(
+            135deg,
+            #159b88,
+            #253449
+        );
+}
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.expertise-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr .85fr;
+
+    gap:20px;
+
+    align-items:stretch;
+}
+
+.expertise-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:16px;
+}
+
+.expertise-grid .card{
+
+    min-height:245px;
+}
+
+/* =========================================================
+   VERTICAL 2 IMAGE SLIDER
+========================================================= */
+
+.vertical-slider{
+
+    height:510px;
 
     position:relative;
 
@@ -348,63 +797,60 @@ header{
 
     border-radius:15px;
 
-    border:1px solid rgba(216,183,101,.28);
+    border:
+        1px solid
+        rgba(21,155,136,.22);
 
-    background:#16120d;
+    background:#203b38;
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,.42),
-        inset 0 1px 0 rgba(255,255,255,.08);
-
-    isolation:isolate;
+        0 22px 45px
+        rgba(20,40,40,.18);
 }
 
-/*
-   IMPORTANT:
-   Images move vertically.
-   Image 1 exits upward.
-   Image 2 comes upward from bottom.
-*/
-
-.slider-track{
+.vertical-track{
 
     position:absolute;
 
     inset:0;
 
     animation:
-        verticalSlide 8s
-        cubic-bezier(.77,0,.18,1)
+        verticalMove
+        8s
+        cubic-bezier(
+            .77,
+            0,
+            .18,
+            1
+        )
         infinite;
 }
 
-.slider-image{
+.vertical-track img{
 
     width:100%;
     height:100%;
 
     position:absolute;
 
-    inset:0;
+    left:0;
 
     object-fit:cover;
 
     display:block;
 }
 
-.slider-image:nth-child(1){
+.vertical-track img:first-child{
 
-    transform:translateY(0);
-
+    top:0;
 }
 
-.slider-image:nth-child(2){
+.vertical-track img:nth-child(2){
 
-    transform:translateY(100%);
-
+    top:100%;
 }
 
-@keyframes verticalSlide{
+@keyframes verticalMove{
 
     0%,
     38%{
@@ -421,9 +867,7 @@ header{
     }
 }
 
-/* dark cinematic overlay */
-
-.visual-slider::after{
+.vertical-slider::after{
 
     content:"";
 
@@ -431,261 +875,52 @@ header{
 
     inset:0;
 
-    pointer-events:none;
-
     background:
         linear-gradient(
             180deg,
-            rgba(10,8,5,.05),
-            rgba(10,8,5,.30)
+            rgba(0,0,0,.02),
+            rgba(0,0,0,.34)
         );
 
-    z-index:3;
+    pointer-events:none;
 }
 
-/* gold moving edge */
-
-.visual-slider::before{
-
-    content:"";
+.slider-caption{
 
     position:absolute;
 
     z-index:4;
 
-    left:0;
-    top:0;
+    left:18px;
 
-    width:3px;
-    height:100%;
-
-    background:
-        linear-gradient(
-            transparent,
-            #d8b765,
-            #8e263b,
-            transparent
-        );
-
-    animation:edgeGlow 3s infinite alternate;
-}
-
-@keyframes edgeGlow{
-
-    from{
-        opacity:.35;
-    }
-
-    to{
-        opacity:1;
-    }
-}
-
-/* slider label */
-
-.slider-label{
-
-    position:absolute;
-
-    z-index:5;
-
-    left:20px;
     bottom:18px;
 
-    padding:9px 14px;
+    padding:9px 13px;
 
     border-radius:7px;
 
-    background:rgba(20,15,10,.72);
+    color:#ffffff;
 
-    backdrop-filter:blur(10px);
+    background:
+        rgba(20,30,30,.72);
 
-    border:1px solid rgba(216,183,101,.3);
+    backdrop-filter:
+        blur(8px);
 
-    color:#f3e7ce;
+    border:
+        1px solid
+        rgba(255,255,255,.18);
 
     font-size:11px;
 
     letter-spacing:2px;
 
-    font-weight:bold;
+    font-weight:800;
 }
 
-/* =====================================================
-   CARDS
-===================================================== */
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:16px;
-}
-
-.card{
-
-    position:relative;
-
-    min-height:225px;
-
-    padding:21px;
-
-    overflow:hidden;
-
-    border-radius:12px;
-
-    border:1px solid rgba(216,183,101,.22);
-
-    background:rgba(255,255,255,.045);
-
-    box-shadow:
-        0 10px 28px rgba(0,0,0,.25),
-        inset 0 1px 0 rgba(255,255,255,.05);
-
-    transition:
-        transform .45s ease,
-        background .45s ease,
-        border-color .45s ease,
-        box-shadow .45s ease;
-}
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:150%;
-    height:1px;
-
-    left:-120%;
-    top:0;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d8b765,
-            #8e263b,
-            transparent
-        );
-
-    transition:.65s;
-}
-
-.card:hover::before{
-
-    left:100%;
-}
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(117,31,49,.34),
-            rgba(75,20,31,.22)
-        );
-
-    border-color:#a83c50;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.45),
-        0 0 24px rgba(117,31,49,.24);
-}
-
-.card img{
-
-    width:100%;
-
-    height:120px;
-
-    object-fit:cover;
-
-    border-radius:8px;
-
-    margin-bottom:14px;
-
-    border:1px solid rgba(216,183,101,.18);
-
-    transition:.5s;
-}
-
-.card:hover img{
-
-    transform:scale(1.035);
-
-    filter:
-        brightness(1.05)
-        saturate(1.15);
-}
-
-.card-number{
-
-    color:#d8b765;
-
-    font-size:11px;
-
-    letter-spacing:3px;
-
-    font-weight:bold;
-
-    margin-bottom:10px;
-}
-
-.card h3{
-
-    font-size:20px;
-
-    margin-bottom:9px;
-}
-
-.card p{
-
-    color:#c9bfaf;
-
-    font-size:13.5px;
-
-    line-height:1.7;
-}
-
-/* =====================================================
-   EXPERTISE SPECIAL LAYOUT
-===================================================== */
-
-.expertise-layout{
-
-    display:grid;
-
-    grid-template-columns:1fr .85fr;
-
-    gap:25px;
-
-    align-items:stretch;
-}
-
-.expertise-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:15px;
-}
-
-.expertise-grid .card{
-
-    min-height:250px;
-}
-
-/* =====================================================
+/* =========================================================
    WORKFLOW
-===================================================== */
+========================================================= */
 
 .workflow{
 
@@ -694,12 +929,12 @@ header{
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:13px;
+    gap:14px;
 }
 
 .workflow .card{
 
-    min-height:215px;
+    min-height:220px;
 
     padding:18px;
 }
@@ -709,9 +944,9 @@ header{
     height:105px;
 }
 
-/* =====================================================
-   EXPORT JOURNEY
-===================================================== */
+/* =========================================================
+   JOURNEY
+========================================================= */
 
 .journey{
 
@@ -728,9 +963,9 @@ header{
     min-height:240px;
 }
 
-/* =====================================================
+/* =========================================================
    HOME TEXTILES
-===================================================== */
+========================================================= */
 
 .textile-layout{
 
@@ -739,14 +974,106 @@ header{
     grid-template-columns:
         1fr .85fr;
 
-    gap:25px;
+    gap:22px;
 
     align-items:center;
 }
 
-/* =====================================================
+.textile-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
+}
+
+/* =========================================================
+   PORT TO VESSEL FEATURE
+========================================================= */
+
+.shipping-feature{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    min-height:390px;
+
+    background:#173b38;
+
+    box-shadow:
+        0 22px 50px
+        rgba(25,50,50,.18);
+}
+
+.shipping-feature img{
+
+    width:100%;
+    height:390px;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:.6s;
+}
+
+.shipping-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:35px;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(10,25,25,.88)
+        );
+}
+
+.shipping-overlay .card-number{
+
+    color:#d8b35a;
+}
+
+.shipping-overlay h3{
+
+    color:#ffffff;
+
+    font-size:27px;
+
+    margin-bottom:10px;
+}
+
+.shipping-overlay p{
+
+    color:#e4e8e5;
+
+    max-width:720px;
+
+    line-height:1.7;
+}
+
+.shipping-feature:hover img{
+
+    transform:scale(1.045);
+}
+
+/* =========================================================
    CONTACT
-===================================================== */
+========================================================= */
 
 .contact-box{
 
@@ -754,38 +1081,50 @@ header{
 
     border-radius:14px;
 
-    border:1px solid rgba(216,183,101,.25);
+    background:
+        rgba(255,255,255,.82);
 
-    background:rgba(255,255,255,.04);
+    border:
+        1px solid
+        rgba(21,155,136,.18);
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,.32);
+        0 18px 42px
+        rgba(30,45,50,.10);
 
-    transition:.45s;
+    transition:.4s;
 }
 
 .contact-box:hover{
 
-    border-color:#9c3348;
+    border-color:#741f31;
 
     box-shadow:
-        0 20px 55px rgba(117,31,49,.35);
+        0 20px 45px
+        rgba(116,31,49,.18);
+}
+
+.contact-box p{
+
+    color:#66727d;
+
+    line-height:1.7;
 }
 
 .contact-links{
 
     display:flex;
 
-    gap:12px;
-
     flex-wrap:wrap;
+
+    gap:12px;
 
     margin-top:22px;
 }
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer{
 
@@ -793,167 +1132,67 @@ footer{
 
     padding:32px 20px;
 
-    color:#a9a091;
+    color:#7d878e;
 
     border-top:
-        1px solid rgba(216,183,101,.12);
+        1px solid
+        rgba(21,155,136,.12);
 }
 
-/* =====================================================
-   FLOATING ANIMATED WORDS
-===================================================== */
-
-.animated-word{
-
-    position:fixed;
-
-    left:20px;
-    bottom:20px;
-
-    z-index:999;
-
-    min-width:210px;
-
-    padding:10px 16px;
-
-    border-radius:8px;
-
-    background:rgba(19,14,9,.82);
-
-    backdrop-filter:blur(12px);
-
-    border:
-        1px solid rgba(216,183,101,.3);
-
-    color:#d8b765;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    letter-spacing:1px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.35);
-
-    overflow:hidden;
-}
-
-.animated-word span{
-
-    display:inline-block;
-
-    animation:
-        wordMove 4.5s
-        ease-in-out;
-}
-
-@keyframes wordMove{
-
-    0%{
-        transform:translateX(-110%);
-        opacity:0;
-    }
-
-    18%{
-        transform:translateX(0);
-        opacity:1;
-    }
-
-    75%{
-        transform:translateX(0);
-        opacity:1;
-    }
-
-    100%{
-        transform:translateX(110%);
-        opacity:0;
-    }
-}
-
-/* =====================================================
-   REVEAL
-===================================================== */
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
 .reveal{
 
     opacity:0;
 
-    transform:translateY(25px);
+    transform:
+        translateY(25px);
 
     transition:
-        opacity .75s ease,
-        transform .75s ease;
+        opacity .7s ease,
+        transform .7s ease;
 }
 
 .reveal.show{
 
     opacity:1;
 
-    transform:translateY(0);
+    transform:
+        translateY(0);
 }
 
-/* =====================================================
+/* =========================================================
    RESPONSIVE
-===================================================== */
+========================================================= */
 
 @media(max-width:950px){
 
-    .hero,
-    .expertise-layout,
-    .textile-layout{
+    header{
 
-        grid-template-columns:1fr;
+        background:
+            linear-gradient(
+                135deg,
+                #f7f8f6 0%,
+                #eef4f1 48%,
+                #159b88 48%,
+                #159b88 100%
+            );
     }
 
-    .profile-wrap{
-
-        width:285px;
-        height:350px;
-    }
-
-    .visual-slider{
-
-        max-width:520px;
-        margin:auto;
-    }
-
-    .grid{
-
-        grid-template-columns:1fr 1fr;
-    }
-
-    .workflow{
-
-        grid-template-columns:1fr 1fr;
-    }
-
-    .journey{
-
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-@media(max-width:600px){
-
-    section{
-
-        padding:58px 0;
+    header::after{
+        display:none;
     }
 
     .hero{
 
+        grid-template-columns:1fr;
+
         text-align:center;
     }
 
-    .hero h1{
-
-        white-space:normal;
-
-        font-size:40px;
-    }
-
-    .hero p{
+    .hero-description{
 
         margin:auto;
     }
@@ -963,30 +1202,110 @@ footer{
         justify-content:center;
     }
 
-    .profile-wrap{
+    .profile-area{
 
-        width:250px;
-        height:310px;
+        min-height:auto;
+
+        padding-top:25px;
+    }
+
+    .expertise-layout,
+    .textile-layout{
+
+        grid-template-columns:1fr;
+    }
+
+    .vertical-slider{
+
+        max-width:600px;
+
+        width:100%;
+
+        margin:auto;
+    }
+
+    .grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .workflow{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .journey{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+@media(max-width:620px){
+
+    section{
+
+        padding:60px 0;
+    }
+
+    .hero h1{
+
+        white-space:normal;
+
+        font-size:40px;
+    }
+
+    .hero-animated{
+
+        height:40px;
+    }
+
+    .hero-animated span{
+
+        white-space:normal;
+
+        font-size:17px;
+    }
+
+    .profile-frame{
+
+        width:280px;
+
+        height:390px;
     }
 
     .grid,
     .expertise-grid,
+    .textile-grid,
     .workflow,
     .journey{
 
         grid-template-columns:1fr;
     }
 
-    .visual-slider{
+    .vertical-slider{
+
+        height:390px;
+    }
+
+    .shipping-feature,
+    .shipping-feature img{
+
+        min-height:330px;
 
         height:330px;
     }
 
-    .animated-word{
+    .shipping-overlay{
 
-        left:10px;
-        bottom:10px;
-        min-width:190px;
+        padding:22px;
+    }
+
+    .shipping-overlay h3{
+
+        font-size:22px;
     }
 }
 
@@ -997,69 +1316,89 @@ footer{
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SNOW
-===================================================== -->
+========================================================= -->
 
 <div class="snow">
 
-<span style="left:3%;animation-duration:10s;"></span>
-<span style="left:8%;animation-duration:13s;"></span>
-<span style="left:14%;animation-duration:11s;"></span>
-<span style="left:20%;animation-duration:15s;"></span>
-<span style="left:27%;animation-duration:10s;"></span>
-<span style="left:34%;animation-duration:14s;"></span>
-<span style="left:41%;animation-duration:12s;"></span>
-<span style="left:48%;animation-duration:16s;"></span>
-<span style="left:55%;animation-duration:11s;"></span>
-<span style="left:62%;animation-duration:14s;"></span>
-<span style="left:69%;animation-duration:10s;"></span>
-<span style="left:76%;animation-duration:15s;"></span>
+<span style="left:3%;animation-duration:11s;"></span>
+<span style="left:8%;animation-duration:14s;"></span>
+<span style="left:14%;animation-duration:10s;"></span>
+<span style="left:20%;animation-duration:16s;"></span>
+<span style="left:27%;animation-duration:12s;"></span>
+<span style="left:34%;animation-duration:15s;"></span>
+<span style="left:41%;animation-duration:11s;"></span>
+<span style="left:48%;animation-duration:17s;"></span>
+<span style="left:55%;animation-duration:13s;"></span>
+<span style="left:62%;animation-duration:15s;"></span>
+<span style="left:69%;animation-duration:11s;"></span>
+<span style="left:76%;animation-duration:16s;"></span>
 <span style="left:83%;animation-duration:12s;"></span>
-<span style="left:90%;animation-duration:16s;"></span>
-<span style="left:96%;animation-duration:13s;"></span>
+<span style="left:90%;animation-duration:17s;"></span>
+<span style="left:96%;animation-duration:14s;"></span>
 
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <header>
 
 <div class="hero">
 
+
 <div class="hero-text">
 
-<div class="hero-tag">
-EXPORT OPERATIONS · TEXTILE · INTERNATIONAL TRADE
+<div class="hero-small">
+EXPORT · TEXTILE · INTERNATIONAL TRADE
 </div>
+
+
+<div class="hero-animated">
+
+<span id="heroWords">
+EXPORT OPERATIONS
+</span>
+
+</div>
+
 
 <h1>
 MIAN MUHAMMAD <span>ATIF</span>
 </h1>
 
-<p>
+
+<p class="hero-description">
+
 Export Officer specializing in textile export operations,
 documentation, international shipping, commercial compliance,
 logistics coordination and shipment follow-up.
+
 </p>
+
 
 <div class="hero-buttons">
 
-<a class="btn"
+<a
+class="btn"
 href="mailto:mian_atif226@yahoo.com">
 EMAIL
 </a>
 
-<a class="btn"
+
+<a
+class="btn"
 href="https://wa.me/923328613400"
 target="_blank">
 WHATSAPP
 </a>
 
-<a class="btn"
+
+<a
+class="btn"
 href="https://www.linkedin.com/in/mian-muhammad-atif-382400293/"
 target="_blank">
 LINKEDIN
@@ -1070,9 +1409,13 @@ LINKEDIN
 </div>
 
 
-<!-- YOUR PROFILE PHOTO -->
+<!-- =====================================================
+     PROFILE
+===================================================== -->
 
-<div class="profile-wrap">
+<div class="profile-area">
+
+<div class="profile-frame">
 
 <div class="profile-inner">
 
@@ -1086,26 +1429,34 @@ alt="MIAN MUHAMMAD ATIF">
 
 </div>
 
+
+</div>
+
 </header>
 
 
-<!-- =====================================================
+<!-- =========================================================
      02 / EXPERTISE
-===================================================== -->
+========================================================= -->
 
 <section id="expertise">
+
 
 <div class="section-label">
 02 / EXPERTISE
 </div>
 
+
 <h2>
 Export expertise built around control.
 </h2>
 
+
 <p class="section-intro">
+
 From commercial documents to shipment follow-up, every export
 operation requires accuracy, coordination and timely execution.
+
 </p>
 
 
@@ -1115,15 +1466,21 @@ operation requires accuracy, coordination and timely execution.
 <div class="expertise-grid">
 
 
+<!-- HOME TEXTILES -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=900&q=90"
-alt="Fitted sheets">
+src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=90"
+alt="Fitted Sheets and Bedding">
 
-<div class="card-number">01</div>
+<div class="card-number">
+01
+</div>
 
-<h3>HOME TEXTILES</h3>
+<h3>
+HOME TEXTILES
+</h3>
 
 <p>
 Fitted Sheets, Bedding, Pillow Covers and related home textile
@@ -1133,15 +1490,21 @@ products handled through export operations.
 </div>
 
 
+<!-- GARMENTS -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
+src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=90"
 alt="Garments">
 
-<div class="card-number">02</div>
+<div class="card-number">
+02
+</div>
 
-<h3>GARMENTS</h3>
+<h3>
+GARMENTS
+</h3>
 
 <p>
 T-Shirts, Hoodies, Sweatshirts, Trousers and garment export
@@ -1151,15 +1514,21 @@ orders supported from production to shipment.
 </div>
 
 
+<!-- LOGISTICS -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=90"
-alt="Cartons">
+src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1000&q=90"
+alt="Carton Loading">
 
-<div class="card-number">03</div>
+<div class="card-number">
+03
+</div>
 
-<h3>LOGISTICS</h3>
+<h3>
+LOGISTICS
+</h3>
 
 <p>
 Container planning, freight forwarder coordination, port
@@ -1169,91 +1538,107 @@ handling and international shipping follow-up.
 </div>
 
 
+<!-- DOCUMENTATION -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=90"
-alt="Documentation">
+src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=90"
+alt="Export Documentation">
 
-<div class="card-number">04</div>
+<div class="card-number">
+04
+</div>
 
-<h3>DOCUMENTATION</h3>
+<h3>
+DOCUMENTATION
+</h3>
 
 <p>
-Commercial Invoices, Packing Lists, FCR, BL, COO, LC documents
-and export banking documentation.
+Commercial Invoices, Packing Lists, FCR, Bills of Lading,
+Certificates of Origin and export banking documentation.
 </p>
 
 </div>
 
+</div>
+
+
+<!-- =====================================================
+     VERTICAL TWO IMAGE SLIDER
+===================================================== -->
+
+<div class="vertical-slider reveal">
+
+<div class="vertical-track">
+
+<img
+src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=90"
+alt="Garment Textile Export">
+
+<img
+src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=90"
+alt="Garment Collection">
 
 </div>
 
 
-<!-- =================================================
-     VERTICAL 2 IMAGE SLIDER
-================================================= -->
-
-<div class="visual-slider reveal">
-
-<div class="slider-track">
-
-<img
-class="slider-image"
-src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=90"
-alt="Garment fashion">
-
-<img
-class="slider-image"
-src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=90"
-alt="Textile garments">
-
-</div>
-
-<div class="slider-label">
+<div class="slider-caption">
 TEXTILE · GARMENTS · EXPORT
 </div>
 
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      04 / WORKFLOW
-===================================================== -->
+========================================================= -->
 
 <section id="workflow">
+
 
 <div class="section-label">
 04 / WORKFLOW
 </div>
 
+
 <h2>
 The operation behind every shipment.
 </h2>
 
+
 <p class="section-intro">
+
 One export shipment moves through several controlled stages.
 This is the working chain — documents, commercial checks,
 logistics, compliance and final shipment follow-up.
+
 </p>
 
 
 <div class="workflow">
 
 
+<!-- 01 -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=90"
-alt="Documents">
+src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=90"
+alt="Export Documents">
 
-<div class="card-number">01</div>
+<div class="card-number">
+01
+</div>
 
-<h3>DOCUMENT CHECK</h3>
+<h3>
+DOCUMENT CHECK
+</h3>
 
 <p>
 Commercial Invoice, Packing List, LC and supporting export
@@ -1263,15 +1648,21 @@ documents are reviewed before processing.
 </div>
 
 
+<!-- 02 -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=90"
-alt="Container loading">
+src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=90"
+alt="Cartons being loaded">
 
-<div class="card-number">02</div>
+<div class="card-number">
+02
+</div>
 
-<h3>CONTAINER LOADING</h3>
+<h3>
+CONTAINER LOADING
+</h3>
 
 <p>
 Cartons and finished goods are prepared, checked and loaded
@@ -1281,15 +1672,21 @@ for dispatch according to shipment requirements.
 </div>
 
 
+<!-- 03 -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=800&q=90"
-alt="Container vessel">
+src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=1000&q=90"
+alt="Container Vessel">
 
-<div class="card-number">03</div>
+<div class="card-number">
+03
+</div>
 
-<h3>PORT · CUSTOMS · VESSEL</h3>
+<h3>
+PORT · CUSTOMS · VESSEL
+</h3>
 
 <p>
 The container reaches the port for terminal handling,
@@ -1299,15 +1696,21 @@ customs processing and vessel loading.
 </div>
 
 
+<!-- 04 -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=800&q=90"
-alt="International shipping">
+src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1000&q=90"
+alt="International Shipping">
 
-<div class="card-number">04</div>
+<div class="card-number">
+04
+</div>
 
-<h3>SHIPMENT FOLLOW-UP</h3>
+<h3>
+SHIPMENT FOLLOW-UP
+</h3>
 
 <p>
 Shipping documents, BL/FCR, customer communication and final
@@ -1322,38 +1725,49 @@ shipment follow-up are handled through completion.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      05 / EXPORT JOURNEY
-===================================================== -->
+========================================================= -->
 
 <section id="journey">
+
 
 <div class="section-label">
 05 / EXPORT JOURNEY
 </div>
 
+
 <h2>
 From factory floor to international destination.
 </h2>
 
+
 <p class="section-intro">
+
 A shipment is more than a container. It is a coordinated journey
 from production and packing to port, vessel and final documentation.
+
 </p>
 
 
 <div class="journey">
 
 
+<!-- GOODS READY -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
-alt="Garments ready">
+src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=90"
+alt="Garment Production">
 
-<div class="card-number">01</div>
+<div class="card-number">
+01
+</div>
 
-<h3>GOODS READY</h3>
+<h3>
+GOODS READY
+</h3>
 
 <p>
 Garments and textile products are prepared, checked and made
@@ -1363,15 +1777,21 @@ ready for packing and export dispatch.
 </div>
 
 
+<!-- PACKING -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=90"
-alt="Carton loading">
+src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=90"
+alt="Cartons and Warehouse">
 
-<div class="card-number">02</div>
+<div class="card-number">
+02
+</div>
 
-<h3>PACKING & LOADING</h3>
+<h3>
+PACKING & LOADING
+</h3>
 
 <p>
 Finished goods are packed into cartons and prepared for
@@ -1381,15 +1801,21 @@ container loading and transportation.
 </div>
 
 
+<!-- INTERNATIONAL SHIPPING -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=900&q=90"
-alt="Vessel">
+src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=1000&q=90"
+alt="International Shipping Vessel">
 
-<div class="card-number">03</div>
+<div class="card-number">
+03
+</div>
 
-<h3>INTERNATIONAL SHIPPING</h3>
+<h3>
+INTERNATIONAL SHIPPING
+</h3>
 
 <p>
 Containers move through port handling, customs and vessel
@@ -1404,39 +1830,52 @@ loading toward their international destination.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HOME TEXTILES
-===================================================== -->
+========================================================= -->
 
 <section id="home-textiles">
+
 
 <div class="section-label">
 02 / HOME TEXTILES
 </div>
 
+
 <h2>
 Fitted Sheets & Bedding
 </h2>
 
+
 <p class="section-intro">
+
 Textile export operations covering fitted sheets, bedding,
 pillow covers and related home textile products.
+
 </p>
 
 
 <div class="textile-layout">
 
 
-<div class="grid">
+<div class="textile-grid">
 
+
+<!-- FITTED SHEETS -->
 
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=900&q=90"
-alt="Fitted sheets">
+src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=90"
+alt="Fitted Sheets">
 
-<h3>FITTED SHEETS</h3>
+<div class="card-number">
+01
+</div>
+
+<h3>
+FITTED SHEETS
+</h3>
 
 <p>
 Production coordination, packing and export documentation
@@ -1446,13 +1885,21 @@ for fitted sheet orders.
 </div>
 
 
+<!-- BEDDING -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=90"
+src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=90"
 alt="Bedding">
 
-<h3>BEDDING</h3>
+<div class="card-number">
+02
+</div>
+
+<h3>
+BEDDING
+</h3>
 
 <p>
 Home textile products prepared according to commercial
@@ -1462,13 +1909,21 @@ and shipment requirements.
 </div>
 
 
+<!-- PILLOW COVERS -->
+
 <div class="card reveal">
 
 <img
-src="https://images.unsplash.com/photo-1583845112203-454c70c0b1c4?auto=format&fit=crop&w=900&q=90"
-alt="Pillow covers">
+src="https://images.unsplash.com/photo-1583845112203-454c70c0b1c4?auto=format&fit=crop&w=1000&q=90"
+alt="Pillow Covers">
 
-<h3>PILLOW COVERS</h3>
+<div class="card-number">
+03
+</div>
+
+<h3>
+PILLOW COVERS
+</h3>
 
 <p>
 Textile accessories managed through packing,
@@ -1481,23 +1936,24 @@ documentation and international export coordination.
 </div>
 
 
-<div class="visual-slider reveal">
+<!-- BEDDING VERTICAL SLIDER -->
 
-<div class="slider-track">
+<div class="vertical-slider reveal">
 
-<img
-class="slider-image"
-src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=90"
-alt="Fitted sheet bedding">
+<div class="vertical-track">
 
 <img
-class="slider-image"
-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=90"
-alt="Premium bedding">
+src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1200&q=90"
+alt="Fitted Sheet">
+
+<img
+src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=90"
+alt="Premium Bedding">
 
 </div>
 
-<div class="slider-label">
+
+<div class="slider-caption">
 FITTED SHEETS · BEDDING
 </div>
 
@@ -1509,39 +1965,51 @@ FITTED SHEETS · BEDDING
 </section>
 
 
-<!-- =====================================================
-     INTERNATIONAL SHIPPING
-===================================================== -->
+<!-- =========================================================
+     INTERNATIONAL SHIPPING / PORT TO VESSEL
+========================================================= -->
 
-<section>
+<section id="shipping">
+
 
 <div class="section-label">
 INTERNATIONAL SHIPPING
 </div>
 
+
 <h2>
 Port to Vessel
 </h2>
 
+
 <p class="section-intro">
+
 The container reaches the port for terminal handling,
 customs processing and vessel loading.
+
 </p>
 
 
-<div class="card reveal">
+<div class="shipping-feature reveal">
+
 
 <img
-src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=1500&q=90"
-alt="Container vessel loading">
+src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=1600&q=90"
+alt="Container Vessel Port Loading">
+
+
+<div class="shipping-overlay">
+
 
 <div class="card-number">
 PORT · CUSTOMS · VESSEL
 </div>
 
+
 <h3>
 FROM PORT TO INTERNATIONAL DESTINATION
 </h3>
+
 
 <p>
 Container movement, terminal handling, customs processing,
@@ -1549,20 +2017,25 @@ vessel loading and shipment follow-up form a controlled
 international export chain.
 </p>
 
+
+</div>
+
 </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      CONTACT
-===================================================== -->
+========================================================= -->
 
 <section id="contact">
+
 
 <div class="section-label">
 CONTACT
 </div>
+
 
 <h2>
 Let's connect.
@@ -1571,6 +2044,7 @@ Let's connect.
 
 <div class="contact-box reveal">
 
+
 <p>
 For export operations, documentation, international shipping,
 textile trade and professional opportunities.
@@ -1578,6 +2052,7 @@ textile trade and professional opportunities.
 
 
 <div class="contact-links">
+
 
 <a
 class="btn"
@@ -1601,12 +2076,17 @@ target="_blank">
 LinkedIn
 </a>
 
+
 </div>
 
 </div>
 
 </section>
 
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
@@ -1615,115 +2095,115 @@ LinkedIn
 </footer>
 
 
-<!-- =====================================================
-     FLOATING WORD
-===================================================== -->
-
-<div
-class="animated-word"
-id="animatedWord">
-</div>
-
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
-/* =====================================================
-   VERTICAL SLIDER
-   Automatically changes every 8 seconds.
-===================================================== */
+/* =========================================================
+   HERO WORD ANIMATION
+========================================================= */
 
-
-/* =====================================================
-   ANIMATED EXPORT WORDS
-===================================================== */
-
-const words = [
+const heroWords = [
 
     "EXPORT OPERATIONS",
 
-    "DOCUMENTATION",
+    "TEXTILE",
 
-    "INTERNATIONAL SHIPPING",
+    "INTERNATIONAL TRADE",
 
-    "LC MANAGEMENT",
+    "EXPORT DOCUMENTATION",
 
-    "TEXTILE EXPORTS"
+    "INTERNATIONAL SHIPPING"
 
 ];
 
-let wordIndex = 0;
+let heroIndex = 0;
 
-const animatedWord =
-document.getElementById("animatedWord");
+const heroWordElement =
+    document.getElementById("heroWords");
 
 
-function changeWord(){
+function changeHeroWord(){
 
-    animatedWord.innerHTML =
-        "<span>" +
-        words[wordIndex] +
-        "</span>";
+    heroWordElement.style.animation = "none";
 
-    wordIndex++;
+    /*
+       Force browser to restart animation.
+    */
 
-    if(wordIndex >= words.length){
+    void heroWordElement.offsetWidth;
 
-        wordIndex = 0;
+    heroWordElement.textContent =
+        heroWords[heroIndex];
+
+    heroWordElement.style.animation =
+        "textSlide 4.8s ease-in-out infinite";
+
+    heroIndex++;
+
+    if(heroIndex >= heroWords.length){
+
+        heroIndex = 0;
 
     }
 
 }
 
-changeWord();
-
-setInterval(changeWord,4500);
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-const revealElements =
-document.querySelectorAll(".reveal");
-
-
-const revealObserver =
-new IntersectionObserver(
-
-    function(entries){
-
-        entries.forEach(
-
-            function(entry){
-
-                if(entry.isIntersecting){
-
-                    entry.target.classList.add("show");
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            }
-
-        );
-
-    },
-
-    {
-        threshold:.12
-    }
-
+setInterval(
+    changeHeroWord,
+    4800
 );
 
 
-revealElements.forEach(
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-    function(element){
+const revealItems =
+    document.querySelectorAll(".reveal");
 
-        revealObserver.observe(element);
+
+const revealObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(
+
+                function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+
+            );
+
+        },
+
+        {
+            threshold:.10
+        }
+
+    );
+
+
+revealItems.forEach(
+
+    function(item){
+
+        revealObserver.observe(item);
 
     }
 
