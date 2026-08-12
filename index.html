@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --bg:#050d12;
   --bg2:#09171e;
@@ -33,25 +34,25 @@ html{
 
 body{
   margin:0;
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
   background:
     radial-gradient(circle at 12% 10%,rgba(72,180,190,.13),transparent 28%),
     radial-gradient(circle at 88% 18%,rgba(201,245,43,.08),transparent 25%),
     radial-gradient(circle at 50% 100%,rgba(23,93,111,.15),transparent 40%),
     linear-gradient(135deg,#03090d,#07151c 48%,#050e13);
-  color:var(--ink);
-  font-family:"DM Sans",sans-serif;
-  overflow-x:hidden;
-  position:relative;
 }
 
-/* LIGHT FALLING SNOW */
+/* LIGHT SNOW */
+
 body:before{
   content:"";
   position:fixed;
   inset:-100px 0 0;
   pointer-events:none;
   z-index:9999;
-  opacity:.30;
+  opacity:.28;
   background-image:
     radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.5px),
     radial-gradient(circle,rgba(255,255,255,.6) 0 1px,transparent 1.5px),
@@ -73,6 +74,7 @@ body:before{
       150px -300px,
       250px -400px;
   }
+
   100%{
     background-position:
       70px 900px,
@@ -170,29 +172,33 @@ a{
   box-shadow:0 0 12px rgba(201,245,43,.5);
 }
 
-/* animated text */
 .eyebrowText{
   display:inline-block;
   animation:textSlide 7s ease-in-out infinite;
 }
 
 @keyframes textSlide{
+
   0%,18%{
     transform:translateX(-100%);
     opacity:0;
   }
+
   24%,43%{
     transform:translateX(0);
     opacity:1;
   }
+
   50%,68%{
     transform:translateX(100%);
     opacity:0;
   }
+
   75%,94%{
     transform:translateX(0);
     opacity:1;
   }
+
   100%{
     transform:translateX(-100%);
     opacity:0;
@@ -272,7 +278,7 @@ h1{
   color:#071015;
 }
 
-/* STATS */
+/* HERO STATS */
 
 .heroStats{
   display:flex;
@@ -345,51 +351,56 @@ h1{
   stroke-linejoin:round;
 }
 
-/* HERO IMAGE */
+/* PROFILE PHOTO */
 
 .visual{
-  height:535px;
+  height:500px;
   position:relative;
   display:flex;
   align-items:center;
-  justify-content:flex-end;
-  padding-right:30px;
+  justify-content:center;
 }
 
 .photoFrame{
-  width:370px;
-  height:455px;
+  width:390px;
+  height:390px;
   position:relative;
   background:#10252d;
   overflow:hidden;
   z-index:2;
-  border:1px solid rgba(190,220,220,.28);
+  border:3px solid rgba(201,245,43,.75);
+  border-radius:50%;
   box-shadow:
-    18px 18px 0 var(--lime),
-    0 30px 65px rgba(0,0,0,.45);
-  transition:.4s;
+    0 0 0 8px rgba(201,245,43,.08),
+    0 22px 55px rgba(0,0,0,.45);
+  transition:.45s ease;
 }
 
 .photoFrame:before{
   content:"";
   position:absolute;
-  inset:-14px 14px 14px -14px;
-  border:1px solid rgba(190,220,220,.22);
+  inset:-10px;
+  border:1px solid rgba(104,229,223,.45);
+  border-radius:50%;
   z-index:-1;
 }
 
 .photoFrame:after{
   content:"";
   position:absolute;
-  inset:18px;
-  border:1px solid rgba(255,255,255,.2);
+  inset:14px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
   pointer-events:none;
 }
 
 .photoFrame:hover{
+  transform:translateY(-7px) scale(1.025);
+  border-color:var(--lime);
   box-shadow:
-    22px 22px 0 var(--lime),
-    0 38px 80px rgba(0,0,0,.55);
+    0 0 0 10px rgba(201,245,43,.10),
+    0 25px 70px rgba(0,0,0,.65),
+    0 0 45px rgba(201,245,43,.18);
 }
 
 .photo{
@@ -397,63 +408,33 @@ h1{
   height:100%;
   object-fit:cover;
   object-position:center 18%;
-  filter:saturate(.78) contrast(1.03);
-  transition:.8s;
+  border-radius:50%;
+  filter:saturate(.82) contrast(1.04);
+  transition:.8s ease;
 }
 
 .photoFrame:hover .photo{
-  transform:scale(1.025);
+  transform:scale(1.055);
 }
 
-.limeBlock{
-  position:absolute;
-  width:180px;
-  height:180px;
-  background:var(--lime);
-  right:0;
-  bottom:8px;
-  z-index:1;
-  box-shadow:0 0 40px rgba(201,245,43,.15);
-}
-
-.number{
-  position:absolute;
-  left:0;
-  top:42px;
-  font:700 12px Manrope;
-  letter-spacing:.14em;
-  writing-mode:vertical-rl;
-  color:#8da0a3;
-}
-
-.caption{
-  position:absolute;
-  right:0;
-  top:25px;
-  font-size:9px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:#7f9396;
-  writing-mode:vertical-rl;
-}
+/* NAME ON PHOTO */
 
 .corner{
   position:absolute;
-  left:22px;
-  bottom:28px;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%);
   background:rgba(4,12,16,.92);
   color:#fff;
-  padding:10px 12px;
-  font:600 8px Manrope;
-  letter-spacing:.14em;
+  padding:9px 16px;
+  border:1px solid rgba(201,245,43,.30);
+  border-radius:20px;
+  font:600 7px Manrope;
+  letter-spacing:.12em;
   text-transform:uppercase;
+  white-space:nowrap;
   z-index:3;
-  border:1px solid rgba(201,245,43,.22);
-  box-shadow:0 10px 25px rgba(0,0,0,.4);
-}
-
-.corner span{
-  color:var(--lime);
+  box-shadow:0 8px 25px rgba(0,0,0,.45);
 }
 
 /* MARQUEE */
@@ -481,7 +462,9 @@ h1{
 }
 
 @keyframes move{
-  to{transform:translateX(-50%)}
+  to{
+    transform:translateX(-50%);
+  }
 }
 
 .journey-route-cue{
@@ -751,21 +734,25 @@ section{
   perspective:1200px;
 }
 
+/* SMALLER WORKFLOW BOX */
+
 .wfCard{
-  min-width:315px;
-  width:315px;
-  height:360px;
+  min-width:270px;
+  width:270px;
+  height:310px;
   background:
     linear-gradient(145deg,#102a33,#07151b);
   color:#fff;
-  padding:27px;
+  padding:22px;
   position:relative;
   scroll-snap-align:start;
   flex-shrink:0;
   overflow:hidden;
   border:1px solid rgba(190,220,220,.14);
-  box-shadow:0 15px 35px rgba(0,0,0,.28);
-  transition:.4s;
+  border-radius:14px;
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.28);
+  transition:.4s ease;
 }
 
 .wfCard:nth-child(2){
@@ -787,65 +774,68 @@ section{
 .wfCard:after{
   content:"";
   position:absolute;
-  width:190px;
-  height:190px;
-  border:1px solid rgba(201,245,43,.2);
+  width:150px;
+  height:150px;
+  border:1px solid rgba(201,245,43,.18);
   border-radius:50%;
-  right:-65px;
-  bottom:-55px;
+  right:-55px;
+  bottom:-45px;
 }
 
 .wfCard:hover{
-  transform:translateY(-10px) rotateX(2deg) rotateY(-2deg);
-  border-color:rgba(201,245,43,.4);
+  transform:translateY(-8px);
+  border-color:rgba(201,245,43,.55);
+  background:
+    linear-gradient(145deg,#193a43,#0a1d24);
   box-shadow:
-    0 28px 55px rgba(0,0,0,.48),
-    0 0 30px rgba(201,245,43,.08);
+    0 20px 45px rgba(0,0,0,.55),
+    0 0 28px rgba(201,245,43,.12),
+    6px 6px 0 rgba(201,245,43,.08);
 }
 
 .wfNo{
-  font:700 12px Manrope;
+  font:700 11px Manrope;
   color:var(--lime);
   letter-spacing:.1em;
 }
 
 .wfIcon{
   position:absolute;
-  right:25px;
-  top:24px;
-  font:700 9px Manrope;
+  right:20px;
+  top:19px;
+  font:700 8px Manrope;
   letter-spacing:.12em;
   border:1px solid rgba(255,255,255,.25);
-  padding:8px;
+  padding:7px;
   color:#b9c8ca;
 }
 
 .wfCard small{
   display:block;
-  margin-top:72px;
+  margin-top:50px;
   color:#84989b;
-  font-size:8px;
+  font-size:7px;
   letter-spacing:.15em;
 }
 
 .wfCard h3{
-  font:600 31px/1 Manrope;
+  font:600 26px/1 Manrope;
   letter-spacing:-.05em;
-  margin:12px 0 18px;
+  margin:10px 0 14px;
 }
 
 .wfCard p{
-  font-size:12px;
-  line-height:1.65;
+  font-size:11px;
+  line-height:1.6;
   color:#aab9bb;
   margin:0;
-  max-width:250px;
+  max-width:220px;
 }
 
 .wfCard>span{
   position:absolute;
-  left:27px;
-  bottom:25px;
+  left:22px;
+  bottom:20px;
   color:var(--lime);
   font-size:7px;
   letter-spacing:.12em;
@@ -878,32 +868,36 @@ section{
   overflow-x:auto;
   padding:4px 0 30px 185px;
   scroll-snap-type:x mandatory;
-  scrollbar-width:thin;
 }
 
+/* SMALLER JOURNEY BOX */
+
 .journey-card{
-  min-width:310px;
-  width:310px;
+  min-width:270px;
+  width:270px;
   border:1px solid var(--line);
   background:
     linear-gradient(145deg,rgba(17,39,48,.9),rgba(6,17,22,.96));
-  transition:.4s;
+  transition:.4s ease;
   flex-shrink:0;
   scroll-snap-align:start;
-  box-shadow:0 15px 35px rgba(0,0,0,.28);
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.28);
   overflow:hidden;
+  border-radius:14px;
 }
 
 .journey-card:hover{
-  transform:translateY(-10px) rotateY(-2deg);
-  border-color:rgba(201,245,43,.4);
+  transform:translateY(-8px);
+  border-color:rgba(104,229,223,.5);
   box-shadow:
-    12px 18px 0 rgba(201,245,43,.10),
-    0 30px 60px rgba(0,0,0,.45);
+    0 22px 48px rgba(0,0,0,.58),
+    0 0 28px rgba(104,229,223,.10),
+    6px 6px 0 rgba(104,229,223,.07);
 }
 
 .journey-line{
-  width:55px;
+  width:45px;
   height:1px;
   background:#415359;
   align-self:center;
@@ -924,18 +918,13 @@ section{
   box-shadow:0 0 12px rgba(201,245,43,.5);
 }
 
-/* IMPORTANT:
-   These are CSS visuals, not random internet pictures.
-   Textile / fabric / garment / export styling.
-*/
-
 .journey-image{
-  height:205px;
+  height:170px;
   position:relative;
   overflow:hidden;
   display:flex;
   align-items:flex-end;
-  padding:18px;
+  padding:16px;
   color:#fff;
   background:
     linear-gradient(135deg,#16343c,#07151b);
@@ -964,19 +953,18 @@ section{
 
 .journey-image span{
   position:absolute;
-  right:15px;
-  top:14px;
-  font:600 10px Manrope;
+  right:14px;
+  top:13px;
+  font:600 9px Manrope;
   letter-spacing:.12em;
   color:var(--lime);
 }
 
 .journey-image b{
-  font:700 16px Manrope;
+  font:700 14px Manrope;
   letter-spacing:.05em;
 }
 
-/* FITTED SHEET / TEXTILE */
 .factory-img:before{
   background:
     repeating-linear-gradient(
@@ -996,7 +984,6 @@ section{
     );
 }
 
-/* GARMENTS / FABRIC */
 .container-img:before{
   background:
     repeating-linear-gradient(
@@ -1011,7 +998,6 @@ section{
     );
 }
 
-/* PORT */
 .port-img:before{
   background:
     linear-gradient(
@@ -1026,7 +1012,6 @@ section{
     );
 }
 
-/* VESSEL */
 .vessel-img:before{
   background:
     linear-gradient(
@@ -1041,7 +1026,6 @@ section{
     );
 }
 
-/* OCEAN */
 .ocean-img:before{
   background:
     repeating-linear-gradient(
@@ -1056,7 +1040,6 @@ section{
     );
 }
 
-/* DESTINATION */
 .destination-img:before{
   background:
     linear-gradient(
@@ -1072,32 +1055,32 @@ section{
 }
 
 .journey-copy{
-  padding:22px;
+  padding:18px;
 }
 
 .journey-copy small{
-  font-size:8px;
+  font-size:7px;
   letter-spacing:.14em;
   color:#718589;
 }
 
 .journey-copy h3{
-  font:600 25px Manrope;
+  font:600 22px Manrope;
   letter-spacing:-.04em;
-  margin:10px 0 9px;
+  margin:8px 0;
   color:#edf6f5;
 }
 
 .journey-copy p{
-  font-size:12px;
+  font-size:11px;
   line-height:1.55;
   color:#899b9e;
   margin:0;
-  min-height:58px;
+  min-height:52px;
 }
 
 .tags{
-  margin-top:17px;
+  margin-top:15px;
   font-size:7px;
   letter-spacing:.09em;
   color:var(--lime);
@@ -1240,7 +1223,7 @@ footer{
   transform:none;
 }
 
-/* DESKTOP SCROLLBARS */
+/* SCROLLBAR */
 
 ::-webkit-scrollbar{
   height:5px;
@@ -1260,12 +1243,12 @@ footer{
   background:var(--lime);
 }
 
-/* MOBILE */
+/* TABLET */
 
 @media(max-width:900px){
 
   .wrap{
-    width:calc(100% - 38px);
+    width:calc(100% - 40px);
   }
 
   .nav{
@@ -1299,14 +1282,13 @@ footer{
   }
 
   .visual{
-    height:500px;
+    height:470px;
     padding-right:0;
-    justify-content:center;
   }
 
   .photoFrame{
-    width:min(370px,78vw);
-    height:440px;
+    width:370px;
+    height:370px;
   }
 
   .profile,
@@ -1340,10 +1322,9 @@ footer{
     margin-left:0;
   }
 
-  .journey-track{
-    margin-right:-19px;
-  }
 }
+
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -1418,19 +1399,19 @@ footer{
   }
 
   .visual{
-    height:auto;
+    height:430px;
     min-height:430px;
-    padding:10px 0 20px;
   }
 
   .photoFrame{
     width:min(82vw,330px);
-    height:405px;
+    height:min(82vw,330px);
   }
 
-  .limeBlock{
-    width:92px;
-    height:92px;
+  .corner{
+    font-size:6px;
+    padding:8px 13px;
+    bottom:18px;
   }
 
   .marquee{
@@ -1504,6 +1485,8 @@ footer{
     font-size:12px;
   }
 
+  /* MOBILE WORKFLOW */
+
   .workflow3d{
     width:100%;
     display:flex;
@@ -1517,13 +1500,14 @@ footer{
   .wfCard{
     min-width:calc(100vw - 48px);
     width:calc(100vw - 48px);
-    height:330px;
-    padding:22px;
+    height:300px;
   }
 
   .wfCard h3{
     font-size:27px;
   }
+
+  /* MOBILE JOURNEY */
 
   .journey-track{
     width:100%;
@@ -1546,7 +1530,7 @@ footer{
   }
 
   .journey-image{
-    height:210px;
+    height:190px;
   }
 
   .journey-copy{
@@ -1586,7 +1570,10 @@ footer{
   footer span{
     display:block;
   }
+
 }
+
+/* SMALL PHONES */
 
 @media(max-width:380px){
 
@@ -1600,7 +1587,7 @@ footer{
 
   .photoFrame{
     width:78vw;
-    height:370px;
+    height:78vw;
   }
 
   .wfCard,
@@ -1608,93 +1595,27 @@ footer{
     min-width:calc(100vw - 40px);
     width:calc(100vw - 40px);
   }
+
 }
 
-/* FINAL CLEAN OVERRIDES */
-.photoFrame{
- width:390px;
- height:390px;
- border-radius:50%;
- overflow:hidden;
- border:3px solid rgba(201,245,43,.75);
- box-shadow:0 0 0 8px rgba(201,245,43,.08),0 22px 55px rgba(0,0,0,.45);
-}
-.photo{
- width:100%;
- height:100%;
- object-fit:cover;
- object-position:center 12%;
- border-radius:50%;
-}
-.photoFrame:hover{
- transform:translateY(-7px) scale(1.02);
- border-color:#68e5df;
- box-shadow:0 25px 70px rgba(0,0,0,.65),0 0 45px rgba(104,229,223,.25);
-}
-.corner{
- white-space:nowrap;
- font-size:8px;
-}
-.wfCard,.journey-card{
- border-radius:14px;
-}
-.wfCard:hover{
- border-color:#68e5df;
- box-shadow:0 22px 50px rgba(0,0,0,.6),0 0 30px rgba(104,229,223,.25);
-}
-.journey-card:hover{
- border-color:#68e5df;
- box-shadow:0 22px 48px rgba(0,0,0,.58),0 0 30px rgba(104,229,223,.25);
-}
-.reveal{
- opacity:1!important;
- transform:none!important;
-}
+/* EXTRA HOVER DIFFERENCE */
 
-
-/* FINAL USER REQUEST UPDATE */
-.photoFrame{
- width:390px;
- height:480px;
- border-radius:24px;
- overflow:hidden;
- border:1px solid rgba(255,90,90,.45);
- background:#08151c;
- box-shadow:0 25px 60px rgba(0,0,0,.55);
- transition:.45s ease;
-}
-.photoFrame:hover{
- transform:translateY(-8px);
- border-color:#2563eb;
- box-shadow:0 25px 60px rgba(0,0,0,.65),0 0 35px rgba(37,99,235,.35);
-}
-.photo{
- width:100%;
- height:100%;
- object-fit:contain;
- object-position:center;
- border-radius:24px;
- background:#08151c;
-}
-.card,.wfCard,.journey-card,.job,.eduItem{
- border-color:rgba(255,90,90,.45);
- transition:.45s ease;
- animation:cardUp .7s ease both;
-}
-.card:hover,.wfCard:hover,.journey-card:hover,.job:hover,.eduItem:hover{
- transform:translateY(-10px);
- border-color:#2563eb;
- box-shadow:0 20px 45px rgba(0,0,0,.55),0 0 32px rgba(37,99,235,.35);
-}
-@keyframes cardUp{
- from{opacity:0;transform:translateY(25px)}
- to{opacity:1;transform:translateY(0)}
+.card,
+.wfCard,
+.journey-card,
+.photoFrame,
+.btn,
+.skill,
+.heroSocial a{
+  will-change:transform;
 }
 
 </style>
 </head>
 
+
 <body>
+
 
 <header class="wrap nav">
 
@@ -1706,6 +1627,7 @@ ATIF<span>↗</span>
 <a href="#profile">Profile</a>
 <a href="#expertise">Expertise</a>
 <a href="#career">Career</a>
+<a href="#workflow">Workflow</a>
 <a href="#journey">Journey</a>
 <a href="#education">Education</a>
 <a href="#contact">Contact</a>
@@ -1716,37 +1638,59 @@ ATIF<span>↗</span>
 
 <main>
 
+
 <!-- HERO -->
 
 <section class="wrap hero">
 
+
 <div class="reveal">
 
 <div class="eyebrow">
-<span class="eyebrowText">Export Operations / Documentation</span>
+
+<span class="eyebrowText">
+Export Operations / Documentation
+</span>
+
 </div>
+
 
 <h1>
 Mian Muhammad Atif<span class="heroDot">.</span>
 </h1>
 
+
 <p class="heroText">
-<strong>Export Officer / Admin &amp; Office Administrator</strong>
+
+<strong>
+Export Officer / Admin &amp; Office Administrator
+</strong>
+
 with <strong>4+ years in import &amp; export operations</strong>,
 with additional experience in administration and office management.
+
 </p>
+
 
 <div class="actions">
 
-<a class="btn main" href="CV.pdf" target="_blank">
+<a class="btn main"
+href="CV.pdf"
+target="_blank">
+
 View CV ↗
+
 </a>
 
-<a class="btn" href="#career">
+<a class="btn"
+href="#career">
+
 Experience ↓
+
 </a>
 
 </div>
+
 
 <div class="heroStats">
 
@@ -1768,23 +1712,28 @@ Experience ↓
 </div>
 
 
-<!-- WHATSAPP + LINKEDIN -->
+<!-- SOCIAL BUTTONS -->
 
 <div class="heroSocial">
 
-<a href="mailto:mian_Atif226@yahoo.com"
+
+<a
+href="mailto:mian_Atif226@yahoo.com"
 title="Email"
 aria-label="Email">
 
 <svg viewBox="0 0 24 24">
+
 <path d="M3 5h18v14H3z"/>
 <path d="m3 6 9 7 9-7"/>
+
 </svg>
 
 </a>
 
 
-<a href="https://wa.me/923328613400"
+<a
+href="https://wa.me/923328613400"
 target="_blank"
 rel="noopener"
 title="WhatsApp"
@@ -1801,7 +1750,8 @@ aria-label="WhatsApp">
 </a>
 
 
-<a href="https://www.linkedin.com/search/results/people/?keywords=Mian%20Muhammad%20Atif%20Al%20Hadi%20Textile"
+<a
+href="https://www.linkedin.com/search/results/people/?keywords=Mian%20Muhammad%20Atif%20Al%20Hadi%20Textile"
 target="_blank"
 rel="noopener"
 title="LinkedIn"
@@ -1819,12 +1769,16 @@ aria-label="LinkedIn">
 
 </a>
 
-</div>
 
 </div>
 
+</div>
+
+
+<!-- PROFILE PHOTO -->
 
 <div class="visual reveal">
+
 
 <div class="photoFrame">
 
@@ -1833,13 +1787,17 @@ class="photo"
 src="Atif.jpg"
 alt="Mian Muhammad Atif">
 
+
 <div class="corner">
 MIAN MUHAMMAD ATIF
 </div>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
@@ -1890,6 +1848,8 @@ ADMINISTRATION
 </div>
 
 
+<!-- EXPORT ROUTE -->
+
 <div class="journey-route-cue">
 
 FACTORY
@@ -1909,6 +1869,7 @@ BUYER
 
 <section id="profile" class="wrap">
 
+
 <div class="sectionTop reveal">
 
 <div class="no">
@@ -1916,8 +1877,10 @@ BUYER
 </div>
 
 <h2 class="title">
+
 Experienced in the work
 <em>behind every shipment.</em>
+
 </h2>
 
 </div>
@@ -1925,9 +1888,11 @@ Experienced in the work
 
 <div class="profile">
 
+
 <p class="reveal">
 
 Detail-oriented professional experienced in
+
 <strong>
 import/export documentation, logistics coordination,
 shipping reports, invoice processing, vendor communication
@@ -1958,6 +1923,7 @@ Focused on accuracy, coordination and dependable execution.
 
 </div>
 
+
 </div>
 
 </section>
@@ -1967,6 +1933,7 @@ Focused on accuracy, coordination and dependable execution.
 
 <section id="expertise" class="wrap">
 
+
 <div class="sectionTop reveal">
 
 <div class="no">
@@ -1974,8 +1941,10 @@ Focused on accuracy, coordination and dependable execution.
 </div>
 
 <h2 class="title">
+
 Core capabilities,
 <em>clearly defined.</em>
+
 </h2>
 
 </div>
@@ -1983,9 +1952,12 @@ Core capabilities,
 
 <div class="grid">
 
+
 <article class="card reveal">
 
-<div class="n">01 / EXPORT</div>
+<div class="n">
+01 / EXPORT
+</div>
 
 <h3>
 Import &amp; Export Documentation
@@ -2001,7 +1973,9 @@ with attention to accuracy and compliance.
 
 <article class="card reveal">
 
-<div class="n">02 / LOGISTICS</div>
+<div class="n">
+02 / LOGISTICS
+</div>
 
 <h3>
 Logistics Coordination
@@ -2017,7 +1991,9 @@ freight partners and stakeholders.
 
 <article class="card reveal">
 
-<div class="n">03 / REPORTING</div>
+<div class="n">
+03 / REPORTING
+</div>
 
 <h3>
 Shipping &amp; Export Reports
@@ -2033,7 +2009,9 @@ for shipment follow-up.
 
 <article class="card reveal">
 
-<div class="n">04 / COMMERCIAL</div>
+<div class="n">
+04 / COMMERCIAL
+</div>
 
 <h3>
 Invoices &amp; Vendor Communication
@@ -2049,7 +2027,9 @@ communication with vendors and stakeholders.
 
 <article class="card reveal">
 
-<div class="n">05 / ADMIN</div>
+<div class="n">
+05 / ADMIN
+</div>
 
 <h3>
 Administration &amp; Office Management
@@ -2065,7 +2045,9 @@ filing and routine administration.
 
 <article class="card reveal">
 
-<div class="n">06 / SYSTEMS</div>
+<div class="n">
+06 / SYSTEMS
+</div>
 
 <h3>
 ERP, MIS &amp; Microsoft Office
@@ -2078,6 +2060,7 @@ and Microsoft Office documentation tools.
 
 </article>
 
+
 </div>
 
 </section>
@@ -2087,6 +2070,7 @@ and Microsoft Office documentation tools.
 
 <section id="career" class="wrap">
 
+
 <div class="sectionTop reveal">
 
 <div class="no">
@@ -2094,8 +2078,10 @@ and Microsoft Office documentation tools.
 </div>
 
 <h2 class="title">
+
 A career built around
 <em>responsibility.</em>
+
 </h2>
 
 </div>
@@ -2263,6 +2249,7 @@ Created technical documentation and coordinated with engineering teams.
 
 </article>
 
+
 </div>
 
 </section>
@@ -2272,6 +2259,7 @@ Created technical documentation and coordinated with engineering teams.
 
 <section id="workflow" class="wrap workflowSection">
 
+
 <div class="sectionTop reveal">
 
 <div class="no">
@@ -2279,8 +2267,10 @@ Created technical documentation and coordinated with engineering teams.
 </div>
 
 <h2 class="title">
+
 The operation behind
 <em>every shipment.</em>
+
 </h2>
 
 </div>
@@ -2288,11 +2278,13 @@ The operation behind
 
 <div class="workflowLead reveal">
 
+
 <p>
 
 One export shipment moves through several controlled stages.
 
 This is the working chain —
+
 <strong>
 documents, commercial checks, logistics,
 compliance and final shipment follow-up.
@@ -2317,6 +2309,7 @@ DRAG / SCROLL
 
 </div>
 
+
 </div>
 
 
@@ -2325,7 +2318,9 @@ DRAG / SCROLL
 
 <article class="wfCard reveal">
 
-<div class="wfNo">01</div>
+<div class="wfNo">
+01
+</div>
 
 <div class="wfIcon">
 DOC
@@ -2353,7 +2348,9 @@ ACCURACY / COMPLETENESS
 
 <article class="wfCard reveal">
 
-<div class="wfNo">02</div>
+<div class="wfNo">
+02
+</div>
 
 <div class="wfIcon">
 CI
@@ -2381,7 +2378,9 @@ INVOICE / REPORTS
 
 <article class="wfCard reveal">
 
-<div class="wfNo">03</div>
+<div class="wfNo">
+03
+</div>
 
 <div class="wfIcon">
 LOG
@@ -2409,7 +2408,9 @@ TRUCK / CONTAINER / PORT
 
 <article class="wfCard reveal">
 
-<div class="wfNo">04</div>
+<div class="wfNo">
+04
+</div>
 
 <div class="wfIcon">
 CUS
@@ -2437,7 +2438,9 @@ COMPLIANCE / GD / DOCUMENTS
 
 <article class="wfCard reveal">
 
-<div class="wfNo">05</div>
+<div class="wfNo">
+05
+</div>
 
 <div class="wfIcon">
 SEA
@@ -2472,6 +2475,7 @@ VESSEL / B.L. / ETD
 
 <section id="journey" class="wrap journey-section">
 
+
 <div class="sectionTop reveal">
 
 <div class="no">
@@ -2479,8 +2483,10 @@ VESSEL / B.L. / ETD
 </div>
 
 <h2 class="title">
+
 From factory floor
 <em>to the buyer.</em>
+
 </h2>
 
 </div>
@@ -2504,19 +2510,22 @@ a visual view of the export operation.
 <div class="journey-track">
 
 
-<!-- 01 -->
+<!-- FACTORY -->
 
 <article class="journey-card reveal">
 
 <div class="journey-image factory-img">
 
-<span>01</span>
+<span>
+01
+</span>
 
 <b>
 TEXTILE FACTORY
 </b>
 
 </div>
+
 
 <div class="journey-copy">
 
@@ -2545,19 +2554,22 @@ TEXTILE · FITTED SHEETS · GARMENTS
 <div class="journey-line"></div>
 
 
-<!-- 02 -->
+<!-- CONTAINER -->
 
 <article class="journey-card reveal">
 
 <div class="journey-image container-img">
 
-<span>02</span>
+<span>
+02
+</span>
 
 <b>
 CONTAINER
 </b>
 
 </div>
+
 
 <div class="journey-copy">
 
@@ -2586,19 +2598,22 @@ STUFFING · SEAL · WEIGHT
 <div class="journey-line"></div>
 
 
-<!-- 03 -->
+<!-- PORT -->
 
 <article class="journey-card reveal">
 
 <div class="journey-image port-img">
 
-<span>03</span>
+<span>
+03
+</span>
 
 <b>
 KARACHI PORT
 </b>
 
 </div>
+
 
 <div class="journey-copy">
 
@@ -2627,19 +2642,22 @@ PORT · CUSTOMS · TERMINAL
 <div class="journey-line"></div>
 
 
-<!-- 04 -->
+<!-- VESSEL -->
 
 <article class="journey-card reveal">
 
 <div class="journey-image vessel-img">
 
-<span>04</span>
+<span>
+04
+</span>
 
 <b>
 VESSEL
 </b>
 
 </div>
+
 
 <div class="journey-copy">
 
@@ -2668,19 +2686,22 @@ B/L · VESSEL · ETD
 <div class="journey-line"></div>
 
 
-<!-- 05 -->
+<!-- INTERNATIONAL SHIPPING -->
 
 <article class="journey-card reveal">
 
 <div class="journey-image ocean-img">
 
-<span>05</span>
+<span>
+05
+</span>
 
 <b>
 INTERNATIONAL SHIPPING
 </b>
 
 </div>
+
 
 <div class="journey-copy">
 
@@ -2709,19 +2730,22 @@ TRACKING · UPDATES · DOCUMENTS
 <div class="journey-line"></div>
 
 
-<!-- 06 -->
+<!-- BUYER -->
 
 <article class="journey-card reveal">
 
 <div class="journey-image destination-img">
 
-<span>06</span>
+<span>
+06
+</span>
 
 <b>
 BUYER
 </b>
 
 </div>
+
 
 <div class="journey-copy">
 
@@ -2756,6 +2780,7 @@ ARRIVAL · IMPORT · DELIVERY
 
 <section id="education" class="wrap">
 
+
 <div class="sectionTop reveal">
 
 <div class="no">
@@ -2763,8 +2788,10 @@ ARRIVAL · IMPORT · DELIVERY
 </div>
 
 <h2 class="title">
+
 The foundation
 <em>behind the work.</em>
+
 </h2>
 
 </div>
@@ -2847,7 +2874,9 @@ Bahawalpur Board of Intermediate &amp; Secondary Education
 
 <section id="contact" class="contact">
 
+
 <div class="wrap contactInner">
+
 
 <div class="reveal">
 
@@ -2865,22 +2894,29 @@ For professional opportunities, collaboration or further
 information, get in touch.
 </p>
 
+
 <div class="actions">
 
 <a class="btn main"
 href="mailto:mian_Atif226@yahoo.com">
+
 Email Me ↗
+
 </a>
+
 
 <a class="btn"
 href="CV.pdf"
 target="_blank">
+
 Download CV
+
 </a>
 
 </div>
 
 </div>
+
 
 </div>
 
@@ -2899,12 +2935,13 @@ Export Officer · Lahore, Pakistan
 
 </footer>
 
+
 </main>
 
 
 <script>
 
-/* REVEAL ANIMATION */
+/* SCROLL REVEAL */
 
 const io = new IntersectionObserver(
 entries => {
@@ -2934,31 +2971,32 @@ document
 
 /* WORKFLOW ARROWS */
 
-const wf =
+const workflow =
 document.getElementById("workflow3d");
 
-const prev =
+const previous =
 document.querySelector(".wfPrev");
 
 const next =
 document.querySelector(".wfNext");
 
-if(wf && prev && next){
+if(workflow && previous && next){
 
-const step = 333;
+const step = 290;
 
-prev.addEventListener("click",()=>{
+previous.addEventListener("click",()=>{
 
-wf.scrollBy({
+workflow.scrollBy({
 left:-step,
 behavior:"smooth"
 });
 
 });
 
+
 next.addEventListener("click",()=>{
 
-wf.scrollBy({
+workflow.scrollBy({
 left:step,
 behavior:"smooth"
 });
@@ -2968,6 +3006,7 @@ behavior:"smooth"
 }
 
 </script>
+
 
 </body>
 </html>
