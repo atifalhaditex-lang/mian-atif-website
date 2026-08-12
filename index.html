@@ -1,361 +1,114 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mian Muhammad Atif — Export Officer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f3f1ec;--ink:#171817;--muted:#747873;--line:#d6d4cd;--lime:#c9f52b;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}
-a{text-decoration:none;color:inherit}.wrap{width:min(1280px,calc(100% - 80px));margin:auto}
-.nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:11px}
-.logo{font:800 16px Manrope;letter-spacing:-.06em}.logo span{color:#8ea900}
-.navlinks{display:flex;gap:28px;text-transform:uppercase;letter-spacing:.13em;font-size:9px;font-weight:600}.navlinks a{opacity:.7}.navlinks a:hover{opacity:1}
-.hero{min-height:calc(100vh - 78px);display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:80px;padding:70px 0 55px}
-.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#666b66;margin-bottom:24px;display:flex;gap:12px;align-items:center}.eyebrow:before{content:"";width:34px;height:1px;background:var(--ink)}
-h1{font:700 clamp(55px,7vw,104px)/.91 Manrope;letter-spacing:-.075em;margin:0;max-width:760px}
-h1 .thin{font-weight:500;color:#747873}
-.heroText{max-width:620px;font-size:17px;line-height:1.65;color:#555b56;margin:30px 0 0}.heroText strong{color:var(--ink)}
-.actions{display:flex;gap:10px;margin-top:27px}.btn{padding:13px 17px;border:1px solid #aaa9a2;text-transform:uppercase;letter-spacing:.12em;font-size:9px;font-weight:600;transition:.25s}.btn.main{background:var(--ink);color:#fff;border-color:var(--ink)}.btn:hover{transform:translateY(-2px);background:var(--lime);border-color:var(--lime);color:var(--ink)}
-.heroStats{display:flex;gap:0;margin-top:42px;border-top:1px solid var(--line);max-width:620px}.stat{padding:18px 35px 0 0;margin-right:35px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat b{display:block;font:700 27px Manrope;letter-spacing:-.05em}.stat span{font-size:9px;color:#777c77;text-transform:uppercase;letter-spacing:.11em}
-.visual{height:590px;position:relative;display:flex;align-items:center;justify-content:center}
-.photoFrame{width:430px;height:520px;position:relative;background:#d9d7cf;overflow:hidden;z-index:2}
-.photoFrame:after{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.7);pointer-events:none}
-.photo{width:100%;height:100%;object-fit:cover;object-position:center 26%;filter:saturate(.72);transition:transform .8s}.photoFrame:hover .photo{transform:scale(1.025)}
-.limeBlock{position:absolute;width:180px;height:180px;background:var(--lime);right:0;bottom:8px;z-index:1}.number{position:absolute;left:0;top:42px;font:700 12px Manrope;letter-spacing:.14em;writing-mode:vertical-rl}.caption{position:absolute;right:0;top:25px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#777c77;writing-mode:vertical-rl}
-.corner{position:absolute;left:35px;bottom:50px;font:600 10px Manrope;letter-spacing:.14em;text-transform:uppercase;z-index:3}.corner span{color:#697d00}
-.marquee{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:13px 0;overflow:hidden;white-space:nowrap;font-size:10px;letter-spacing:.14em;text-transform:uppercase}.track{animation:move 28s linear infinite;display:inline-block}.track span{margin:0 20px;color:#999d98}@keyframes move{to{transform:translateX(-50%)}}
-section{padding:125px 0}.sectionTop{display:grid;grid-template-columns:150px 1fr;gap:35px;margin-bottom:55px}.no{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#777c77}.title{font:600 clamp(40px,5.2vw,76px)/.96 Manrope;letter-spacing:-.065em;margin:0;max-width:850px}.title em{font-style:normal;color:#8a8f89}
-.profile{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-left:185px}.profile p{font-size:20px;line-height:1.6;color:#5e645f;margin:0;max-width:610px}.profile strong{color:var(--ink)}
-.statsLarge{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}.statsLarge div{padding:24px 18px;border-right:1px solid var(--line)}.statsLarge div:last-child{border:0}.statsLarge b{font:700 36px Manrope;display:block}.statsLarge span{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#777c77}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--line)}.card{min-height:260px;padding:27px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.35s}.card:hover{background:#fff}.card .n{font:600 10px Manrope;color:#8a8f89}.card h3{font:600 24px/1.05 Manrope;letter-spacing:-.04em;margin:65px 0 13px}.card p{font-size:13px;line-height:1.55;color:#737873;margin:0}
-.timeline{margin-left:185px;border-top:1px solid var(--ink)}.job{display:grid;grid-template-columns:170px 1fr;gap:50px;padding:38px 0;border-bottom:1px solid var(--line)}.date{font-size:9px;text-transform:uppercase;letter-spacing:.11em;color:#7b807b;line-height:1.5}.job h3{font:600 28px Manrope;letter-spacing:-.04em;margin:0 0 5px}.company{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#758000}.job ul{margin:18px 0 0;padding-left:17px;color:#737873;font-size:13px;line-height:1.75}
-.workflow{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}.step{min-height:200px;padding:24px;border-right:1px solid var(--line)}.step:last-child{border:0}.step b{font:600 10px Manrope;color:#7a8d00}.step h3{font:600 21px Manrope;margin:62px 0 8px}.step p{font-size:11px;color:#777c77;margin:0}
-.edu{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.eduItem{padding:30px;border-right:1px solid var(--line)}.eduItem:last-child{border:0}.eduItem small{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#777c77}.eduItem h3{font:600 20px Manrope;letter-spacing:-.035em;margin:9px 0 0}.skills{margin-top:25px;display:flex;flex-wrap:wrap;gap:7px}.skill{padding:9px 11px;border:1px solid var(--line);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#666b66}
-.contact{background:var(--ink);color:#fff;padding:80px 0;margin-top:40px}.contactInner{display:flex;justify-content:space-between;align-items:end;gap:50px}.contact h2{font:600 clamp(50px,7vw,100px)/.88 Manrope;letter-spacing:-.07em;margin:0}.contact h2 span{color:var(--lime)}.contact p{max-width:360px;color:#a9ada9;line-height:1.6;font-size:14px}.contact .btn{color:#fff;border-color:#666}.contact .btn.main{background:#fff;color:var(--ink);border-color:#fff}
-footer{padding:24px 0;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#858a85;display:flex;justify-content:space-between}
-.reveal{opacity:0;transform:translateY(24px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
-@media(max-width:900px){.wrap{width:calc(100% - 38px)}.nav{height:68px}.navlinks a:not(:last-child){display:none}.hero{grid-template-columns:1fr;gap:35px;padding-top:55px}.visual{height:500px}.photoFrame{width:min(390px,78vw);height:450px}.profile,.timeline{margin-left:0}.profile{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:1fr 1fr}.step{border-bottom:1px solid var(--line)}.sectionTop{grid-template-columns:1fr;gap:12px}.edu{grid-template-columns:1fr}.eduItem{border-right:0;border-bottom:1px solid var(--line)}}
-@media(max-width:560px){.wrap{width:calc(100% - 28px)}.nav{padding:0 14px}.hero{padding:45px 0}.hero h1{font-size:55px}.heroText{font-size:15px}.heroStats{gap:15px}.stat{padding-right:12px;margin-right:12px}.stat b{font-size:22px}.visual{height:430px}.photoFrame{height:400px;width:82vw}.limeBlock{width:110px;height:110px}.grid,.workflow{grid-template-columns:1fr}.job{grid-template-columns:1fr;gap:10px}.contactInner{display:block}.contact p{margin-top:30px}.contact{padding:65px 0}section{padding:90px 0}}
+<section id="workflow" class="wrap visualProcess reference-showcase">
 
-/* EXPORT JOURNEY */
-.journey-section{overflow:hidden}.journey-intro{margin-left:185px;max-width:720px;margin-bottom:55px}.journey-intro p{font-size:19px;line-height:1.6;color:#626762;margin:0}.journey-track{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding:4px 0 30px;scrollbar-width:thin}.journey-card{min-width:290px;width:290px;border:1px solid var(--line);background:#eae8e1;transition:.35s;flex-shrink:0}.journey-card:hover{background:#fff;transform:translateY(-7px)}.journey-line{width:55px;height:1px;background:#aaa;align-self:center;flex-shrink:0;position:relative}.journey-line:after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--lime);border:1px solid var(--ink)}.journey-image{height:190px;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:18px;color:#fff}.journey-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.62),rgba(0,0,0,.02) 70%)}.journey-image span,.journey-image b{position:relative;z-index:2}.journey-image span{position:absolute;right:15px;top:14px;font:600 10px Manrope;letter-spacing:.12em}.journey-image b{font:700 16px Manrope;letter-spacing:.05em}.factory-img{background-image:url('https://al-hooraintextiles.com/images/export.png');background-size:cover;background-position:center}.container-img{background-image:url('https://www.worldumbrellas.com/uploads/43388/page/p202501130954537c875.jpg?size=800x0');background-size:cover;background-position:center}.port-img{background-image:url('https://www.odu.edu/sites/default/files/images/Maritime%20Ship_AdobeStock_176885314.jpeg');background-size:cover;background-position:center}.vessel-img{background-image:url('https://gimworld.com/site/gimworld.com/image/catalog/2026-04%20Landing%20Page%20Photo/cargo-ship-sailing-through-ocean.jpg');background-size:cover;background-position:center}.ocean-img{background-image:url('https://cdn.prod.website-files.com/62342b519367452b95fffd1c/655b9d593d0ad4bd73aad22e_iStock-1419513771.jpg');background-size:cover;background-position:center}.destination-img{background-image:url('https://assets.softr-files.com/applications/a59902bb-b667-4a17-bf9d-2bfa58a4d5fb/assets/0ff9612a-4b92-4a6e-a078-28727741aa6e.jpeg');background-size:cover;background-position:center}.journey-copy{padding:22px}.journey-copy small{font-size:8px;letter-spacing:.14em;color:#81867f}.journey-copy h3{font:600 23px Manrope;letter-spacing:-.04em;margin:10px 0 9px}.journey-copy p{font-size:12px;line-height:1.55;color:#737873;margin:0;min-height:58px}.tags{margin-top:17px;font-size:7px;letter-spacing:.09em;color:#7b8c00;line-height:1.7}
-@media(max-width:900px){.journey-intro{margin-left:0}.journey-track{margin-right:-19px}.journey-card{min-width:275px;width:275px}}
-
-.journey-route-cue{padding:17px 0;border-bottom:1px solid var(--line);text-align:center;font-size:8px;letter-spacing:.2em;color:#7b807b}.journey-route-cue span{color:#91a900;padding:0 14px;font-size:12px}
-
-/* V14 PREMIUM HERO + CONTACT */
-.hero{grid-template-columns:1.18fr .82fr;gap:55px}
-h1{font-size:clamp(48px,5.45vw,82px);letter-spacing:-.065em;white-space:nowrap}
-.heroDot{color:var(--lime)}
-.visual{height:535px;justify-content:flex-end;padding-right:30px}
-.photoFrame{width:370px;height:455px;border:1px solid #b8b7ae;box-shadow:18px 18px 0 var(--lime)}
-.photoFrame:before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid #b9bdb4;z-index:-1}
-.photo{object-position:center 18%;filter:saturate(.78) contrast(1.03)}
-.corner{left:22px;bottom:28px;background:var(--ink);color:#fff;padding:10px 12px;font-size:8px}
-.corner span{color:var(--lime)}
-.heroSocial{display:flex;gap:8px;margin-top:25px;align-items:center}
-.heroSocial a{width:36px;height:36px;border:1px solid var(--line);display:grid;place-items:center;transition:.25s}
-.heroSocial a:hover{background:var(--ink);color:#fff;transform:translateY(-3px)}
-.heroSocial svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-
-/* V14 WORKFLOW */
-.workflowSection{overflow:hidden}
-.workflowLead{display:flex;justify-content:space-between;gap:40px;align-items:end;margin:0 0 35px 185px}
-.workflowLead p{max-width:680px;font-size:18px;line-height:1.55;color:#646a65;margin:0}
-.workflowControls{display:flex;align-items:center;gap:9px;white-space:nowrap}
-.workflowControls button{width:42px;height:42px;border:1px solid #b9b9b0;background:transparent;font:600 16px Manrope;cursor:pointer}
-.workflowControls button:hover{background:var(--lime)}
-.workflowControls span{font-size:8px;letter-spacing:.14em;color:#7a7e79}
-.workflow3d{display:flex;gap:18px;overflow-x:auto;padding:18px 10px 35px 185px;scroll-snap-type:x mandatory;scrollbar-width:thin;perspective:1200px}
-.wfCard{min-width:315px;width:315px;height:360px;background:#1a1c1a;color:#fff;padding:27px;position:relative;scroll-snap-align:start;flex-shrink:0;overflow:hidden;transition:transform .4s,box-shadow .4s}
-.wfCard:nth-child(2){background:#262923}.wfCard:nth-child(3){background:#31372b}.wfCard:nth-child(4){background:#222a27}.wfCard:nth-child(5){background:#1d2529}
-.wfCard:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(201,245,43,.25);border-radius:50%;right:-65px;bottom:-55px}
-.wfCard:hover{transform:translateY(-10px) rotateX(2deg) rotateY(-2deg);box-shadow:18px 22px 0 rgba(0,0,0,.12)}
-.wfNo{font:700 12px Manrope;color:var(--lime);letter-spacing:.1em}
-.wfIcon{position:absolute;right:25px;top:24px;font:700 9px Manrope;letter-spacing:.12em;border:1px solid rgba(255,255,255,.3);padding:8px}
-.wfCard small{display:block;margin-top:72px;color:#b8c0b4;font-size:8px;letter-spacing:.15em}
-.wfCard h3{font:600 31px/1 Manrope;letter-spacing:-.05em;margin:12px 0 18px}
-.wfCard p{font-size:12px;line-height:1.65;color:#bdc1bb;margin:0;max-width:250px}
-.wfCard>span{position:absolute;left:27px;bottom:25px;color:var(--lime);font-size:7px;letter-spacing:.12em}
-
-/* V14 JOURNEY */
-.journey-section{padding-top:105px}
-.journey-track{padding-left:185px;scroll-snap-type:x mandatory}
-.journey-card{scroll-snap-align:start;min-width:310px;width:310px}
-.journey-image{height:205px}
-.journey-card:hover{transform:translateY(-10px) rotateY(-2deg);box-shadow:12px 14px 0 rgba(0,0,0,.09)}
-.journey-copy h3{font-size:25px}
-.journey-route-cue{font-size:8px}
-
-/* MOBILE */
-@media(max-width:900px){
-  h1{white-space:normal;font-size:clamp(48px,10vw,76px)}
-  .visual{height:500px;padding-right:0}
-  .photoFrame{width:min(370px,78vw);height:440px}
-  .workflowLead{margin-left:0;display:block}.workflowControls{margin-top:22px}
-  .workflow3d,.journey-track{padding-left:0}
-}
-@media(max-width:560px){
-  h1{font-size:52px}
-  .hero{gap:20px}
-  .visual{height:450px}
-  .photoFrame{height:390px;width:82vw}
-  .workflow3d{margin-right:-14px}
-  .wfCard{min-width:285px;width:285px;height:345px}
-}
-
-/* V15 — MOBILE REBUILD */
-html,body{width:100%;max-width:100%;overflow-x:hidden}
-img{max-width:100%}
-@media (max-width: 700px){
-  .wrap{width:calc(100% - 32px);max-width:100%;}
-  .nav{height:64px;padding:0;overflow:hidden}
-  .logo{font-size:14px;white-space:nowrap}
-  .navlinks{gap:14px;font-size:8px;flex-shrink:0}
-  .navlinks a:not(:last-child){display:none}
-  .navlinks a:last-child{display:block}
-
-  .hero{min-height:auto;display:flex;flex-direction:column;align-items:stretch;gap:28px;padding:42px 0 48px}
-  .heroText{font-size:15px;line-height:1.55;margin-top:22px}
-  h1,.hero h1{font-size:clamp(42px,12.5vw,62px);line-height:.94;letter-spacing:-.07em;max-width:100%;white-space:normal}
-  .actions{flex-wrap:wrap;margin-top:22px}
-  .btn{padding:12px 14px;font-size:8px}
-  .heroStats{width:100%;max-width:none;margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-  .stat{padding:14px 8px 0 0;margin-right:8px}
-  .stat b{font-size:21px}.stat span{font-size:7px;letter-spacing:.07em;line-height:1.35;display:block}
-  .heroSocial{margin-top:18px}
-  .heroSocial a{width:34px;height:34px}
-  .visual{height:auto;min-height:430px;width:100%;padding:10px 0 20px;display:flex;justify-content:center}
-  .photoFrame{width:min(82vw,330px);height:405px;box-shadow:12px 12px 0 var(--lime)}
-  .photoFrame:before{inset:-9px 9px 9px -9px}
-  .corner{left:16px;bottom:18px;font-size:8px;letter-spacing:.1em}
-  .limeBlock{width:92px;height:92px;right:0;bottom:0}
-  .number{top:20px}.caption{top:15px}
-
-  .marquee{font-size:8px;padding:11px 0}
-  section{padding:78px 0}
-  .sectionTop{display:block;margin-bottom:32px}
-  .sectionTop .no{margin-bottom:12px}
-  .title{font-size:clamp(38px,10vw,54px);line-height:.98;max-width:100%}
-  .profile{display:block;margin:0}.profile p{font-size:16px;line-height:1.55}
-  .statsLarge{grid-template-columns:repeat(3,1fr)}
-  .statsLarge div{padding:18px 10px}.statsLarge b{font-size:27px}.statsLarge span{font-size:7px;line-height:1.35;display:block}
-  .grid{grid-template-columns:1fr}.card{min-height:220px}.card h3{margin-top:48px}
-  .timeline{margin:0}.job{grid-template-columns:1fr;gap:8px;padding:28px 0}.job h3{font-size:24px}.job ul{font-size:12px;line-height:1.65}
-
-  /* Workflow becomes a true swipe carousel, without affecting page width */
-  .workflowSection{overflow:hidden}
-  .workflowLead{display:block;margin:0 0 24px}.workflowLead p{font-size:15px;line-height:1.55}
-  .workflowControls{margin-top:18px}
-  .workflow3d{width:100%;display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;padding:8px 4px 24px 0;margin:0;scroll-snap-type:x mandatory;perspective:none;-webkit-overflow-scrolling:touch}
-  .wfCard{min-width:calc(100vw - 48px);width:calc(100vw - 48px);height:330px;padding:22px;scroll-snap-align:start}
-  .wfCard h3{font-size:27px}.wfCard small{margin-top:64px}.wfCard p{font-size:11.5px}
-
-  /* Export journey becomes swipeable, one card at a time */
-  .journey-section{overflow:hidden}
-  .journey-intro{margin:0 0 28px;max-width:none}.journey-intro p{font-size:15px;line-height:1.55}
-  .journey-track{width:100%;display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;padding:6px 4px 24px 0;margin:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .journey-card{min-width:calc(100vw - 48px);width:calc(100vw - 48px);scroll-snap-align:start}
-  .journey-line{display:none}.journey-image{height:210px}.journey-copy{padding:19px}.journey-copy h3{font-size:24px}.journey-copy p{font-size:12px}
-  .journey-route-cue{font-size:7px;letter-spacing:.12em;overflow:hidden}.journey-route-cue span{padding:0 7px}
-
-  .edu{grid-template-columns:1fr}.eduItem{padding:23px;border-right:0;border-bottom:1px solid var(--line)}
-  .skills{gap:6px}.skill{font-size:7px;padding:8px 9px}
-  .contact{padding:62px 0}.contactInner{display:block}.contact h2{font-size:58px}.contact p{margin-top:25px;font-size:13px}
-  footer{display:block;line-height:1.7}footer span{display:block}
-}
-@media (max-width:380px){
-  .wrap{width:calc(100% - 24px)}
-  h1,.hero h1{font-size:40px}
-  .photoFrame{width:78vw;height:370px}
-  .heroStats{grid-template-columns:1fr 1fr 1fr}.stat b{font-size:19px}
-  .wfCard,.journey-card{min-width:calc(100vw - 40px);width:calc(100vw - 40px)}
-}
-</style>
-</head>
-<body>
-<header class="wrap nav">
-<a class="logo" href="#">ATIF<span>↗</span></a>
-<nav class="navlinks"><a href="#profile">Profile</a><a href="#expertise">Expertise</a><a href="#career">Career</a><a href="#journey">Journey</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
-</header>
-
-<main>
-<section class="wrap hero">
-<div class="reveal">
-<div class="eyebrow">Export Operations / Documentation</div>
-<h1>Mian Muhammad Atif<span class="heroDot">.</span></h1>
-<p class="heroText"><strong>Export Officer / Admin &amp; Office Administrator</strong> with <strong>4+ years in import &amp; export operations</strong>, with additional experience in administration and office management.</p>
-<div class="actions"><a class="btn main" href="CV.pdf" target="_blank">View CV ↗</a><a class="btn" href="#career">Experience ↓</a></div>
-<div class="heroStats"><div class="stat"><b>8+</b><span>Total experience</span></div><div class="stat"><b>4+</b><span>Import / export</span></div><div class="stat"><b>3</b><span>Core domains</span></div></div>
-<div class="heroSocial" aria-label="Contact links">
-  <a href="mailto:atif.alhaditex@gmail.com" title="Email" aria-label="Email">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>
-  </a>
-  <a href="https://wa.me/923328613400" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.3 7.4L4 20l.9-4A8.4 8.4 0 1 1 20.5 11.7Z"/><path d="M8.2 8.2c.2-.5.5-.5.8-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.7 1.3 1.7 2.3 3 3l.6-.5c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.6c0 .3 0 .6-.5.8-.5.3-1.2.4-1.9.2-2-.5-4.4-2.8-5.6-4.2-1.1-1.3-2-2.9-2.1-3.7-.1-.7 0-1.4.3-1.9Z"/></svg>
-  </a>
-  <a href="https://www.linkedin.com/search/results/people/?keywords=Mian%20Muhammad%20Atif%20Al%20Hadi%20Textile" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8v11"/><path d="M5 5.2v.1"/><path d="M10 19V8"/><path d="M10 12.5c.7-2.9 5.8-3.8 7.1-.2.3.8.4 1.7.4 2.7V19"/><path d="M10 11.5c.6-1.7 1.8-3 3.9-3 2.8 0 3.6 2.1 3.6 4.7"/></svg>
-  </a>
-</div>
-
-</div>
-<div class="visual reveal">
-<div class="number">01 — PROFILE</div>
-<div class="caption">Lahore · Pakistan</div>
-<div class="limeBlock"></div>
-<div class="photoFrame"><img class="photo" src="Atif.jpg" alt="Mian Muhammad Atif"><div class="corner">Mian Muhammad Atif <span>/ Lahore, PK</span></div></div>
-</div>
-</section>
-
-<div class="marquee"><div class="track">EXPORT DOCUMENTATION <span>—</span> LOGISTICS COORDINATION <span>—</span> CUSTOMS &amp; COMPLIANCE <span>—</span> SHIPPING REPORTS <span>—</span> ERP / MIS <span>—</span> ADMINISTRATION <span>—</span> EXPORT DOCUMENTATION <span>—</span> LOGISTICS COORDINATION <span>—</span> CUSTOMS &amp; COMPLIANCE <span>—</span> SHIPPING REPORTS <span>—</span> ERP / MIS <span>—</span> ADMINISTRATION <span>—</span></div></div>
-<div class="journey-route-cue">FACTORY <span>→</span> KARACHI <span>→</span> VESSEL <span>→</span> OCEAN <span>→</span> BUYER</div>
-
-<section id="profile" class="wrap">
-<div class="sectionTop reveal"><div class="no">01 / Profile</div><h2 class="title">Experienced in the work <em>behind every shipment.</em></h2></div>
-<div class="profile"><p class="reveal">Detail-oriented professional experienced in <strong>import/export documentation, logistics coordination, shipping reports, invoice processing, vendor communication and administrative operations.</strong> Focused on accuracy, coordination and dependable execution.</p><div class="statsLarge reveal"><div><b>8+</b><span>Total professional experience</span></div><div><b>4+</b><span>Import &amp; export operations</span></div><div><b>3</b><span>Administration &amp; office management</span></div></div></div>
-</section>
-
-<section id="expertise" class="wrap">
-<div class="sectionTop reveal"><div class="no">02 / Expertise</div><h2 class="title">Core capabilities, <em>clearly defined.</em></h2></div>
-<div class="grid">
-<article class="card reveal"><div class="n">01 / EXPORT</div><h3>Import &amp; Export Documentation</h3><p>Preparing and reviewing commercial and shipping documentation with attention to accuracy and compliance.</p></article>
-<article class="card reveal"><div class="n">02 / LOGISTICS</div><h3>Logistics Coordination</h3><p>Coordinating shipment activities with logistics teams, freight partners and stakeholders.</p></article>
-<article class="card reveal"><div class="n">03 / REPORTING</div><h3>Shipping &amp; Export Reports</h3><p>Preparing, tracking and maintaining operational reports for shipment follow-up.</p></article>
-<article class="card reveal"><div class="n">04 / COMMERCIAL</div><h3>Invoices &amp; Vendor Communication</h3><p>Processing invoices and maintaining clear professional communication with vendors and stakeholders.</p></article>
-<article class="card reveal"><div class="n">05 / ADMIN</div><h3>Administration &amp; Office Management</h3><p>Managing office workflows, budgets, staff coordination, filing and routine administration.</p></article>
-<article class="card reveal"><div class="n">06 / SYSTEMS</div><h3>ERP, MIS &amp; Microsoft Office</h3><p>Working with ERP/MIS systems, reporting, data entry and Microsoft Office documentation tools.</p></article>
-</div>
-</section>
-
-<section id="career" class="wrap">
-<div class="sectionTop reveal"><div class="no">03 / Career</div><h2 class="title">A career built around <em>responsibility.</em></h2></div>
-<div class="timeline">
-<article class="job reveal"><div class="date">May 2023 — Present</div><div><h3>Officer Import &amp; Export</h3><div class="company">Al Hadi Textile (Pvt) Ltd · Lahore</div><ul><li>Handle import/export documentation and customs compliance.</li><li>Coordinate logistics activities and shipment follow-up.</li><li>Prepare and track shipping and export reports.</li><li>Process invoices and manage vendor communications.</li><li>Develop annual budgets and forecast expenses and revenue.</li></ul></div></article>
-<article class="job reveal"><div class="date">Feb 2018 — Oct 2021</div><div><h3>Admin Manager</h3><div class="company">GPC College · Lahore</div><ul><li>Managed daily administrative operations and workflow.</li><li>Streamlined office processes and staff coordination.</li><li>Monitored budgets and office expenses.</li><li>Assisted HR with onboarding and staff scheduling.</li><li>Improved document filing and retrieval systems.</li></ul></div></article>
-<article class="job reveal"><div class="date">Jan 2016 — Dec 2017</div><div><h3>Site Supervisor</h3><div class="company">Airrs Associates (Pvt) Ltd · Lahore</div><ul><li>Supervised construction projects and design compliance.</li><li>Managed team productivity and site resources.</li><li>Ensured workplace safety through inspections and risk assessments.</li></ul></div></article>
-<article class="job reveal"><div class="date">Jan 2015 — Oct 2016</div><div><h3>Draftsman</h3><div class="company">Zaheer A. Sheikh &amp; Associates Pvt.</div><ul><li>Prepared detailed CAD drawings and floor plans.</li><li>Created technical documentation and coordinated with engineering teams.</li></ul></div></article>
-</div>
-</section>
-
-
-<section id="workflow" class="wrap workflowSection">
   <div class="sectionTop reveal">
-    <div class="no">04 / Workflow</div>
-    <h2 class="title">The operation behind <em>every shipment.</em></h2>
+    <div class="no">05 / Workflow</div>
+
+    <h2 class="title">
+      The work behind <em>the shipment.</em>
+    </h2>
   </div>
-  <div class="workflowLead reveal">
-    <p>One export shipment moves through several controlled stages. This is the working chain — <strong>documents, commercial checks, logistics, compliance and final shipment follow-up.</strong></p>
-    <div class="workflowControls">
-      <button type="button" class="wfPrev" aria-label="Previous">←</button>
-      <span>DRAG / SCROLL</span>
-      <button type="button" class="wfNext" aria-label="Next">→</button>
-    </div>
+
+  <div class="showcaseIntro reveal">
+    <p>
+      <strong>Visual proof of the work.</strong>
+      From product to shipment, every detail is handled with accuracy.
+    </p>
   </div>
-  <div class="workflow3d" id="workflow3d">
-    <article class="wfCard reveal">
-      <div class="wfNo">01</div><div class="wfIcon">DOC</div>
-      <small>DOCUMENTATION</small><h3>Prepare &amp; verify</h3>
-      <p>Commercial Invoice, Packing List and supporting export documentation are prepared and checked before shipment moves.</p>
-      <span>ACCURACY / COMPLETENESS</span>
+
+  <div class="referenceRail" id="referenceRail">
+
+    <!-- IMAGE 01 -->
+    <article class="referenceCard">
+
+      <div class="referenceImage">
+
+        <img
+          src="https://www.exportleftovers.com/cdn/shop/files/freepik_make-it-life-style-minima_2740863240.jpg"
+          alt="Green shirt couple"
+        >
+
+        <span class="referenceNumber">01</span>
+
+        <span class="referenceArrow">↗</span>
+
+      </div>
+
+      <div class="referenceInfo">
+
+        <div>
+          <small>EXPORT / PEOPLE</small>
+
+          <h3>
+            People behind the product.
+          </h3>
+        </div>
+
+        <span class="referenceTag">
+          TEAMWORK
+        </span>
+
+      </div>
+
     </article>
-    <article class="wfCard reveal">
-      <div class="wfNo">02</div><div class="wfIcon">CI</div>
-      <small>COMMERCIAL</small><h3>Commercial control</h3>
-      <p>Invoice details, quantities, values and shipment information are aligned for operational and customer requirements.</p>
-      <span>INVOICE / REPORTS</span>
+
+
+    <!-- IMAGE 02 -->
+    <article class="referenceCard">
+
+      <div class="referenceImage">
+
+        <img
+          src="https://www.exportleftovers.com/cdn/shop/files/freepik_side-walking-pose_2804680368.jpg"
+          alt="East West short sleeve tee"
+        >
+
+        <span class="referenceNumber">02</span>
+
+        <span class="referenceArrow">↗</span>
+
+      </div>
+
+      <div class="referenceInfo">
+
+        <div>
+          <small>EXPORT / PRESENTATION</small>
+
+          <h3>
+            Product presentation with purpose.
+          </h3>
+        </div>
+
+        <span class="referenceTag">
+          DETAIL
+        </span>
+
+      </div>
+
     </article>
-    <article class="wfCard reveal">
-      <div class="wfNo">03</div><div class="wfIcon">LOG</div>
-      <small>LOGISTICS</small><h3>Move the cargo</h3>
-      <p>Coordinate transport, container movement, loading schedules and communication with logistics partners.</p>
-      <span>TRUCK / CONTAINER / PORT</span>
-    </article>
-    <article class="wfCard reveal">
-      <div class="wfNo">04</div><div class="wfIcon">CUS</div>
-      <small>CUSTOMS &amp; COMPLIANCE</small><h3>Clear the shipment</h3>
-      <p>Ensure customs and supporting requirements are aligned so the shipment can proceed without avoidable delays.</p>
-      <span>COMPLIANCE / GD / DOCUMENTS</span>
-    </article>
-    <article class="wfCard reveal">
-      <div class="wfNo">05</div><div class="wfIcon">SEA</div>
-      <small>SHIPPING</small><h3>Follow to departure</h3>
-      <p>Track vessel and shipment progress, maintain reports and follow the movement through departure and delivery.</p>
-      <span>VESSEL / B.L. / ETD</span>
-    </article>
+
   </div>
+
+
+  <!-- SLIDER CONTROLS -->
+
+  <div class="referenceControls">
+
+    <button
+      type="button"
+      id="referencePrev"
+      aria-label="Previous image">
+      ←
+    </button>
+
+    <span>DRAG / SWIPE</span>
+
+    <button
+      type="button"
+      id="referenceNext"
+      aria-label="Next image">
+      →
+    </button>
+
+  </div>
+
 </section>
-
-<section id="journey" class="wrap journey-section">
-  <div class="sectionTop reveal">
-    <div class="no">05 / Export Journey</div>
-    <h2 class="title">From factory floor <em>to the buyer.</em></h2>
-  </div>
-  <div class="journey-intro reveal">
-    <p><strong>Follow the cargo.</strong> From finished goods leaving the factory to container loading, Karachi port, vessel departure, ocean transit and final delivery — a visual view of the export operation.</p>
-  </div>
-  <div class="journey-track">
-    <article class="journey-card reveal">
-      <div class="journey-image factory-img"><span>01</span><b>FACTORY</b></div>
-      <div class="journey-copy"><small>ORIGIN</small><h3>Goods Ready</h3><p>Production completed, cartons prepared and shipment documents aligned before loading.</p><div class="tags">PACKING LIST · COMMERCIAL INVOICE</div></div>
-    </article>
-    <div class="journey-line"></div>
-    <article class="journey-card reveal">
-      <div class="journey-image container-img"><span>02</span><b>CONTAINER</b></div>
-      <div class="journey-copy"><small>STUFFING</small><h3>Container Loading</h3><p>Cartons are checked, loaded into the container, secured and sealed for dispatch.</p><div class="tags">STUFFING · SEAL · WEIGHT</div></div>
-    </article>
-    <div class="journey-line"></div>
-    <article class="journey-card reveal">
-      <div class="journey-image port-img"><span>03</span><b>KARACHI</b></div>
-      <div class="journey-copy"><small>PORT</small><h3>Port &amp; Customs</h3><p>The container moves to Karachi for export processing, terminal handling and shipment readiness.</p><div class="tags">CUSTOMS · TERMINAL · SHIPPING</div></div>
-    </article>
-    <div class="journey-line"></div>
-    <article class="journey-card reveal">
-      <div class="journey-image vessel-img"><span>04</span><b>VESSEL</b></div>
-      <div class="journey-copy"><small>DEPARTURE</small><h3>Loaded on Vessel</h3><p>Container is loaded onto the vessel and the export shipment moves into international transit.</p><div class="tags">B/L · VESSEL · ETD</div></div>
-    </article>
-    <div class="journey-line"></div>
-    <article class="journey-card reveal">
-      <div class="journey-image ocean-img"><span>05</span><b>TRANSIT</b></div>
-      <div class="journey-copy"><small>OCEAN FREIGHT</small><h3>International Movement</h3><p>Shipment progress is followed through sailing updates, documentation and communication.</p><div class="tags">TRACKING · UPDATES · DOCUMENTS</div></div>
-    </article>
-    <div class="journey-line"></div>
-    <article class="journey-card reveal">
-      <div class="journey-image destination-img"><span>06</span><b>DESTINATION</b></div>
-      <div class="journey-copy"><small>DELIVERY</small><h3>Buyer Receives</h3><p>The journey concludes at destination with arrival, import handling and delivery to the buyer.</p><div class="tags">ARRIVAL · IMPORT · DELIVERY</div></div>
-    </article>
-  </div>
-</section>
-
-<section id="education" class="wrap">
-<div class="sectionTop reveal"><div class="no">06 / Education &amp; Skills</div><h2 class="title">The foundation <em>behind the work.</em></h2></div>
-<div class="edu reveal">
-<div class="eduItem"><small>2022 — Project Ongoing</small><h3>Bachelor of Science (B.Sc.) — Civil Technology</h3></div>
-<div class="eduItem"><small>2017</small><h3>D.A.E. — Civil Engineering</h3><small>Punjab Board of Technical Education, Lahore</small></div>
-<div class="eduItem"><small>2010</small><h3>Matriculation</h3><small>Bahawalpur Board of Intermediate &amp; Secondary Education</small></div>
-</div>
-<div class="skills reveal"><span class="skill">Microsoft Office</span><span class="skill">Excel</span><span class="skill">InPage</span><span class="skill">PhotoShop</span><span class="skill">AutoCAD 2D</span><span class="skill">ERP &amp; MIS</span><span class="skill">Communication</span><span class="skill">Coordination</span><span class="skill">Staff Management</span><span class="skill">Leadership</span><span class="skill">Report Preparation</span><span class="skill">Data Entry</span></div>
-</section>
-
-<section id="contact" class="contact"><div class="wrap contactInner"><div class="reveal"><h2>Let's <span>connect.</span></h2></div><div class="reveal"><p>For professional opportunities, collaboration or further information, get in touch.</p><div class="actions"><a class="btn main" href="mailto:mian_Atif226@yahoo.com">Email Me ↗</a><a class="btn" href="CV.pdf" target="_blank">Download CV</a></div></div></div></section>
-<footer class="wrap"><span>© 2026 Mian Muhammad Atif</span><span>Export Officer · Lahore, Pakistan</span></footer>
-</main>
-<script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
-
-const wf=document.getElementById('workflow3d');
-const prev=document.querySelector('.wfPrev');
-const next=document.querySelector('.wfNext');
-if(wf && prev && next){
-  const step=333;
-  prev.addEventListener('click',()=>wf.scrollBy({left:-step,behavior:'smooth'}));
-  next.addEventListener('click',()=>wf.scrollBy({left:step,behavior:'smooth'}));
-}
-</script>
-</body>
-</html>
