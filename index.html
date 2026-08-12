@@ -107,6 +107,74 @@ h1{font-size:clamp(48px,5.45vw,82px);letter-spacing:-.065em;white-space:nowrap}
   .workflow3d{margin-right:-14px}
   .wfCard{min-width:285px;width:285px;height:345px}
 }
+
+/* V15 — MOBILE REBUILD */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+img{max-width:100%}
+@media (max-width: 700px){
+  .wrap{width:calc(100% - 32px);max-width:100%;}
+  .nav{height:64px;padding:0;overflow:hidden}
+  .logo{font-size:14px;white-space:nowrap}
+  .navlinks{gap:14px;font-size:8px;flex-shrink:0}
+  .navlinks a:not(:last-child){display:none}
+  .navlinks a:last-child{display:block}
+
+  .hero{min-height:auto;display:flex;flex-direction:column;align-items:stretch;gap:28px;padding:42px 0 48px}
+  .heroText{font-size:15px;line-height:1.55;margin-top:22px}
+  h1,.hero h1{font-size:clamp(42px,12.5vw,62px);line-height:.94;letter-spacing:-.07em;max-width:100%;white-space:normal}
+  .actions{flex-wrap:wrap;margin-top:22px}
+  .btn{padding:12px 14px;font-size:8px}
+  .heroStats{width:100%;max-width:none;margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .stat{padding:14px 8px 0 0;margin-right:8px}
+  .stat b{font-size:21px}.stat span{font-size:7px;letter-spacing:.07em;line-height:1.35;display:block}
+  .heroSocial{margin-top:18px}
+  .heroSocial a{width:34px;height:34px}
+  .visual{height:auto;min-height:430px;width:100%;padding:10px 0 20px;display:flex;justify-content:center}
+  .photoFrame{width:min(82vw,330px);height:405px;box-shadow:12px 12px 0 var(--lime)}
+  .photoFrame:before{inset:-9px 9px 9px -9px}
+  .corner{left:16px;bottom:18px;font-size:8px;letter-spacing:.1em}
+  .limeBlock{width:92px;height:92px;right:0;bottom:0}
+  .number{top:20px}.caption{top:15px}
+
+  .marquee{font-size:8px;padding:11px 0}
+  section{padding:78px 0}
+  .sectionTop{display:block;margin-bottom:32px}
+  .sectionTop .no{margin-bottom:12px}
+  .title{font-size:clamp(38px,10vw,54px);line-height:.98;max-width:100%}
+  .profile{display:block;margin:0}.profile p{font-size:16px;line-height:1.55}
+  .statsLarge{grid-template-columns:repeat(3,1fr)}
+  .statsLarge div{padding:18px 10px}.statsLarge b{font-size:27px}.statsLarge span{font-size:7px;line-height:1.35;display:block}
+  .grid{grid-template-columns:1fr}.card{min-height:220px}.card h3{margin-top:48px}
+  .timeline{margin:0}.job{grid-template-columns:1fr;gap:8px;padding:28px 0}.job h3{font-size:24px}.job ul{font-size:12px;line-height:1.65}
+
+  /* Workflow becomes a true swipe carousel, without affecting page width */
+  .workflowSection{overflow:hidden}
+  .workflowLead{display:block;margin:0 0 24px}.workflowLead p{font-size:15px;line-height:1.55}
+  .workflowControls{margin-top:18px}
+  .workflow3d{width:100%;display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;padding:8px 4px 24px 0;margin:0;scroll-snap-type:x mandatory;perspective:none;-webkit-overflow-scrolling:touch}
+  .wfCard{min-width:calc(100vw - 48px);width:calc(100vw - 48px);height:330px;padding:22px;scroll-snap-align:start}
+  .wfCard h3{font-size:27px}.wfCard small{margin-top:64px}.wfCard p{font-size:11.5px}
+
+  /* Export journey becomes swipeable, one card at a time */
+  .journey-section{overflow:hidden}
+  .journey-intro{margin:0 0 28px;max-width:none}.journey-intro p{font-size:15px;line-height:1.55}
+  .journey-track{width:100%;display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;padding:6px 4px 24px 0;margin:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .journey-card{min-width:calc(100vw - 48px);width:calc(100vw - 48px);scroll-snap-align:start}
+  .journey-line{display:none}.journey-image{height:210px}.journey-copy{padding:19px}.journey-copy h3{font-size:24px}.journey-copy p{font-size:12px}
+  .journey-route-cue{font-size:7px;letter-spacing:.12em;overflow:hidden}.journey-route-cue span{padding:0 7px}
+
+  .edu{grid-template-columns:1fr}.eduItem{padding:23px;border-right:0;border-bottom:1px solid var(--line)}
+  .skills{gap:6px}.skill{font-size:7px;padding:8px 9px}
+  .contact{padding:62px 0}.contactInner{display:block}.contact h2{font-size:58px}.contact p{margin-top:25px;font-size:13px}
+  footer{display:block;line-height:1.7}footer span{display:block}
+}
+@media (max-width:380px){
+  .wrap{width:calc(100% - 24px)}
+  h1,.hero h1{font-size:40px}
+  .photoFrame{width:78vw;height:370px}
+  .heroStats{grid-template-columns:1fr 1fr 1fr}.stat b{font-size:19px}
+  .wfCard,.journey-card{min-width:calc(100vw - 40px);width:calc(100vw - 40px)}
+}
 </style>
 </head>
 <body>
