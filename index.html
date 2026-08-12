@@ -19,9 +19,71 @@
   .job h3{font-size:28px}
   .step h3{font-size:21px}
 }
+
+/* V8 HERO — cinematic, editorial, image-forward */
+.hero{min-height:760px;height:100svh;background:#06101d;overflow:hidden}
+.heroNoise{position:absolute;inset:0;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+.heroLines{position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 7%,#fff12 7.05%,transparent 7.1% 92.9%,#fff12 93%,transparent 93.05%),linear-gradient(#fff10 1px,transparent 1px);background-size:100% 100%,100% 150px;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent)}
+.heroGlow{position:absolute;width:720px;height:720px;border-radius:50%;right:-190px;top:80px;background:radial-gradient(circle,#2478ffb8 0,#1d66e066 38%,transparent 68%);filter:blur(3px)}
+.heroGrid{grid-template-columns:1fr 1fr;gap:30px;align-items:center;min-height:100%}
+.heroLeft{position:relative;z-index:5;padding-top:30px}
+.heroTop{display:flex;align-items:center;gap:22px;margin-bottom:28px}
+.heroIndex{font:600 11px "Space Grotesk";color:#ff7043;letter-spacing:.15em}
+.heroKicker{font:700 12px "Space Grotesk";letter-spacing:.23em;color:#aab6c4;margin-bottom:16px}
+.hero h1{font:600 clamp(64px,7.8vw,126px)/.79 "Space Grotesk";letter-spacing:-.09em;margin:0;text-transform:uppercase;max-width:700px}
+.hero h1 span{display:block}
+.hero h1 .outline{-webkit-text-stroke:1px #fff;color:transparent}
+.hero h1 .orange{color:#ff7043}
+.hero .copy{font-size:14px;line-height:1.72;color:#aeb9c6;max-width:520px;margin-top:30px}
+.heroFacts{display:flex;gap:0;margin-top:28px;border-block:1px solid #fff2;width:max-content}
+.heroFacts div{padding:12px 25px 12px 0;margin-right:25px;border-right:1px solid #fff2}
+.heroFacts div:last-child{border:0;margin-right:0}
+.heroFacts b{display:block;font:600 28px "Space Grotesk";color:#fff}
+.heroFacts small{font-size:8px;letter-spacing:.13em;color:#728091}
+.hero .buttons{margin-top:25px}
+.heroVisual{height:650px;position:relative;display:grid;place-items:center}
+.photoFrame{width:min(430px,70%);height:590px;position:relative;z-index:3;overflow:hidden;background:#d8d2c4;clip-path:polygon(8% 0,100% 0,94% 100%,0 94%);box-shadow:28px 30px 0 #ff7043}
+.photoFrame img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;position:relative;z-index:2;mix-blend-mode:normal}
+.photoShade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,#06101d55 100%);z-index:4}
+.photoTag{position:absolute;right:0;bottom:28px;z-index:6;background:#fff;color:#06101d;padding:12px 16px;font:700 9px "Space Grotesk";letter-spacing:.16em}
+.photoGlow{position:absolute;inset:0;background:linear-gradient(135deg,#ffe7b5,#bfc9d2);z-index:1}
+.visualNumber{position:absolute;left:0;top:54px;font:600 10px "Space Grotesk";letter-spacing:.2em;color:#61e7ff;z-index:7;writing-mode:vertical-rl}
+.orbit{position:absolute;border:1px solid #61e7ff44;border-radius:50%;z-index:1}
+.orbit1{width:570px;height:300px;transform:rotate(-16deg)}
+.orbit2{width:470px;height:240px;transform:rotate(20deg)}
+.floatCard{position:absolute;left:5%;bottom:62px;z-index:8;background:#06101d;border:1px solid #fff3;padding:14px 18px;min-width:150px;box-shadow:10px 10px 0 #165dff}
+.floatCard span{display:block;font-size:7px;letter-spacing:.16em;color:#7f8c9c;margin-bottom:4px}.floatCard b{font:600 12px "Space Grotesk"}
+.verticalWords{position:absolute;right:-10px;top:180px;z-index:5;writing-mode:vertical-rl;font:600 9px "Space Grotesk";letter-spacing:.28em;color:#8290a0}
+.heroBottom{position:absolute;left:4vw;right:4vw;bottom:20px;display:flex;align-items:center;gap:15px;z-index:10;font-size:8px;letter-spacing:.2em;color:#6f7c8b}
+.heroBottom div{height:1px;flex:1;background:#fff2}
+@media(max-width:1000px){.heroGrid{grid-template-columns:1fr .9fr}.hero h1{font-size:70px}.photoFrame{width:350px;height:520px}}
+@media(max-width:700px){
+ .hero{min-height:900px}.heroGrid{grid-template-columns:1fr;align-content:center;padding-top:70px}.heroLeft{padding-top:0}.hero h1{font-size:58px}.heroVisual{height:390px;margin-top:-5px}.photoFrame{width:270px;height:350px;box-shadow:16px 16px 0 #ff7043}.orbit1{width:360px;height:190px}.orbit2{width:300px;height:160px}.visualNumber,.verticalWords{display:none}.floatCard{left:8%;bottom:18px}.heroFacts{width:100%;justify-content:space-between}.heroFacts div{padding-right:12px;margin-right:12px}.heroFacts b{font-size:22px}.heroBottom{bottom:10px}.heroBottom span:last-child{display:none}
+}
 </style></head><body>
 <nav class="nav"><a class="brand" href="#top">ATIF<b>↗</b></a><div class="navlinks"><a href="#about">Profile</a><a href="#expertise">Expertise</a><a href="#career">Career</a><a href="#education">Education</a><a class="cta" href="#contact">Contact</a></div></nav>
-<section class="hero" id="top"><div class="grid"></div><div class="orb"></div><div class="wrap heroGrid"><div class="reveal"><div class="eyebrow"><i></i> Export & Operations Professional</div><h1>MAKE<br><span class="outline">IT</span> <span class="orange">MOVE.</span></h1><p class="copy">Mian Muhammad Atif — <strong>Export Officer / Admin & Office Administrator</strong> with 8+ years of professional experience, including <strong>4+ years in import & export operations</strong> and experience in administration and office management.</p><div class="buttons"><a class="btn primary" href="CV.pdf" download>Download CV ↗</a><a class="btn" href="#career">Explore Career ↓</a></div></div><div class="photo reveal"><div class="back"></div><img src="Atif.jpg" alt="Mian Muhammad Atif"><div class="label">Lahore · Pakistan</div></div></div><div class="scroll">Scroll to enter</div></section>
+<section class="hero" id="top">
+<div class="heroNoise"></div><div class="heroLines"></div>
+<div class="heroGlow"></div>
+<div class="wrap heroGrid">
+  <div class="heroLeft reveal">
+    <div class="heroTop"><span class="heroIndex">01</span><span class="eyebrow"><i></i> EXPORT · LOGISTICS · OPERATIONS</span></div>
+    <div class="heroKicker">MIAN MUHAMMAD ATIF</div>
+    <h1><span>EXPORT</span><span class="outline">THAT</span><span class="orange">MOVES.</span></h1>
+    <p class="copy">Export Officer / Admin & Office Administrator focused on documentation, logistics coordination, compliance and dependable operations.</p>
+    <div class="heroFacts"><div><b>8+</b><small>YEARS EXPERIENCE</small></div><div><b>4+</b><small>IMPORT / EXPORT</small></div><div><b>03</b><small>CORE DOMAINS</small></div></div>
+    <div class="buttons"><a class="btn primary" href="CV.pdf" download>View / Download CV ↗</a><a class="btn" href="#career">See Experience ↓</a></div>
+  </div>
+  <div class="heroVisual reveal">
+    <div class="visualNumber">ATIF / 2026</div>
+    <div class="photoFrame"><div class="photoGlow"></div><img src="Atif.jpg" alt="Mian Muhammad Atif"><div class="photoShade"></div><div class="photoTag">EXPORT OFFICER</div></div>
+    <div class="orbit orbit1"></div><div class="orbit orbit2"></div>
+    <div class="floatCard"><span>BASED IN</span><b>LAHORE, PK</b></div>
+    <div class="verticalWords">DOCUMENTATION · LOGISTICS · COMPLIANCE</div>
+  </div>
+</div>
+<div class="heroBottom"><span>SCROLL TO EXPLORE</span><div></div><span>EST. PROFESSIONAL PROFILE</span></div>
+</section>
 <div class="marquee"><div class="marq"><span>Import & Export</span><b>✦</b><span>Documentation</span><b>✦</b><span>Logistics</span><b>✦</b><span>Compliance</span><b>✦</b><span>Administration</span><b>✦</b><span>ERP / MIS</span><b>✦</b><span>Import & Export</span><b>✦</b><span>Documentation</span><b>✦</b><span>Logistics</span><b>✦</b><span>Compliance</span><b>✦</b><span>Administration</span><b>✦</b><span>ERP / MIS</span></div></div>
 <section class="paper" id="about"><div class="wrap"><div class="head reveal"><div><div class="num">01 / Profile</div><div class="title">THE PERSON<br>BEHIND THE PROCESS.</div></div><div class="desc">A professional profile built around accurate documentation, coordination, reporting and dependable office operations.</div></div><div class="about"><div class="big reveal">Detail-oriented professional experienced in <mark>import/export documentation</mark>, logistics coordination, shipping reports, invoice processing, vendor communication and administrative operations.</div><div class="numbers reveal"><div class="n"><strong>8+</strong><span>Total professional experience</span></div><div class="n"><strong>4+</strong><span>Import & export operations</span></div><div class="n"><strong>3+</strong><span>Administration & office management</span></div></div></div></div></section>
 <section class="dark" id="expertise"><div class="wrap"><div class="head reveal"><div><div class="num">02 / Expertise</div><div class="title">BUILT TO<br>HANDLE DETAIL.</div></div><div class="desc">Core capabilities represented in the professional CV and current work profile.</div></div><div class="expert"><article class="card reveal"><small>01 / EXPORT</small><h3>Import & Export Documentation</h3><p>Handling import/export documentation with attention to accuracy, completeness and compliance.</p></article><article class="card reveal"><small>02 / LOGISTICS</small><h3>Logistics Coordination</h3><p>Coordinating logistics activities to support timely shipment movement and delivery.</p></article><article class="card reveal"><small>03 / REPORTING</small><h3>Shipping & Export Reports</h3><p>Preparing, tracking and maintaining shipping and export reports for operational follow-up.</p></article><article class="card reveal"><small>04 / COMMERCIAL</small><h3>Invoices & Vendor Communication</h3><p>Processing invoices and maintaining professional communication with vendors and stakeholders.</p></article><article class="card reveal"><small>05 / ADMIN</small><h3>Administration & Office Management</h3><p>Managing office workflows, budgets, staff coordination, filing and routine administrative operations.</p></article><article class="card reveal"><small>06 / SYSTEMS</small><h3>ERP, MIS & Microsoft Office</h3><p>Working with ERP/MIS systems, reporting, data entry, Microsoft Office and documentation tools.</p></article></div></div></section>
