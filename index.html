@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MIAN MUHAMMAD ATIF | Export Operations</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
     margin:0;
     padding:0;
@@ -23,267 +17,152 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     color:#eee8dc;
     overflow-x:hidden;
-
-    /* DARK GOLDEN DREAM BACKGROUND */
     background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(196,154,65,.20),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 70%,
-            rgba(116,31,49,.20),
-            transparent 32%
-        ),
-        linear-gradient(
-            135deg,
-            #17130d 0%,
-            #292015 35%,
-            #3a2b17 65%,
-            #17130d 100%
-        );
-
+        radial-gradient(circle at 15% 10%,rgba(213,180,95,.18),transparent 28%),
+        radial-gradient(circle at 85% 75%,rgba(116,31,49,.18),transparent 30%),
+        linear-gradient(135deg,#17130d,#2b2115 45%,#342717 70%,#17130d);
     background-attachment:fixed;
 }
 
-/* =====================================================
-   SNOW
-===================================================== */
+/* ================= SNOW ================= */
 
 .snow{
     position:fixed;
     inset:0;
     pointer-events:none;
     overflow:hidden;
-    z-index:9999;
+    z-index:99999;
 }
 
 .snow span{
     position:absolute;
-    top:-15px;
-
+    top:-20px;
     width:3px;
     height:3px;
-
     border-radius:50%;
-
-    background:#fff;
-
-    opacity:.75;
-
-    box-shadow:
-        0 0 6px #fff,
-        0 0 12px rgba(255,255,255,.65);
-
-    animation:snowFall linear infinite;
+    background:white;
+    box-shadow:0 0 7px white,0 0 14px rgba(255,255,255,.7);
+    opacity:.7;
+    animation:snowfall linear infinite;
 }
 
-@keyframes snowFall{
-
+@keyframes snowfall{
     0%{
         transform:translate3d(0,-20px,0);
         opacity:0;
     }
-
     15%{
         opacity:.8;
     }
-
     50%{
         transform:translate3d(35px,50vh,0);
     }
-
     100%{
         transform:translate3d(-20px,110vh,0);
         opacity:.05;
     }
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+/* ================= HERO ================= */
 
 header{
     min-height:100vh;
-
-    position:relative;
-
+    padding:70px 7%;
     display:flex;
     align-items:center;
-
-    padding:70px 7%;
-
+    position:relative;
     overflow:hidden;
 
     background:
         linear-gradient(
             115deg,
-            rgba(25,20,13,.98) 0%,
-            rgba(45,34,20,.96) 47%,
-            rgba(31,115,103,.95) 47%,
-            rgba(20,91,83,.98) 100%
+            rgba(24,19,12,.98) 0%,
+            rgba(50,38,21,.96) 47%,
+            rgba(26,113,101,.96) 47%,
+            rgba(17,82,75,.98) 100%
         );
 }
 
-header::after{
+header:after{
     content:"";
-
     position:absolute;
-
-    width:430px;
-    height:125%;
-
+    width:420px;
+    height:130%;
     left:43%;
-    top:-12%;
-
-    background:
-        rgba(213,178,95,.09);
-
+    top:-15%;
+    background:rgba(214,180,95,.07);
     transform:rotate(-17deg);
-
-    pointer-events:none;
 }
 
 .hero{
     width:min(1200px,100%);
-
     margin:auto;
-
     position:relative;
     z-index:2;
 
     display:grid;
-
-    grid-template-columns:
-        1fr
-        .75fr;
-
+    grid-template-columns:1fr .75fr;
     gap:55px;
-
     align-items:center;
-}
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
-.hero-text{
-    animation:heroIn 1s ease both;
-}
-
-@keyframes heroIn{
-
-    from{
-        opacity:0;
-        transform:translateX(-35px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
 }
 
 .hero-small{
     color:#d6b45f;
-
     font-size:12px;
-
     font-weight:800;
-
     letter-spacing:3px;
-
     margin-bottom:18px;
 }
 
-/* =====================================================
-   LEFT TO RIGHT ANIMATION
-===================================================== */
+/* ================= MOVING WORDS ================= */
 
 .hero-animated{
     height:48px;
-
     overflow:hidden;
-
-    position:relative;
-
     margin-bottom:10px;
 }
 
 .hero-animated span{
     display:block;
-
     color:#d9ba6b;
-
-    font-size:
-        clamp(
-            18px,
-            2.2vw,
-            27px
-        );
-
+    font-size:clamp(18px,2.2vw,27px);
     font-weight:800;
-
     letter-spacing:1px;
-
     white-space:nowrap;
-
-    animation:
-        textSlide 4.5s
-        ease-in-out
-        infinite;
+    animation:textSlide 4.5s ease-in-out infinite;
 }
 
 @keyframes textSlide{
-
     0%{
         transform:translateX(-110%);
         opacity:0;
     }
-
     12%{
         transform:translateX(0);
         opacity:1;
     }
-
     70%{
         transform:translateX(0);
         opacity:1;
     }
-
     88%{
         transform:translateX(110%);
         opacity:0;
     }
-
     100%{
         transform:translateX(110%);
         opacity:0;
     }
 }
 
-/* =====================================================
-   NAME
-===================================================== */
-
 .hero h1{
     color:#f5efe3;
-
-    font-size:
-        clamp(
-            34px,
-            4.7vw,
-            58px
-        );
-
+    font-size:clamp(34px,4.5vw,56px);
     line-height:1;
-
     white-space:nowrap;
-
     margin-bottom:20px;
 }
 
@@ -293,86 +172,51 @@ header::after{
 
 .hero-description{
     max-width:650px;
-
     color:#d0c8bb;
-
     line-height:1.85;
-
     font-size:15px;
 }
 
-/* =====================================================
-   BUTTONS
-===================================================== */
-
 .hero-buttons{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:12px;
-
     margin-top:27px;
 }
 
 .btn{
     display:inline-block;
-
     text-decoration:none;
-
     padding:12px 21px;
-
     border-radius:7px;
-
     color:#fff;
-
     background:#741f31;
-
-    border:1px solid #9d3b50;
-
+    border:1px solid #a23c51;
     font-size:13px;
-
     font-weight:700;
-
-    transition:.35s ease;
-
-    box-shadow:
-        0 8px 22px
-        rgba(116,31,49,.22);
+    transition:.35s;
+    box-shadow:0 8px 22px rgba(116,31,49,.22);
 }
 
 .btn:hover{
     background:#b38a3c;
-
     border-color:#d6b45f;
-
     transform:translateY(-4px);
-
-    box-shadow:
-        0 14px 32px
-        rgba(211,177,92,.28);
+    box-shadow:0 14px 32px rgba(211,177,92,.30);
 }
 
-/* =====================================================
-   PROFILE FRAME
-===================================================== */
+/* ================= PROFILE ================= */
 
 .profile-area{
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    min-height:520px;
 }
 
 .profile-frame{
     width:350px;
     height:470px;
-
     padding:8px;
-
     position:relative;
 
     background:
@@ -385,152 +229,101 @@ header::after{
         );
 
     clip-path:polygon(
-        7% 0,
-        93% 0,
-        100% 7%,
-        100% 93%,
-        93% 100%,
-        7% 100%,
-        0 93%,
-        0 7%
+        8% 0,
+        92% 0,
+        100% 8%,
+        100% 92%,
+        92% 100%,
+        8% 100%,
+        0 92%,
+        0 8%
     );
 
-    filter:
-        drop-shadow(
-            0 25px 35px
-            rgba(0,0,0,.45)
-        );
-
-    transition:.5s ease;
+    filter:drop-shadow(0 25px 35px rgba(0,0,0,.45));
+    transition:.5s;
 }
 
 .profile-inner{
     width:100%;
     height:100%;
-
     overflow:hidden;
-
     background:#1c1914;
 
     clip-path:polygon(
-        7% 0,
-        93% 0,
-        100% 7%,
-        100% 93%,
-        93% 100%,
-        7% 100%,
-        0 93%,
-        0 7%
+        8% 0,
+        92% 0,
+        100% 8%,
+        100% 92%,
+        92% 100%,
+        8% 100%,
+        0 92%,
+        0 8%
     );
 }
 
 .profile-inner img{
     width:100%;
     height:100%;
-
-    display:block;
-
     object-fit:cover;
-
-    object-position:center 16%;
-
+    object-position:center 15%;
+    display:block;
     transform:scale(.96);
-
-    transition:.55s ease;
+    transition:.55s;
 }
 
 .profile-frame:hover{
-    transform:
-        translateY(-10px)
-        scale(1.025);
-
-    filter:
-        drop-shadow(
-            0 28px 40px
-            rgba(214,180,95,.28)
-        );
+    transform:translateY(-10px) scale(1.025);
+    filter:drop-shadow(0 28px 42px rgba(214,180,95,.32));
 }
 
 .profile-frame:hover img{
     transform:scale(1.02);
-
-    filter:
-        brightness(1.06)
-        contrast(1.05)
-        saturate(1.08);
+    filter:brightness(1.06) contrast(1.05) saturate(1.08);
 }
 
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* ================= SECTIONS ================= */
 
 section{
     width:min(1180px,92%);
-
     margin:auto;
-
     padding:80px 0;
 }
 
 .section-label{
     color:#d5b35d;
-
     font-size:12px;
-
     font-weight:800;
-
     letter-spacing:4px;
-
     margin-bottom:12px;
 }
 
 section h2{
     color:#f4eee3;
-
-    font-size:
-        clamp(
-            30px,
-            4vw,
-            50px
-        );
-
+    font-size:clamp(30px,4vw,50px);
     line-height:1.08;
-
     margin-bottom:15px;
 }
 
 .section-intro{
     max-width:720px;
-
     color:#c6bdad;
-
     line-height:1.8;
-
     margin-bottom:32px;
 }
 
-/* =====================================================
-   CARDS
-===================================================== */
+/* ================= CARDS ================= */
 
 .grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:17px;
 }
 
 .card{
     position:relative;
-
     overflow:hidden;
-
     min-height:225px;
-
     padding:18px;
-
     border-radius:12px;
 
     background:
@@ -540,31 +333,25 @@ section h2{
             rgba(255,255,255,.025)
         );
 
-    border:
-        1px solid
-        rgba(210,174,86,.28);
+    border:1px solid rgba(210,174,86,.28);
 
     box-shadow:
-        0 14px 35px
-        rgba(0,0,0,.25);
+        0 14px 35px rgba(0,0,0,.25);
 
     backdrop-filter:blur(7px);
 
     transition:
-        transform .45s ease,
-        background .45s ease,
-        border-color .45s ease,
-        box-shadow .45s ease;
+        transform .45s,
+        background .45s,
+        border-color .45s,
+        box-shadow .45s;
 }
 
-.card::before{
+.card:before{
     content:"";
-
     position:absolute;
-
     top:0;
     left:-120%;
-
     width:100%;
     height:2px;
 
@@ -580,7 +367,7 @@ section h2{
     transition:.65s;
 }
 
-.card:hover::before{
+.card:hover:before{
     left:120%;
 }
 
@@ -597,73 +384,54 @@ section h2{
     border-color:#c29646;
 
     box-shadow:
-        0 22px 45px
-        rgba(116,31,49,.38),
-        0 0 25px
-        rgba(211,177,92,.14);
+        0 22px 45px rgba(116,31,49,.42),
+        0 0 25px rgba(211,177,92,.15);
 }
 
 .card img{
     width:100%;
     height:125px;
-
     display:block;
-
     object-fit:cover;
-
     border-radius:8px;
-
     margin-bottom:15px;
 
-    border:
-        1px solid
-        rgba(214,180,95,.22);
+    border:1px solid rgba(214,180,95,.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            #3c2d18,
+            #741f31,
+            #145d54
+        );
 
     transition:.5s;
-
-    background:#241d12;
 }
 
 .card:hover img{
     transform:scale(1.035);
-
-    filter:
-        brightness(1.08)
-        saturate(1.12);
+    filter:brightness(1.08) saturate(1.12);
 }
 
 .card-number{
     color:#d6b45f;
-
     font-size:11px;
-
     letter-spacing:3px;
-
     font-weight:800;
-
     margin-bottom:8px;
-
-    transition:.3s;
 }
 
 .card h3{
     color:#f1eadf;
-
     font-size:20px;
-
     margin-bottom:9px;
-
-    transition:.3s;
 }
 
 .card p{
     color:#c4bbac;
-
     font-size:13.5px;
-
     line-height:1.7;
-
-    transition:.3s;
 }
 
 .card:hover .card-number,
@@ -672,55 +440,37 @@ section h2{
     color:#fff;
 }
 
-/* =====================================================
-   EXPERTISE
-===================================================== */
+/* ================= EXPERTISE ================= */
 
 .expertise-layout{
     display:grid;
-
-    grid-template-columns:
-        1fr .85fr;
-
+    grid-template-columns:1fr .85fr;
     gap:20px;
 }
 
 .expertise-grid{
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:16px;
 }
 
-/* =====================================================
-   TWO IMAGE UP/DOWN SLIDER
-===================================================== */
+/* ================= VERTICAL SLIDER ================= */
 
 .vertical-slider{
     height:510px;
-
     position:relative;
-
     overflow:hidden;
-
     border-radius:15px;
 
-    border:
-        1px solid
-        rgba(214,180,95,.35);
+    border:1px solid rgba(214,180,95,.35);
 
     background:#201a11;
 
-    box-shadow:
-        0 22px 45px
-        rgba(0,0,0,.32);
+    box-shadow:0 22px 45px rgba(0,0,0,.32);
 }
 
 .vertical-track{
     position:absolute;
-
     inset:0;
 
     animation:
@@ -733,13 +483,9 @@ section h2{
 .vertical-track img{
     width:100%;
     height:100%;
-
     position:absolute;
-
     left:0;
-
     object-fit:cover;
-
     display:block;
 }
 
@@ -752,17 +498,12 @@ section h2{
 }
 
 @keyframes verticalMove{
-
-    0%,
-    38%{
+    0%,38%{
         transform:translateY(0);
     }
-
-    48%,
-    88%{
+    48%,88%{
         transform:translateY(-100%);
     }
-
     100%{
         transform:translateY(0);
     }
@@ -770,9 +511,7 @@ section h2{
 
 .slider-caption{
     position:absolute;
-
     z-index:4;
-
     left:18px;
     bottom:18px;
 
@@ -782,38 +521,27 @@ section h2{
 
     color:#fff;
 
-    background:
-        rgba(20,16,10,.75);
+    background:rgba(20,16,10,.75);
 
     backdrop-filter:blur(8px);
 
-    border:
-        1px solid
-        rgba(214,180,95,.35);
+    border:1px solid rgba(214,180,95,.35);
 
     font-size:11px;
-
     letter-spacing:2px;
-
     font-weight:800;
 }
 
-/* =====================================================
-   WORKFLOW
-===================================================== */
+/* ================= WORKFLOW ================= */
 
 .workflow{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:14px;
 }
 
 .workflow .card{
     min-height:220px;
-
     padding:16px;
 }
 
@@ -821,16 +549,11 @@ section h2{
     height:105px;
 }
 
-/* =====================================================
-   JOURNEY
-===================================================== */
+/* ================= JOURNEY ================= */
 
 .journey{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:17px;
 }
 
@@ -838,70 +561,48 @@ section h2{
     min-height:245px;
 }
 
-/* =====================================================
-   TEXTILES
-===================================================== */
+/* ================= HOME TEXTILES ================= */
 
 .textile-layout{
     display:grid;
-
-    grid-template-columns:
-        1fr .85fr;
-
+    grid-template-columns:1fr .85fr;
     gap:22px;
-
     align-items:center;
 }
 
 .textile-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:16px;
 }
 
-/* =====================================================
-   SHIPPING
-===================================================== */
+/* ================= SHIPPING ================= */
 
 .shipping-feature{
     position:relative;
-
     overflow:hidden;
-
     border-radius:16px;
-
     min-height:390px;
 
     background:#201a11;
 
-    box-shadow:
-        0 22px 50px
-        rgba(0,0,0,.35);
+    box-shadow:0 22px 50px rgba(0,0,0,.35);
 }
 
 .shipping-feature img{
     width:100%;
     height:390px;
-
     display:block;
-
     object-fit:cover;
-
     transition:.6s;
 }
 
 .shipping-overlay{
     position:absolute;
-
     inset:0;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:flex-end;
 
     padding:35px;
@@ -913,23 +614,15 @@ section h2{
         );
 }
 
-.shipping-overlay .card-number{
-    color:#d6b45f;
-}
-
 .shipping-overlay h3{
     color:#fff;
-
     font-size:27px;
-
     margin-bottom:10px;
 }
 
 .shipping-overlay p{
     color:#ded7ca;
-
     max-width:720px;
-
     line-height:1.7;
 }
 
@@ -937,82 +630,55 @@ section h2{
     transform:scale(1.045);
 }
 
-/* =====================================================
-   CONTACT
-===================================================== */
+/* ================= CONTACT ================= */
 
 .contact-box{
     padding:30px;
-
     border-radius:14px;
 
-    background:
-        rgba(255,255,255,.07);
+    background:rgba(255,255,255,.07);
 
-    border:
-        1px solid
-        rgba(214,180,95,.28);
+    border:1px solid rgba(214,180,95,.28);
 
-    box-shadow:
-        0 18px 42px
-        rgba(0,0,0,.25);
+    box-shadow:0 18px 42px rgba(0,0,0,.25);
 }
 
 .contact-box p{
     color:#c8bfaf;
-
     line-height:1.7;
 }
 
 .contact-links{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:12px;
-
     margin-top:22px;
 }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ================= FOOTER ================= */
 
 footer{
     text-align:center;
-
     padding:32px 20px;
-
     color:#a99f8d;
 
-    border-top:
-        1px solid
-        rgba(214,180,95,.15);
+    border-top:1px solid rgba(214,180,95,.15);
 }
 
-/* =====================================================
-   REVEAL
-===================================================== */
+/* ================= REVEAL ================= */
 
 .reveal{
     opacity:0;
-
     transform:translateY(25px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
+    transition:opacity .7s,transform .7s;
 }
 
 .reveal.show{
     opacity:1;
-
     transform:translateY(0);
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ================= MOBILE ================= */
 
 @media(max-width:950px){
 
@@ -1026,13 +692,12 @@ footer{
             );
     }
 
-    header::after{
+    header:after{
         display:none;
     }
 
     .hero{
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
@@ -1044,12 +709,6 @@ footer{
         justify-content:center;
     }
 
-    .profile-area{
-        min-height:auto;
-
-        padding-top:25px;
-    }
-
     .expertise-layout,
     .textile-layout{
         grid-template-columns:1fr;
@@ -1057,25 +716,20 @@ footer{
 
     .vertical-slider{
         max-width:600px;
-
         width:100%;
-
         margin:auto;
     }
 
     .grid{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .workflow{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .journey{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 }
 
@@ -1087,7 +741,6 @@ footer{
 
     .hero h1{
         white-space:normal;
-
         font-size:40px;
     }
 
@@ -1101,7 +754,6 @@ footer{
 
     .profile-frame{
         width:280px;
-
         height:390px;
     }
 
@@ -1120,7 +772,6 @@ footer{
     .shipping-feature,
     .shipping-feature img{
         min-height:330px;
-
         height:330px;
     }
 
@@ -1132,47 +783,37 @@ footer{
         font-size:22px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     SNOW
-===================================================== -->
+<!-- ================= SNOW ================= -->
 
 <div class="snow">
-
-<span style="left:3%;animation-duration:11s;"></span>
-<span style="left:8%;animation-duration:14s;"></span>
-<span style="left:14%;animation-duration:10s;"></span>
-<span style="left:20%;animation-duration:16s;"></span>
-<span style="left:27%;animation-duration:12s;"></span>
-<span style="left:34%;animation-duration:15s;"></span>
-<span style="left:41%;animation-duration:11s;"></span>
-<span style="left:48%;animation-duration:17s;"></span>
-<span style="left:55%;animation-duration:13s;"></span>
-<span style="left:62%;animation-duration:15s;"></span>
-<span style="left:69%;animation-duration:11s;"></span>
-<span style="left:76%;animation-duration:16s;"></span>
-<span style="left:83%;animation-duration:12s;"></span>
-<span style="left:90%;animation-duration:17s;"></span>
-<span style="left:96%;animation-duration:14s;"></span>
-
+<span style="left:3%;animation-duration:11s"></span>
+<span style="left:8%;animation-duration:14s"></span>
+<span style="left:14%;animation-duration:10s"></span>
+<span style="left:20%;animation-duration:16s"></span>
+<span style="left:27%;animation-duration:12s"></span>
+<span style="left:34%;animation-duration:15s"></span>
+<span style="left:41%;animation-duration:11s"></span>
+<span style="left:48%;animation-duration:17s"></span>
+<span style="left:55%;animation-duration:13s"></span>
+<span style="left:62%;animation-duration:15s"></span>
+<span style="left:69%;animation-duration:11s"></span>
+<span style="left:76%;animation-duration:16s"></span>
+<span style="left:83%;animation-duration:12s"></span>
+<span style="left:90%;animation-duration:17s"></span>
+<span style="left:96%;animation-duration:14s"></span>
 </div>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <header>
 
 <div class="hero">
-
 
 <div class="hero-text">
 
@@ -1180,27 +821,557 @@ footer{
 EXPORT · TEXTILE · INTERNATIONAL TRADE
 </div>
 
-
 <div class="hero-animated">
 <span id="heroWords">EXPORT OPERATIONS</span>
 </div>
-
 
 <h1>
 MIAN MUHAMMAD <span>ATIF</span>
 </h1>
 
-
 <p class="hero-description">
-
 Export Officer specializing in textile export operations,
 documentation, international shipping, commercial compliance,
 logistics coordination and shipment follow-up.
+</p>
 
+<div class="hero-buttons">
+
+<a class="btn"
+href="mailto:mian_atif226@yahoo.com">
+EMAIL
+</a>
+
+<a class="btn"
+href="https://wa.me/923328613400"
+target="_blank">
+WHATSAPP
+</a>
+
+<a class="btn"
+href="https://www.linkedin.com/in/mian-muhammad-atif-382400293/"
+target="_blank">
+LINKEDIN
+</a>
+
+</div>
+
+</div>
+
+
+<div class="profile-area">
+
+<div class="profile-frame">
+
+<div class="profile-inner">
+
+<img
+src="Atif.jpg"
+alt="MIAN MUHAMMAD ATIF">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- ================= 02 EXPERTISE ================= -->
+
+<section>
+
+<div class="section-label">
+02 / EXPERTISE
+</div>
+
+<h2>
+Export expertise built around control.
+</h2>
+
+<p class="section-intro">
+From commercial documents to shipment follow-up, every export
+operation requires accuracy, coordination and timely execution.
 </p>
 
 
-<div class="hero-buttons">
+<div class="expertise-layout">
+
+<div class="expertise-grid">
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/white-bed-with-gray-pillow-p3UWyaujtQo/download?force=true&w=1200"
+alt="Fitted Sheets and Bedding">
+
+<div class="card-number">01</div>
+
+<h3>HOME TEXTILES</h3>
+
+<p>
+Fitted Sheets, Bedding, Pillow Covers and related home textile
+products handled through export operations.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/workers-are-busy-in-a-garment-factory-uFW9pFljINs/download?force=true&w=1200"
+alt="Garment Factory">
+
+<div class="card-number">02</div>
+
+<h3>GARMENTS</h3>
+
+<p>
+T-Shirts, Hoodies, Sweatshirts, Trousers and garment export
+orders supported from production to shipment.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/cargo-containers-on-trains-and-trucks-at-a-port-0dKKJ0f4fQw/download?force=true&w=1200"
+alt="Container Logistics">
+
+<div class="card-number">03</div>
+
+<h3>LOGISTICS</h3>
+
+<p>
+Container planning, freight forwarder coordination, port
+handling and international shipping follow-up.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=90"
+alt="Export Documentation">
+
+<div class="card-number">04</div>
+
+<h3>DOCUMENTATION</h3>
+
+<p>
+Commercial Invoices, Packing Lists, FCR, Bills of Lading,
+Certificates of Origin and export banking documentation.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="vertical-slider reveal">
+
+<div class="vertical-track">
+
+<img
+src="https://unsplash.com/photos/workers-are-busy-in-a-garment-factory-uFW9pFljINs/download?force=true&w=1400"
+alt="Garment Factory">
+
+<img
+src="https://unsplash.com/photos/woman-sewing-garments-in-a-textile-factory-4sn62Es-UJg/download?force=true&w=1400"
+alt="Garment Production">
+
+</div>
+
+<div class="slider-caption">
+TEXTILE · GARMENTS · EXPORT
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= 04 WORKFLOW ================= -->
+
+<section>
+
+<div class="section-label">
+04 / WORKFLOW
+</div>
+
+<h2>
+The operation behind every shipment.
+</h2>
+
+<p class="section-intro">
+One export shipment moves through several controlled stages —
+documents, commercial checks, logistics, compliance and final
+shipment follow-up.
+</p>
+
+
+<div class="workflow">
+
+
+<div class="card reveal">
+
+<img
+src="images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=90"
+alt="Export Documents">
+
+<div class="card-number">01</div>
+
+<h3>DOCUMENT CHECK</h3>
+
+<p>
+Commercial Invoice, Packing List, LC and supporting export
+documents are reviewed before processing.
+</p>
+
+</div>
+
+
+<!-- REAL GARMENT PRODUCTION -->
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/a-seamstress-sews-clothes-in-a-textile-factory-DEDxW3NwBW0/download?force=true&w=1400"
+alt="Garment Production Sewing">
+
+<div class="card-number">02</div>
+
+<h3>CONTAINER LOADING</h3>
+
+<p>
+Finished garments and textile goods are prepared, checked,
+packed into cartons and prepared for export dispatch.
+</p>
+
+</div>
+
+
+<!-- REAL CONTAINER VESSEL -->
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/container-ships-and-cranes-at-a-busy-port-azTSkG93BG4/download?force=true&w=1400"
+alt="Container Ships at Port">
+
+<div class="card-number">03</div>
+
+<h3>PORT · CUSTOMS · VESSEL</h3>
+
+<p>
+The container reaches the port for terminal handling,
+customs processing and vessel loading.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/large-container-ships-docked-at-a-busy-port-with-cranes-wjQPCInHcog/download?force=true&w=1400"
+alt="International Shipping">
+
+<div class="card-number">04</div>
+
+<h3>SHIPMENT FOLLOW-UP</h3>
+
+<p>
+Shipping documents, BL/FCR, customer communication and final
+shipment follow-up are handled through completion.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= 05 EXPORT JOURNEY ================= -->
+
+<section>
+
+<div class="section-label">
+05 / EXPORT JOURNEY
+</div>
+
+<h2>
+From factory floor to international destination.
+</h2>
+
+<p class="section-intro">
+A shipment is a coordinated journey from production and packing
+to port, vessel and final documentation.
+</p>
+
+
+<div class="journey">
+
+
+<!-- ACTUAL GARMENT FACTORY -->
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/workers-in-an-apparel-factory-are-busy-at-work-WwuNrOehGas/download?force=true&w=1400"
+alt="Garment Factory Workers">
+
+<div class="card-number">01</div>
+
+<h3>GOODS READY</h3>
+
+<p>
+Garments and textile products are prepared, checked and made
+ready for packing and export dispatch.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/cargo-containers-on-trains-and-trucks-at-a-port-0dKKJ0f4fQw/download?force=true&w=1400"
+alt="Goods and Containers">
+
+<div class="card-number">02</div>
+
+<h3>PACKING & LOADING</h3>
+
+<p>
+Finished goods are packed into cartons and prepared for
+container loading and transportation.
+</p>
+
+</div>
+
+
+<!-- INTERNATIONAL VESSEL -->
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/cargo-ships-loaded-with-containers-at-a-port-muJdIPgCEIo/download?force=true&w=1400"
+alt="International Shipping Vessel">
+
+<div class="card-number">03</div>
+
+<h3>INTERNATIONAL SHIPPING</h3>
+
+<p>
+Containers move through port handling, customs and vessel
+loading toward their international destination.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= HOME TEXTILES ================= -->
+
+<section>
+
+<div class="section-label">
+02 / HOME TEXTILES
+</div>
+
+<h2>
+Fitted Sheets & Bedding
+</h2>
+
+<p class="section-intro">
+Textile export operations covering fitted sheets, bedding,
+pillow covers and related home textile products.
+</p>
+
+
+<div class="textile-layout">
+
+<div class="textile-grid">
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/white-bed-with-gray-pillow-p3UWyaujtQo/download?force=true&w=1200"
+alt="Fitted Sheets">
+
+<div class="card-number">01</div>
+
+<h3>FITTED SHEETS</h3>
+
+<p>
+Production coordination, packing and export documentation
+for fitted sheet orders.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/white-bed-with-gray-pillow-p3UWyaujtQo/download?force=true&w=1200"
+alt="Bedding">
+
+<div class="card-number">02</div>
+
+<h3>BEDDING</h3>
+
+<p>
+Home textile products prepared according to commercial
+and shipment requirements.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/a-person-putting-a-pillow-on-top-of-a-bed-hIdYd2XAnJ8/download?force=true&w=1200"
+alt="Pillow Covers">
+
+<div class="card-number">03</div>
+
+<h3>PILLOW COVERS</h3>
+
+<p>
+Textile accessories managed through packing, documentation
+and international export coordination.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<img
+src="https://unsplash.com/photos/white-bed-with-gray-pillow-p3UWyaujtQo/download?force=true&w=1200"
+alt="Home Textile Bedding">
+
+<div class="card-number">04</div>
+
+<h3>HOME TEXTILE</h3>
+
+<p>
+Bedding products coordinated through production, packing
+and export documentation.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="vertical-slider reveal">
+
+<div class="vertical-track">
+
+<img
+src="https://unsplash.com/photos/white-bed-with-gray-pillow-p3UWyaujtQo/download?force=true&w=1400"
+alt="Fitted Bedding">
+
+<img
+src="https://unsplash.com/photos/a-person-putting-a-pillow-on-top-of-a-bed-hIdYd2XAnJ8/download?force=true&w=1400"
+alt="Pillow Bedding">
+
+</div>
+
+<div class="slider-caption">
+FITTED SHEETS · BEDDING
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= INTERNATIONAL SHIPPING ================= -->
+
+<section>
+
+<div class="section-label">
+INTERNATIONAL SHIPPING
+</div>
+
+<h2>
+Port to Vessel
+</h2>
+
+<p class="section-intro">
+The container reaches the port for terminal handling,
+customs processing and vessel loading.
+</p>
+
+
+<div class="shipping-feature reveal">
+
+<img
+src="https://unsplash.com/photos/container-ships-and-cranes-at-a-busy-port-azTSkG93BG4/download?force=true&w=1800"
+alt="Container Vessel at Port">
+
+<div class="shipping-overlay">
+
+<div class="card-number">
+PORT · CUSTOMS · VESSEL
+</div>
+
+<h3>
+FROM PORT TO INTERNATIONAL DESTINATION
+</h3>
+
+<p>
+Container movement, terminal handling, customs processing,
+vessel loading and shipment follow-up form a controlled
+international export chain.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section>
+
+<div class="section-label">
+CONTACT
+</div>
+
+<h2>
+Let's connect.
+</h2>
+
+<div class="contact-box reveal">
+
+<p>
+For export operations, documentation, international shipping,
+textile trade and professional opportunities.
+</p>
+
+<div class="contact-links">
 
 <a
 class="btn"
@@ -1226,660 +1397,19 @@ LINKEDIN
 
 </div>
 
-
-<!-- PROFILE -->
-
-<div class="profile-area">
-
-<div class="profile-frame">
-
-<div class="profile-inner">
-
-<img
-src="Atif.jpg"
-alt="MIAN MUHAMMAD ATIF">
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</header>
-
-
-<!-- =====================================================
-     02 / EXPERTISE
-===================================================== -->
-
-<section id="expertise">
-
-<div class="section-label">
-02 / EXPERTISE
-</div>
-
-<h2>
-Export expertise built around control.
-</h2>
-
-<p class="section-intro">
-
-From commercial documents to shipment follow-up, every export
-operation requires accuracy, coordination and timely execution.
-
-</p>
-
-
-<div class="expertise-layout">
-
-
-<div class="expertise-grid">
-
-
-<!-- HOME TEXTILES -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1200&q=90"
-alt="Fitted Sheets Bedding">
-
-<div class="card-number">
-01
-</div>
-
-<h3>
-HOME TEXTILES
-</h3>
-
-<p>
-Fitted Sheets, Bedding, Pillow Covers and related home textile
-products handled through export operations.
-</p>
-
-</div>
-
-
-<!-- GARMENTS -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=90"
-alt="Garments">
-
-<div class="card-number">
-02
-</div>
-
-<h3>
-GARMENTS
-</h3>
-
-<p>
-T-Shirts, Hoodies, Sweatshirts, Trousers and garment export
-orders supported from production to shipment.
-</p>
-
-</div>
-
-
-<!-- LOGISTICS -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=90"
-alt="Carton Loading">
-
-<div class="card-number">
-03
-</div>
-
-<h3>
-LOGISTICS
-</h3>
-
-<p>
-Container planning, freight forwarder coordination, port
-handling and international shipping follow-up.
-</p>
-
-</div>
-
-
-<!-- DOCUMENTATION -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=90"
-alt="Export Documentation">
-
-<div class="card-number">
-04
-</div>
-
-<h3>
-DOCUMENTATION
-</h3>
-
-<p>
-Commercial Invoices, Packing Lists, FCR, Bills of Lading,
-Certificates of Origin and export banking documentation.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- TWO IMAGE SLIDER -->
-
-<div class="vertical-slider reveal">
-
-<div class="vertical-track">
-
-<img
-src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1400&q=90"
-alt="Garments">
-
-<img
-src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=90"
-alt="Clothing">
-
-</div>
-
-<div class="slider-caption">
-TEXTILE · GARMENTS · EXPORT
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     04 / WORKFLOW
-===================================================== -->
-
-<section id="workflow">
-
-<div class="section-label">
-04 / WORKFLOW
-</div>
-
-<h2>
-The operation behind every shipment.
-</h2>
-
-<p class="section-intro">
-
-One export shipment moves through several controlled stages.
-This is the working chain — documents, commercial checks,
-logistics, compliance and final shipment follow-up.
-
-</p>
-
-
-<div class="workflow">
-
-
-<!-- DOCUMENT CHECK -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=90"
-alt="Documents">
-
-<div class="card-number">
-01
-</div>
-
-<h3>
-DOCUMENT CHECK
-</h3>
-
-<p>
-Commercial Invoice, Packing List, LC and supporting export
-documents are reviewed before processing.
-</p>
-
-</div>
-
-
-<!-- CONTAINER LOADING -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=90"
-alt="Carton Loading">
-
-<div class="card-number">
-02
-</div>
-
-<h3>
-CONTAINER LOADING
-</h3>
-
-<p>
-Cartons and finished goods are prepared, checked and loaded
-for dispatch according to shipment requirements.
-</p>
-
-</div>
-
-
-<!-- PORT CUSTOMS VESSEL -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=1400&q=90"
-alt="Container Vessel">
-
-<div class="card-number">
-03
-</div>
-
-<h3>
-PORT · CUSTOMS · VESSEL
-</h3>
-
-<p>
-The container reaches the port for terminal handling,
-customs processing and vessel loading.
-</p>
-
-</div>
-
-
-<!-- SHIPMENT FOLLOW UP -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1400&q=90"
-alt="International Shipping">
-
-<div class="card-number">
-04
-</div>
-
-<h3>
-SHIPMENT FOLLOW-UP
-</h3>
-
-<p>
-Shipping documents, BL/FCR, customer communication and final
-shipment follow-up are handled through completion.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     05 / EXPORT JOURNEY
-===================================================== -->
-
-<section id="journey">
-
-<div class="section-label">
-05 / EXPORT JOURNEY
-</div>
-
-<h2>
-From factory floor to international destination.
-</h2>
-
-<p class="section-intro">
-
-A shipment is more than a container. It is a coordinated journey
-from production and packing to port, vessel and final documentation.
-
-</p>
-
-
-<div class="journey">
-
-
-<!-- GOODS READY -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1400&q=90"
-alt="Garment Factory Workers">
-
-<div class="card-number">
-01
-</div>
-
-<h3>
-GOODS READY
-</h3>
-
-<p>
-Garments and textile products are prepared, checked and made
-ready for packing and export dispatch.
-</p>
-
-</div>
-
-
-<!-- PACKING -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=90"
-alt="Warehouse Goods">
-
-<div class="card-number">
-02
-</div>
-
-<h3>
-PACKING & LOADING
-</h3>
-
-<p>
-Finished goods are packed into cartons and prepared for
-container loading and transportation.
-</p>
-
-</div>
-
-
-<!-- INTERNATIONAL SHIPPING -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=1400&q=90"
-alt="International Shipping Vessel">
-
-<div class="card-number">
-03
-</div>
-
-<h3>
-INTERNATIONAL SHIPPING
-</h3>
-
-<p>
-Containers move through port handling, customs and vessel
-loading toward their international destination.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     HOME TEXTILES
-===================================================== -->
-
-<section id="home-textiles">
-
-<div class="section-label">
-02 / HOME TEXTILES
-</div>
-
-<h2>
-Fitted Sheets & Bedding
-</h2>
-
-<p class="section-intro">
-
-Textile export operations covering fitted sheets, bedding,
-pillow covers and related home textile products.
-
-</p>
-
-
-<div class="textile-layout">
-
-
-<div class="textile-grid">
-
-
-<!-- FITTED SHEETS -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1200&q=90"
-alt="Fitted Sheets">
-
-<div class="card-number">
-01
-</div>
-
-<h3>
-FITTED SHEETS
-</h3>
-
-<p>
-Production coordination, packing and export documentation
-for fitted sheet orders.
-</p>
-
-</div>
-
-
-<!-- BEDDING -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=90"
-alt="Bedding">
-
-<div class="card-number">
-02
-</div>
-
-<h3>
-BEDDING
-</h3>
-
-<p>
-Home textile products prepared according to commercial
-and shipment requirements.
-</p>
-
-</div>
-
-
-<!-- PILLOW COVERS -->
-
-<div class="card reveal">
-
-<img
-src="https://images.unsplash.com/photo-1583845112203-454c70c0b1c4?auto=format&fit=crop&w=1200&q=90"
-alt="Pillow Covers">
-
-<div class="card-number">
-03
-</div>
-
-<h3>
-PILLOW COVERS
-</h3>
-
-<p>
-Textile accessories managed through packing,
-documentation and international export coordination.
-</p>
-
-</div>
-
-
-</div>
-
-
-<!-- BEDDING SLIDER -->
-
-<div class="vertical-slider reveal">
-
-<div class="vertical-track">
-
-<img
-src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1400&q=90"
-alt="Fitted Sheets">
-
-<img
-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1400&q=90"
-alt="Bedding">
-
-</div>
-
-<div class="slider-caption">
-FITTED SHEETS · BEDDING
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     INTERNATIONAL SHIPPING
-===================================================== -->
-
-<section id="shipping">
-
-<div class="section-label">
-INTERNATIONAL SHIPPING
-</div>
-
-<h2>
-Port to Vessel
-</h2>
-
-<p class="section-intro">
-
-The container reaches the port for terminal handling,
-customs processing and vessel loading.
-
-</p>
-
-
-<div class="shipping-feature reveal">
-
-<img
-src="https://images.unsplash.com/photo-1494412574643-ff11b0a2e7a4?auto=format&fit=crop&w=1800&q=90"
-alt="Container Vessel Port">
-
-
-<div class="shipping-overlay">
-
-<div class="card-number">
-PORT · CUSTOMS · VESSEL
-</div>
-
-<h3>
-FROM PORT TO INTERNATIONAL DESTINATION
-</h3>
-
-<p>
-Container movement, terminal handling, customs processing,
-vessel loading and shipment follow-up form a controlled
-international export chain.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact">
-
-<div class="section-label">
-CONTACT
-</div>
-
-<h2>
-Let's connect.
-</h2>
-
-<div class="contact-box reveal">
-
-<p>
-For export operations, documentation, international shipping,
-textile trade and professional opportunities.
-</p>
-
-<div class="contact-links">
-
-<a
-class="btn"
-href="mailto:mian_atif226@yahoo.com">
-mian_atif226@yahoo.com
-</a>
-
-<a
-class="btn"
-href="https://wa.me/923328613400"
-target="_blank">
-WhatsApp
-</a>
-
-<a
-class="btn"
-href="https://www.linkedin.com/in/mian-muhammad-atif-382400293/"
-target="_blank">
-LinkedIn
-</a>
-
-</div>
-
-</div>
-
 </section>
 
 
 <footer>
-
 © 2026 MIAN MUHAMMAD ATIF · EXPORT OPERATIONS
-
 </footer>
 
 
 <script>
 
-/* =====================================================
-   HERO WORDS
-===================================================== */
+/* ================= HERO WORDS ================= */
 
-const words = [
+const words=[
     "EXPORT OPERATIONS",
     "TEXTILE",
     "INTERNATIONAL TRADE",
@@ -1887,86 +1417,74 @@ const words = [
     "INTERNATIONAL SHIPPING"
 ];
 
-let wordIndex = 0;
+let wordIndex=0;
 
-const wordElement =
-    document.getElementById("heroWords");
+const wordElement=document.getElementById("heroWords");
 
-setInterval(() => {
+setInterval(function(){
 
-    wordElement.style.animation = "none";
+    wordElement.style.animation="none";
 
     void wordElement.offsetWidth;
 
-    wordElement.textContent =
-        words[wordIndex];
+    wordElement.textContent=words[wordIndex];
 
-    wordElement.style.animation =
+    wordElement.style.animation=
         "textSlide 4.5s ease-in-out infinite";
 
     wordIndex++;
 
-    if(wordIndex >= words.length){
-        wordIndex = 0;
+    if(wordIndex>=words.length){
+        wordIndex=0;
     }
 
 },4500);
 
 
-/* =====================================================
-   SCROLL ANIMATION
-===================================================== */
+/* ================= SCROLL REVEAL ================= */
 
-const revealItems =
-    document.querySelectorAll(".reveal");
+const revealItems=document.querySelectorAll(".reveal");
 
-const observer =
-    new IntersectionObserver(
+const observer=new IntersectionObserver(
+    function(entries){
 
-        entries => {
+        entries.forEach(function(entry){
 
-            entries.forEach(entry => {
+            if(entry.isIntersecting){
 
-                if(entry.isIntersecting){
+                entry.target.classList.add("show");
 
-                    entry.target.classList.add("show");
+                observer.unobserve(entry.target);
 
-                    observer.unobserve(
-                        entry.target
-                    );
+            }
 
-                }
+        });
 
-            });
+    },
+    {
+        threshold:.10
+    }
+);
 
-        },
-
-        {
-            threshold:.10
-        }
-
-    );
-
-
-revealItems.forEach(item => {
-
+revealItems.forEach(function(item){
     observer.observe(item);
-
 });
 
 
-/* =====================================================
-   IMAGE ERROR PROTECTION
-===================================================== */
+/* ================= IMAGE FALLBACK ================= */
+/*
+   Agar internet image temporarily load na ho,
+   card blank nahi rahega.
+*/
 
-document.querySelectorAll("img").forEach(img => {
+document.querySelectorAll("img").forEach(function(img){
 
-    img.addEventListener("error", function(){
+    img.addEventListener("error",function(){
 
-        this.style.background =
-            "linear-gradient(135deg,#3b2b16,#741f31,#145d54)";
+        this.style.background=
+            "linear-gradient(135deg,#3c2d18,#741f31,#145d54)";
 
-        this.alt = "Textile / Export Operations";
+        this.style.objectFit="cover";
 
     });
 
