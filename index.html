@@ -8,10 +8,6 @@
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -72,8 +68,7 @@ body{
         0 0 5px rgba(255,255,255,.75),
         0 0 10px rgba(255,255,255,.25);
 
-    animation:
-        snowFall linear infinite;
+    animation:snowFall linear infinite;
 }
 
 @keyframes snowFall{
@@ -168,11 +163,6 @@ header{
 
     margin-bottom:13px;
 }
-
-
-/* =========================================================
-   HERO ANIMATION
-========================================================= */
 
 .hero-animated{
 
@@ -310,8 +300,7 @@ header{
 
     letter-spacing:.5px;
 
-    transition:
-        .4s;
+    transition:.4s;
 
     box-shadow:
         0 8px 22px
@@ -344,7 +333,7 @@ header{
 
 
 /* =========================================================
-   HERO PHOTO AREA
+   HERO PHOTO
 ========================================================= */
 
 .profile-area{
@@ -360,11 +349,6 @@ header{
     perspective:1500px;
 }
 
-
-/* =========================================================
-   HERO 3D FRAME
-========================================================= */
-
 .profile-frame{
 
     width:455px;
@@ -375,8 +359,7 @@ header{
 
     transform-style:preserve-3d;
 
-    transition:
-        .65s;
+    transition:.65s;
 
     filter:
         drop-shadow(
@@ -384,11 +367,6 @@ header{
             rgba(0,0,0,.42)
         );
 }
-
-
-/* =========================================================
-   TOP 3D DECOR
-========================================================= */
 
 .profile-frame::before{
 
@@ -432,11 +410,6 @@ header{
         );
 }
 
-
-/* =========================================================
-   BOTTOM 3D DECOR
-========================================================= */
-
 .profile-frame::after{
 
     content:"";
@@ -479,11 +452,6 @@ header{
         );
 }
 
-
-/* =========================================================
-   BACK GOLD FRAME
-========================================================= */
-
 .profile-back{
 
     position:absolute;
@@ -514,11 +482,6 @@ header{
         rgba(0,0,0,.35);
 }
 
-
-/* =========================================================
-   BACK BURGUNDY FRAME
-========================================================= */
-
 .profile-back-two{
 
     position:absolute;
@@ -548,11 +511,6 @@ header{
         0 32px 48px
         rgba(0,0,0,.40);
 }
-
-
-/* =========================================================
-   HERO MAIN PHOTO
-========================================================= */
 
 .profile-inner{
 
@@ -592,8 +550,7 @@ header{
     transform:
         translateZ(45px);
 
-    transition:
-        .65s;
+    transition:.65s;
 }
 
 .profile-inner img{
@@ -606,19 +563,13 @@ header{
 
     object-fit:cover;
 
-    /*
-       FACE KO UPPER-CENTER
-       MEIN RAKHA HAI
-    */
-
     object-position:
         center 17%;
 
     transform:
         scale(1.01);
 
-    transition:
-        .65s;
+    transition:.65s;
 }
 
 .profile-inner::after{
@@ -640,11 +591,6 @@ header{
             rgba(0,0,0,.18)
         );
 }
-
-
-/* =========================================================
-   HERO HOVER
-========================================================= */
 
 .profile-frame:hover{
 
@@ -695,7 +641,7 @@ header{
 
 
 /* =========================================================
-   SECTION
+   SECTIONS
 ========================================================= */
 
 section{
@@ -745,7 +691,7 @@ section h2{
 
 
 /* =========================================================
-   GENERAL GRID
+   GRIDS
 ========================================================= */
 
 .grid{
@@ -766,6 +712,8 @@ section h2{
 .card{
 
     position:relative;
+
+    touch-action:manipulation;
 
     overflow:hidden;
 
@@ -804,11 +752,6 @@ section h2{
         background .4s ease;
 }
 
-
-/* =========================================================
-   CARD 3D BACK PLATE
-========================================================= */
-
 .card::before{
 
     content:"";
@@ -838,11 +781,6 @@ section h2{
         translateZ(-28px);
 }
 
-
-/* =========================================================
-   CARD LIGHT
-========================================================= */
-
 .card::after{
 
     content:"";
@@ -867,10 +805,7 @@ section h2{
 
 
 /* =========================================================
-   IMAGE WRAPPER
-   IMPORTANT:
-   IMAGE HEIGHT FIX NAHI KI GAI
-   ORIGINAL PHOTO PROPORTION PRESERVE HOGA
+   PHOTO-SPECIFIC FRAME
 ========================================================= */
 
 .card-image{
@@ -879,45 +814,68 @@ section h2{
 
     z-index:2;
 
-    width:100%;
+    width:fit-content;
+
+    max-width:100%;
+
+    margin:
+        0 auto 17px;
 
     overflow:hidden;
 
-    border-radius:14px;
+    border-radius:16px;
 
-    margin-bottom:15px;
-
-    background:
-        #18120d;
+    background:#18120d;
 
     border:
         1px solid
-        rgba(255,255,255,.14);
+        rgba(255,255,255,.16);
 
     box-shadow:
+
         0 16px 27px
-        rgba(0,0,0,.44);
+        rgba(0,0,0,.44),
+
+        0 0 0 4px
+        rgba(214,180,95,.05);
 
     transform:
         translateZ(20px);
 
     transition:
-        .55s;
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        box-shadow .55s ease,
+        border-color .4s ease;
 }
 
+.card-image::before{
 
-/* =========================================================
-   IMAGE ITSELF
-   AUTO HEIGHT = FULL PHOTO
-========================================================= */
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border:
+        1px solid
+        rgba(214,180,95,.28);
+
+    border-radius:12px;
+
+    pointer-events:none;
+
+    z-index:2;
+}
 
 .card-image img{
 
-    width:100%;
+    width:auto;
+
+    max-width:100%;
 
     height:auto;
 
-    min-height:0;
+    min-width:0;
 
     display:block;
 
@@ -926,13 +884,13 @@ section h2{
     object-position:center;
 
     transition:
-        transform .65s ease,
+        transform .65s cubic-bezier(.2,.8,.2,1),
         filter .55s ease;
 }
 
 
 /* =========================================================
-   CARD NUMBER
+   CARD TEXT
 ========================================================= */
 
 .card-number{
@@ -956,11 +914,6 @@ section h2{
         rgba(0,0,0,.65);
 }
 
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
-
 .card h3{
 
     position:relative;
@@ -981,11 +934,6 @@ section h2{
         translateZ(14px);
 }
 
-
-/* =========================================================
-   CARD TEXT
-========================================================= */
-
 .card p{
 
     position:relative;
@@ -1004,7 +952,7 @@ section h2{
 
 
 /* =========================================================
-   CARD HOVER
+   DESKTOP HOVER
 ========================================================= */
 
 .card:hover{
@@ -1041,15 +989,12 @@ section h2{
         rgba(118,32,55,.34);
 }
 
-
-/* =========================================================
-   IMAGE HOVER
-========================================================= */
-
 .card:hover .card-image{
 
     transform:
-        translateZ(39px);
+        translateZ(39px)
+        translateY(-3px)
+        scale(1.015);
 
     border-color:
         rgba(218,184,94,.60);
@@ -1098,14 +1043,16 @@ section h2{
 
 
 /* =========================================================
-   TOUCH EFFECT
+   MOBILE TOUCH
 ========================================================= */
 
 .card.touch-active{
 
     transform:
-        translateY(-9px)
-        scale(.995);
+        translateY(-12px)
+        translateZ(18px)
+        scale(1.01)
+        rotateX(1.5deg);
 
     background:
         linear-gradient(
@@ -1129,18 +1076,34 @@ section h2{
 .card.touch-active .card-image{
 
     transform:
-        scale(1.018);
+        translateY(-4px)
+        scale(1.025);
+
+    border-color:#d6b45f;
+
+    box-shadow:
+
+        0 25px 40px
+        rgba(0,0,0,.55),
+
+        0 0 25px
+        rgba(118,32,55,.35);
 }
 
 .card.touch-active .card-image img{
 
     transform:
-        scale(1.035);
+        scale(1.04);
+
+    filter:
+        brightness(1.08)
+        contrast(1.04)
+        saturate(1.08);
 }
 
 
 /* =========================================================
-   HOME TEXTILE FEATURE
+   HOME TEXTILES FEATURE
 ========================================================= */
 
 .textile-feature{
@@ -1158,15 +1121,13 @@ section h2{
         rgba(214,180,95,.40);
 
     box-shadow:
-
         0 31px 56px
         rgba(0,0,0,.44);
 
     transform:
         translateZ(0);
 
-    transition:
-        .55s;
+    transition:.55s;
 }
 
 .textile-feature-image{
@@ -1179,8 +1140,7 @@ section h2{
 
     object-fit:contain;
 
-    transition:
-        .7s;
+    transition:.7s;
 }
 
 .textile-feature::after{
@@ -1267,11 +1227,6 @@ section h2{
         scale(1.045);
 }
 
-
-/* =========================================================
-   TEXTILE GRID
-========================================================= */
-
 .textile-grid{
 
     display:grid;
@@ -1334,12 +1289,10 @@ section h2{
         rgba(214,180,95,.38);
 
     box-shadow:
-
         0 32px 58px
         rgba(0,0,0,.46);
 
-    transition:
-        .55s;
+    transition:.55s;
 }
 
 .shipping-feature img{
@@ -1352,8 +1305,7 @@ section h2{
 
     object-fit:contain;
 
-    transition:
-        .7s;
+    transition:.7s;
 }
 
 .shipping-overlay{
@@ -1437,8 +1389,7 @@ section h2{
         0 27px 47px
         rgba(0,0,0,.32);
 
-    transition:
-        .45s;
+    transition:.45s;
 }
 
 .contact-box:hover{
@@ -1547,39 +1498,32 @@ footer{
     }
 
     .hero-text{
-
         padding-left:0;
     }
 
     .hero-description{
-
         margin:auto;
     }
 
     .hero-buttons{
-
         justify-content:center;
     }
 
     .profile-area{
-
         min-height:580px;
     }
 
     .grid{
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
     .workflow{
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
     .journey{
-
         grid-template-columns:
             repeat(2,1fr);
     }
@@ -1593,7 +1537,6 @@ footer{
 @media(max-width:650px){
 
     section{
-
         padding:
             60px 0;
     }
@@ -1608,17 +1551,14 @@ footer{
     }
 
     .hero-animated{
-
         height:39px;
     }
 
     .hero-animated span{
-
         font-size:17px;
     }
 
     .profile-area{
-
         min-height:470px;
     }
 
@@ -1689,39 +1629,103 @@ footer{
     }
 
     .textile-feature-content h3{
-
         font-size:25px;
     }
 
     .textile-feature-content p{
-
         font-size:12px;
     }
 
     .shipping-overlay{
-
         padding:22px;
     }
 
     .shipping-overlay h3{
-
         font-size:22px;
     }
 
     .card{
 
-        border-radius:18px;
+        padding:14px;
+
+        overflow:visible;
+
+        transition:
+            transform .5s cubic-bezier(.2,.8,.2,1),
+            box-shadow .5s ease,
+            background .4s ease,
+            border-color .4s ease;
     }
 
     .card-image{
 
-        border-radius:13px;
+        width:fit-content;
+
+        max-width:100%;
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+        border-radius:15px;
+
+        transform:translateZ(0);
+    }
+
+    .card-image img{
+
+        width:auto;
+
+        max-width:100%;
+
+        height:auto;
+
+        max-height:430px;
+    }
+
+    .card.reveal{
+
+        transform:
+            translateY(75px)
+            scale(.94)
+            rotateX(-4deg);
+    }
+
+    .card.reveal.show{
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
+    }
+
+    .card.touch-active .card-image{
+
+        transform:
+            translateY(-4px)
+            scale(1.025);
+    }
+
+    .textile-feature,
+    .shipping-feature{
+
+        transform:
+            translateY(45px)
+            scale(.97);
+    }
+
+    .textile-feature.show,
+    .shipping-feature.show{
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 
 /* =========================================================
-   REDUCE MOTION IF USER HAS IT ENABLED
+   REDUCE MOTION
 ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
@@ -1817,7 +1821,6 @@ LINKEDIN
 </div>
 
 
-
 <!-- HERO PHOTO -->
 
 <div class="profile-area">
@@ -1911,7 +1914,7 @@ home textile products handled through export operations.
 <div class="card-image">
 
 <img
-src="garments.jpg"
+src="GARMENTS.png"
 alt="Garments">
 
 </div>
@@ -2157,7 +2160,7 @@ documentation and international export coordination.
 <div class="card-image">
 
 <img
-src="fitted-sheets.jpg"
+src="bedding.jpg"
 alt="Home Textile">
 
 </div>
@@ -2626,13 +2629,13 @@ setInterval(function(){
 
 
 /* =========================================================
-   MORE SNOW
+   SNOW
 ========================================================= */
 
 const snow =
 document.getElementById("snow");
 
-for(let i=0;i<90;i++){
+for(let i=0;i<110;i++){
 
     const flake =
         document.createElement("span");
@@ -2704,12 +2707,11 @@ revealItems.forEach(function(item){
 
 
 /* =========================================================
-   MOBILE TOUCH EFFECT
+   MOBILE TOUCH
 ========================================================= */
 
 const cards =
 document.querySelectorAll(".card");
-
 
 cards.forEach(function(card){
 
@@ -2750,7 +2752,7 @@ cards.forEach(function(card){
                     "touch-active"
                 );
 
-            },700);
+            },1200);
 
         },
         {
@@ -2762,14 +2764,13 @@ cards.forEach(function(card){
 
 
 /* =========================================================
-   MOBILE IMAGE PARALLAX / SCROLL EFFECT
+   MOBILE SCROLL IMAGE MOVEMENT
 ========================================================= */
 
 const imageCards =
 document.querySelectorAll(
     ".card-image img"
 );
-
 
 function mobileParallax(){
 
@@ -2785,7 +2786,6 @@ function mobileParallax(){
 
     }
 
-
     imageCards.forEach(function(img){
 
         const rect =
@@ -2800,8 +2800,8 @@ function mobileParallax(){
 
         const move =
             Math.max(
-                -10,
-                Math.min(10,distance*.018)
+                -12,
+                Math.min(12,distance*.022)
             );
 
         img.style.transform =
@@ -2810,7 +2810,6 @@ function mobileParallax(){
     });
 
 }
-
 
 window.addEventListener(
     "scroll",
@@ -2822,7 +2821,7 @@ window.addEventListener(
 
 
 /* =========================================================
-   REMOVE TOUCH EFFECT WHEN TOUCHING OUTSIDE
+   TOUCH OUTSIDE CARD
 ========================================================= */
 
 document.addEventListener(
