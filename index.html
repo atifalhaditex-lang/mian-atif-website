@@ -24,12 +24,21 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    color:#eee8dd;
+    color:#eee7dc;
+
     background:
-        radial-gradient(circle at 15% 10%,rgba(214,180,95,.09),transparent 25%),
-        radial-gradient(circle at 85% 60%,rgba(115,27,47,.13),transparent 30%),
-        linear-gradient(135deg,#17130e,#302519 48%,#17120e);
+        radial-gradient(circle at 15% 8%,rgba(218,184,94,.10),transparent 24%),
+        radial-gradient(circle at 85% 45%,rgba(126,29,51,.13),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(218,184,94,.06),transparent 28%),
+        linear-gradient(
+            135deg,
+            #15110c 0%,
+            #2b2117 46%,
+            #21170f 100%
+        );
+
     background-attachment:fixed;
+
     overflow-x:hidden;
 }
 
@@ -41,39 +50,49 @@ body{
 .snow{
     position:fixed;
     inset:0;
+    z-index:9999;
     pointer-events:none;
     overflow:hidden;
-    z-index:9999;
 }
 
 .snow span{
     position:absolute;
     top:-15px;
+
     width:3px;
     height:3px;
+
     border-radius:50%;
+
     background:#fff;
-    opacity:.35;
-    box-shadow:0 0 7px rgba(255,255,255,.75);
-    animation:snowFall linear infinite;
+
+    opacity:.42;
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.75),
+        0 0 10px rgba(255,255,255,.25);
+
+    animation:
+        snowFall linear infinite;
 }
 
 @keyframes snowFall{
+
     0%{
         transform:translate3d(0,-20px,0);
         opacity:0;
     }
 
-    15%{
-        opacity:.45;
+    12%{
+        opacity:.42;
     }
 
     50%{
-        transform:translate3d(25px,50vh,0);
+        transform:translate3d(28px,50vh,0);
     }
 
     100%{
-        transform:translate3d(-20px,110vh,0);
+        transform:translate3d(-24px,110vh,0);
         opacity:0;
     }
 }
@@ -84,11 +103,19 @@ body{
 ========================================================= */
 
 header{
+
     min-height:100vh;
-    padding:45px 6%;
+
+    padding:
+        45px
+        6%;
+
     display:flex;
+
     align-items:center;
+
     position:relative;
+
     overflow:hidden;
 
     background:
@@ -96,55 +123,86 @@ header{
             118deg,
             #f6f2ea 0%,
             #f6f2ea 53%,
-            #187c70 53%,
-            #0c554e 100%
+            #177c70 53%,
+            #0d564f 100%
         );
 }
 
 .hero{
+
     width:min(1250px,100%);
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:1fr .95fr;
+
     gap:20px;
+
     align-items:center;
 
     position:relative;
+
     z-index:2;
 }
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
 
 .hero-text{
     padding-left:20px;
 }
 
 .hero-small{
+
     color:#762037;
+
     font-size:12px;
+
     font-weight:900;
+
     letter-spacing:3px;
+
     margin-bottom:13px;
 }
 
 
 /* =========================================================
-   ANIMATED HERO WORD
+   HERO ANIMATION
 ========================================================= */
 
 .hero-animated{
-    height:43px;
+
+    height:45px;
+
     overflow:hidden;
+
     margin-bottom:4px;
 }
 
 .hero-animated span{
+
     display:block;
+
     color:#128d7d;
-    font-size:clamp(17px,2vw,25px);
+
+    font-size:
+        clamp(17px,2vw,25px);
+
     font-weight:900;
+
     letter-spacing:1px;
+
     white-space:nowrap;
-    animation:heroWords 4.5s ease-in-out infinite;
+
+    animation:
+        heroWords
+        4.5s
+        ease-in-out
+        infinite;
 }
 
 @keyframes heroWords{
@@ -181,12 +239,20 @@ header{
 ========================================================= */
 
 .hero h1{
-    color:#26262b;
-    font-size:clamp(30px,3.5vw,50px);
+
+    color:#24252a;
+
+    font-size:
+        clamp(30px,3.4vw,50px);
+
     line-height:1;
+
     white-space:nowrap;
+
     margin-bottom:20px;
-    text-shadow:0 3px 8px rgba(0,0,0,.08);
+
+    text-shadow:
+        0 3px 8px rgba(0,0,0,.08);
 }
 
 .hero h1 span{
@@ -194,9 +260,13 @@ header{
 }
 
 .hero-description{
+
     max-width:620px;
-    color:#626066;
+
+    color:#616066;
+
     font-size:15px;
+
     line-height:1.8;
 }
 
@@ -206,34 +276,70 @@ header{
 ========================================================= */
 
 .hero-buttons{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:12px;
+
     margin-top:27px;
 }
 
 .btn{
+
     display:inline-block;
+
     text-decoration:none;
+
     padding:12px 20px;
+
     border-radius:8px;
+
     color:#fff;
+
     background:#762037;
-    border:1px solid #9d3953;
+
+    border:
+        1px solid
+        #a23c56;
+
     font-size:12px;
+
     font-weight:800;
+
     letter-spacing:.5px;
-    transition:.4s;
-    box-shadow:0 8px 22px rgba(118,32,55,.25);
+
+    transition:
+        .4s;
+
+    box-shadow:
+        0 8px 22px
+        rgba(118,32,55,.25);
 }
 
 .btn:hover{
+
     background:#982a49;
+
     border-color:#dfbd62;
-    transform:translateY(-4px);
+
+    transform:
+        translateY(-4px);
+
     box-shadow:
-        0 15px 32px rgba(118,32,55,.42),
-        0 0 22px rgba(214,180,95,.28);
+        0 15px 32px
+        rgba(118,32,55,.42),
+
+        0 0 22px
+        rgba(214,180,95,.28);
+}
+
+.btn:active{
+
+    transform:
+        translateY(-1px)
+        scale(.97);
 }
 
 
@@ -242,126 +348,160 @@ header{
 ========================================================= */
 
 .profile-area{
+
     min-height:610px;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    perspective:1400px;
+
+    perspective:1500px;
 }
 
 
 /* =========================================================
-   3D PHOTO FRAME
+   HERO 3D FRAME
 ========================================================= */
 
 .profile-frame{
+
     width:455px;
+
     height:570px;
+
     position:relative;
+
     transform-style:preserve-3d;
-    transition:.6s;
+
+    transition:
+        .65s;
+
     filter:
-        drop-shadow(0 32px 35px rgba(0,0,0,.42));
+        drop-shadow(
+            0 32px 35px
+            rgba(0,0,0,.42)
+        );
 }
 
 
-/* TOP DECORATIVE 3D PLATE */
+/* =========================================================
+   TOP 3D DECOR
+========================================================= */
 
 .profile-frame::before{
+
     content:"";
 
     position:absolute;
 
-    width:275px;
-    height:75px;
+    width:290px;
 
-    top:-15px;
-    left:88px;
+    height:82px;
+
+    top:-18px;
+
+    left:82px;
 
     background:
         linear-gradient(
             135deg,
-            #e1c36e,
-            #8d672b
+            #e4c76f,
+            #8a6328
         );
 
-    border-radius:18px 18px 7px 7px;
+    border-radius:18px;
 
     transform:
-        translateZ(-45px)
+        translateZ(-55px)
         rotate(-4deg);
 
     box-shadow:
-        0 18px 25px rgba(0,0,0,.30);
+        0 20px 30px
+        rgba(0,0,0,.38);
 
-    clip-path:polygon(
-        8% 0,
-        92% 0,
-        100% 35%,
-        91% 100%,
-        9% 100%,
-        0 35%
-    );
+    clip-path:
+        polygon(
+            9% 0,
+            91% 0,
+            100% 32%,
+            93% 100%,
+            7% 100%,
+            0 32%
+        );
 }
 
 
-/* BOTTOM BURGUNDY 3D PLATE */
+/* =========================================================
+   BOTTOM 3D DECOR
+========================================================= */
 
 .profile-frame::after{
+
     content:"";
 
     position:absolute;
 
-    width:300px;
-    height:78px;
+    width:310px;
 
-    bottom:-18px;
-    right:67px;
+    height:85px;
+
+    bottom:-21px;
+
+    right:60px;
 
     background:
         linear-gradient(
             135deg,
-            #8b2943,
-            #451526
+            #8e2a45,
+            #431524
         );
 
-    border-radius:8px 8px 20px 20px;
+    border-radius:18px;
 
     transform:
-        translateZ(-45px)
+        translateZ(-55px)
         rotate(3deg);
 
     box-shadow:
-        0 20px 30px rgba(0,0,0,.35);
+        0 22px 32px
+        rgba(0,0,0,.40);
 
-    clip-path:polygon(
-        8% 0,
-        92% 0,
-        100% 65%,
-        91% 100%,
-        9% 100%,
-        0 65%
-    );
+    clip-path:
+        polygon(
+            8% 0,
+            92% 0,
+            100% 68%,
+            92% 100%,
+            8% 100%,
+            0 68%
+        );
 }
 
 
-/* GOLD BACK FRAME */
+/* =========================================================
+   BACK GOLD FRAME
+========================================================= */
 
 .profile-back{
+
     position:absolute;
 
-    width:410px;
-    height:530px;
+    width:415px;
 
-    top:20px;
-    right:14px;
+    height:540px;
 
-    border-radius:28px;
+    top:17px;
+
+    right:12px;
+
+    border-radius:30px;
 
     background:
         linear-gradient(
             145deg,
-            #e2c36b,
+            #e1c36b,
             #866126
         );
 
@@ -370,28 +510,34 @@ header{
         translateZ(-40px);
 
     box-shadow:
-        0 30px 45px rgba(0,0,0,.32);
+        0 35px 48px
+        rgba(0,0,0,.35);
 }
 
 
-/* BURGUNDY BACK FRAME */
+/* =========================================================
+   BACK BURGUNDY FRAME
+========================================================= */
 
 .profile-back-two{
+
     position:absolute;
 
-    width:420px;
-    height:540px;
+    width:425px;
 
-    top:12px;
-    right:4px;
+    height:550px;
 
-    border-radius:28px;
+    top:10px;
+
+    right:2px;
+
+    border-radius:30px;
 
     background:
         linear-gradient(
             145deg,
-            #8c2943,
-            #481526
+            #902a45,
+            #461526
         );
 
     transform:
@@ -399,51 +545,61 @@ header{
         translateZ(-25px);
 
     box-shadow:
-        0 28px 45px rgba(0,0,0,.38);
+        0 32px 48px
+        rgba(0,0,0,.40);
 }
 
 
-/* MAIN PHOTO */
+/* =========================================================
+   HERO MAIN PHOTO
+========================================================= */
 
 .profile-inner{
+
     position:absolute;
 
     width:405px;
+
     height:545px;
 
     top:0;
+
     right:22px;
 
     z-index:10;
 
     overflow:hidden;
 
-    border-radius:25px;
+    border-radius:26px;
 
     border:
-        8px solid rgba(249,246,238,.96);
+        8px solid
+        rgba(249,246,238,.97);
 
     background:#174f48;
 
     box-shadow:
 
-        0 35px 55px rgba(0,0,0,.46),
+        0 38px 60px
+        rgba(0,0,0,.50),
 
-        0 0 0 1px rgba(214,180,95,.9),
+        0 0 0 1px
+        rgba(214,180,95,.9),
 
-        inset 0 0 35px rgba(0,0,0,.20);
+        inset 0 0 35px
+        rgba(0,0,0,.20);
 
     transform:
         translateZ(45px);
 
-    transition:.6s;
+    transition:
+        .65s;
 }
 
-
-/* PHOTO */
-
 .profile-inner img{
+
     width:100%;
+
     height:100%;
 
     display:block;
@@ -451,24 +607,26 @@ header{
     object-fit:cover;
 
     /*
-       FACE KO CENTER/UPPER CENTER MEIN RAKHTA HAI
-       TAKEY FOREHEAD/LIPS CUT NA HON
+       FACE KO UPPER-CENTER
+       MEIN RAKHA HAI
     */
 
-    object-position:center 18%;
+    object-position:
+        center 17%;
 
-    transform:scale(1.01);
+    transform:
+        scale(1.01);
 
-    transition:.6s;
+    transition:
+        .65s;
 }
 
-
-/* PHOTO LIGHT */
-
 .profile-inner::after{
+
     content:"";
 
     position:absolute;
+
     inset:0;
 
     pointer-events:none;
@@ -476,45 +634,58 @@ header{
     background:
         linear-gradient(
             125deg,
-            rgba(255,255,255,.22),
-            transparent 28%,
+            rgba(255,255,255,.23),
+            transparent 27%,
             transparent 72%,
             rgba(0,0,0,.18)
         );
 }
 
 
-/* HERO HOVER */
+/* =========================================================
+   HERO HOVER
+========================================================= */
 
 .profile-frame:hover{
 
     transform:
-        translateY(-12px)
+        translateY(-13px)
         rotateY(-4deg)
         rotateX(2deg)
         scale(1.02);
 
     filter:
-        drop-shadow(0 42px 55px rgba(0,0,0,.52))
-        drop-shadow(0 0 22px rgba(118,32,55,.30));
+        drop-shadow(
+            0 45px 58px
+            rgba(0,0,0,.55)
+        )
+
+        drop-shadow(
+            0 0 24px
+            rgba(118,32,55,.30)
+        );
 }
 
 .profile-frame:hover .profile-inner{
 
-    border-color:#fff8ea;
+    border-color:#fff9ea;
 
     box-shadow:
 
-        0 42px 65px rgba(0,0,0,.55),
+        0 45px 70px
+        rgba(0,0,0,.58),
 
-        0 0 0 1px #d7b65f,
+        0 0 0 1px
+        #d7b65f,
 
-        0 0 32px rgba(118,32,55,.40);
+        0 0 34px
+        rgba(118,32,55,.45);
 }
 
 .profile-frame:hover .profile-inner img{
 
-    transform:scale(1.045);
+    transform:
+        scale(1.045);
 
     filter:
         brightness(1.05)
@@ -524,47 +695,73 @@ header{
 
 
 /* =========================================================
-   SECTIONS
+   SECTION
 ========================================================= */
 
 section{
+
     width:min(1180px,92%);
+
     margin:auto;
+
     padding:78px 0;
 }
 
 .section-label{
+
     color:#d6b45f;
+
     font-size:11px;
+
     font-weight:900;
+
     letter-spacing:4px;
+
     margin-bottom:12px;
 }
 
 section h2{
+
     color:#f4eee4;
-    font-size:clamp(30px,4vw,50px);
+
+    font-size:
+        clamp(30px,4vw,50px);
+
     line-height:1.08;
+
     margin-bottom:15px;
 }
 
 .section-intro{
+
     max-width:740px;
+
     color:#c5bcac;
+
     line-height:1.8;
+
     margin-bottom:32px;
 }
 
 
 /* =========================================================
-   GENERAL CARDS
+   GENERAL GRID
 ========================================================= */
 
 .grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
 }
+
+
+/* =========================================================
+   PREMIUM CARD
+========================================================= */
 
 .card{
 
@@ -572,40 +769,45 @@ section h2{
 
     overflow:hidden;
 
-    min-height:235px;
-
     padding:15px;
 
-    border-radius:17px;
+    border-radius:20px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(67,54,37,.96),
-            rgba(28,23,17,.98)
+            rgba(70,55,37,.96),
+            rgba(27,22,16,.98)
         );
 
-    border:1px solid rgba(214,180,95,.35);
+    border:
+        1px solid
+        rgba(214,180,95,.36);
 
     box-shadow:
 
-        0 25px 40px rgba(0,0,0,.40),
+        0 27px 45px
+        rgba(0,0,0,.42),
 
-        9px 14px 0 rgba(47,31,20,.52),
+        10px 15px 0
+        rgba(47,31,20,.55),
 
-        0 0 0 1px rgba(214,180,95,.07);
+        0 0 0 1px
+        rgba(214,180,95,.07);
 
     transform-style:preserve-3d;
 
     transition:
-        transform .5s cubic-bezier(.2,.8,.2,1),
-        box-shadow .5s,
-        border-color .4s,
-        background .4s;
+        transform .55s cubic-bezier(.2,.8,.2,1),
+        box-shadow .55s ease,
+        border-color .4s ease,
+        background .4s ease;
 }
 
 
-/* CARD DEPTH PLATE */
+/* =========================================================
+   CARD 3D BACK PLATE
+========================================================= */
 
 .card::before{
 
@@ -615,9 +817,13 @@ section h2{
 
     z-index:-1;
 
-    inset:7px -7px -9px 7px;
+    inset:
+        8px
+        -8px
+        -10px
+        8px;
 
-    border-radius:19px;
+    border-radius:21px;
 
     background:
         linear-gradient(
@@ -626,13 +832,16 @@ section h2{
             #38251a
         );
 
-    opacity:.5;
+    opacity:.50;
 
-    transform:translateZ(-25px);
+    transform:
+        translateZ(-28px);
 }
 
 
-/* CARD LIGHT */
+/* =========================================================
+   CARD LIGHT
+========================================================= */
 
 .card::after{
 
@@ -644,51 +853,27 @@ section h2{
 
     pointer-events:none;
 
-    border-radius:17px;
+    border-radius:20px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.10),
-            transparent 25%,
-            transparent 72%,
-            rgba(0,0,0,.18)
+            rgba(255,255,255,.11),
+            transparent 26%,
+            transparent 70%,
+            rgba(0,0,0,.20)
         );
 }
 
 
-/* CARD HOVER */
+/* =========================================================
+   IMAGE WRAPPER
+   IMPORTANT:
+   IMAGE HEIGHT FIX NAHI KI GAI
+   ORIGINAL PHOTO PROPORTION PRESERVE HOGA
+========================================================= */
 
-.card:hover{
-
-    transform:
-        translateY(-12px)
-        translateZ(25px)
-        rotateX(2deg)
-        rotateY(-2deg)
-        scale(1.015);
-
-    background:
-        linear-gradient(
-            145deg,
-            #722139,
-            #401724
-        );
-
-    border-color:#c39b4b;
-
-    box-shadow:
-
-        0 40px 65px rgba(0,0,0,.62),
-
-        12px 20px 0 rgba(76,19,36,.65),
-
-        0 0 0 1px rgba(214,180,95,.55),
-
-        0 0 28px rgba(118,32,55,.30);
-}
-
-.card img{
+.card-image{
 
     position:relative;
 
@@ -696,39 +881,64 @@ section h2{
 
     width:100%;
 
-    height:125px;
+    overflow:hidden;
+
+    border-radius:14px;
+
+    margin-bottom:15px;
+
+    background:
+        #18120d;
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    box-shadow:
+        0 16px 27px
+        rgba(0,0,0,.44);
+
+    transform:
+        translateZ(20px);
+
+    transition:
+        .55s;
+}
+
+
+/* =========================================================
+   IMAGE ITSELF
+   AUTO HEIGHT = FULL PHOTO
+========================================================= */
+
+.card-image img{
+
+    width:100%;
+
+    height:auto;
+
+    min-height:0;
 
     display:block;
 
-    object-fit:cover;
+    object-fit:contain;
 
-    border-radius:11px;
+    object-position:center;
 
-    margin-bottom:14px;
-
-    border:1px solid rgba(255,255,255,.14);
-
-    box-shadow:
-        0 14px 25px rgba(0,0,0,.42);
-
-    transform:translateZ(20px);
-
-    transition:.5s;
+    transition:
+        transform .65s ease,
+        filter .55s ease;
 }
 
-.card:hover img{
 
-    transform:
-        translateZ(38px)
-        scale(1.035);
-
-    box-shadow:
-        0 20px 32px rgba(0,0,0,.55);
-}
+/* =========================================================
+   CARD NUMBER
+========================================================= */
 
 .card-number{
 
     position:relative;
+
     z-index:3;
 
     color:#d6b45f;
@@ -740,28 +950,46 @@ section h2{
     letter-spacing:4px;
 
     margin-bottom:7px;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0,0,0,.65);
 }
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
 
 .card h3{
 
     position:relative;
+
     z-index:3;
 
     color:#f3ece1;
 
-    font-size:19px;
+    font-size:20px;
 
     margin-bottom:8px;
 
     text-shadow:
-        0 3px 7px rgba(0,0,0,.55);
+        0 3px 8px
+        rgba(0,0,0,.55);
 
-    transform:translateZ(13px);
+    transform:
+        translateZ(14px);
 }
+
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
 
 .card p{
 
     position:relative;
+
     z-index:3;
 
     color:#c3b9a9;
@@ -770,15 +998,144 @@ section h2{
 
     line-height:1.65;
 
-    transform:translateZ(10px);
+    transform:
+        translateZ(10px);
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.card:hover{
+
+    transform:
+        translateY(-13px)
+        translateZ(30px)
+        rotateX(2deg)
+        rotateY(-2deg)
+        scale(1.012);
+
+    background:
+        linear-gradient(
+            145deg,
+            #742139,
+            #3e1723
+        );
+
+    border-color:
+        #d1aa55;
+
+    box-shadow:
+
+        0 43px 68px
+        rgba(0,0,0,.64),
+
+        12px 20px 0
+        rgba(73,18,34,.68),
+
+        0 0 0 1px
+        rgba(214,180,95,.60),
+
+        0 0 30px
+        rgba(118,32,55,.34);
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+.card:hover .card-image{
+
+    transform:
+        translateZ(39px);
+
+    border-color:
+        rgba(218,184,94,.60);
+
+    box-shadow:
+
+        0 23px 36px
+        rgba(0,0,0,.58),
+
+        0 0 17px
+        rgba(214,180,95,.12);
+}
+
+.card:hover .card-image img{
+
+    transform:
+        scale(1.045);
+
+    filter:
+        brightness(1.07)
+        contrast(1.04)
+        saturate(1.07);
+}
+
+.card:hover .card-number{
+
+    color:#f0cf73;
+
+    text-shadow:
+        0 0 12px
+        rgba(240,206,115,.45);
 }
 
 .card:hover h3{
+
     color:#fff;
+
+    text-shadow:
+        0 4px 12px
+        rgba(0,0,0,.65);
 }
 
 .card:hover p{
-    color:#eee5d8;
+    color:#eee6da;
+}
+
+
+/* =========================================================
+   TOUCH EFFECT
+========================================================= */
+
+.card.touch-active{
+
+    transform:
+        translateY(-9px)
+        scale(.995);
+
+    background:
+        linear-gradient(
+            145deg,
+            #742139,
+            #3e1723
+        );
+
+    border-color:
+        #d1aa55;
+
+    box-shadow:
+
+        0 35px 55px
+        rgba(0,0,0,.60),
+
+        0 0 30px
+        rgba(118,32,55,.38);
+}
+
+.card.touch-active .card-image{
+
+    transform:
+        scale(1.018);
+}
+
+.card.touch-active .card-image img{
+
+    transform:
+        scale(1.035);
 }
 
 
@@ -790,30 +1147,40 @@ section h2{
 
     position:relative;
 
-    height:320px;
-
     overflow:hidden;
 
-    border-radius:20px;
+    border-radius:22px;
 
-    margin-bottom:25px;
+    margin-bottom:26px;
 
-    border:1px solid rgba(214,180,95,.38);
+    border:
+        1px solid
+        rgba(214,180,95,.40);
 
     box-shadow:
-        0 30px 55px rgba(0,0,0,.40);
+
+        0 31px 56px
+        rgba(0,0,0,.44);
+
+    transform:
+        translateZ(0);
+
+    transition:
+        .55s;
 }
 
-.textile-feature img{
+.textile-feature-image{
 
     width:100%;
-    height:100%;
 
     display:block;
 
-    object-fit:cover;
+    height:auto;
 
-    transition:.7s;
+    object-fit:contain;
+
+    transition:
+        .7s;
 }
 
 .textile-feature::after{
@@ -821,23 +1188,26 @@ section h2{
     content:"";
 
     position:absolute;
+
     inset:0;
 
     background:
         linear-gradient(
             90deg,
-            rgba(16,12,8,.88),
+            rgba(16,12,8,.90),
             rgba(16,12,8,.18),
-            rgba(16,12,8,.25)
+            rgba(16,12,8,.22)
         );
 }
 
 .textile-feature-content{
 
     position:absolute;
+
     z-index:3;
 
     left:32px;
+
     bottom:28px;
 
     max-width:650px;
@@ -865,7 +1235,8 @@ section h2{
     margin-bottom:8px;
 
     text-shadow:
-        0 4px 12px rgba(0,0,0,.7);
+        0 4px 12px
+        rgba(0,0,0,.70);
 }
 
 .textile-feature-content p{
@@ -875,73 +1246,42 @@ section h2{
     line-height:1.7;
 }
 
-.textile-feature:hover img{
-    transform:scale(1.045);
+.textile-feature:hover{
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+
+        0 43px 68px
+        rgba(0,0,0,.58),
+
+        0 0 30px
+        rgba(118,32,55,.20);
+}
+
+.textile-feature:hover
+.textile-feature-image{
+
+    transform:
+        scale(1.045);
 }
 
 
 /* =========================================================
-   TEXTILE CARDS — EXTRA 3D
+   TEXTILE GRID
 ========================================================= */
 
 .textile-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+        repeat(2,1fr);
 
-    gap:26px;
+    gap:25px;
 
     perspective:1400px;
-}
-
-.textile-grid .card{
-
-    min-height:270px;
-
-    padding:14px;
-
-    box-shadow:
-
-        0 28px 45px rgba(0,0,0,.48),
-
-        11px 17px 0 rgba(45,29,19,.55),
-
-        0 0 0 1px rgba(214,180,95,.08);
-}
-
-.textile-grid .card img{
-
-    height:145px;
-
-    border-radius:12px;
-}
-
-.textile-grid .card:hover{
-
-    transform:
-        translateY(-15px)
-        translateZ(35px)
-        rotateX(2deg)
-        rotateY(-2deg)
-        scale(1.018);
-
-    background:
-        linear-gradient(
-            145deg,
-            #74213a,
-            #3d1623
-        );
-
-    border-color:#d3a94f;
-
-    box-shadow:
-
-        0 45px 72px rgba(0,0,0,.68),
-
-        13px 22px 0 rgba(70,17,34,.72),
-
-        0 0 30px rgba(118,32,55,.35);
 }
 
 
@@ -953,18 +1293,10 @@ section h2{
 
     display:grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:
+        repeat(4,1fr);
 
-    gap:16px;
-}
-
-.workflow .card{
-
-    min-height:220px;
-}
-
-.workflow .card img{
-    height:105px;
+    gap:18px;
 }
 
 
@@ -976,13 +1308,10 @@ section h2{
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
     gap:20px;
-}
-
-.journey .card{
-    min-height:250px;
 }
 
 
@@ -996,29 +1325,35 @@ section h2{
 
     overflow:hidden;
 
-    min-height:390px;
-
-    border-radius:20px;
+    border-radius:22px;
 
     background:#201910;
 
-    border:1px solid rgba(214,180,95,.35);
+    border:
+        1px solid
+        rgba(214,180,95,.38);
 
     box-shadow:
-        0 30px 55px rgba(0,0,0,.45);
+
+        0 32px 58px
+        rgba(0,0,0,.46);
+
+    transition:
+        .55s;
 }
 
 .shipping-feature img{
 
     width:100%;
 
-    height:390px;
+    height:auto;
 
     display:block;
 
-    object-fit:cover;
+    object-fit:contain;
 
-    transition:.7s;
+    transition:
+        .7s;
 }
 
 .shipping-overlay{
@@ -1037,8 +1372,8 @@ section h2{
 
     background:
         linear-gradient(
-            transparent 20%,
-            rgba(12,9,6,.92)
+            transparent 18%,
+            rgba(12,9,6,.93)
         );
 }
 
@@ -1060,8 +1395,24 @@ section h2{
     line-height:1.7;
 }
 
+.shipping-feature:hover{
+
+    transform:
+        translateY(-9px);
+
+    box-shadow:
+
+        0 45px 72px
+        rgba(0,0,0,.62),
+
+        0 0 30px
+        rgba(118,32,55,.25);
+}
+
 .shipping-feature:hover img{
-    transform:scale(1.045);
+
+    transform:
+        scale(1.045);
 }
 
 
@@ -1073,15 +1424,38 @@ section h2{
 
     padding:30px;
 
-    border-radius:17px;
+    border-radius:19px;
 
     background:
         rgba(255,255,255,.055);
 
-    border:1px solid rgba(214,180,95,.30);
+    border:
+        1px solid
+        rgba(214,180,95,.30);
 
     box-shadow:
-        0 25px 45px rgba(0,0,0,.30);
+        0 27px 47px
+        rgba(0,0,0,.32);
+
+    transition:
+        .45s;
+}
+
+.contact-box:hover{
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(118,32,55,.70);
+
+    box-shadow:
+
+        0 38px 58px
+        rgba(0,0,0,.46),
+
+        0 0 25px
+        rgba(118,32,55,.20);
 }
 
 .contact-box p{
@@ -1116,30 +1490,35 @@ footer{
     color:#a89e8c;
 
     border-top:
-        1px solid rgba(214,180,95,.15);
+        1px solid
+        rgba(214,180,95,.15);
 }
 
 
 /* =========================================================
-   REVEAL ANIMATION
+   SCROLL REVEAL
 ========================================================= */
 
 .reveal{
 
     opacity:0;
 
-    transform:translateY(25px);
-    
+    transform:
+        translateY(40px)
+        scale(.97);
+
     transition:
-        opacity .7s ease,
-        transform .7s ease;
+        opacity .75s ease,
+        transform .75s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.show{
 
     opacity:1;
 
-    transform:translateY(0);
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 
@@ -1147,7 +1526,7 @@ footer{
    TABLET
 ========================================================= */
 
-@media(max-width:950px){
+@media(max-width:1000px){
 
     header{
 
@@ -1168,31 +1547,41 @@ footer{
     }
 
     .hero-text{
+
         padding-left:0;
     }
 
     .hero-description{
+
         margin:auto;
     }
 
     .hero-buttons{
+
         justify-content:center;
     }
 
     .profile-area{
+
         min-height:580px;
     }
 
     .grid{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .workflow{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .journey{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
 
@@ -1204,25 +1593,32 @@ footer{
 @media(max-width:650px){
 
     section{
-        padding:60px 0;
+
+        padding:
+            60px 0;
     }
 
     .hero h1{
 
         white-space:normal;
 
-        font-size:37px;
+        font-size:36px;
+
+        line-height:1.05;
     }
 
     .hero-animated{
-        height:40px;
+
+        height:39px;
     }
 
     .hero-animated span{
+
         font-size:17px;
     }
 
     .profile-area{
+
         min-height:470px;
     }
 
@@ -1279,36 +1675,68 @@ footer{
     .workflow,
     .journey{
 
-        grid-template-columns:1fr;
-    }
-
-    .textile-feature{
-        height:300px;
+        grid-template-columns:
+            1fr;
     }
 
     .textile-feature-content{
+
         left:22px;
+
+        right:22px;
+
         bottom:22px;
     }
 
     .textile-feature-content h3{
+
         font-size:25px;
     }
 
-    .shipping-feature,
-    .shipping-feature img{
+    .textile-feature-content p{
 
-        min-height:330px;
-
-        height:330px;
+        font-size:12px;
     }
 
     .shipping-overlay{
+
         padding:22px;
     }
 
     .shipping-overlay h3{
+
         font-size:22px;
+    }
+
+    .card{
+
+        border-radius:18px;
+    }
+
+    .card-image{
+
+        border-radius:13px;
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION IF USER HAS IT ENABLED
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+        transition-duration:.01ms !important;
     }
 }
 
@@ -1323,25 +1751,7 @@ footer{
      SNOW
 ========================================================= -->
 
-<div class="snow">
-
-<span style="left:3%;animation-duration:11s"></span>
-<span style="left:8%;animation-duration:14s"></span>
-<span style="left:14%;animation-duration:10s"></span>
-<span style="left:20%;animation-duration:16s"></span>
-<span style="left:27%;animation-duration:12s"></span>
-<span style="left:34%;animation-duration:15s"></span>
-<span style="left:41%;animation-duration:11s"></span>
-<span style="left:48%;animation-duration:17s"></span>
-<span style="left:55%;animation-duration:13s"></span>
-<span style="left:62%;animation-duration:15s"></span>
-<span style="left:69%;animation-duration:11s"></span>
-<span style="left:76%;animation-duration:16s"></span>
-<span style="left:83%;animation-duration:12s"></span>
-<span style="left:90%;animation-duration:17s"></span>
-<span style="left:96%;animation-duration:14s"></span>
-
-</div>
+<div class="snow" id="snow"></div>
 
 
 <!-- =========================================================
@@ -1408,9 +1818,7 @@ LINKEDIN
 
 
 
-<!-- =======================================================
-     HERO PHOTO
-======================================================= -->
+<!-- HERO PHOTO -->
 
 <div class="profile-area">
 
@@ -1465,11 +1873,17 @@ coordination and timely execution.
 <div class="grid">
 
 
+<!-- HOME TEXTILES -->
+
 <div class="card reveal">
 
+<div class="card-image">
+
 <img
-src="fitted-sheets.jpg.png"
+src="fitted-sheets.jpg"
 alt="Fitted Sheets">
+
+</div>
 
 <div class="card-number">
 01
@@ -1490,11 +1904,17 @@ home textile products handled through export operations.
 
 
 
+<!-- GARMENTS -->
+
 <div class="card reveal">
 
+<div class="card-image">
+
 <img
-src="GARMENTS.png"
+src="garments.jpg"
 alt="Garments">
+
+</div>
 
 <div class="card-number">
 02
@@ -1515,11 +1935,17 @@ export orders supported from production to shipment.
 
 
 
+<!-- LOGISTICS -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="PORT · CUSTOMS · VESSEL.png"
 alt="Port Customs Vessel">
+
+</div>
 
 <div class="card-number">
 03
@@ -1540,11 +1966,17 @@ port handling and international shipping follow-up.
 
 
 
+<!-- DOCUMENTATION -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="DOCUMENTATION.jpg"
-alt="Documentation">
+alt="Export Documentation">
+
+</div>
 
 <div class="card-number">
 04
@@ -1595,8 +2027,9 @@ bedding, pillow covers and related home textile products.
 <div class="textile-feature reveal">
 
 <img
-src="bedding.jpg.png"
-alt="Bedding">
+class="textile-feature-image"
+src="bedding.jpg"
+alt="Fitted Sheets and Bedding">
 
 <div class="textile-feature-content">
 
@@ -1624,11 +2057,17 @@ coordinated through production, packing and export documentation.
 <div class="textile-grid">
 
 
+<!-- FITTED SHEETS -->
+
 <div class="card reveal">
 
+<div class="card-image">
+
 <img
-src="fitted-sheets.jpg.png"
+src="fitted-sheets.jpg"
 alt="Fitted Sheets">
+
+</div>
 
 <div class="card-number">
 01
@@ -1649,11 +2088,17 @@ for fitted sheet orders.
 
 
 
+<!-- BEDDING -->
+
 <div class="card reveal">
 
+<div class="card-image">
+
 <img
-src="bedding.jpg.png"
+src="bedding.jpg"
 alt="Bedding">
+
+</div>
 
 <div class="card-number">
 02
@@ -1674,11 +2119,17 @@ and shipment requirements.
 
 
 
+<!-- PILLOW COVERS -->
+
 <div class="card reveal">
 
+<div class="card-image">
+
 <img
-src="pillow-covers.jpg.png"
+src="pillow-covers.jpg"
 alt="Pillow Covers">
+
+</div>
 
 <div class="card-number">
 03
@@ -1699,11 +2150,17 @@ documentation and international export coordination.
 
 
 
+<!-- HOME TEXTILE -->
+
 <div class="card reveal">
 
+<div class="card-image">
+
 <img
-src="fitted-sheets.jpg.png"
+src="fitted-sheets.jpg"
 alt="Home Textile">
+
+</div>
 
 <div class="card-number">
 04
@@ -1754,11 +2211,17 @@ documents, commercial checks, logistics, compliance and final shipment follow-up
 <div class="workflow">
 
 
+<!-- DOCUMENT CHECK -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="DOCUMENT CHECK.png"
 alt="Document Check">
+
+</div>
 
 <div class="card-number">
 01
@@ -1779,11 +2242,17 @@ export documents are reviewed before processing.
 
 
 
+<!-- GOODS READY -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="GARMENTS.png"
 alt="Goods Ready">
+
+</div>
 
 <div class="card-number">
 02
@@ -1804,11 +2273,17 @@ checked and made ready for packing and export dispatch.
 
 
 
+<!-- PORT CUSTOMS VESSEL -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="PORT · CUSTOMS · VESSEL.png"
 alt="Port Customs Vessel">
+
+</div>
 
 <div class="card-number">
 03
@@ -1829,11 +2304,17 @@ customs processing and vessel loading.
 
 
 
+<!-- INTERNATIONAL SHIPPING -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="INTERNATIONAL SHIPPING.png"
 alt="International Shipping">
+
+</div>
 
 <div class="card-number">
 04
@@ -1884,11 +2365,17 @@ and packing to port, vessel and final documentation.
 <div class="journey">
 
 
+<!-- GOODS READY -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="GARMENTS.png"
-alt="Garments">
+alt="Goods Ready">
+
+</div>
 
 <div class="card-number">
 01
@@ -1909,11 +2396,17 @@ checked and made ready for packing and export dispatch.
 
 
 
+<!-- PACKING -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="PACKING & LOADING.png"
 alt="Packing and Loading">
+
+</div>
 
 <div class="card-number">
 02
@@ -1934,11 +2427,17 @@ carton handling and container loading.
 
 
 
+<!-- SHIPPING -->
+
 <div class="card reveal">
+
+<div class="card-image">
 
 <img
 src="INTERNATIONAL SHIPPING.png"
 alt="International Shipping">
+
+</div>
 
 <div class="card-number">
 03
@@ -2118,10 +2617,46 @@ setInterval(function(){
     wordIndex++;
 
     if(wordIndex >= words.length){
+
         wordIndex = 0;
+
     }
 
 },4500);
+
+
+/* =========================================================
+   MORE SNOW
+========================================================= */
+
+const snow =
+document.getElementById("snow");
+
+for(let i=0;i<90;i++){
+
+    const flake =
+        document.createElement("span");
+
+    flake.style.left =
+        Math.random()*100 + "%";
+
+    flake.style.width =
+        (Math.random()*3+1) + "px";
+
+    flake.style.height =
+        flake.style.width;
+
+    flake.style.opacity =
+        Math.random()*.45+.12;
+
+    flake.style.animationDuration =
+        (Math.random()*10+8) + "s";
+
+    flake.style.animationDelay =
+        (Math.random()*12) + "s";
+
+    snow.appendChild(flake);
+}
 
 
 /* =========================================================
@@ -2142,7 +2677,9 @@ new IntersectionObserver(
 
                 entry.target.classList.add("show");
 
-                observer.unobserve(entry.target);
+                observer.unobserve(
+                    entry.target
+                );
 
             }
 
@@ -2151,7 +2688,10 @@ new IntersectionObserver(
     },
 
     {
-        threshold:.08
+        threshold:.08,
+
+        rootMargin:
+            "0px 0px -40px 0px"
     }
 
 );
@@ -2161,6 +2701,151 @@ revealItems.forEach(function(item){
     observer.observe(item);
 
 });
+
+
+/* =========================================================
+   MOBILE TOUCH EFFECT
+========================================================= */
+
+const cards =
+document.querySelectorAll(".card");
+
+
+cards.forEach(function(card){
+
+    card.addEventListener(
+        "touchstart",
+        function(){
+
+            cards.forEach(function(other){
+
+                if(other !== card){
+
+                    other.classList.remove(
+                        "touch-active"
+                    );
+
+                }
+
+            });
+
+            card.classList.add(
+                "touch-active"
+            );
+
+        },
+        {
+            passive:true
+        }
+    );
+
+
+    card.addEventListener(
+        "touchend",
+        function(){
+
+            setTimeout(function(){
+
+                card.classList.remove(
+                    "touch-active"
+                );
+
+            },700);
+
+        },
+        {
+            passive:true
+        }
+    );
+
+});
+
+
+/* =========================================================
+   MOBILE IMAGE PARALLAX / SCROLL EFFECT
+========================================================= */
+
+const imageCards =
+document.querySelectorAll(
+    ".card-image img"
+);
+
+
+function mobileParallax(){
+
+    if(window.innerWidth > 650){
+
+        imageCards.forEach(function(img){
+
+            img.style.transform = "";
+
+        });
+
+        return;
+
+    }
+
+
+    imageCards.forEach(function(img){
+
+        const rect =
+            img.getBoundingClientRect();
+
+        const center =
+            window.innerHeight / 2;
+
+        const distance =
+            (rect.top + rect.height/2)
+            - center;
+
+        const move =
+            Math.max(
+                -10,
+                Math.min(10,distance*.018)
+            );
+
+        img.style.transform =
+            "translateY(" + move + "px)";
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    mobileParallax,
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================================
+   REMOVE TOUCH EFFECT WHEN TOUCHING OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "touchstart",
+    function(e){
+
+        if(!e.target.closest(".card")){
+
+            cards.forEach(function(card){
+
+                card.classList.remove(
+                    "touch-active"
+                );
+
+            });
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
 
 </script>
 
