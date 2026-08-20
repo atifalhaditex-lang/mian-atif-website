@@ -4,9 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="theme-color" content="#17120d">
+
 <title>MIAN MUHAMMAD ATIF | Export Operations</title>
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --bg:#15110d;
+    --bg2:#201811;
+    --panel:#241b13;
+    --panel2:#2d2117;
+
+    --gold:#d5b45d;
+    --gold-light:#f0d787;
+    --gold-dark:#866322;
+
+    --burgundy:#741f39;
+    --burgundy-bright:#9c3154;
+    --burgundy-dark:#3a111f;
+
+    --cream:#f4eddf;
+    --muted:#bfb5a5;
+    --muted2:#8f8679;
+
+    --border:rgba(213,180,93,.22);
+}
+
 
 /* =========================================================
    RESET
@@ -23,18 +51,147 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    color:#f4eee3;
-    background:
-        radial-gradient(circle at 15% 10%,rgba(218,184,94,.10),transparent 25%),
-        radial-gradient(circle at 85% 35%,rgba(118,32,55,.14),transparent 30%),
-        radial-gradient(circle at 50% 90%,rgba(218,184,94,.07),transparent 30%),
-        linear-gradient(135deg,#12100d,#211a13 48%,#15110d);
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:var(--cream);
+
     overflow-x:hidden;
+
+    background:
+        radial-gradient(
+            circle at 12% 8%,
+            rgba(213,180,93,.11),
+            transparent 23%
+        ),
+        radial-gradient(
+            circle at 86% 38%,
+            rgba(116,31,57,.15),
+            transparent 31%
+        ),
+        radial-gradient(
+            circle at 48% 92%,
+            rgba(213,180,93,.065),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            #100d0a 0%,
+            #1a140e 38%,
+            #261b12 68%,
+            #110e0b 100%
+        );
+
+    background-attachment:fixed;
 }
 
 a{
     color:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection{
+    background:var(--burgundy);
+    color:white;
+}
+
+
+/* =========================================================
+   SCROLL BAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#110d0a;
+}
+
+::-webkit-scrollbar-thumb{
+    background:
+        linear-gradient(
+            var(--gold-dark),
+            var(--burgundy)
+        );
+
+    border-radius:10px;
+}
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+#scrollProgress{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    height:3px;
+
+    width:0%;
+
+    z-index:10000;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--burgundy),
+            var(--gold-light)
+        );
+
+    box-shadow:
+        0 0 14px
+        rgba(213,180,93,.7);
+}
+
+
+/* =========================================================
+   CUSTOM CURSOR GLOW
+========================================================= */
+
+.cursor-glow{
+    position:fixed;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(213,180,93,.09),
+            rgba(116,31,57,.025) 42%,
+            transparent 68%
+        );
+
+    transform:
+        translate(-50%,-50%);
+
+    transition:
+        width .4s ease,
+        height .4s ease;
+
+    mix-blend-mode:screen;
 }
 
 
@@ -45,49 +202,155 @@ a{
 .snow{
     position:fixed;
     inset:0;
-    pointer-events:none;
+
     overflow:hidden;
-    z-index:9999;
+
+    pointer-events:none;
+
+    z-index:9000;
 }
 
 .snow span{
     position:absolute;
+
     top:-15px;
-    width:3px;
-    height:3px;
+
     border-radius:50%;
-    background:#fff;
-    opacity:.38;
+
+    background:white;
+
     box-shadow:
-        0 0 6px rgba(255,255,255,.8),
-        0 0 12px rgba(255,255,255,.25);
-    animation:snowFall linear infinite;
+        0 0 5px rgba(255,255,255,.85),
+        0 0 12px rgba(255,255,255,.22);
+
+    animation:
+        snowFall linear infinite;
 }
 
 @keyframes snowFall{
 
     0%{
-        transform:translate3d(0,-20px,0);
+        transform:
+            translate3d(0,-20px,0)
+            rotate(0deg);
+
         opacity:0;
     }
 
     12%{
-        opacity:.38;
+        opacity:.42;
     }
 
-    50%{
-        transform:translate3d(30px,50vh,0);
+    55%{
+        transform:
+            translate3d(35px,55vh,0)
+            rotate(180deg);
     }
 
     100%{
-        transform:translate3d(-25px,110vh,0);
+        transform:
+            translate3d(-28px,110vh,0)
+            rotate(360deg);
+
         opacity:0;
     }
 }
 
 
 /* =========================================================
-   GLOBAL
+   NAVIGATION
+========================================================= */
+
+.nav-shell{
+    position:fixed;
+
+    top:18px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(1160px,92%);
+
+    z-index:8000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:
+        10px
+        12px
+        10px
+        18px;
+
+    border:
+        1px solid
+        rgba(213,180,93,.19);
+
+    border-radius:16px;
+
+    background:
+        rgba(17,13,9,.67);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.25);
+}
+
+.nav-brand{
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2.3px;
+
+    color:#fff;
+}
+
+.nav-brand span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+
+    gap:4px;
+}
+
+.nav-links a{
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:#bdb4a7;
+
+    padding:
+        9px
+        11px;
+
+    border-radius:9px;
+
+    transition:.3s ease;
+}
+
+.nav-links a:hover{
+    color:white;
+
+    background:
+        rgba(116,31,57,.8);
+}
+
+
+/* =========================================================
+   GENERAL
 ========================================================= */
 
 .container{
@@ -96,29 +359,63 @@ a{
 }
 
 section{
-    padding:85px 0;
+    position:relative;
+
+    padding:
+        105px
+        0;
 }
 
-.section-label{
-    color:#d7b45d;
-    font-size:11px;
+.section-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+    align-items:flex-end;
+
+    margin-bottom:45px;
+}
+
+.section-number{
+    color:var(--gold);
+
     font-weight:900;
+
+    font-size:11px;
+
     letter-spacing:4px;
+
     margin-bottom:12px;
 }
 
 .section-title{
-    font-size:clamp(30px,4vw,52px);
-    line-height:1.05;
-    margin-bottom:16px;
+    max-width:720px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(35px,5vw,65px);
+
+    line-height:.98;
+
+    letter-spacing:-2px;
+
     color:#f6efe2;
 }
 
 .section-description{
-    max-width:760px;
-    color:#c5bbaa;
-    line-height:1.8;
-    font-size:14px;
+    max-width:420px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.85;
 }
 
 
@@ -127,127 +424,227 @@ section{
 ========================================================= */
 
 .hero{
-    min-height:100vh;
-    padding:55px 5%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:40px;
     position:relative;
+
+    min-height:100vh;
+
+    padding:
+        130px
+        5%
+        60px;
+
+    display:flex;
+
+    align-items:center;
+
     overflow:hidden;
 }
 
 .hero::before{
     content:"";
+
     position:absolute;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:rgba(214,180,95,.07);
-    filter:blur(70px);
-    top:-180px;
+
+    width:600px;
+    height:600px;
+
+    top:-230px;
     left:-180px;
+
+    border-radius:50%;
+
+    background:
+        rgba(213,180,93,.07);
+
+    filter:blur(70px);
 }
 
 .hero::after{
     content:"";
+
     position:absolute;
-    width:450px;
-    height:450px;
+
+    width:500px;
+    height:500px;
+
+    bottom:-220px;
+    right:-160px;
+
     border-radius:50%;
-    background:rgba(118,32,55,.09);
+
+    background:
+        rgba(116,31,57,.11);
+
     filter:blur(80px);
-    bottom:-180px;
-    right:-150px;
 }
 
-.hero-content{
+.hero-grid{
+    width:min(1240px,100%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr
+        .95fr;
+
+    gap:45px;
+
+    align-items:center;
+
     position:relative;
-    z-index:2;
-}
 
-.hero-kicker{
-    color:#d7b45d;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:3px;
-    margin-bottom:20px;
+    z-index:2;
 }
 
 
 /* =========================================================
-   ANIMATED HERO WORDS
+   HERO LEFT
 ========================================================= */
 
+.hero-tag{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+    color:var(--gold-light);
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+}
+
+.hero-tag::before{
+    content:"";
+
+    width:45px;
+    height:1px;
+
+    background:var(--gold);
+}
+
 .hero-animated{
-    height:42px;
+    position:relative;
+
+    width:100%;
+
+    height:37px;
+
     overflow:hidden;
+
     margin-bottom:12px;
 }
 
 .hero-animated span{
-    display:block;
-    color:#d7b45d;
-    font-size:clamp(16px,2vw,24px);
-    font-weight:900;
-    letter-spacing:1px;
+    position:absolute;
+
+    left:0;
+
+    color:#9d8c69;
+
+    font-size:
+        clamp(15px,1.7vw,23px);
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+
     white-space:nowrap;
-    animation:heroWords 4.5s ease-in-out infinite;
+
+    animation:
+        heroWordMove
+        4.6s
+        cubic-bezier(.7,0,.3,1)
+        infinite;
 }
 
-@keyframes heroWords{
+@keyframes heroWordMove{
 
     0%{
-        transform:translateX(-110%);
+        transform:
+            translateX(-105%);
+
         opacity:0;
     }
 
-    12%{
-        transform:translateX(0);
+    15%{
+        transform:
+            translateX(0);
+
         opacity:1;
     }
 
-    70%{
-        transform:translateX(0);
+    72%{
+        transform:
+            translateX(0);
+
         opacity:1;
     }
 
-    90%{
-        transform:translateX(110%);
+    88%{
+        transform:
+            translateX(105%);
+
         opacity:0;
     }
 
     100%{
-        transform:translateX(110%);
+        transform:
+            translateX(105%);
+
         opacity:0;
     }
 }
 
-
-/* =========================================================
-   HERO NAME
-========================================================= */
-
 .hero h1{
-    font-size:clamp(30px,4vw,52px);
-    line-height:1;
+    color:white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(42px,5.3vw,73px);
+
+    line-height:.9;
+
+    letter-spacing:-2.7px;
+
+    margin-bottom:26px;
+
     white-space:nowrap;
-    letter-spacing:1px;
-    color:#fff;
-    margin-bottom:22px;
+
     text-shadow:
-        0 5px 18px rgba(0,0,0,.55);
+        0 10px 30px
+        rgba(0,0,0,.42);
 }
 
 .hero h1 span{
-    color:#d7b45d;
+    display:inline-block;
+
+    color:var(--gold-light);
+
+    text-shadow:
+        0 0 22px
+        rgba(213,180,93,.15);
 }
 
-.hero-text{
-    max-width:650px;
-    color:#c8c0b3;
-    font-size:15px;
-    line-height:1.85;
+.hero-intro{
+    max-width:610px;
+
+    color:#beb5a8;
+
+    font-size:14px;
+
+    line-height:1.9;
 }
 
 
@@ -255,163 +652,644 @@ section{
    BUTTONS
 ========================================================= */
 
-.hero-buttons{
+.hero-actions{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:12px;
-    margin-top:28px;
+
+    margin-top:31px;
 }
 
 .btn{
-    text-decoration:none;
     display:inline-flex;
+
     align-items:center;
-    gap:8px;
-    padding:13px 20px;
-    border-radius:10px;
-    font-size:12px;
+    justify-content:center;
+
+    gap:9px;
+
+    min-height:45px;
+
+    padding:
+        0
+        19px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:10px;
+
     font-weight:900;
-    letter-spacing:.5px;
-    color:#fff;
-    background:#641c32;
-    border:1px solid #a23d58;
-    transition:.4s ease;
+
+    letter-spacing:1px;
+
+    border-radius:11px;
+
+    border:
+        1px solid
+        rgba(213,180,93,.34);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(116,31,57,.95),
+            rgba(61,17,32,.98)
+        );
+
     box-shadow:
-        0 12px 28px rgba(0,0,0,.35);
+        0 16px 30px
+        rgba(0,0,0,.34);
+
+    transition:
+        transform .38s cubic-bezier(.2,.8,.2,1),
+        box-shadow .38s ease,
+        background .38s ease;
 }
 
 .btn:hover{
-    background:#8b2946;
-    border-color:#d7b45d;
-    transform:translateY(-5px);
+    transform:
+        translateY(-5px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #9b3154,
+            #5d1932
+        );
+
     box-shadow:
-        0 20px 38px rgba(0,0,0,.5),
-        0 0 25px rgba(118,32,55,.45);
+        0 24px 45px
+        rgba(0,0,0,.52),
+
+        0 0 24px
+        rgba(116,31,57,.38);
 }
 
-.btn-gold{
-    background:linear-gradient(135deg,#8d6828,#c5a34e);
-    color:#17120d;
-    border-color:#e1c56d;
+.btn.gold{
+    color:#1b150d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a78332,
+            #e0c872
+        );
+
+    border-color:
+        rgba(255,233,150,.7);
 }
 
-.btn-gold:hover{
-    background:linear-gradient(135deg,#c49d43,#e1c56d);
+.btn.gold:hover{
+    background:
+        linear-gradient(
+            135deg,
+            #c9a84c,
+            #f1da80
+        );
 }
 
 
 /* =========================================================
-   HERO PHOTO 3D
+   HERO STAT LINE
+========================================================= */
+
+.hero-meta{
+    display:flex;
+
+    gap:35px;
+
+    margin-top:45px;
+
+    padding-top:22px;
+
+    border-top:
+        1px solid
+        rgba(213,180,93,.15);
+}
+
+.hero-meta div{
+    min-width:110px;
+}
+
+.hero-meta strong{
+    display:block;
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+    font-size:20px;
+
+    margin-bottom:4px;
+}
+
+.hero-meta span{
+    color:#837a6f;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+}
+
+
+/* =========================================================
+   HERO PORTRAIT
 ========================================================= */
 
 .hero-photo-area{
-    min-height:650px;
     display:flex;
+
     justify-content:center;
     align-items:center;
-    perspective:1600px;
-    position:relative;
-    z-index:2;
+
+    min-height:650px;
+
+    perspective:1800px;
 }
 
-.photo-3d{
-    width:430px;
-    height:570px;
+.photo-scene{
     position:relative;
+
+    width:435px;
+
+    height:575px;
+
     transform-style:preserve-3d;
-    transition:.7s ease;
-    filter:drop-shadow(0 35px 35px rgba(0,0,0,.55));
+
+    transition:
+        transform .7s
+        cubic-bezier(.2,.8,.2,1);
 }
 
-.photo-3d::before{
+.photo-scene::before{
     content:"";
-    position:absolute;
-    width:88%;
-    height:100%;
-    left:6%;
-    top:0;
-    border-radius:38px;
-    background:linear-gradient(145deg,#d9b95e,#73501e);
-    transform:translateZ(-45px) rotate(5deg);
-    box-shadow:0 35px 50px rgba(0,0,0,.45);
-}
 
-.photo-3d::after{
-    content:"";
     position:absolute;
-    width:88%;
-    height:100%;
-    left:6%;
-    top:0;
-    border-radius:38px;
-    background:linear-gradient(145deg,#7b213b,#39121f);
-    transform:translateZ(-25px) rotate(-5deg);
-    box-shadow:0 35px 50px rgba(0,0,0,.45);
-}
 
-.photo-frame{
-    position:absolute;
-    inset:12px;
-    overflow:hidden;
+    width:365px;
+    height:505px;
+
+    top:45px;
+    left:35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d4af50,
+            #73501d
+        );
+
     border-radius:34px;
-    border:7px solid #f2eadc;
-    z-index:5;
-    background:#1b1610;
-    transform:translateZ(50px);
+
+    transform:
+        translateZ(-60px)
+        rotate(7deg);
+
     box-shadow:
-        0 35px 65px rgba(0,0,0,.65),
-        0 0 0 2px #d7b45d,
-        inset 0 0 30px rgba(0,0,0,.4);
-    transition:.7s ease;
+        0 35px 65px
+        rgba(0,0,0,.42);
 }
 
-.photo-frame::before{
+.photo-scene::after{
     content:"";
+
     position:absolute;
-    inset:0;
+
+    width:380px;
+    height:520px;
+
+    top:26px;
+    left:27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8e2949,
+            #35101e
+        );
+
+    border-radius:34px;
+
+    transform:
+        translateZ(-35px)
+        rotate(-5deg);
+
+    box-shadow:
+        0 35px 65px
+        rgba(0,0,0,.48);
+}
+
+.portrait-frame{
+    position:absolute;
+
+    z-index:5;
+
+    inset:
+        10px
+        15px;
+
+    overflow:hidden;
+
+    background:#19130e;
+
+    border-radius:
+        42px
+        16px
+        42px
+        16px;
+
+    border:
+        7px solid
+        rgba(244,237,223,.94);
+
+    transform:
+        translateZ(45px);
+
+    box-shadow:
+        0 45px 75px
+        rgba(0,0,0,.58),
+
+        0 0 0 1px
+        rgba(213,180,93,.8);
+}
+
+.portrait-frame::before{
+    content:"";
+
+    position:absolute;
+
     z-index:2;
+
+    inset:0;
+
     pointer-events:none;
+
     background:
         linear-gradient(
             125deg,
-            rgba(255,255,255,.25),
-            transparent 25%,
-            transparent 70%,
+            rgba(255,255,255,.22),
+            transparent 26%,
+            transparent 67%,
             rgba(0,0,0,.22)
         );
 }
 
-.photo-frame img{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-    object-position:center 15%;
-    transition:.7s ease;
+.portrait-frame::after{
+    content:"ATIF · EXPORT";
+
+    position:absolute;
+
+    z-index:3;
+
+    right:-58px;
+    bottom:78px;
+
+    transform:
+        rotate(-90deg);
+
+    padding:
+        9px
+        14px;
+
+    background:
+        rgba(16,12,8,.78);
+
+    backdrop-filter:blur(8px);
+
+    color:var(--gold-light);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:2.5px;
+
+    border:
+        1px solid
+        rgba(213,180,93,.27);
+
+    border-radius:8px;
 }
 
-.photo-3d:hover{
+.portrait-frame img{
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:
+        center 14%;
+
+    transform:
+        scale(1.01);
+
+    transition:
+        transform .75s ease,
+        filter .6s ease;
+}
+
+.photo-scene:hover{
     transform:
         translateY(-14px)
-        rotateY(-5deg)
+        rotateY(-6deg)
         rotateX(3deg)
         scale(1.025);
 }
 
-.photo-3d:hover .photo-frame{
-    border-color:#fff;
+.photo-scene:hover .portrait-frame{
     box-shadow:
-        0 45px 75px rgba(0,0,0,.72),
-        0 0 0 2px #d7b45d,
-        0 0 35px rgba(118,32,55,.55);
+        0 55px 90px
+        rgba(0,0,0,.68),
+
+        0 0 0 1px
+        var(--gold-light),
+
+        0 0 45px
+        rgba(116,31,57,.45);
 }
 
-.photo-3d:hover img{
-    transform:scale(1.045);
+.photo-scene:hover img{
+    transform:
+        scale(1.05);
+
     filter:
         brightness(1.05)
-        contrast(1.05)
+        contrast(1.04)
         saturate(1.08);
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee{
+    overflow:hidden;
+
+    border-top:
+        1px solid
+        rgba(213,180,93,.12);
+
+    border-bottom:
+        1px solid
+        rgba(213,180,93,.12);
+
+    background:
+        rgba(255,255,255,.015);
+}
+
+.marquee-track{
+    width:max-content;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:32px;
+
+    padding:
+        16px
+        0;
+
+    animation:
+        marqueeMove
+        22s
+        linear
+        infinite;
+}
+
+.marquee-track span{
+    color:#918676;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:17px;
+
+    white-space:nowrap;
+}
+
+.marquee-track b{
+    color:var(--burgundy-bright);
+}
+
+@keyframes marqueeMove{
+
+    to{
+        transform:
+            translateX(-50%);
+    }
+}
+
+
+/* =========================================================
+   FEATURE PANEL
+========================================================= */
+
+.feature{
+    display:grid;
+
+    grid-template-columns:
+        1.18fr
+        .82fr;
+
+    gap:24px;
+
+    align-items:stretch;
+
+    margin-top:45px;
+}
+
+.feature.reverse{
+    grid-template-columns:
+        .82fr
+        1.18fr;
+}
+
+.visual-frame{
+    position:relative;
+
+    min-height:430px;
+
+    overflow:hidden;
+
+    border-radius:
+        28px
+        10px
+        28px
+        10px;
+
+    background:#17110c;
+
+    border:
+        1px solid
+        var(--border);
+
+    box-shadow:
+        0 32px 60px
+        rgba(0,0,0,.42);
+
+    transition:
+        transform .6s ease,
+        box-shadow .6s ease;
+}
+
+.visual-frame::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            130deg,
+            rgba(255,255,255,.1),
+            transparent 28%,
+            transparent 68%,
+            rgba(0,0,0,.3)
+        );
+}
+
+.visual-frame img{
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .8s
+        cubic-bezier(.2,.8,.2,1),
+
+        filter .6s ease;
+}
+
+.visual-frame:hover{
+    transform:
+        translateY(-9px);
+
+    box-shadow:
+        0 45px 75px
+        rgba(0,0,0,.58),
+
+        0 0 30px
+        rgba(116,31,57,.18);
+}
+
+.visual-frame:hover img{
+    transform:
+        scale(1.045);
+
+    filter:
+        brightness(1.05)
+        saturate(1.07);
+}
+
+.feature-copy{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        43px
+        38px;
+
+    border-radius:
+        10px
+        28px
+        10px
+        28px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(45,33,23,.94),
+            rgba(20,15,11,.98)
+        );
+
+    box-shadow:
+        0 30px 58px
+        rgba(0,0,0,.36);
+}
+
+.feature-copy::before{
+    content:"";
+
+    position:absolute;
+
+    width:140px;
+    height:140px;
+
+    right:-45px;
+    top:-45px;
+
+    border-radius:50%;
+
+    background:
+        rgba(116,31,57,.16);
+
+    filter:blur(10px);
+}
+
+.eyebrow{
+    color:var(--gold);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+}
+
+.feature-copy h3{
+    position:relative;
+
+    z-index:2;
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:white;
+
+    font-size:
+        clamp(28px,3vw,41px);
+
+    line-height:1.05;
+
+    margin-bottom:19px;
+}
+
+.feature-copy p{
+    position:relative;
+
+    z-index:2;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
 }
 
 
@@ -419,209 +1297,296 @@ section{
    CARDS
 ========================================================= */
 
-.grid{
+.cards{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-    margin-top:35px;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:24px;
+
+    margin-top:30px;
+
+    perspective:1600px;
 }
 
 .card{
     position:relative;
-    overflow:hidden;
-    border-radius:22px;
-    padding:14px;
+
+    padding:13px;
+
+    border-radius:20px;
+
     background:
         linear-gradient(
             145deg,
-            rgba(58,45,31,.96),
-            rgba(25,20,15,.98)
+            rgba(52,39,27,.96),
+            rgba(20,15,11,.99)
         );
-    border:1px solid rgba(215,180,93,.30);
+
+    border:
+        1px solid
+        rgba(213,180,93,.24);
+
     box-shadow:
-        0 25px 45px rgba(0,0,0,.42),
-        10px 13px 0 rgba(54,31,24,.55);
+        0 25px 48px
+        rgba(0,0,0,.38),
+
+        8px 11px 0
+        rgba(56,35,24,.38);
+
     transform-style:preserve-3d;
+
     transition:
-        transform .55s ease,
-        box-shadow .55s ease,
-        border-color .4s ease,
-        background .4s ease;
+        transform .55s
+        cubic-bezier(.2,.8,.2,1),
+
+        background .5s ease,
+        box-shadow .5s ease,
+        border-color .5s ease;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    left:12%;
+    right:12%;
+    bottom:-8px;
+
+    height:14px;
+
+    z-index:-1;
+
+    background:
+        rgba(0,0,0,.45);
+
+    filter:blur(12px);
+
+    border-radius:50%;
 }
 
 .card:hover{
     transform:
-        translateY(-12px)
+        translateY(-14px)
         rotateX(2deg)
-        rotateY(-2deg)
-        scale(1.012);
+        rotateY(-2deg);
+
     background:
         linear-gradient(
             145deg,
-            #712139,
-            #3b1623
+            #742139,
+            #35121f
         );
-    border-color:#d7b45d;
+
+    border-color:
+        rgba(213,180,93,.72);
+
     box-shadow:
-        0 45px 70px rgba(0,0,0,.65),
-        12px 20px 0 rgba(70,18,34,.7),
-        0 0 35px rgba(118,32,55,.35);
+        0 45px 75px
+        rgba(0,0,0,.62),
+
+        12px 17px 0
+        rgba(65,18,32,.56),
+
+        0 0 35px
+        rgba(116,31,57,.23);
 }
 
 
 /* =========================================================
-   IMAGE FRAME
+   PHOTO RATIO — NO HARD CROP
 ========================================================= */
 
-.card-image{
+.card-photo{
     position:relative;
+
     width:100%;
-    height:270px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
     overflow:hidden;
-    border-radius:17px;
-    background:#16110c;
-    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:
+        15px
+        7px
+        15px
+        7px;
+
+    background:
+        #120e0a;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
     box-shadow:
-        0 17px 30px rgba(0,0,0,.5);
-    transform:translateZ(25px);
-    transition:.55s ease;
+        0 16px 28px
+        rgba(0,0,0,.48);
+
+    transform:
+        translateZ(24px);
+
+    transition:
+        transform .55s ease,
+        box-shadow .55s ease;
 }
 
-.card-image::after{
+.card-photo::before{
     content:"";
+
     position:absolute;
-    inset:0;
+
+    inset:6px;
+
+    z-index:2;
+
     pointer-events:none;
+
+    border:
+        1px solid
+        rgba(213,180,93,.22);
+
+    border-radius:
+        11px
+        4px
+        11px
+        4px;
+}
+
+.card-photo::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:2;
+
+    pointer-events:none;
+
     background:
         linear-gradient(
-            135deg,
-            rgba(255,255,255,.18),
+            125deg,
+            rgba(255,255,255,.10),
             transparent 28%,
-            transparent 72%,
-            rgba(0,0,0,.28)
+            transparent 70%,
+            rgba(0,0,0,.23)
         );
 }
 
-.card-image img{
+.card-photo img{
     width:100%;
-    height:100%;
+
+    height:auto;
+
     display:block;
-    object-fit:cover;
-    object-position:center;
-    transition:.65s ease;
+
+    object-fit:contain;
+
+    transition:
+        transform .65s ease,
+        filter .55s ease;
 }
 
-.card:hover .card-image{
-    transform:translateZ(42px) translateY(-4px);
+.card:hover .card-photo{
+    transform:
+        translateZ(42px)
+        translateY(-4px);
+
     box-shadow:
-        0 25px 40px rgba(0,0,0,.65),
-        0 0 22px rgba(215,180,93,.22);
+        0 26px 42px
+        rgba(0,0,0,.62),
+
+        0 0 20px
+        rgba(213,180,93,.17);
 }
 
-.card:hover .card-image img{
-    transform:scale(1.06);
+.card:hover .card-photo img{
+    transform:
+        scale(1.035);
+
     filter:
         brightness(1.06)
-        contrast(1.04)
-        saturate(1.08);
+        contrast(1.03)
+        saturate(1.07);
 }
-
-
-/* =========================================================
-   CARD CONTENT
-========================================================= */
 
 .card-content{
-    padding:18px 7px 8px;
+    padding:
+        20px
+        8px
+        9px;
 }
 
-.card-number{
-    color:#d7b45d;
-    font-size:10px;
+.card-index{
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--gold);
+
+    font-size:9px;
+
     font-weight:900;
-    letter-spacing:4px;
-    margin-bottom:8px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.card-index::after{
+    content:"";
+
+    width:32px;
+    height:1px;
+
+    background:
+        var(--burgundy-bright);
+
+    transition:
+        width .45s ease;
+}
+
+.card:hover .card-index::after{
+    width:75px;
+
+    background:
+        var(--gold-light);
 }
 
 .card h3{
-    color:#f7eee0;
-    font-size:21px;
-    margin-bottom:9px;
-    text-shadow:0 4px 10px rgba(0,0,0,.55);
+    color:white;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:23px;
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 4px 10px
+        rgba(0,0,0,.42);
 }
 
 .card p{
-    color:#c5bbad;
-    font-size:13px;
-    line-height:1.7;
-}
+    color:var(--muted);
 
-.card:hover h3{
-    color:#fff;
+    font-size:12.5px;
+
+    line-height:1.75;
 }
 
 .card:hover p{
-    color:#eee5d8;
-}
-
-
-/* =========================================================
-   FEATURE
-========================================================= */
-
-.feature{
-    margin-top:35px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    align-items:stretch;
-}
-
-.feature-image{
-    min-height:380px;
-    border-radius:25px;
-    overflow:hidden;
-    border:1px solid rgba(215,180,93,.35);
-    box-shadow:
-        0 30px 55px rgba(0,0,0,.5);
-}
-
-.feature-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.7s ease;
-}
-
-.feature-image:hover img{
-    transform:scale(1.05);
-    filter:saturate(1.1) brightness(1.05);
-}
-
-.feature-content{
-    padding:35px;
-    border-radius:25px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(67,51,33,.9),
-            rgba(26,20,14,.98)
-        );
-    border:1px solid rgba(215,180,93,.3);
-    box-shadow:0 25px 50px rgba(0,0,0,.45);
-}
-
-.feature-content h3{
-    font-size:34px;
-    margin-bottom:18px;
-    color:#fff;
-}
-
-.feature-content p{
-    color:#c8bfb0;
-    line-height:1.85;
-    font-size:14px;
+    color:#eee4d4;
 }
 
 
@@ -631,117 +1596,264 @@ section{
 
 .workflow{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:17px;
-    margin-top:35px;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+
+    margin-top:40px;
 }
 
-.workflow-box{
+.workflow-item{
     position:relative;
-    padding:25px 18px;
-    min-height:175px;
-    border-radius:18px;
+
+    min-height:230px;
+
+    padding:
+        25px
+        20px;
+
+    overflow:hidden;
+
+    border-radius:17px;
+
     background:
         linear-gradient(
             145deg,
-            rgba(61,47,31,.95),
-            rgba(25,19,14,.98)
+            rgba(50,37,25,.94),
+            rgba(19,14,10,.99)
         );
-    border:1px solid rgba(215,180,93,.28);
+
+    border:
+        1px solid
+        rgba(213,180,93,.20);
+
     box-shadow:
-        0 20px 35px rgba(0,0,0,.4);
-    transition:.5s ease;
+        0 22px 42px
+        rgba(0,0,0,.34);
+
+    transition:
+        transform .5s ease,
+        background .5s ease,
+        box-shadow .5s ease;
 }
 
-.workflow-box:hover{
-    transform:translateY(-9px) scale(1.02);
+.workflow-item::before{
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    right:-35px;
+    top:-35px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(213,180,93,.15);
+}
+
+.workflow-item:hover{
+    transform:
+        translateY(-10px);
+
     background:
         linear-gradient(
             145deg,
-            #702139,
-            #35131f
+            #6d2037,
+            #32111d
         );
-    border-color:#d7b45d;
+
     box-shadow:
-        0 30px 50px rgba(0,0,0,.58),
-        0 0 25px rgba(118,32,55,.38);
+        0 36px 58px
+        rgba(0,0,0,.52),
+
+        0 0 25px
+        rgba(116,31,57,.22);
 }
 
-.workflow-number{
-    color:#d7b45d;
-    font-weight:900;
-    font-size:12px;
-    letter-spacing:3px;
-    margin-bottom:13px;
+.workflow-num{
+    color:var(--gold-light);
+
+    font-family:Georgia,serif;
+
+    font-size:31px;
+
+    margin-bottom:40px;
 }
 
-.workflow-box h4{
-    color:#fff;
-    font-size:17px;
-    margin-bottom:9px;
+.workflow-item h4{
+    color:white;
+
+    font-size:13px;
+
+    letter-spacing:.7px;
+
+    margin-bottom:10px;
 }
 
-.workflow-box p{
-    color:#c3b9aa;
-    font-size:12px;
-    line-height:1.65;
+.workflow-item p{
+    color:#aaa092;
+
+    font-size:11.5px;
+
+    line-height:1.75;
 }
 
 
 /* =========================================================
-   JOURNEY
+   EXPORT ROUTE
 ========================================================= */
 
-.journey{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    margin-top:35px;
-}
+.route-box{
+    position:relative;
 
-.journey-image{
-    min-height:400px;
-    border-radius:25px;
+    margin-top:48px;
+
+    padding:
+        38px
+        30px;
+
     overflow:hidden;
-    border:1px solid rgba(215,180,93,.3);
-    box-shadow:0 30px 55px rgba(0,0,0,.5);
+
+    border-radius:23px;
+
+    border:
+        1px solid
+        rgba(213,180,93,.22);
+
+    background:
+        rgba(28,20,14,.68);
+
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 30px 55px
+        rgba(0,0,0,.35);
 }
 
-.journey-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.7s ease;
+.route-line{
+    position:absolute;
+
+    left:9%;
+    right:9%;
+
+    top:72px;
+
+    height:1px;
+
+    background:
+        rgba(213,180,93,.23);
 }
 
-.journey-image:hover img{
-    transform:scale(1.05);
-}
+.route-line::after{
+    content:"";
 
-.journey-content{
-    padding:35px;
-    border-radius:25px;
+    position:absolute;
+
+    top:-1px;
+    left:0;
+
+    height:3px;
+
+    width:20%;
+
     background:
         linear-gradient(
-            145deg,
-            rgba(60,45,30,.95),
-            rgba(25,19,14,.98)
+            90deg,
+            var(--burgundy),
+            var(--gold-light)
         );
-    border:1px solid rgba(215,180,93,.3);
-    box-shadow:0 25px 50px rgba(0,0,0,.45);
+
+    box-shadow:
+        0 0 12px
+        rgba(213,180,93,.5);
+
+    animation:
+        routeMove
+        4.2s
+        ease-in-out
+        infinite;
 }
 
-.journey-content h3{
-    color:#fff;
-    font-size:31px;
-    margin-bottom:17px;
+@keyframes routeMove{
+
+    0%{
+        left:0;
+        width:10%;
+    }
+
+    50%{
+        left:45%;
+        width:40%;
+    }
+
+    100%{
+        left:90%;
+        width:10%;
+    }
 }
 
-.journey-content p{
-    color:#c5bbac;
-    line-height:1.85;
-    font-size:14px;
+.route-grid{
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+}
+
+.route-step{
+    text-align:center;
+}
+
+.route-dot{
+    width:13px;
+    height:13px;
+
+    margin:
+        27px auto
+        22px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    border:
+        3px solid
+        #20170f;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(213,180,93,.30),
+
+        0 0 17px
+        rgba(213,180,93,.45);
+}
+
+.route-step h4{
+    color:white;
+
+    font-size:12px;
+
+    margin-bottom:7px;
+}
+
+.route-step p{
+    color:#92887b;
+
+    font-size:10.5px;
+
+    line-height:1.6;
 }
 
 
@@ -749,34 +1861,104 @@ section{
    CONTACT
 ========================================================= */
 
-.contact-box{
-    padding:40px;
-    border-radius:25px;
+.contact{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        60px
+        40px;
+
     text-align:center;
+
+    border-radius:30px;
+
+    border:
+        1px solid
+        rgba(213,180,93,.30);
+
     background:
         linear-gradient(
             145deg,
-            rgba(71,52,32,.95),
-            rgba(26,20,14,.98)
+            rgba(66,47,30,.9),
+            rgba(21,15,11,.98)
         );
-    border:1px solid rgba(215,180,93,.35);
-    box-shadow:0 30px 55px rgba(0,0,0,.5);
+
+    box-shadow:
+        0 35px 65px
+        rgba(0,0,0,.45);
 }
 
-.contact-box h2{
-    font-size:38px;
-    margin-bottom:15px;
+.contact::before{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    left:-100px;
+    top:-130px;
+
+    border-radius:50%;
+
+    background:
+        rgba(213,180,93,.06);
+
+    filter:blur(20px);
 }
 
-.contact-box p{
-    color:#c6bcad;
-    margin-bottom:25px;
+.contact::after{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    right:-110px;
+    bottom:-150px;
+
+    border-radius:50%;
+
+    background:
+        rgba(116,31,57,.14);
+
+    filter:blur(20px);
 }
 
-.contact-buttons{
+.contact > *{
+    position:relative;
+    z-index:2;
+}
+
+.contact h2{
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(35px,5vw,61px);
+
+    line-height:1;
+
+    margin-bottom:16px;
+}
+
+.contact p{
+    color:#aba193;
+
+    font-size:13px;
+
+    margin-bottom:27px;
+}
+
+.contact-actions{
     display:flex;
-    justify-content:center;
+
     flex-wrap:wrap;
+
+    justify-content:center;
+
     gap:12px;
 }
 
@@ -786,186 +1968,449 @@ section{
 ========================================================= */
 
 footer{
-    padding:35px 20px;
-    text-align:center;
-    color:#9d9488;
-    font-size:11px;
-    letter-spacing:1px;
-    border-top:1px solid rgba(215,180,93,.12);
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    padding:
+        32px
+        0
+        40px;
+
+    color:#766e64;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+
+    border-top:
+        1px solid
+        rgba(213,180,93,.10);
 }
 
 
 /* =========================================================
-   MOBILE TOUCH
+   REVEAL EFFECTS
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+        opacity .85s ease,
+        transform .85s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+.reveal-left{
+    opacity:0;
+
+    transform:
+        translateX(-55px);
+
+    transition:
+        opacity .85s ease,
+        transform .85s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal-left.show{
+    opacity:1;
+
+    transform:
+        translateX(0);
+}
+
+.reveal-right{
+    opacity:0;
+
+    transform:
+        translateX(55px);
+
+    transition:
+        opacity .85s ease,
+        transform .85s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal-right.show{
+    opacity:1;
+
+    transform:
+        translateX(0);
+}
+
+
+/* =========================================================
+   TOUCH ACTIVE
 ========================================================= */
 
 .card.touch-active,
-.workflow-box.touch-active{
-    transform:translateY(-8px) scale(1.015);
+.workflow-item.touch-active{
+    transform:
+        translateY(-12px)
+        scale(1.01);
+
     background:
         linear-gradient(
             145deg,
-            #702139,
-            #35131f
+            #76213d,
+            #35111f
         );
-    border-color:#d7b45d;
+
+    border-color:
+        var(--gold);
+
     box-shadow:
-        0 30px 50px rgba(0,0,0,.6),
-        0 0 28px rgba(118,32,55,.4);
+        0 35px 58px
+        rgba(0,0,0,.60),
+
+        0 0 30px
+        rgba(116,31,57,.38);
 }
 
-.card.touch-active .card-image{
-    transform:scale(1.015);
-}
+.card.touch-active .card-photo{
+    transform:
+        translateY(-4px)
+        scale(1.018);
 
-.card.touch-active .card-image img{
-    transform:scale(1.05);
-    filter:
-        brightness(1.07)
-        contrast(1.05)
-        saturate(1.08);
+    border-color:
+        var(--gold);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
 ========================================================= */
 
-@media(max-width:950px){
+@media(max-width:1000px){
 
-    .hero{
-        grid-template-columns:1fr;
-        text-align:center;
-        padding-top:70px;
+    .nav-links{
+        display:none;
     }
 
-    .hero-text{
+    .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-tag{
+        justify-content:center;
+    }
+
+    .hero-animated span{
+        width:100%;
+        text-align:center;
+    }
+
+    .hero-intro{
         margin:auto;
     }
 
-    .hero-buttons{
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-meta{
         justify-content:center;
     }
 
     .hero-photo-area{
-        min-height:590px;
+        min-height:600px;
     }
 
-    .grid{
-        grid-template-columns:1fr 1fr;
+    .section-top{
+        display:block;
+    }
+
+    .section-description{
+        margin-top:20px;
     }
 
     .workflow{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .feature,
-    .journey{
-        grid-template-columns:1fr;
+    .route-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .route-line{
+        display:none;
+    }
+
+    .route-dot{
+        margin-top:5px;
     }
 }
 
 
-@media(max-width:650px){
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+    .cursor-glow{
+        display:none;
+    }
+
+    .nav-shell{
+        top:10px;
+
+        padding:
+            10px
+            14px;
+    }
+
+    .nav-brand{
+        font-size:9px;
+    }
 
     section{
-        padding:65px 0;
+        padding:
+            75px
+            0;
     }
 
     .hero{
-        padding:55px 5% 30px;
-        gap:20px;
+        min-height:auto;
+
+        padding:
+            100px
+            5%
+            45px;
+    }
+
+    .hero-grid{
+        gap:30px;
+    }
+
+    .hero-tag{
+        font-size:8px;
+
+        letter-spacing:2px;
     }
 
     .hero-animated{
-        height:35px;
+        height:31px;
     }
 
     .hero-animated span{
-        font-size:14px;
-        letter-spacing:.5px;
+        font-size:13px;
     }
 
     .hero h1{
-        font-size:29px;
+        font-size:31px;
+
         white-space:nowrap;
-        letter-spacing:.3px;
+
+        letter-spacing:-1.2px;
     }
 
-    .hero-text{
-        font-size:13px;
-        line-height:1.7;
+    .hero-intro{
+        font-size:12.5px;
     }
 
-    .hero-photo-area{
-        min-height:500px;
+    .hero-actions{
+        gap:8px;
     }
 
-    .photo-3d{
-        width:315px;
-        height:420px;
+    .btn{
+        min-height:42px;
+
+        padding:
+            0
+            13px;
+
+        font-size:9px;
     }
 
-    .photo-frame{
-        inset:9px;
-        border-width:6px;
-        border-radius:28px;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
+    .hero-meta{
         gap:18px;
     }
 
-    .card-image{
-        height:auto;
-        min-height:230px;
-        max-height:330px;
+    .hero-meta strong{
+        font-size:17px;
     }
 
-    .card-image img{
+    .hero-meta span{
+        font-size:7.5px;
+    }
+
+    .hero-photo-area{
+        min-height:460px;
+    }
+
+    .photo-scene{
+        width:310px;
+        height:420px;
+    }
+
+    .photo-scene::before{
+        width:260px;
+        height:360px;
+
+        left:25px;
+        top:35px;
+    }
+
+    .photo-scene::after{
+        width:270px;
+        height:372px;
+
+        left:20px;
+        top:24px;
+    }
+
+    .portrait-frame{
+        inset:
+            8px
+            11px;
+
+        border-width:5px;
+    }
+
+    .portrait-frame::after{
+        display:none;
+    }
+
+    .section-title{
+        font-size:38px;
+
+        letter-spacing:-1px;
+    }
+
+    .section-description{
+        font-size:12px;
+    }
+
+    .feature,
+    .feature.reverse{
+        grid-template-columns:1fr;
+    }
+
+    .visual-frame{
+        min-height:auto;
+    }
+
+    .visual-frame img{
         height:auto;
-        min-height:230px;
-        max-height:330px;
+
         object-fit:contain;
-        background:#17110d;
+    }
+
+    .feature-copy{
+        padding:
+            29px
+            24px;
+    }
+
+    .feature-copy h3{
+        font-size:29px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+
+        gap:19px;
+    }
+
+    .card{
+        overflow:visible;
+    }
+
+    .card-photo{
+        width:fit-content;
+
+        max-width:100%;
+
+        margin:auto;
+    }
+
+    .card-photo img{
+        width:auto;
+
+        max-width:100%;
+
+        height:auto;
+
+        max-height:430px;
+
+        object-fit:contain;
     }
 
     .workflow{
         grid-template-columns:1fr;
     }
 
-    .workflow-box{
-        min-height:145px;
+    .workflow-item{
+        min-height:190px;
     }
 
-    .feature-image,
-    .journey-image{
-        min-height:270px;
+    .workflow-num{
+        margin-bottom:24px;
     }
 
-    .feature-content,
-    .journey-content{
-        padding:25px;
+    .route-grid{
+        grid-template-columns:1fr;
     }
 
-    .feature-content h3,
-    .journey-content h3{
-        font-size:27px;
+    .route-step{
+        padding:
+            8px
+            0;
     }
 
-    .contact-box{
-        padding:28px 18px;
+    .contact{
+        padding:
+            42px
+            18px;
     }
 
-    .contact-box h2{
-        font-size:29px;
+    footer{
+        display:block;
+
+        text-align:center;
+
+        line-height:1.8;
     }
 
-    .btn{
-        padding:12px 15px;
-        font-size:11px;
+
+    /* MOBILE STRONGER REVEAL */
+
+    .card.reveal{
+        transform:
+            translateY(70px)
+            scale(.94);
     }
+
+    .card.reveal.show{
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
 }
 
 
@@ -973,19 +2418,36 @@ footer{
    VERY SMALL MOBILE
 ========================================================= */
 
-@media(max-width:380px){
+@media(max-width:370px){
 
     .hero h1{
-        font-size:25px;
+        font-size:27px;
     }
 
-    .photo-3d{
+    .photo-scene{
         width:285px;
-        height:390px;
+        height:395px;
     }
+}
 
-    .card-image{
-        min-height:210px;
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
     }
 }
 
@@ -995,99 +2457,187 @@ footer{
 
 <body>
 
+<div id="scrollProgress"></div>
 
-<!-- =======================================================
-     SNOW
-======================================================= -->
+<div class="cursor-glow" id="cursorGlow"></div>
 
-<div class="snow">
+<div class="snow" id="snow"></div>
 
-<span style="left:3%;animation-duration:11s;animation-delay:0s"></span>
-<span style="left:8%;animation-duration:14s;animation-delay:2s"></span>
-<span style="left:14%;animation-duration:10s;animation-delay:4s"></span>
-<span style="left:20%;animation-duration:16s;animation-delay:1s"></span>
-<span style="left:26%;animation-duration:12s;animation-delay:5s"></span>
-<span style="left:32%;animation-duration:15s;animation-delay:3s"></span>
-<span style="left:38%;animation-duration:11s;animation-delay:6s"></span>
-<span style="left:44%;animation-duration:17s;animation-delay:2s"></span>
-<span style="left:50%;animation-duration:13s;animation-delay:7s"></span>
-<span style="left:56%;animation-duration:12s;animation-delay:4s"></span>
-<span style="left:62%;animation-duration:16s;animation-delay:1s"></span>
-<span style="left:68%;animation-duration:10s;animation-delay:5s"></span>
-<span style="left:74%;animation-duration:14s;animation-delay:3s"></span>
-<span style="left:80%;animation-duration:12s;animation-delay:7s"></span>
-<span style="left:86%;animation-duration:17s;animation-delay:2s"></span>
-<span style="left:92%;animation-duration:11s;animation-delay:4s"></span>
-<span style="left:97%;animation-duration:15s;animation-delay:1s"></span>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="nav-shell">
+
+<div class="nav-brand">
+MIAN MUHAMMAD <span>ATIF</span>
+</div>
+
+<div class="nav-links">
+
+<a href="#home">
+HOME
+</a>
+
+<a href="#textiles">
+TEXTILES
+</a>
+
+<a href="#garments">
+GARMENTS
+</a>
+
+<a href="#operations">
+OPERATIONS
+</a>
+
+<a href="#documents">
+DOCUMENTATION
+</a>
+
+<a href="#contact">
+CONTACT
+</a>
 
 </div>
 
+</nav>
 
-<!-- =======================================================
+
+
+<!-- =========================================================
      HERO
-======================================================= -->
+========================================================= -->
 
-<header class="hero">
+<header
+class="hero"
+id="home">
 
-<div class="hero-content">
+<div class="hero-grid">
 
-<div class="hero-kicker">
-EXPORT OPERATIONS · TEXTILE · INTERNATIONAL TRADE
+
+<div class="hero-left">
+
+<div class="hero-tag">
+TEXTILE EXPORT · INTERNATIONAL TRADE
 </div>
+
 
 <div class="hero-animated">
-<span>EXPORT OPERATIONS / DOCUMENTATION</span>
+
+<span id="heroWords">
+EXPORT OPERATIONS
+</span>
+
 </div>
+
 
 <h1>
 MIAN MUHAMMAD <span>ATIF</span>
 </h1>
 
-<p class="hero-text">
+
+<p class="hero-intro">
+
 Export Officer specialising in textile export operations,
-commercial documentation, logistics coordination,
-international shipping and shipment follow-up.
-Experience across home textiles, fitted sheets,
-bedding, garments and international trade documentation.
+commercial documentation, international shipping,
+logistics coordination and shipment follow-up.
+
+From home textiles and garments to commercial,
+shipping and banking documentation, the focus remains
+on accuracy, coordination and controlled execution.
+
 </p>
 
-<div class="hero-buttons">
 
-<a class="btn btn-gold"
+<div class="hero-actions">
+
+<a
+class="btn gold magnetic"
 href="mailto:mian_atif226@yahoo.com">
-✉ EMAIL
+EMAIL
 </a>
 
-<a class="btn"
+<a
+class="btn magnetic"
 href="https://wa.me/923328613400"
 target="_blank">
-☏ WHATSAPP
+WHATSAPP
 </a>
 
-<a class="btn"
+<a
+class="btn magnetic"
 href="https://www.linkedin.com/in/mian-muhammad-atif-382400293/"
 target="_blank">
-in LINKEDIN
+LINKEDIN
 </a>
 
-<a class="btn"
+<a
+class="btn magnetic"
 href="CV.pdf"
 target="_blank">
-↓ VIEW CV
+VIEW CV
 </a>
 
 </div>
 
+
+<div class="hero-meta">
+
+<div>
+
+<strong>
+TEXTILE
+</strong>
+
+<span>
+EXPORT OPERATIONS
+</span>
+
 </div>
 
 
-<!-- HERO PHOTO -->
+<div>
+
+<strong>
+GLOBAL
+</strong>
+
+<span>
+SHIPPING
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+CONTROL
+</strong>
+
+<span>
+DOCUMENTATION
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PHOTO -->
 
 <div class="hero-photo-area">
 
-<div class="photo-3d">
+<div
+class="photo-scene"
+id="photoScene">
 
-<div class="photo-frame">
+<div class="portrait-frame">
 
 <img
 src="Atif.jpg"
@@ -1099,35 +2649,125 @@ alt="MIAN MUHAMMAD ATIF">
 
 </div>
 
+
+</div>
+
 </header>
 
 
 
-<!-- =======================================================
-     HOME TEXTILES
-======================================================= -->
+<!-- =========================================================
+     MARQUEE
+========================================================= -->
 
-<section>
+<div class="marquee">
+
+<div class="marquee-track">
+
+<span>
+HOME TEXTILES <b>✦</b>
+</span>
+
+<span>
+FITTED SHEETS <b>✦</b>
+</span>
+
+<span>
+GARMENTS <b>✦</b>
+</span>
+
+<span>
+EXPORT DOCUMENTATION <b>✦</b>
+</span>
+
+<span>
+LOGISTICS <b>✦</b>
+</span>
+
+<span>
+PORT · CUSTOMS · VESSEL <b>✦</b>
+</span>
+
+<span>
+INTERNATIONAL SHIPPING <b>✦</b>
+</span>
+
+
+<span>
+HOME TEXTILES <b>✦</b>
+</span>
+
+<span>
+FITTED SHEETS <b>✦</b>
+</span>
+
+<span>
+GARMENTS <b>✦</b>
+</span>
+
+<span>
+EXPORT DOCUMENTATION <b>✦</b>
+</span>
+
+<span>
+LOGISTICS <b>✦</b>
+</span>
+
+<span>
+PORT · CUSTOMS · VESSEL <b>✦</b>
+</span>
+
+<span>
+INTERNATIONAL SHIPPING <b>✦</b>
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HOME TEXTILES
+========================================================= -->
+
+<section id="textiles">
 
 <div class="container">
 
-<div class="section-label">
+
+<div class="section-top">
+
+<div>
+
+<div class="section-number">
 01 / HOME TEXTILES
 </div>
 
 <h2 class="section-title">
-Fitted Sheets & Bedding
+Textiles prepared for the world.
 </h2>
 
+</div>
+
+
 <p class="section-description">
-Textile export operations covering fitted sheets,
-bedding, pillow covers and related home textile products.
+
+Fitted sheets, bedding, pillow covers and related
+home textile products coordinated through production,
+packing, commercial documentation and international
+export operations.
+
 </p>
+
+</div>
+
 
 
 <div class="feature">
 
-<div class="feature-image">
+
+<div class="visual-frame reveal-left">
 
 <img
 src="home.png"
@@ -1135,18 +2775,27 @@ alt="Home Textiles">
 
 </div>
 
-<div class="feature-content">
+
+<div class="feature-copy reveal-right">
+
+<div class="eyebrow">
+HOME TEXTILES · EXPORT
+</div>
 
 <h3>
-HOME TEXTILES
+Fitted Sheets & Bedding
 </h3>
 
 <p>
-Fitted Sheets, Bedding, Pillow Covers and related
-home textile products handled through export operations.
-Production coordination, packing, commercial documentation
-and international shipment follow-up form part of the
-controlled export process.
+
+Home textile export operations connect production,
+commercial requirements, packing and shipment
+documentation into one controlled process.
+
+The objective is simple — prepare the correct product,
+the correct documentation and the correct shipment
+at the correct time.
+
 </p>
 
 </div>
@@ -1154,14 +2803,15 @@ controlled export process.
 </div>
 
 
-<div class="grid">
+
+<div class="cards">
 
 
 <!-- FITTED SHEETS -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="fitted-sheets.jpg.png"
@@ -1169,9 +2819,10 @@ alt="Fitted Sheets">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 01
 </div>
 
@@ -1180,8 +2831,10 @@ FITTED SHEETS
 </h3>
 
 <p>
+
 Production coordination, packing and export documentation
 for fitted sheet orders.
+
 </p>
 
 </div>
@@ -1189,11 +2842,12 @@ for fitted sheet orders.
 </article>
 
 
+
 <!-- BEDDING -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="bedding.jpg.png"
@@ -1201,9 +2855,10 @@ alt="Bedding">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 02
 </div>
 
@@ -1212,8 +2867,10 @@ BEDDING
 </h3>
 
 <p>
+
 Home textile products prepared according to commercial
 and shipment requirements.
+
 </p>
 
 </div>
@@ -1221,11 +2878,12 @@ and shipment requirements.
 </article>
 
 
+
 <!-- PILLOW COVERS -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="pillow-covers.jpg.png"
@@ -1233,9 +2891,10 @@ alt="Pillow Covers">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 03
 </div>
 
@@ -1244,8 +2903,10 @@ PILLOW COVERS
 </h3>
 
 <p>
+
 Textile accessories managed through packing,
 documentation and international export coordination.
+
 </p>
 
 </div>
@@ -1253,11 +2914,12 @@ documentation and international export coordination.
 </article>
 
 
+
 <!-- HOME TEXTILE -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="home.png"
@@ -1265,9 +2927,10 @@ alt="Home Textile">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 04
 </div>
 
@@ -1276,14 +2939,17 @@ HOME TEXTILE
 </h3>
 
 <p>
+
 Bedding products coordinated through production,
 packing and export documentation.
+
 </p>
 
 </div>
 
 </article>
 
+
 </div>
 
 </div>
@@ -1292,54 +2958,77 @@ packing and export documentation.
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      GARMENTS
-======================================================= -->
+========================================================= -->
 
-<section>
+<section id="garments">
 
 <div class="container">
 
-<div class="section-label">
+
+<div class="section-top">
+
+<div>
+
+<div class="section-number">
 02 / GARMENTS
 </div>
 
 <h2 class="section-title">
-Garments & Apparel
+From production floor to export dispatch.
 </h2>
 
+</div>
+
+
 <p class="section-description">
-Garment export orders supported from production
-coordination through documentation, packing,
-loading and international shipment.
+
+T-Shirts, Hoodies, Sweatshirts, Trousers and other
+garment products supported through production readiness,
+packing, documentation and shipment coordination.
+
 </p>
 
+</div>
 
-<div class="feature">
 
-<div class="feature-content">
+
+<div class="feature reverse">
+
+
+<div class="feature-copy reveal-left">
+
+<div class="eyebrow">
+GARMENTS · PRODUCTION
+</div>
 
 <h3>
-GARMENTS
+Goods Ready
 </h3>
 
 <p>
-T-Shirts, Hoodies, Sweatshirts, Trousers and other
-garment export orders supported from production
-to shipment. The export workflow connects production
-readiness, packing, documentation, container loading
-and international logistics.
+
+Garment export starts long before a container reaches
+the port.
+
+Production readiness, quantity control, packing,
+commercial requirements and documentation must align
+before goods are ready for international dispatch.
+
 </p>
 
 </div>
 
-<div class="feature-image">
+
+<div class="visual-frame reveal-right">
 
 <img
 src="GARMENTS.png"
-alt="Garments">
+alt="Garments Production">
 
 </div>
+
 
 </div>
 
@@ -1349,37 +3038,50 @@ alt="Garments">
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      EXPORT OPERATIONS
-======================================================= -->
+========================================================= -->
 
-<section>
+<section id="operations">
 
 <div class="container">
 
-<div class="section-label">
+
+<div class="section-top">
+
+<div>
+
+<div class="section-number">
 03 / EXPORT OPERATIONS
 </div>
 
 <h2 class="section-title">
-From Goods Ready to Shipment
+The operation behind every shipment.
 </h2>
 
+</div>
+
+
 <p class="section-description">
-The operation behind every shipment — production readiness,
-packing, documentation, customs, logistics and final
-international shipment follow-up.
+
+A shipment is a controlled chain connecting goods readiness,
+packing, documentation, port operations, customs,
+vessel loading and international shipment follow-up.
+
 </p>
 
+</div>
 
-<div class="grid">
+
+
+<div class="cards">
 
 
 <!-- GOODS READY -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="goods-ready.jpg.png"
@@ -1387,9 +3089,10 @@ alt="Goods Ready">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 01
 </div>
 
@@ -1398,8 +3101,10 @@ GOODS READY
 </h3>
 
 <p>
+
 Garments and textile products are prepared,
 checked and made ready for packing and export dispatch.
+
 </p>
 
 </div>
@@ -1407,11 +3112,12 @@ checked and made ready for packing and export dispatch.
 </article>
 
 
+
 <!-- PACKING -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="PACKING%20%26%20LOADING.png"
@@ -1419,9 +3125,10 @@ alt="Packing and Loading">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 02
 </div>
 
@@ -1430,8 +3137,10 @@ PACKING & LOADING
 </h3>
 
 <p>
+
 Finished textile goods are prepared for packing,
 carton handling and container loading.
+
 </p>
 
 </div>
@@ -1439,11 +3148,12 @@ carton handling and container loading.
 </article>
 
 
+
 <!-- PORT -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="PORT%20%C2%B7%20CUSTOMS%20%C2%B7%20VESSEL.png"
@@ -1451,9 +3161,10 @@ alt="Port Customs Vessel">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 03
 </div>
 
@@ -1462,8 +3173,10 @@ PORT · CUSTOMS · VESSEL
 </h3>
 
 <p>
+
 The container reaches the port for terminal handling,
 customs processing and vessel loading.
+
 </p>
 
 </div>
@@ -1471,11 +3184,12 @@ customs processing and vessel loading.
 </article>
 
 
+
 <!-- INTERNATIONAL SHIPPING -->
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="INTERNATIONAL%20SHIPPING.png"
@@ -1483,9 +3197,10 @@ alt="International Shipping">
 
 </div>
 
+
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 04
 </div>
 
@@ -1494,15 +3209,96 @@ INTERNATIONAL SHIPPING
 </h3>
 
 <p>
-Containers move through port handling, customs
-and vessel loading toward their international destination.
+
+Containers move through port handling,
+customs and vessel loading toward their
+international destination.
+
 </p>
 
 </div>
 
 </article>
 
+
 </div>
+
+
+
+<!-- ROUTE -->
+
+<div class="route-box reveal">
+
+<div class="route-line"></div>
+
+
+<div class="route-grid">
+
+
+<div class="route-step">
+
+<div class="route-dot"></div>
+
+<h4>
+GOODS READY
+</h4>
+
+<p>
+Production & inspection
+</p>
+
+</div>
+
+
+<div class="route-step">
+
+<div class="route-dot"></div>
+
+<h4>
+PACKING
+</h4>
+
+<p>
+Cartons & loading
+</p>
+
+</div>
+
+
+<div class="route-step">
+
+<div class="route-dot"></div>
+
+<h4>
+PORT
+</h4>
+
+<p>
+Customs & terminal
+</p>
+
+</div>
+
+
+<div class="route-step">
+
+<div class="route-dot"></div>
+
+<h4>
+VESSEL
+</h4>
+
+<p>
+International destination
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -1510,32 +3306,47 @@ and vessel loading toward their international destination.
 
 
 
-<!-- =======================================================
+<!-- =========================================================
      DOCUMENTATION
-======================================================= -->
+========================================================= -->
 
-<section>
+<section id="documents">
 
 <div class="container">
 
-<div class="section-label">
+
+<div class="section-top">
+
+<div>
+
+<div class="section-number">
 04 / DOCUMENTATION
 </div>
 
 <h2 class="section-title">
-Export Documentation
+Precision before presentation.
 </h2>
 
+</div>
+
+
 <p class="section-description">
-The documentary side of international trade —
-commercial documents, shipping documents,
-certificates and export banking documentation.
+
+Commercial documents, shipping documents,
+certificates and banking documentation require
+accuracy because every document becomes part
+of the international export chain.
+
 </p>
+
+</div>
+
 
 
 <div class="feature">
 
-<div class="feature-image">
+
+<div class="visual-frame reveal-left">
 
 <img
 src="DOCUMENTATION.jpg"
@@ -1543,16 +3354,27 @@ alt="Export Documentation">
 
 </div>
 
-<div class="feature-content">
+
+<div class="feature-copy reveal-right">
+
+<div class="eyebrow">
+COMMERCIAL · SHIPPING · BANKING
+</div>
 
 <h3>
-DOCUMENTATION
+Export Documentation
 </h3>
 
 <p>
+
 Commercial Invoices, Packing Lists, FCR,
 Bills of Lading, Certificates of Origin and
-export banking documentation.
+export banking documents are coordinated
+against shipment and commercial requirements.
+
+Documentation is not simply paperwork —
+it is the control layer behind the shipment.
+
 </p>
 
 </div>
@@ -1560,12 +3382,13 @@ export banking documentation.
 </div>
 
 
-<div class="grid">
+
+<div class="cards">
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="card-image">
+<div class="card-photo">
 
 <img
 src="DOCUMENT CHECK.png"
@@ -1575,7 +3398,7 @@ alt="Document Check">
 
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 01
 </div>
 
@@ -1584,8 +3407,10 @@ DOCUMENT CHECK
 </h3>
 
 <p>
-Reviewing export documentation for commercial,
-shipping and banking requirements.
+
+Commercial and shipping documentation reviewed
+against export and banking requirements.
+
 </p>
 
 </div>
@@ -1593,9 +3418,10 @@ shipping and banking requirements.
 </article>
 
 
-<article class="card">
 
-<div class="card-image">
+<article class="card reveal">
+
+<div class="card-photo">
 
 <img
 src="DOCUMENTATION.jpg"
@@ -1605,17 +3431,19 @@ alt="Documentation">
 
 <div class="card-content">
 
-<div class="card-number">
+<div class="card-index">
 02
 </div>
 
 <h3>
-EXPORT DOCUMENTATION
+DOCUMENT CONTROL
 </h3>
 
 <p>
-Commercial and shipment documents coordinated
-through the export documentation process.
+
+Commercial documents maintained through
+a controlled export documentation process.
+
 </p>
 
 </div>
@@ -1623,9 +3451,78 @@ through the export documentation process.
 </article>
 
 
-<article class="card">
+</div>
 
-<div class="card-image">
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTERNATIONAL SHIPPING
+========================================================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-top">
+
+<div>
+
+<div class="section-number">
+05 / INTERNATIONAL SHIPPING
+</div>
+
+<h2 class="section-title">
+Port to vessel. Vessel to world.
+</h2>
+
+</div>
+
+
+<p class="section-description">
+
+Container movement, terminal handling, customs processing,
+vessel loading and shipment follow-up complete the
+international export chain.
+
+</p>
+
+</div>
+
+
+
+<div class="feature reverse">
+
+
+<div class="feature-copy reveal-left">
+
+<div class="eyebrow">
+PORT · CUSTOMS · VESSEL
+</div>
+
+<h3>
+International Destination
+</h3>
+
+<p>
+
+After documentation and goods readiness,
+the shipment moves toward port operations.
+
+Terminal handling, customs processing and
+vessel loading connect the physical shipment
+to its international destination.
+
+</p>
+
+</div>
+
+
+<div class="visual-frame reveal-right">
 
 <img
 src="Port%20to%20Vessel.png"
@@ -1633,54 +3530,6 @@ alt="Port to Vessel">
 
 </div>
 
-<div class="card-content">
-
-<div class="card-number">
-03
-</div>
-
-<h3>
-PORT TO VESSEL
-</h3>
-
-<p>
-Shipment movement through terminal handling,
-customs processing and vessel loading.
-</p>
-
-</div>
-
-</article>
-
-
-<article class="card">
-
-<div class="card-image">
-
-<img
-src="container-vessel.jpg.png"
-alt="Container Vessel">
-
-</div>
-
-<div class="card-content">
-
-<div class="card-number">
-04
-</div>
-
-<h3>
-CONTAINER VESSEL
-</h3>
-
-<p>
-International container movement from port
-operations toward the final destination.
-</p>
-
-</div>
-
-</article>
 
 </div>
 
@@ -1690,97 +3539,48 @@ operations toward the final destination.
 
 
 
-<!-- =======================================================
-     INTERNATIONAL SHIPPING
-======================================================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-label">
-05 / INTERNATIONAL SHIPPING
-</div>
-
-<h2 class="section-title">
-Port to Vessel
-</h2>
-
-<p class="section-description">
-The final operational chain connecting container handling,
-customs processing, vessel loading and international shipment.
-</p>
-
-
-<div class="journey">
-
-<div class="journey-image">
-
-<img
-src="INTERNATIONAL%20SHIPPING.png"
-alt="International Shipping Vessel">
-
-</div>
-
-<div class="journey-content">
-
-<h3>
-FROM PORT TO INTERNATIONAL DESTINATION
-</h3>
-
-<p>
-Container movement, terminal handling, customs processing,
-vessel loading and shipment follow-up form a controlled
-international export chain.
-</p>
-
-<br>
-
-<p>
-The shipment moves from prepared goods and documentation
-through port operations and finally onto the vessel for
-international transportation.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
+<!-- =========================================================
      WORKFLOW
-======================================================= -->
+========================================================= -->
 
 <section>
 
 <div class="container">
 
-<div class="section-label">
+
+<div class="section-top">
+
+<div>
+
+<div class="section-number">
 06 / WORKFLOW
 </div>
 
 <h2 class="section-title">
-The operation behind every shipment.
+Control at every stage.
 </h2>
 
+</div>
+
+
 <p class="section-description">
-One export shipment moves through several controlled stages.
-Documents, commercial checks, logistics, compliance and
-final shipment follow-up remain connected throughout the process.
+
+The strength of an export operation is not one individual
+document or one shipment movement — it is the coordination
+between every stage.
+
 </p>
+
+</div>
+
 
 
 <div class="workflow">
 
 
-<div class="workflow-box">
+<div class="workflow-item reveal">
 
-<div class="workflow-number">
+<div class="workflow-num">
 01
 </div>
 
@@ -1789,16 +3589,20 @@ COMMERCIAL
 </h4>
 
 <p>
-Order details, commercial requirements,
-invoice and shipment planning.
+
+Order requirements,
+commercial checks
+and shipment planning.
+
 </p>
 
 </div>
 
 
-<div class="workflow-box">
 
-<div class="workflow-number">
+<div class="workflow-item reveal">
+
+<div class="workflow-num">
 02
 </div>
 
@@ -1807,16 +3611,19 @@ DOCUMENTATION
 </h4>
 
 <p>
-Commercial and shipping documents prepared
-and checked according to requirements.
+
+Commercial, shipping
+and banking documents.
+
 </p>
 
 </div>
 
 
-<div class="workflow-box">
 
-<div class="workflow-number">
+<div class="workflow-item reveal">
+
+<div class="workflow-num">
 03
 </div>
 
@@ -1825,31 +3632,39 @@ LOGISTICS
 </h4>
 
 <p>
-Forwarders, shipping arrangements,
-container movement and port coordination.
+
+Forwarder coordination,
+container and port movement.
+
 </p>
 
 </div>
 
 
-<div class="workflow-box">
 
-<div class="workflow-number">
+<div class="workflow-item reveal">
+
+<div class="workflow-num">
 04
 </div>
 
 <h4>
-SHIPMENT FOLLOW-UP
+FOLLOW-UP
 </h4>
 
 <p>
-Vessel loading, shipment status and
-international export follow-up.
+
+Vessel loading,
+shipment status
+and final coordination.
+
 </p>
 
 </div>
 
+
 </div>
+
 
 </div>
 
@@ -1857,114 +3672,64 @@ international export follow-up.
 
 
 
-<!-- =======================================================
-     EXPORT JOURNEY
-======================================================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-label">
-07 / EXPORT JOURNEY
-</div>
-
-<h2 class="section-title">
-From Production to International Destination
-</h2>
-
-<p class="section-description">
-A connected export journey covering textile products,
-documentation, packing, logistics, customs and international shipping.
-</p>
-
-
-<div class="feature">
-
-<div class="feature-image">
-
-<img
-src="Port%20to%20Vessel.jpg"
-alt="Port to Vessel">
-
-</div>
-
-<div class="feature-content">
-
-<h3>
-INTERNATIONAL EXPORT CHAIN
-</h3>
-
-<p>
-Goods are prepared, checked, packed and documented before
-moving through logistics and port operations. Customs processing,
-terminal handling and vessel loading complete the operational
-chain toward the international destination.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
+<!-- =========================================================
      CONTACT
-======================================================= -->
+========================================================= -->
 
-<section>
+<section id="contact">
 
 <div class="container">
 
-<div class="contact-box">
 
-<div class="section-label">
-LET'S CONNECT
+<div class="contact reveal">
+
+<div class="section-number">
+CONTACT / PROFESSIONAL NETWORK
 </div>
 
 <h2>
-MIAN MUHAMMAD ATIF
+Let's connect.
 </h2>
 
 <p>
-Export Operations · Textile · International Trade
+
+Export Operations · Textile · Documentation ·
+Logistics · International Trade
+
 </p>
 
 
-<div class="contact-buttons">
+<div class="contact-actions">
 
 <a
-class="btn btn-gold"
+class="btn gold magnetic"
 href="mailto:mian_atif226@yahoo.com">
-✉ EMAIL
+EMAIL
 </a>
 
 <a
-class="btn"
+class="btn magnetic"
 href="https://wa.me/923328613400"
 target="_blank">
-☏ WHATSAPP
+WHATSAPP
 </a>
 
 <a
-class="btn"
+class="btn magnetic"
 href="https://www.linkedin.com/in/mian-muhammad-atif-382400293/"
 target="_blank">
-in LINKEDIN
+LINKEDIN
 </a>
 
 <a
-class="btn"
+class="btn magnetic"
 href="CV.pdf"
 target="_blank">
-↓ VIEW CV
+VIEW CV
 </a>
 
 </div>
+
 
 </div>
 
@@ -1974,90 +3739,572 @@ target="_blank">
 
 
 
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
 <footer>
 
-© 2026 MIAN MUHAMMAD ATIF · EXPORT OPERATIONS · TEXTILE · INTERNATIONAL TRADE
+<span>
+© 2026 MIAN MUHAMMAD ATIF
+</span>
+
+<span>
+EXPORT OPERATIONS · TEXTILE · INTERNATIONAL TRADE
+</span>
 
 </footer>
 
 
 
-<!-- =======================================================
-     MOBILE TOUCH SCRIPT
-======================================================= -->
-
 <script>
 
-const interactiveCards =
-document.querySelectorAll(".card, .workflow-box");
+/* =========================================================
+   HERO ROTATING WORDS
+========================================================= */
 
-interactiveCards.forEach(card => {
+const words = [
 
-    card.addEventListener("touchstart", () => {
+    "EXPORT OPERATIONS",
 
-        interactiveCards.forEach(item => {
+    "TEXTILE EXPORT",
 
-            if(item !== card){
-                item.classList.remove("touch-active");
-            }
+    "INTERNATIONAL TRADE",
 
-        });
+    "EXPORT DOCUMENTATION",
 
-        card.classList.add("touch-active");
+    "LOGISTICS COORDINATION",
 
-    }, {passive:true});
+    "INTERNATIONAL SHIPPING"
 
-});
+];
+
+let wordIndex = 0;
+
+const heroWords =
+document.getElementById("heroWords");
 
 
-document.addEventListener("touchstart", (event) => {
+setInterval(function(){
 
-    if(!event.target.closest(".card, .workflow-box")){
+    heroWords.style.animation = "none";
 
-        interactiveCards.forEach(card => {
+    void heroWords.offsetWidth;
 
-            card.classList.remove("touch-active");
+    wordIndex++;
 
-        });
-
+    if(wordIndex >= words.length){
+        wordIndex = 0;
     }
 
-}, {passive:true});
+    heroWords.textContent =
+        words[wordIndex];
+
+    heroWords.style.animation =
+        "heroWordMove 4.6s cubic-bezier(.7,0,.3,1) infinite";
+
+},4600);
+
 
 
 /* =========================================================
-   HERO PHOTO TOUCH
+   SNOW GENERATOR
 ========================================================= */
 
-const photo = document.querySelector(".photo-3d");
+const snow =
+document.getElementById("snow");
 
-if(photo){
 
-    photo.addEventListener("touchstart", () => {
+for(let i=0;i<125;i++){
 
-        photo.style.transform =
+    const flake =
+        document.createElement("span");
+
+    const size =
+        Math.random()*3.2 + .7;
+
+    flake.style.left =
+        Math.random()*100 + "%";
+
+    flake.style.width =
+        size + "px";
+
+    flake.style.height =
+        size + "px";
+
+    flake.style.opacity =
+        Math.random()*.42 + .08;
+
+    flake.style.animationDuration =
+        Math.random()*11 + 8 + "s";
+
+    flake.style.animationDelay =
+        Math.random()*12 + "s";
+
+    snow.appendChild(flake);
+
+}
+
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+const progress =
+document.getElementById("scrollProgress");
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const scrollTop =
+            window.pageYOffset ||
+            document.documentElement.scrollTop;
+
+        const height =
+            document.documentElement.scrollHeight
+            -
+            document.documentElement.clientHeight;
+
+        const percentage =
+            (scrollTop / height) * 100;
+
+        progress.style.width =
+            percentage + "%";
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const glow =
+document.getElementById("cursorGlow");
+
+
+if(
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+){
+
+    document.addEventListener(
+        "mousemove",
+        function(e){
+
+            glow.style.left =
+                e.clientX + "px";
+
+            glow.style.top =
+                e.clientY + "px";
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealItems =
+document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right"
+);
+
+
+const observer =
+new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(
+            function(entry){
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    entry.target
+                    .classList
+                    .add("show");
+
+                    observer
+                    .unobserve(
+                        entry.target
+                    );
+
+                }
+
+            }
+        );
+
+    },
+
+    {
+        threshold:.09,
+
+        rootMargin:
+            "0px 0px -35px 0px"
+    }
+
+);
+
+
+revealItems.forEach(
+    function(item){
+
+        observer.observe(item);
+
+    }
+);
+
+
+
+/* =========================================================
+   MOBILE TOUCH EFFECT
+========================================================= */
+
+const touchItems =
+document.querySelectorAll(
+    ".card, .workflow-item"
+);
+
+
+touchItems.forEach(
+    function(item){
+
+        item.addEventListener(
+            "touchstart",
+            function(){
+
+                touchItems.forEach(
+                    function(other){
+
+                        if(other !== item){
+
+                            other
+                            .classList
+                            .remove(
+                                "touch-active"
+                            );
+
+                        }
+
+                    }
+                );
+
+                item
+                .classList
+                .add(
+                    "touch-active"
+                );
+
+            },
+            {
+                passive:true
+            }
+        );
+
+
+        item.addEventListener(
+            "touchend",
+            function(){
+
+                setTimeout(
+                    function(){
+
+                        item
+                        .classList
+                        .remove(
+                            "touch-active"
+                        );
+
+                    },
+                    1100
+                );
+
+            },
+            {
+                passive:true
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   HERO PHOTO MOBILE TOUCH
+========================================================= */
+
+const photoScene =
+document.getElementById(
+    "photoScene"
+);
+
+
+photoScene.addEventListener(
+    "touchstart",
+    function(){
+
+        photoScene.style.transform =
             "translateY(-10px) rotateY(-4deg) rotateX(2deg) scale(1.02)";
 
-    }, {passive:true});
+    },
+    {
+        passive:true
+    }
+);
 
-    photo.addEventListener("touchend", () => {
 
-        setTimeout(() => {
+photoScene.addEventListener(
+    "touchend",
+    function(){
 
-            photo.style.transform = "";
+        setTimeout(
+            function(){
 
-        }, 700);
+                photoScene.style.transform =
+                    "";
 
-    }, {passive:true});
+            },
+            850
+        );
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+   MOBILE IMAGE PARALLAX
+========================================================= */
+
+const cardImages =
+document.querySelectorAll(
+    ".card-photo img"
+);
+
+
+function mobileParallax(){
+
+    if(
+        window.innerWidth > 680
+    ){
+        return;
+    }
+
+
+    cardImages.forEach(
+        function(img){
+
+            const rect =
+                img.getBoundingClientRect();
+
+            const screenCenter =
+                window.innerHeight / 2;
+
+            const imageCenter =
+                rect.top
+                +
+                rect.height / 2;
+
+            const distance =
+                imageCenter
+                -
+                screenCenter;
+
+            const move =
+                Math.max(
+                    -7,
+                    Math.min(
+                        7,
+                        distance * .012
+                    )
+                );
+
+            img.style.transform =
+                "translateY("
+                +
+                move
+                +
+                "px)";
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    mobileParallax,
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+   DESKTOP MAGNETIC BUTTONS
+========================================================= */
+
+if(
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+){
+
+    const magneticButtons =
+        document.querySelectorAll(
+            ".magnetic"
+        );
+
+
+    magneticButtons.forEach(
+        function(button){
+
+            button.addEventListener(
+                "mousemove",
+                function(e){
+
+                    const rect =
+                        button
+                        .getBoundingClientRect();
+
+                    const x =
+                        e.clientX
+                        -
+                        rect.left
+                        -
+                        rect.width/2;
+
+                    const y =
+                        e.clientY
+                        -
+                        rect.top
+                        -
+                        rect.height/2;
+
+                    button.style.transform =
+                        "translate("
+                        +
+                        x*.12
+                        +
+                        "px,"
+                        +
+                        y*.15
+                        +
+                        "px) translateY(-3px)";
+
+                }
+            );
+
+
+            button.addEventListener(
+                "mouseleave",
+                function(){
+
+                    button.style.transform =
+                        "";
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   HERO PHOTO SUBTLE DESKTOP 3D FOLLOW
+========================================================= */
+
+if(
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+){
+
+    const photo =
+        document
+        .querySelector(
+            ".hero-photo-area"
+        );
+
+
+    photo.addEventListener(
+        "mousemove",
+        function(e){
+
+            const rect =
+                photo
+                .getBoundingClientRect();
+
+            const x =
+                (
+                    e.clientX
+                    -
+                    rect.left
+                )
+                /
+                rect.width
+                -
+                .5;
+
+            const y =
+                (
+                    e.clientY
+                    -
+                    rect.top
+                )
+                /
+                rect.height
+                -
+                .5;
+
+            photoScene.style.transform =
+                "rotateY("
+                +
+                x*8
+                +
+                "deg) rotateX("
+                +
+                (-y*6)
+                +
+                "deg)";
+
+        }
+    );
+
+
+    photo.addEventListener(
+        "mouseleave",
+        function(){
+
+            photoScene.style.transform =
+                "";
+
+        }
+    );
 
 }
 
 </script>
-
 
 </body>
 </html>
